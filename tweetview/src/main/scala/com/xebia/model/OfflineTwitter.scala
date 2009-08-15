@@ -14,7 +14,7 @@ class OfflineTwitter extends TwitterApi {
 
     def publicTimeline():Seq[TwitterStatus] = {
         val xml = XML.load(this.getClass.getResourceAsStream("/twitter_public_timeline.xml"))
-        println("Found xml: " + xml)
+//        println("Found xml: " + xml)
         val statuses = xml \\ "status"
         statuses.elements.toList.map(s => TwitterStatus.fromXml(s))
     }

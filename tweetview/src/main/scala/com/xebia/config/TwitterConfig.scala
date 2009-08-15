@@ -13,10 +13,19 @@ object MockTwitterConfig {
     lazy val twitter = new MockTwitter();
 }
 
+
+object OfflineTwitterConfig {
+    lazy val twitter = new OfflineTwitter();
+}
+
+
+object OnlineTwitterConfig {
+    lazy val twitter = new OnlineTwitter();
+}
+
 object TwitterClient {
     def client = {
-        new TwitterClient(MockTwitterConfig)
+        new TwitterClient(OnlineTwitterConfig)
     }
-
 }
 

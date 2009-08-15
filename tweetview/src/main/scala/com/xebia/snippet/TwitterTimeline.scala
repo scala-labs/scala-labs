@@ -21,7 +21,8 @@ class TwitterTimeline {
 	case tlines => tlines.flatMap({tline =>
 	  bind("st", chooseTemplate("status", "entry", xhtml),
 	       "createdAt" -> Text(tline.createdAt),
-	       "text" -> Text(tline.text))
+	       "text" -> Text(tline.text),
+               "userName" -> Text(tline.user.name))
 					 })
       }
       bind("status", xhtml, "entry" -> entries)
