@@ -31,10 +31,10 @@ class MockTwitter extends TwitterApi {
         val user = new TwitterUser {
             val id = userId
             val name = userName
-        val screen_name = userName
-        val location = "Netherlands"
-        val followers_count = 3
-        val statuses_count = 2
+            val screen_name = userName
+            val location = "Netherlands"
+            val followers_count = 3
+            val statuses_count = 2
         }     
      }
      status
