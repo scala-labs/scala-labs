@@ -1,9 +1,11 @@
 <lift:surround with="default" at="content">
-  <h2>Welcome to your project!</h2>
-		<p>
-      <lift:helloWorld.howdy>
-        <span>Welcome to tweetview at <b:time/></span>
-      </lift:helloWorld.howdy>
-    </p>
+      <lift:TwitterTimeline.showPublic>
+      <div class="column span-24 bordered">
+	<h2>Public twitter timeline</h2>
+	<status:entry>
+	  <st:createdAt /> : <st:text /> <br/>
+	</status:entry>
+      </div>
+      </lift:TwitterTimeline.showPublic>
 </lift:surround>
 
