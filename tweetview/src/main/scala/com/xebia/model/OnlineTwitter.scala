@@ -21,6 +21,7 @@ class OnlineTwitter extends TwitterApi {
       val method = new GetMethod(publicFeedURL)
 //      method.getParams().setParameter(HttpMethodParams.RETRY_HANDLER, new DefaultHttpMethodRetryHandler(3, false))
       new HttpClient().executeMethod(method)
+//      println(new String(method.getResponseBody()))
       val xml = XML.loadString(new String(method.getResponseBody()))
       (xml \\ "status").elements.toList.map(s => TwitterStatus.fromXml(s))
     }

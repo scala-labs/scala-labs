@@ -17,19 +17,23 @@ import javax.servlet.http.{HttpServletRequest}
   */
 class Boot {
   def boot {
-    if (!DB.jndiJdbcConnAvailable_?)
-      DB.defineConnectionManager(DefaultConnectionIdentifier, DBVendor)
+//    if (!DB.jndiJdbcConnAvailable_?)
+//      DB.defineConnectionManager(DefaultConnectionIdentifier, DBVendor)
 
     // where to search snippet
     LiftRules.addToPackages("com.xebia")
-    Schemifier.schemify(true, Log.infoF _, User)
+//    Schemifier.schemify(true, Log.infoF _, User)
 
     // Build SiteMap
-    val entries = Menu(Loc("Home", List("index"), "Home")) :: 
-    Menu(Loc("Static", Link(List("static"), true, "/static/index"), "Static Content")) ::
-    User.sitemap
+    val entries = Menu(Loc("Home", List("index"), "Home")) :: Menu(Loc("Static", Link(List("static"), true, "/static/index"), "Static Content")) :: Menu(Loc("CometTweet", List("ctweet"), "CometTweet")) :: Nil
 
     LiftRules.setSiteMap(SiteMap(entries:_*))
+
+    // map certain urls to the right place
+    val rewriter: LiftRules.RewritePF = NamedPF("Twitter mapping") {
+    case RewriteRequest(ParsePath("ctweeter" :: _, _, _,_), _, _) =>
+       RewriteResponse("ctweeter" :: Nil, Map("ctweeter" -> "ctweeter"))
+    }
 
     /*
      * Show the spinny image when an Ajax call starts
@@ -45,9 +49,10 @@ class Boot {
 
     LiftRules.early.append(makeUtf8)
 
-    LiftRules.loggedInTest = Full(() => User.loggedIn_?)
+//    LiftRules.loggedInTest = Full(() => User.loggedIn_?)
 
-    S.addAround(DB.buildLoanWrapper)
+
+//    S.addAround(DB.buildLoanWrapper)
   }
 
   /**
