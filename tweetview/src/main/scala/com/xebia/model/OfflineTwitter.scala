@@ -19,7 +19,7 @@ class OfflineTwitter extends TwitterApi {
         statuses.elements.toList.map(s => TwitterStatus.fromXml(s))
     }
 
-    def timeline(timeline:String):Seq[TwitterStatus] = {
-        Nil
+    def userTimeline():Seq[TwitterStatus] = {
+        publicTimeline()
     }
 }

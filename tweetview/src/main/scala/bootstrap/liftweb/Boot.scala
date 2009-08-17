@@ -17,17 +17,17 @@ import javax.servlet.http.{HttpServletRequest}
   */
 class Boot {
   def boot {
-//    if (!DB.jndiJdbcConnAvailable_?)
-//      DB.defineConnectionManager(DefaultConnectionIdentifier, DBVendor)
+    if (!DB.jndiJdbcConnAvailable_?)
+      DB.defineConnectionManager(DefaultConnectionIdentifier, DBVendor)
 
     // where to search snippet
     LiftRules.addToPackages("com.xebia")
-//    Schemifier.schemify(true, Log.infoF _, User)
+    Schemifier.schemify(true, Log.infoF _, User)
 
     // Build SiteMap
-    val entries = Menu(Loc("Home", List("index"), "Home")) :: Menu(Loc("Static", Link(List("static"), true, "/static/index"), "Static Content")) :: Menu(Loc("CometTweet", List("ctweet"), "CometTweet")) :: Nil
+//    val entries = Menu(Loc("Home", List("index"), "Home")) :: Menu(Loc("Static", Link(List("static"), true, "/static/index"), "Static Content")) :: Menu(Loc("CometTweet", List("ctweet"), "CometTweet")) :: Nil
 
-    LiftRules.setSiteMap(SiteMap(entries:_*))
+    LiftRules.setSiteMap(SiteMap(MenuInfo.menu :_*))
 
     // map certain urls to the right place
     val rewriter: LiftRules.RewritePF = NamedPF("Twitter mapping") {
@@ -64,6 +64,18 @@ class Boot {
 
 }
 
+object MenuInfo {
+  import Loc._
+  val IfLoggedIn = If(() => User.currentUser.isDefined, "You must be logged in")
+
+  def menu:List[Menu] =
+   Menu(Loc("Home", List("index"), "Home")) ::
+   Menu(Loc("Static", Link(List("static"), true, "/static/index"), "Static Content")) ::
+   Menu(Loc("CometTweet", List("ctweet"), "CometTweet")) ::
+   Menu(Loc("UserTwitterTimeline", List("mytimeline"), "My twitter time line", IfLoggedIn)) ::
+   User.sitemap
+}
+
 /**
 * Database connection calculation
 */
@@ -72,25 +84,29 @@ object DBVendor extends ConnectionManager {
   private var poolSize = 0
   private val maxPoolSize = 4
 
-  private def createOne: Box[Connection] = try {
-    val driverName: String = Props.get("db.driver") openOr
-    "org.apache.derby.jdbc.EmbeddedDriver"
+  private def createOne: Box[Connection] = {
+      try {
+//    val driverName: String = Props.get("db.driver") openOr
+//    "org.apache.derby.jdbc.EmbeddedDriver"
+//
+//    val dbUrl: String = Props.get("db.url") openOr
+//    "jdbc:derby:lift_example;create=true"
+//
+//    Class.forName(driverName)
+//
+//    val dm = (Props.get("db.user"), Props.get("db.password")) match {
+//      case (Full(user), Full(pwd)) =>
+//	DriverManager.getConnection(dbUrl, user, pwd)
+//
+//      case _ => DriverManager.getConnection(dbUrl)
+//    }
 
-    val dbUrl: String = Props.get("db.url") openOr
-    "jdbc:derby:lift_example;create=true"
-
-    Class.forName(driverName)
-
-    val dm = (Props.get("db.user"), Props.get("db.password")) match {
-      case (Full(user), Full(pwd)) =>
-	DriverManager.getConnection(dbUrl, user, pwd)
-
-      case _ => DriverManager.getConnection(dbUrl)
+     Class.forName("org.h2.Driver")
+     val dm = DriverManager.getConnection("jdbc:h2:pca_example")
+      Full(dm)
+    } catch {
+      case e : Exception => e.printStackTrace; Empty
     }
-
-    Full(dm)
-  } catch {
-    case e: Exception => e.printStackTrace; Empty
   }
 
   def newConnection(name: ConnectionIdentifier): Box[Connection] =

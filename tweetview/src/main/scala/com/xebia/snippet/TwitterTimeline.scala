@@ -16,9 +16,17 @@ class TwitterTimeline {
   val formatter = new java.text.SimpleDateFormat("yyyy/MM/dd")
 
     def showPublic (xhtml : NodeSeq) : NodeSeq = {
-        val entries = TwitterClient.client.publicTimeLine match {
-	case Nil => Text("No public timeline fount") // Add link to create one...
-	case tlines => tlines.flatMap({tline =>
+        bindEntries(xhtml, TwitterClient.client.publicTimeLine)
+    }
+
+    def showUser (xhtml : NodeSeq) : NodeSeq = {
+        bindEntries(xhtml, TwitterClient.client.userTimeLine)
+    }
+
+    def bindEntries(xhtml : NodeSeq, statusSeq:Seq[TwitterStatus]) : NodeSeq = {
+        val entries = statusSeq match {
+	  case Nil => Text("No public timeline found")
+	  case tlines => tlines.flatMap({tline =>
 	  bind("st", chooseTemplate("status", "entry", xhtml),
 	       "createdAt" -> Text(tline.createdAt),
 	       "text" -> Text(tline.text),
@@ -27,7 +35,7 @@ class TwitterTimeline {
       }
       bind("status", xhtml, "entry" -> entries)
     }
-    
+
 }
 
 

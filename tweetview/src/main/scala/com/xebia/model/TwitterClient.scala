@@ -12,4 +12,9 @@ class TwitterClient(env: {val twitter:TwitterApi}) {
     def publicTimeLine():Seq[TwitterStatus] = {
        env.twitter.publicTimeline()
     }
+
+
+    def userTimeLine():Seq[TwitterStatus] = {
+        env.twitter.userTimeline()
+    }
 }

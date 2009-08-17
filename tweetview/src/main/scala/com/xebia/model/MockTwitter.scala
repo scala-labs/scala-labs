@@ -13,7 +13,7 @@ class MockTwitter extends TwitterApi {
       createStatus(1L, 1L, "piet")::createStatus(2L, 2L, "klaas")::Nil
     }
 
-    def timeline(timeline:String):Seq[TwitterStatus] = {
+    def userTimeline():Seq[TwitterStatus] = {
         Nil
     }
 
