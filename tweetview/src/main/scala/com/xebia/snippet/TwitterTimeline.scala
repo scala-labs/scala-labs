@@ -20,7 +20,8 @@ class TwitterTimeline {
     }
 
     def showUser (xhtml : NodeSeq) : NodeSeq = {
-        bindEntries(xhtml, TwitterClient.client.userTimeLine)
+        val user:User = new User(S.getSessionAttribute("userId").openOr("erikrozendaal"), S.getSessionAttribute("email").openOr("erozendaal@xebia.com"))
+        bindEntries(xhtml, TwitterClient.client.userTimeLine(user))
     }
 
     def bindEntries(xhtml : NodeSeq, statusSeq:Seq[TwitterStatus]) : NodeSeq = {

@@ -1,5 +1,5 @@
 /*
- * TwitterApi.scala
+ * TweetFilter.scala
  *
  * To change this template, choose Tools | Template Manager
  * and open the template in the editor.
@@ -7,9 +7,7 @@
 
 package com.xebia.model
 
-trait TwitterApi {
+trait TweetFilter {
 
-    def publicTimeline():Seq[TwitterStatus];
-
-    def userTimeline(user:User):Seq[TwitterStatus];
+    def filter(sts:Seq[TwitterStatus]):Seq[TwitterStatus]
 }

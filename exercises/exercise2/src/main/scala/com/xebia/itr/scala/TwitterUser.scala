@@ -31,4 +31,5 @@ object TwitterUser {
             val statusesCount = (node \ "statuses_count").text.toInt
         }
     }
+
 }

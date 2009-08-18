@@ -44,6 +44,7 @@ object RetweetTimelineFilter {
 			val inReplyToStatusId = None
 			val inReplyToUserId = None
 			val favorited = status.favorited
+			val retweetDetails = None
 			val user = new TwitterUser {
 				val id = RETWEET_ID
 				val name = retweetUser
