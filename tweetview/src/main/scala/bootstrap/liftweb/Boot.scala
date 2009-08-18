@@ -22,7 +22,9 @@ class Boot {
 
     // where to search snippet
     LiftRules.addToPackages("com.xebia")
-    Schemifier.schemify(true, Log.infoF _, User)
+//    Schemifier.schemify(true, Log.infoF _, User)
+    S.setSessionAttribute("userId", "arjanblokzijl")
+    S.setSessionAttribute("email", "arjanblokzijl@gmail.com")
 
     // Build SiteMap
 //    val entries = Menu(Loc("Home", List("index"), "Home")) :: Menu(Loc("Static", Link(List("static"), true, "/static/index"), "Static Content")) :: Menu(Loc("CometTweet", List("ctweet"), "CometTweet")) :: Nil
@@ -66,14 +68,12 @@ class Boot {
 
 object MenuInfo {
   import Loc._
-  val IfLoggedIn = If(() => User.currentUser.isDefined, "You must be logged in")
 
   def menu:List[Menu] =
    Menu(Loc("Home", List("index"), "Home")) ::
    Menu(Loc("Static", Link(List("static"), true, "/static/index"), "Static Content")) ::
    Menu(Loc("CometTweet", List("ctweet"), "CometTweet")) ::
-   Menu(Loc("UserTwitterTimeline", List("mytimeline"), "My twitter time line", IfLoggedIn)) ::
-   User.sitemap
+   Menu(Loc("UserTwitterTimeline", List("mytimeline"), "My twitter time line")) :: Nil
 }
 
 /**

@@ -17,6 +17,7 @@ abstract class TwitterStatus {
   val inReplyToUserId : Option[Long]
   val favorited : Boolean
   val user : TwitterUser
+  val retweetDetails : Option[TwitterRetweetDetails]
 }
 
 
@@ -43,6 +44,7 @@ abstract class TwitterStatus {
             None
         val favorited = (node \ "favorited").text.toBoolean
         val user = TwitterUser.fromXml((node \ "user")(0))
+        val retweetDetails = None
       }
     }
   }

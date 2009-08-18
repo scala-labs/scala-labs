@@ -13,7 +13,7 @@ class MockTwitter extends TwitterApi {
       createStatus(1L, 1L, "piet")::createStatus(2L, 2L, "klaas")::Nil
     }
 
-    def userTimeline():Seq[TwitterStatus] = {
+    def userTimeline(user:User):Seq[TwitterStatus] = {
         Nil
     }
 
@@ -28,6 +28,7 @@ class MockTwitter extends TwitterApi {
         val inReplyToStatusId = None
         val inReplyToUserId = Some(2L)
         val favorited = false
+        val retweetDetails = None
         val user = new TwitterUser {
             val id = userId
             val name = userName

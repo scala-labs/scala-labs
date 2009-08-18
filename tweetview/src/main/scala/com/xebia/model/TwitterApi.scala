@@ -11,5 +11,5 @@ trait TwitterApi {
 
     def publicTimeline():Seq[TwitterStatus];
 
-    def userTimeline():Seq[TwitterStatus];
+    def userTimeline(user:User):Seq[TwitterStatus];
 }

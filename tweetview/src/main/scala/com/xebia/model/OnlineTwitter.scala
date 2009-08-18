@@ -27,20 +27,14 @@ class OnlineTwitter extends TwitterApi {
       (xml \\ "status").elements.toList.map(s => TwitterStatus.fromXml(s))
     }
 
-    def userTimeline():Seq[TwitterStatus] = {
-        User.currentUser match {            
-            case Full(User) => getUserTimeline(User.currentUser.open_!)
-            case _ => Nil
-        }
-    }
-
-    private def getUserTimeline(user:User):Seq[TwitterStatus] = {
-        val userTimelineURL = "http://www.twitter.com/statuses/user_timeline.xml?count=40"
-        val defaultcreds = new UsernamePasswordCredentials(user.email, user.password);
+    def userTimeline(user:User):Seq[TwitterStatus] = {
+        val userTimelineURL = "http://www.twitter.com/status/user_timeline/" + user.userId + ".xml"
+        println("Getting timeline for: " + userTimelineURL)
+//        val defaultcreds = new UsernamePasswordCredentials(user.email, user.password);
         val client:HttpClient = new HttpClient()
-        client.getState().setCredentials(AuthScope.ANY, defaultcreds);
+//        client.getState().setCredentials(AuthScope.ANY, defaultcreds);
         val method = new GetMethod(userTimelineURL)
-        method.setDoAuthentication(true)
+//        method.setDoAuthentication(true)
         client.executeMethod(method)
         val xml = XML.loadString(new String(method.getResponseBody()))
         (xml \\ "status").elements.toList.map(s => TwitterStatus.fromXml(s))
