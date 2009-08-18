@@ -9,4 +9,5 @@ package com.xebia.model
 
 trait TweetFilter {
 
+    def filter(sts:Seq[TwitterStatus]):Seq[TwitterStatus]
 }
