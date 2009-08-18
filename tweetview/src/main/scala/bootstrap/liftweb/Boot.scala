@@ -71,7 +71,7 @@ object MenuInfo {
 
   def menu:List[Menu] =
    Menu(Loc("Home", List("index"), "Home")) ::
-   Menu(Loc("Static", Link(List("static"), true, "/static/index"), "Static Content")) ::
+   Menu(Loc("Login", List("login"), "Login")) ::
    Menu(Loc("CometTweet", List("ctweet"), "CometTweet")) ::
    Menu(Loc("UserTwitterTimeline", List("mytimeline"), "My twitter time line")) :: Nil
 }
