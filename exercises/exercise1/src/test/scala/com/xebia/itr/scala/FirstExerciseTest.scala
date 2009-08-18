@@ -12,7 +12,7 @@ import org.scalatest.junit.JUnit3Suite
 /*
  * Exercise 1:
  *
- * Your job is to implement the Twiterstatus class (and it's associated classes) in
+ * Your job is to implement the TwiterStatus class (and it's associated classes) in
  * such a way that the tests in this suite all succeed.
  */
 class FirstExerciseTest extends JUnit3Suite {
@@ -59,7 +59,7 @@ class FirstExerciseTest extends JUnit3Suite {
 	}
 
     def testAttributesOfUserAssociatedWithFirstTweet() {
-	    val firstTweetUser = getListOfTweets()(0).user
+	    val firstTweetUser: TwitterUser = getListOfTweets()(0).user
 
 	    expect(16665197L) {firstTweetUser.id}
         expect("Martin Fowler") {firstTweetUser.name}
