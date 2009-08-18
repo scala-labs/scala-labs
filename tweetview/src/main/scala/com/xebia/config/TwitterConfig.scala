@@ -25,7 +25,7 @@ object OnlineTwitterConfig {
 
 object TwitterClient {
     def client = {
-        new TwitterClient(OnlineTwitterConfig)
+        new TwitterClient(OfflineTwitterConfig)
     }
 }
 

@@ -16,7 +16,7 @@ class TwitterTimeline {
   val formatter = new java.text.SimpleDateFormat("yyyy/MM/dd")
 
     def showPublic (xhtml : NodeSeq) : NodeSeq = {
-        bindEntries(xhtml, TwitterClient.client.publicTimeLine)
+        bindEntries(xhtml, RetweetTimelineFilter.filter(TwitterClient.client.publicTimeLine))
     }
 
     def showUser (xhtml : NodeSeq) : NodeSeq = {

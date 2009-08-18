@@ -1,0 +1,762 @@
+<statuses type="array">
+<status>
+  <created_at>Tue Aug 18 12:49:15 +0000 2009</created_at>
+  <id>3381787446</id>
+  <text>Congrats #Terracotta and @ikarzali @puredanger @gbevin @sharrissf and the rest of the team. Great news.</text>
+  <source>&lt;a href=&quot;http://www.atebits.com/&quot; rel=&quot;nofollow&quot;&gt;Tweetie&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>18160154</id>
+    <name>Jonas Bonér</name>
+    <screen_name>jboner</screen_name>
+    <location>iPhone: 63.169830,18.592794</location>
+    <description>programming languages geek, hacker and entrepreneur</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/67604960/Jonas_128x128_normal.jpg</profile_image_url>
+    <url>http://jonasboner.com</url>
+    <protected>false</protected>
+    <followers_count>826</followers_count>
+    <profile_background_color>C6E2EE</profile_background_color>
+    <profile_text_color>663B12</profile_text_color>
+    <profile_link_color>1F98C7</profile_link_color>
+    <profile_sidebar_fill_color>DAECF4</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C6E2EE</profile_sidebar_border_color>
+    <friends_count>147</friends_count>
+    <created_at>Tue Dec 16 10:47:02 +0000 2008</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Stockholm</time_zone>
+    <profile_background_image_url>http://a1.twimg.com/profile_background_images/3614068/2713114319_f269b6e259_b.jpg</profile_background_image_url>
+    <profile_background_tile>true</profile_background_tile>
+    <statuses_count>2257</statuses_count>
+    <notifications>false</notifications>
+    <verified>false</verified>
+    <following>false</following>
+  </user>
+</status>
+<status>
+  <created_at>Tue Aug 18 12:43:26 +0000 2009</created_at>
+  <id>3381716104</id>
+  <text>Another miniblog: http://bit.ly/FjrYX</text>
+  <source>&lt;a href=&quot;http://www.atebits.com/&quot; rel=&quot;nofollow&quot;&gt;Tweetie&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>15439395</id>
+    <name>Stephen Fry</name>
+    <screen_name>stephenfry</screen_name>
+    <location>London, England</location>
+    <description>British Actor, Writer, Lord of Dance, Prince of Swimwear &amp; Blogger</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/352785752/twitterProfilePhoto_normal.jpg</profile_image_url>
+    <url>http://www.stephenfry.com</url>
+    <protected>false</protected>
+    <followers_count>715257</followers_count>
+    <profile_background_color>a5e6fa</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>1c83a6</profile_link_color>
+    <profile_sidebar_fill_color>48ccf4</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>19a7d6</profile_sidebar_border_color>
+    <friends_count>54660</friends_count>
+    <created_at>Tue Jul 15 11:45:30 +0000 2008</created_at>
+    <favourites_count>7</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Bern</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/29122413/twitter_700k.jpg</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <statuses_count>3572</statuses_count>
+    <notifications>false</notifications>
+    <verified>true</verified>
+    <following>false</following>
+  </user>
+</status>
+<status>
+  <created_at>Tue Aug 18 12:35:12 +0000 2009</created_at>
+  <id>3381615851</id>
+  <text>RT @puredanger Terracotta acquires Ehcache! Greg Luck's blog: http://bit.ly/2M6IFK My blog: http://bit.ly/15DIHJ</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>6562002</id>
+    <name>Debasish Ghosh</name>
+    <screen_name>debasishg</screen_name>
+    <location>India</location>
+    <description>Programmer and Software Engineering Enthusiast</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/51305932/dg_1_normal.jpg</profile_image_url>
+    <url>http://debasishg.blogspot.com</url>
+    <protected>false</protected>
+    <followers_count>832</followers_count>
+    <profile_background_color>352726</profile_background_color>
+    <profile_text_color>3E4415</profile_text_color>
+    <profile_link_color>D02B55</profile_link_color>
+    <profile_sidebar_fill_color>99CC33</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>829D5E</profile_sidebar_border_color>
+    <friends_count>180</friends_count>
+    <created_at>Mon Jun 04 03:58:19 +0000 2007</created_at>
+    <favourites_count>253</favourites_count>
+    <utc_offset>19800</utc_offset>
+    <time_zone>Kolkata</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/3678643/25112008016.jpg</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <statuses_count>237</statuses_count>
+    <notifications></notifications>
+    <verified>false</verified>
+    <following></following>
+  </user>
+</status>
+<status>
+  <created_at>Tue Aug 18 12:10:16 +0000 2009</created_at>
+  <id>3381321098</id>
+  <text>RT @puredanger: Terracotta acquires Ehcache!   Greg Luck's blog: http://bit.ly/2M6IFK  My blog: http://bit.ly/15DIHJ</text>
+  <source>&lt;a href=&quot;http://www.tweetdeck.com/&quot; rel=&quot;nofollow&quot;&gt;TweetDeck&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>17334287</id>
+    <name>Stephan Schmidt</name>
+    <screen_name>codemonkeyism</screen_name>
+    <location>iPhone: 52.530048,13.409637</location>
+    <description>Head of Development Brands4Friends, agile, Scrum, lean and Kanban enthusiast - My opinions are only my own, technical tweets are only about my private sandbox</description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/289074160/Avatar2_normal.png</profile_image_url>
+    <url>http://www.codemonkeyism.com</url>
+    <protected>false</protected>
+    <followers_count>1262</followers_count>
+    <profile_background_color>EBEBEB</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>990000</profile_link_color>
+    <profile_sidebar_fill_color>F3F3F3</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>DFDFDF</profile_sidebar_border_color>
+    <friends_count>395</friends_count>
+    <created_at>Wed Nov 12 07:13:44 +0000 2008</created_at>
+    <favourites_count>23</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Berlin</time_zone>
+    <profile_background_image_url>http://static.twitter.com/images/themes/theme7/bg.gif</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <statuses_count>3364</statuses_count>
+    <notifications>false</notifications>
+    <verified>false</verified>
+    <following>false</following>
+  </user>
+</status>
+<status>
+  <created_at>Tue Aug 18 12:09:09 +0000 2009</created_at>
+  <id>3381308104</id>
+  <text>True Flow neither knows pull nor push</text>
+  <source>&lt;a href=&quot;http://www.tweetdeck.com/&quot; rel=&quot;nofollow&quot;&gt;TweetDeck&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>17334287</id>
+    <name>Stephan Schmidt</name>
+    <screen_name>codemonkeyism</screen_name>
+    <location>iPhone: 52.530048,13.409637</location>
+    <description>Head of Development Brands4Friends, agile, Scrum, lean and Kanban enthusiast - My opinions are only my own, technical tweets are only about my private sandbox</description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/289074160/Avatar2_normal.png</profile_image_url>
+    <url>http://www.codemonkeyism.com</url>
+    <protected>false</protected>
+    <followers_count>1262</followers_count>
+    <profile_background_color>EBEBEB</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>990000</profile_link_color>
+    <profile_sidebar_fill_color>F3F3F3</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>DFDFDF</profile_sidebar_border_color>
+    <friends_count>395</friends_count>
+    <created_at>Wed Nov 12 07:13:44 +0000 2008</created_at>
+    <favourites_count>23</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Berlin</time_zone>
+    <profile_background_image_url>http://static.twitter.com/images/themes/theme7/bg.gif</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <statuses_count>3363</statuses_count>
+    <notifications>false</notifications>
+    <verified>false</verified>
+    <following>false</following>
+  </user>
+</status>
+<status>
+  <created_at>Tue Aug 18 12:08:56 +0000 2009</created_at>
+  <id>3381305700</id>
+  <text>RT @puredanger: Terracotta acquires Ehcache!   Greg Luck's blog: http://bit.ly/2M6IFK  My blog: http://bit.ly/15DIHJ</text>
+  <source>&lt;a href=&quot;http://www.atebits.com/&quot; rel=&quot;nofollow&quot;&gt;Tweetie&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>18160154</id>
+    <name>Jonas Bonér</name>
+    <screen_name>jboner</screen_name>
+    <location>iPhone: 63.169830,18.592794</location>
+    <description>programming languages geek, hacker and entrepreneur</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/67604960/Jonas_128x128_normal.jpg</profile_image_url>
+    <url>http://jonasboner.com</url>
+    <protected>false</protected>
+    <followers_count>825</followers_count>
+    <profile_background_color>C6E2EE</profile_background_color>
+    <profile_text_color>663B12</profile_text_color>
+    <profile_link_color>1F98C7</profile_link_color>
+    <profile_sidebar_fill_color>DAECF4</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C6E2EE</profile_sidebar_border_color>
+    <friends_count>147</friends_count>
+    <created_at>Tue Dec 16 10:47:02 +0000 2008</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Stockholm</time_zone>
+    <profile_background_image_url>http://a1.twimg.com/profile_background_images/3614068/2713114319_f269b6e259_b.jpg</profile_background_image_url>
+    <profile_background_tile>true</profile_background_tile>
+    <statuses_count>2256</statuses_count>
+    <notifications></notifications>
+    <verified>false</verified>
+    <following></following>
+  </user>
+</status>
+<status>
+  <created_at>Tue Aug 18 11:46:40 +0000 2009</created_at>
+  <id>3381061233</id>
+  <text>LOL. RT @codemonkeyism: What I also like: consultants who try to bury you under buzzwords if they haven't got an answer. Love it!</text>
+  <source>&lt;a href=&quot;http://www.atebits.com/&quot; rel=&quot;nofollow&quot;&gt;Tweetie&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>18160154</id>
+    <name>Jonas Bonér</name>
+    <screen_name>jboner</screen_name>
+    <location>iPhone: 63.169830,18.592794</location>
+    <description>programming languages geek, hacker and entrepreneur</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/67604960/Jonas_128x128_normal.jpg</profile_image_url>
+    <url>http://jonasboner.com</url>
+    <protected>false</protected>
+    <followers_count>825</followers_count>
+    <profile_background_color>C6E2EE</profile_background_color>
+    <profile_text_color>663B12</profile_text_color>
+    <profile_link_color>1F98C7</profile_link_color>
+    <profile_sidebar_fill_color>DAECF4</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C6E2EE</profile_sidebar_border_color>
+    <friends_count>147</friends_count>
+    <created_at>Tue Dec 16 10:47:02 +0000 2008</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Stockholm</time_zone>
+    <profile_background_image_url>http://a1.twimg.com/profile_background_images/3614068/2713114319_f269b6e259_b.jpg</profile_background_image_url>
+    <profile_background_tile>true</profile_background_tile>
+    <statuses_count>2255</statuses_count>
+    <notifications></notifications>
+    <verified>false</verified>
+    <following></following>
+  </user>
+</status>
+<status>
+  <created_at>Tue Aug 18 11:36:13 +0000 2009</created_at>
+  <id>3380951382</id>
+  <text>What I also like: consultants who try to bury you under buzzwords if they haven't got an answer. Love it!</text>
+  <source>&lt;a href=&quot;http://www.tweetdeck.com/&quot; rel=&quot;nofollow&quot;&gt;TweetDeck&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>17334287</id>
+    <name>Stephan Schmidt</name>
+    <screen_name>codemonkeyism</screen_name>
+    <location>iPhone: 52.530048,13.409637</location>
+    <description>Head of Development Brands4Friends, agile, Scrum, lean and Kanban enthusiast - My opinions are only my own, technical tweets are only about my private sandbox</description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/289074160/Avatar2_normal.png</profile_image_url>
+    <url>http://www.codemonkeyism.com</url>
+    <protected>false</protected>
+    <followers_count>1260</followers_count>
+    <profile_background_color>EBEBEB</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>990000</profile_link_color>
+    <profile_sidebar_fill_color>F3F3F3</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>DFDFDF</profile_sidebar_border_color>
+    <friends_count>395</friends_count>
+    <created_at>Wed Nov 12 07:13:44 +0000 2008</created_at>
+    <favourites_count>23</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Berlin</time_zone>
+    <profile_background_image_url>http://static.twitter.com/images/themes/theme7/bg.gif</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <statuses_count>3360</statuses_count>
+    <notifications>false</notifications>
+    <verified>false</verified>
+    <following>false</following>
+  </user>
+</status>
+<status>
+  <created_at>Tue Aug 18 11:04:49 +0000 2009</created_at>
+  <id>3380636262</id>
+  <text>One of my most important posts RT @codemonkeyism Rails, Scrum, CMMI and Survivor Bias http://bit.ly/1wIWs4</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>17334287</id>
+    <name>Stephan Schmidt</name>
+    <screen_name>codemonkeyism</screen_name>
+    <location>iPhone: 52.530048,13.409637</location>
+    <description>Head of Development Brands4Friends, agile, Scrum, lean and Kanban enthusiast - My opinions are only my own, technical tweets are only about my private sandbox</description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/289074160/Avatar2_normal.png</profile_image_url>
+    <url>http://www.codemonkeyism.com</url>
+    <protected>false</protected>
+    <followers_count>1259</followers_count>
+    <profile_background_color>EBEBEB</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>990000</profile_link_color>
+    <profile_sidebar_fill_color>F3F3F3</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>DFDFDF</profile_sidebar_border_color>
+    <friends_count>395</friends_count>
+    <created_at>Wed Nov 12 07:13:44 +0000 2008</created_at>
+    <favourites_count>23</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Berlin</time_zone>
+    <profile_background_image_url>http://static.twitter.com/images/themes/theme7/bg.gif</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <statuses_count>3356</statuses_count>
+    <notifications></notifications>
+    <verified>false</verified>
+    <following></following>
+  </user>
+</status>
+<status>
+  <created_at>Tue Aug 18 10:50:35 +0000 2009</created_at>
+  <id>3380500096</id>
+  <text>RT @asmartbear Guest Login - Startups + Marketing + Geekery http://bit.ly/3yYoY3</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>17334287</id>
+    <name>Stephan Schmidt</name>
+    <screen_name>codemonkeyism</screen_name>
+    <location>iPhone: 52.530048,13.409637</location>
+    <description>Head of Development Brands4Friends, agile, Scrum, lean and Kanban enthusiast - My opinions are only my own, technical tweets are only about my private sandbox</description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/289074160/Avatar2_normal.png</profile_image_url>
+    <url>http://www.codemonkeyism.com</url>
+    <protected>false</protected>
+    <followers_count>1260</followers_count>
+    <profile_background_color>EBEBEB</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>990000</profile_link_color>
+    <profile_sidebar_fill_color>F3F3F3</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>DFDFDF</profile_sidebar_border_color>
+    <friends_count>395</friends_count>
+    <created_at>Wed Nov 12 07:13:44 +0000 2008</created_at>
+    <favourites_count>23</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Berlin</time_zone>
+    <profile_background_image_url>http://static.twitter.com/images/themes/theme7/bg.gif</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <statuses_count>3355</statuses_count>
+    <notifications>false</notifications>
+    <verified>false</verified>
+    <following>true</following>
+  </user>
+</status>
+<status>
+  <created_at>Tue Aug 18 10:41:14 +0000 2009</created_at>
+  <id>3380417383</id>
+  <text>Server back in business  They were patching one of the clusters. Tsk.  Sorry about that. Miniblog post http://is.gd/2mBvl</text>
+  <source>&lt;a href=&quot;http://www.atebits.com/&quot; rel=&quot;nofollow&quot;&gt;Tweetie&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>15439395</id>
+    <name>Stephen Fry</name>
+    <screen_name>stephenfry</screen_name>
+    <location>London, England</location>
+    <description>British Actor, Writer, Lord of Dance, Prince of Swimwear &amp; Blogger</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/352785752/twitterProfilePhoto_normal.jpg</profile_image_url>
+    <url>http://www.stephenfry.com</url>
+    <protected>false</protected>
+    <followers_count>714935</followers_count>
+    <profile_background_color>a5e6fa</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>1c83a6</profile_link_color>
+    <profile_sidebar_fill_color>48ccf4</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>19a7d6</profile_sidebar_border_color>
+    <friends_count>54661</friends_count>
+    <created_at>Tue Jul 15 11:45:30 +0000 2008</created_at>
+    <favourites_count>7</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Bern</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/29122413/twitter_700k.jpg</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <statuses_count>3565</statuses_count>
+    <notifications>false</notifications>
+    <verified>true</verified>
+    <following>false</following>
+  </user>
+</status>
+<status>
+  <created_at>Tue Aug 18 10:25:27 +0000 2009</created_at>
+  <id>3380277227</id>
+  <text>Published new blog post RT @codemonkeyism 7 Signs not to Work for a Software Company or Startup http://bit.ly/y96lS</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>17334287</id>
+    <name>Stephan Schmidt</name>
+    <screen_name>codemonkeyism</screen_name>
+    <location>iPhone: 52.530048,13.409637</location>
+    <description>Head of Development Brands4Friends, agile, Scrum, lean and Kanban enthusiast - My opinions are only my own, technical tweets are only about my private sandbox</description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/289074160/Avatar2_normal.png</profile_image_url>
+    <url>http://www.codemonkeyism.com</url>
+    <protected>false</protected>
+    <followers_count>1260</followers_count>
+    <profile_background_color>EBEBEB</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>990000</profile_link_color>
+    <profile_sidebar_fill_color>F3F3F3</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>DFDFDF</profile_sidebar_border_color>
+    <friends_count>395</friends_count>
+    <created_at>Wed Nov 12 07:13:44 +0000 2008</created_at>
+    <favourites_count>23</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Berlin</time_zone>
+    <profile_background_image_url>http://static.twitter.com/images/themes/theme7/bg.gif</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <statuses_count>3354</statuses_count>
+    <notifications>false</notifications>
+    <verified>false</verified>
+    <following>true</following>
+  </user>
+</status>
+<status>
+  <created_at>Tue Aug 18 10:23:25 +0000 2009</created_at>
+  <id>3380259585</id>
+  <text>Arse.  Seem to have broken my own site. Shouldn't happen. Hosts'll get a bollocking. Grr. Let you know when  mended. Sheesh whaddayagonnado?</text>
+  <source>&lt;a href=&quot;http://www.atebits.com/&quot; rel=&quot;nofollow&quot;&gt;Tweetie&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>15439395</id>
+    <name>Stephen Fry</name>
+    <screen_name>stephenfry</screen_name>
+    <location>London, England</location>
+    <description>British Actor, Writer, Lord of Dance, Prince of Swimwear &amp; Blogger</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/352785752/twitterProfilePhoto_normal.jpg</profile_image_url>
+    <url>http://www.stephenfry.com</url>
+    <protected>false</protected>
+    <followers_count>714883</followers_count>
+    <profile_background_color>a5e6fa</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>1c83a6</profile_link_color>
+    <profile_sidebar_fill_color>48ccf4</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>19a7d6</profile_sidebar_border_color>
+    <friends_count>54661</friends_count>
+    <created_at>Tue Jul 15 11:45:30 +0000 2008</created_at>
+    <favourites_count>7</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Bern</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/29122413/twitter_700k.jpg</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <statuses_count>3564</statuses_count>
+    <notifications>false</notifications>
+    <verified>true</verified>
+    <following>false</following>
+  </user>
+</status>
+<status>
+  <created_at>Tue Aug 18 10:14:05 +0000 2009</created_at>
+  <id>3380179761</id>
+  <text>RT @jboner Doing an #Akka workshop on Thu at Crisp HQ. Hope to teach it through some hands-on coding. Gonna be fun</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>6562002</id>
+    <name>Debasish Ghosh</name>
+    <screen_name>debasishg</screen_name>
+    <location>India</location>
+    <description>Programmer and Software Engineering Enthusiast</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/51305932/dg_1_normal.jpg</profile_image_url>
+    <url>http://debasishg.blogspot.com</url>
+    <protected>false</protected>
+    <followers_count>831</followers_count>
+    <profile_background_color>352726</profile_background_color>
+    <profile_text_color>3E4415</profile_text_color>
+    <profile_link_color>D02B55</profile_link_color>
+    <profile_sidebar_fill_color>99CC33</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>829D5E</profile_sidebar_border_color>
+    <friends_count>180</friends_count>
+    <created_at>Mon Jun 04 03:58:19 +0000 2007</created_at>
+    <favourites_count>253</favourites_count>
+    <utc_offset>19800</utc_offset>
+    <time_zone>Kolkata</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/3678643/25112008016.jpg</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <statuses_count>236</statuses_count>
+    <notifications>false</notifications>
+    <verified>false</verified>
+    <following>true</following>
+  </user>
+</status>
+<status>
+  <created_at>Tue Aug 18 10:13:45 +0000 2009</created_at>
+  <id>3380176708</id>
+  <text>Miniblog post http://is.gd/2mBvl</text>
+  <source>&lt;a href=&quot;http://www.atebits.com/&quot; rel=&quot;nofollow&quot;&gt;Tweetie&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>15439395</id>
+    <name>Stephen Fry</name>
+    <screen_name>stephenfry</screen_name>
+    <location>London, England</location>
+    <description>British Actor, Writer, Lord of Dance, Prince of Swimwear &amp; Blogger</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/352785752/twitterProfilePhoto_normal.jpg</profile_image_url>
+    <url>http://www.stephenfry.com</url>
+    <protected>false</protected>
+    <followers_count>714861</followers_count>
+    <profile_background_color>a5e6fa</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>1c83a6</profile_link_color>
+    <profile_sidebar_fill_color>48ccf4</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>19a7d6</profile_sidebar_border_color>
+    <friends_count>54661</friends_count>
+    <created_at>Tue Jul 15 11:45:30 +0000 2008</created_at>
+    <favourites_count>7</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Bern</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/29122413/twitter_700k.jpg</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <statuses_count>3563</statuses_count>
+    <notifications>false</notifications>
+    <verified>true</verified>
+    <following>false</following>
+  </user>
+</status>
+<status>
+  <created_at>Tue Aug 18 09:58:57 +0000 2009</created_at>
+  <id>3380044129</id>
+  <text>RT @jboner I'll be giving a one full day Scala course and one full day Terracotta course in Sept. Details: http://bit.ly/2mauMG</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>6562002</id>
+    <name>Debasish Ghosh</name>
+    <screen_name>debasishg</screen_name>
+    <location>India</location>
+    <description>Programmer and Software Engineering Enthusiast</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/51305932/dg_1_normal.jpg</profile_image_url>
+    <url>http://debasishg.blogspot.com</url>
+    <protected>false</protected>
+    <followers_count>831</followers_count>
+    <profile_background_color>352726</profile_background_color>
+    <profile_text_color>3E4415</profile_text_color>
+    <profile_link_color>D02B55</profile_link_color>
+    <profile_sidebar_fill_color>99CC33</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>829D5E</profile_sidebar_border_color>
+    <friends_count>180</friends_count>
+    <created_at>Mon Jun 04 03:58:19 +0000 2007</created_at>
+    <favourites_count>253</favourites_count>
+    <utc_offset>19800</utc_offset>
+    <time_zone>Kolkata</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/3678643/25112008016.jpg</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <statuses_count>235</statuses_count>
+    <notifications>true</notifications>
+    <verified>false</verified>
+    <following>true</following>
+  </user>
+</status>
+<status>
+  <created_at>Tue Aug 18 09:58:50 +0000 2009</created_at>
+  <id>3380043230</id>
+  <text>Doing an #Akka workshop on Thu at Crisp HQ. Hope to teach it through some hands-on coding. Gonna be fun.</text>
+  <source>&lt;a href=&quot;http://twitterfon.net/&quot; rel=&quot;nofollow&quot;&gt;TwitterFon&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>18160154</id>
+    <name>Jonas Bonér</name>
+    <screen_name>jboner</screen_name>
+    <location>iPhone: 63.169830,18.592794</location>
+    <description>programming languages geek, hacker and entrepreneur</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/67604960/Jonas_128x128_normal.jpg</profile_image_url>
+    <url>http://jonasboner.com</url>
+    <protected>false</protected>
+    <followers_count>824</followers_count>
+    <profile_background_color>C6E2EE</profile_background_color>
+    <profile_text_color>663B12</profile_text_color>
+    <profile_link_color>1F98C7</profile_link_color>
+    <profile_sidebar_fill_color>DAECF4</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C6E2EE</profile_sidebar_border_color>
+    <friends_count>147</friends_count>
+    <created_at>Tue Dec 16 10:47:02 +0000 2008</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Stockholm</time_zone>
+    <profile_background_image_url>http://a1.twimg.com/profile_background_images/3614068/2713114319_f269b6e259_b.jpg</profile_background_image_url>
+    <profile_background_tile>true</profile_background_tile>
+    <statuses_count>2254</statuses_count>
+    <notifications>false</notifications>
+    <verified>false</verified>
+    <following>true</following>
+  </user>
+</status>
+<status>
+  <created_at>Tue Aug 18 09:48:49 +0000 2009</created_at>
+  <id>3379957708</id>
+  <text>I'll be giving a one full day Scala course and one full day Terracotta course in Sept. Details: http://bit.ly/2mauMG</text>
+  <source>&lt;a href=&quot;http://twitterfon.net/&quot; rel=&quot;nofollow&quot;&gt;TwitterFon&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>18160154</id>
+    <name>Jonas Bonér</name>
+    <screen_name>jboner</screen_name>
+    <location>iPhone: 63.169830,18.592794</location>
+    <description>programming languages geek, hacker and entrepreneur</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/67604960/Jonas_128x128_normal.jpg</profile_image_url>
+    <url>http://jonasboner.com</url>
+    <protected>false</protected>
+    <followers_count>824</followers_count>
+    <profile_background_color>C6E2EE</profile_background_color>
+    <profile_text_color>663B12</profile_text_color>
+    <profile_link_color>1F98C7</profile_link_color>
+    <profile_sidebar_fill_color>DAECF4</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C6E2EE</profile_sidebar_border_color>
+    <friends_count>147</friends_count>
+    <created_at>Tue Dec 16 10:47:02 +0000 2008</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Stockholm</time_zone>
+    <profile_background_image_url>http://a1.twimg.com/profile_background_images/3614068/2713114319_f269b6e259_b.jpg</profile_background_image_url>
+    <profile_background_tile>true</profile_background_tile>
+    <statuses_count>2253</statuses_count>
+    <notifications></notifications>
+    <verified>false</verified>
+    <following></following>
+  </user>
+</status>
+<status>
+  <created_at>Tue Aug 18 09:28:33 +0000 2009</created_at>
+  <id>3379786630</id>
+  <text>RT @codinghorror: we're now 302 redirecting our favicon.ico on all 4 sites to sstatic.net (via url rewriting). Seems crazy, but it works.</text>
+  <source>&lt;a href=&quot;http://www.tweetdeck.com/&quot; rel=&quot;nofollow&quot;&gt;TweetDeck&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>17334287</id>
+    <name>Stephan Schmidt</name>
+    <screen_name>codemonkeyism</screen_name>
+    <location>iPhone: 52.530048,13.409637</location>
+    <description>Head of Development Brands4Friends, agile, Scrum, lean and Kanban enthusiast - My opinions are only my own, technical tweets are only about my private sandbox</description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/289074160/Avatar2_normal.png</profile_image_url>
+    <url>http://www.codemonkeyism.com</url>
+    <protected>false</protected>
+    <followers_count>1259</followers_count>
+    <profile_background_color>EBEBEB</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>990000</profile_link_color>
+    <profile_sidebar_fill_color>F3F3F3</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>DFDFDF</profile_sidebar_border_color>
+    <friends_count>395</friends_count>
+    <created_at>Wed Nov 12 07:13:44 +0000 2008</created_at>
+    <favourites_count>23</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Berlin</time_zone>
+    <profile_background_image_url>http://static.twitter.com/images/themes/theme7/bg.gif</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <statuses_count>3353</statuses_count>
+    <notifications>false</notifications>
+    <verified>false</verified>
+    <following>false</following>
+  </user>
+</status>
+<status>
+  <created_at>Tue Aug 18 09:23:22 +0000 2009</created_at>
+  <id>3379743259</id>
+  <text>RT @cromwellian: How to increase gzipped Javascript compression by up to 20%.... http://ff.im/6LGWI</text>
+  <source>&lt;a href=&quot;http://www.twhirl.org/&quot; rel=&quot;nofollow&quot;&gt;twhirl&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>14219378</id>
+    <name>ʇɾınƃ ʇɹɐq</name>
+    <screen_name>bguijt</screen_name>
+    <location>Almere-Buiten, Flevoland</location>
+    <description>Web2.0 enthousiast, seeking for the Next-Excel-but-no-spreadsheet</description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/318838046/twitterProfilePhoto_normal.jpg</profile_image_url>
+    <url>http://bart.guijt.me/</url>
+    <protected>false</protected>
+    <followers_count>116</followers_count>
+    <profile_background_color>5A0E56</profile_background_color>
+    <profile_text_color>000000</profile_text_color>
+    <profile_link_color>0000ff</profile_link_color>
+    <profile_sidebar_fill_color>e0ff92</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>87bc44</profile_sidebar_border_color>
+    <friends_count>130</friends_count>
+    <created_at>Tue Mar 25 20:58:39 +0000 2008</created_at>
+    <favourites_count>3</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Amsterdam</time_zone>
+    <profile_background_image_url>http://static.twitter.com/images/themes/theme1/bg.gif</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <statuses_count>516</statuses_count>
+    <notifications></notifications>
+    <verified>false</verified>
+    <following></following>
+  </user>
+</status>
+</statuses>
