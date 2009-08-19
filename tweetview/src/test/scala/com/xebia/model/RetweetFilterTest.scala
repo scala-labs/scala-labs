@@ -14,7 +14,9 @@ class RetweetFilterTest {
 
 	@Test def filter = {
 		assertEquals(20, twitterTimeline.numberOfStatuses)
+
 		val filteredStatuses = RetweetFilter.filter(twitterTimeline)
+
 		assertEquals(18, filteredStatuses.numberOfStatuses)
 	}
 }

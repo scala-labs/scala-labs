@@ -7,6 +7,10 @@
 
 package com.xebia.model
 
+
+import com.xebia.config._
+
+import _root_.scala.xml.XML
 import _root_.net.liftweb.util._
 import _root_.org.apache.commons.httpclient._
 import _root_.org.apache.commons.httpclient.methods._
@@ -27,7 +31,7 @@ class OnlineTwitter extends TwitterApi {
 		TwitterTimeline.fromXML(XML.loadString(new String(method.getResponseBody())))
     }
 
-    def userTimeline(user:User): TwitterTimeline = {
+    def userTimeline(user:TweetviewUser): TwitterTimeline = {
         val userTimelineURL = "http://www.twitter.com/status/user_timeline/" + user.userId + ".xml"
         println("Getting timeline for: " + userTimelineURL)
 		//        val defaultcreds = new UsernamePasswordCredentials(user.email, user.password);

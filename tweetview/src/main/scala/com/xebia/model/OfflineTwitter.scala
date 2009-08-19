@@ -1,5 +1,6 @@
 package com.xebia.model
 
+import com.xebia.config._
 import _root_.scala.xml.XML
 import _root_.net.liftweb.util._
 
@@ -10,5 +11,6 @@ class OfflineTwitter extends TwitterApi {
 		TwitterTimeline.fromXML(xml)
     }
 
-    def userTimeline(user:User): TwitterTimeline = publicTimeline
+    def userTimeline(user:TweetviewUser): TwitterTimeline = publicTimeline
+
 }

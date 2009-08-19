@@ -1,8 +1,11 @@
 package com.xebia.model
+import com.xebia.config._
 
 trait TwitterApi {
 
     def publicTimeline: TwitterTimeline;
 
-    def userTimeline(user: User): TwitterTimeline;
+
+    def userTimeline(user: TweetviewUser): TwitterTimeline;
+
 }

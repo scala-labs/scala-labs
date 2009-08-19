@@ -7,8 +7,11 @@ import net.liftweb.sitemap.Loc._
 import net.liftweb.util.Helpers._
 import net.liftweb.mapper.{DB, ConnectionManager, Schemifier, DefaultConnectionIdentifier, ConnectionIdentifier}
 import java.sql.{Connection, DriverManager}
-import com.xebia.model._
 import javax.servlet.http.{HttpServletRequest}
+import _root_.com.xebia.model._
+import _root_.com.xebia.config._
+import LoginState._
+
 
 
 /**
@@ -55,6 +58,8 @@ class Boot {
 
 
 //    S.addAround(DB.buildLoanWrapper)
+     LiftSession.onBeginServicing = LoginState.onBeginServicing _  :: LiftSession.onBeginServicing
+
   }
 
   /**
