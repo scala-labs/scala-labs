@@ -78,6 +78,15 @@ class SecondExerciseTest extends JUnit3Suite {
         }
     }
 
+    def testFindFriendsThatAreAlsoFollowers() {
+        val followers = getFollowers()
+
+        println("Followers: " + followers.mkString("\n", "\n", ""))
+
+        println(getFriends.filter(followers.contains(_)))
+        println(getFriends.intersect(followers))
+    }
+
 
         // Bonus: there are (at least) two ways to add these methods to the List itself. Implement them.
 
