@@ -33,9 +33,6 @@ class SecondExerciseBonusTest extends JUnit3Suite {
     // The tests
     // ========================================================================
 
-    // the implicit conversion
-    import TwitterUsersBonus._
-
 	def testFindPopularFriends() {
         // TwitterUsers are popular if they have at least 2000 followers
         expect(10) {
@@ -77,7 +74,7 @@ class SecondExerciseBonusTest extends JUnit3Suite {
     // Hint: you might want to implement equals and hashcode for this one
     def testFindFriendsThatAreAlsoFollowers() {
         expect(10) {
-            TwitterUsers.thatAreInBothLists(getFriends, getFollowers).size
+            getFriends.thatAreAlsoIn(getFollowers).size
         }
     }
 
