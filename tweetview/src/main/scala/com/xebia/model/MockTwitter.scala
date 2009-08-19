@@ -6,6 +6,7 @@
  */
 
 package com.xebia.model
+import com.xebia.config._
 
 class MockTwitter extends TwitterApi {
 
@@ -13,7 +14,7 @@ class MockTwitter extends TwitterApi {
       createStatus(1L, 1L, "piet")::createStatus(2L, 2L, "klaas")::Nil
     }
 
-    def userTimeline(user:User):Seq[TwitterStatus] = {
+    def userTimeline(user:TweetviewUser):Seq[TwitterStatus] = {
         Nil
     }
 

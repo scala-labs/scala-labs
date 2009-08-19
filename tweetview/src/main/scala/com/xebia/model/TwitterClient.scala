@@ -14,7 +14,7 @@ class TwitterClient(env: {val twitter:TwitterApi}) {
     }
 
 
-    def userTimeLine(user:User):Seq[TwitterStatus] = {
+    def userTimeLine(user:TweetviewUser):Seq[TwitterStatus] = {
         env.twitter.userTimeline(user)
     }
 }

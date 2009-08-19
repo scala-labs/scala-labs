@@ -6,10 +6,11 @@
  */
 
 package com.xebia.model
+import com.xebia.config._
 
 trait TwitterApi {
 
     def publicTimeline():Seq[TwitterStatus];
 
-    def userTimeline(user:User):Seq[TwitterStatus];
+    def userTimeline(user:TweetviewUser):Seq[TwitterStatus];
 }
