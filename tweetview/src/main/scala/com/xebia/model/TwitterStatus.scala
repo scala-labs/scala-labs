@@ -1,10 +1,3 @@
-/*
- * TwitterStatus.scala
- *
- * To change this template, choose Tools | Template Manager
- * and open the template in the editor.
- */
-
 package com.xebia.model
 
 abstract class TwitterStatus {
@@ -17,8 +10,6 @@ abstract class TwitterStatus {
 	val inReplyToUserId : Option[Long]
 	val favorited : Boolean
 	val user : TwitterUser
-
-	def isRetweet = 999L == id
 
 	override def toString = {
 		val sb = new StringBuilder("TwitterStatus(")
@@ -34,7 +25,6 @@ abstract class TwitterStatus {
 		sb.toString
 	}
 }
-
 
 /**
  * Object wrapper for transforming (format) into Status instances.
