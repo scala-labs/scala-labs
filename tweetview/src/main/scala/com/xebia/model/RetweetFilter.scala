@@ -18,6 +18,13 @@ object RetweetFilter extends TweetFilter {
 		case _ => status
 	}
 
+	// question: why do retweets all have the same id ? For now, I would suggest reusing the first id
+
+	// alternate impl: put ReTweet subclasses into the list and then call list.removeDuplicates with
+    // the equals/hashcode implementation looking for text equality, that way you don't need to keep an extra set
+
+    // if you DO use the empty set, why is it passed into the method ? I don't see where else it is being used
+
 	private def notDuplicateRetweets(status: TwitterStatus, retweetTexts: Set[String]) = {
 		if (status.isRetweet) {
 			if (retweetTexts.contains(statusTextForComparison(status))) false
@@ -29,5 +36,6 @@ object RetweetFilter extends TweetFilter {
 		else true
 	}
 
+	// removed whitespace
 	private def statusTextForComparison(status: TwitterStatus) = status.text.replaceAll("""\s""", "")
 }
