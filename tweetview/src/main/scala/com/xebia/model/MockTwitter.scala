@@ -9,17 +9,16 @@ package com.xebia.model
 
 class MockTwitter extends TwitterApi {
 
-    def publicTimeline():Seq[TwitterStatus] = {
-      createStatus(1L, 1L, "piet")::createStatus(2L, 2L, "klaas")::Nil
+    def publicTimeline: TwitterTimeline = {
+		new TwitterTimeline(createStatus(1L, 1L, "piet") :: createStatus(2L, 2L, "klaas") :: Nil)
     }
 
-    def userTimeline(user:User):Seq[TwitterStatus] = {
-        Nil
+    def userTimeline(user:User): TwitterTimeline = {
+        new TwitterTimeline(List[TwitterStatus]())
     }
 
 
-    def createStatus(statusId:Long, userId:Long, userName:String):TwitterStatus = {
-        val status:TwitterStatus = new TwitterStatus {
+    def createStatus(statusId: Long, userId: Long, userName: String): TwitterStatus = new TwitterStatus {
         val createdAt = "20090601"
         val id = statusId
         val text = "mockText"
@@ -37,7 +36,5 @@ class MockTwitter extends TwitterApi {
             val followers_count = 3
             val statuses_count = 2
         }     
-     }
-     status
-    }
+	}
 }
