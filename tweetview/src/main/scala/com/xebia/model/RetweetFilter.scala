@@ -10,7 +10,7 @@ object RetweetFilter extends TweetFilter {
 
 	def filter(timeline: TwitterTimeline): TwitterTimeline = {
 		var retweetTexts = Set.empty[String]
-		new TwitterTimeline(timeline.statuses.map(transformRetweetIfPossible(_)).filter(notDuplicateRetweets(_, retweetTexts)))
+		new TwitterTimeline(removeDuplicateStatuses(timeline.statuses.map(transformRetweetIfPossible(_))))
 	}
 
 	private def transformRetweetIfPossible(status: TwitterStatus) = status.text match {
@@ -18,16 +18,16 @@ object RetweetFilter extends TweetFilter {
 		case _ => status
 	}
 
-	private def notDuplicateRetweets(status: TwitterStatus, retweetTexts: Set[String]) = {
-		if (status.isRetweet) {
-			if (retweetTexts.contains(statusTextForComparison(status))) false
-			else {
-				retweetTexts += statusTextForComparison(status)
-				true
-			}
-		}
-		else true
-	}
+    private def removeDuplicateStatuses (statuses: List[TwitterStatus]): List[TwitterStatus] = {
+        if (statuses.isEmpty)
+            statuses
+        else
+            statuses.head :: removeDuplicateStatuses(statuses.tail.filter(notSameText(_, statuses.head)))
+    }
 
-	private def statusTextForComparison(status: TwitterStatus) = status.text.replaceAll("""\s""", "")
+    private def notSameText(status1: TwitterStatus, status2: TwitterStatus) ={
+        processTextForComparison(status1.text) != processTextForComparison(status2.text)
+    }
+
+	private def processTextForComparison(text: String) = text.replaceAll("""\s""", "")
 }
