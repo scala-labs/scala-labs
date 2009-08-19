@@ -45,4 +45,5 @@ object RetweetFilter extends TweetFilter {
 
 	private def processTextForComparison(text: String) = text.replaceAll("""\s""", "")
 
+
 }
