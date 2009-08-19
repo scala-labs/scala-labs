@@ -1,5 +1,6 @@
 package com.xebia.itr.scala
 
+
 object TwitterUsers {
 
     def thatArePopular(input: List[TwitterUser]): List[TwitterUser] = {
@@ -30,4 +31,21 @@ object TwitterUsers {
     private def compareByFollowersCount(firstUser: TwitterUser, secondUser: TwitterUser): Boolean = {
        firstUser.followersCount > secondUser.followersCount
     }
+}
+
+
+// ============================================================================
+// Bonus implementation
+// ============================================================================
+
+object TwitterUsersBonus {
+    implicit def listToTwitterUsers(users: List[TwitterUser]): TwitterUsersBonus = new TwitterUsersBonus(users)
+}
+
+class TwitterUsersBonus(val users: List[TwitterUser]) {
+    def thatArePopular() = TwitterUsers.thatArePopular(users)
+    def thatArePopularByScreenName(): List[String] = TwitterUsers.thatArePopularByScreenName(users)
+    def thatArePopularByScreenNameSortedbyPopularity(): List[String] = TwitterUsers.thatArePopularByScreenNameSortedbyPopularity(users)
+    def thatArePopularByScreenNameAndPopularitySortedbyPopularity = TwitterUsers.thatArePopularByScreenNameAndPopularitySortedbyPopularity(users)
+    def thatAreAlsoIn(otherUsers: List[TwitterUser]) = TwitterUsers.thatAreInBothLists(users, otherUsers)
 }

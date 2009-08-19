@@ -11,16 +11,13 @@ import org.scalatest.junit.JUnit3Suite
 
 
 /*
- * Exercise 2: The almighty List
+ * Exercise 2: Collect your bonus !
  *
- * This exercise will let you experiment with the Scala List class and its
- * many methods. As input we will use one or more instances of List[TwitterUser]
- *
- * Your assignment is to implement the methods of the TwitterUsers
- * object tested below. An empty implementation is available as a starting
- * point.
+ * This exercise is pretty much the same as before. All you need to do is to use an implicit
+ * conversion to make the below tests compile. All the methods from before are now called as
+ * if they were methods on the List class itself...
  */
-class SecondExerciseTest extends JUnit3Suite {
+class SecondExerciseBonusTest extends JUnit3Suite {
     private def getFriends(): List[TwitterUser] = loadUsersFromXml("/friends.xml")
     private def getFollowers(): List[TwitterUser] = loadUsersFromXml("/followers.xml")
 
@@ -36,28 +33,26 @@ class SecondExerciseTest extends JUnit3Suite {
     // The tests
     // ========================================================================
 
+    // the implicit conversion
+    import TwitterUsersBonus._
+
 	def testFindPopularFriends() {
         // TwitterUsers are popular if they have at least 2000 followers
         expect(10) {
-            TwitterUsers.thatArePopular(getFriends()).size
+            getFriends.thatArePopular.size
         }
     }
 
     def testFindScreenNamesOfPopularFriends() {
-        // Imports can appear all over your code. This is a local import that also
-        // includes an alias (sometimes handy to prevent name-clashes but used here
-        // simply because we can).
-       import scala.{TwitterUsers => Friends}
-
         expect(List("headius", "twitterapi", "stephenfry", "macrumors", "spolsky", "martinfowler", "WardCunningham", "unclebobmartin", "pragdave", "KentBeck")) {
-            Friends.thatArePopularByScreenName(getFriends)
+            getFriends thatArePopularByScreenName
         }
     }
 
     // the same List[String] as last time but now sorted by followersCount (highest first)
     def testFindScreenNamesOfPupularFriendsSortedByPopularity() {
         expect(List("stephenfry", "macrumors", "twitterapi", "spolsky", "martinfowler", "KentBeck", "unclebobmartin", "pragdave", "WardCunningham", "headius")) {
-            TwitterUsers.thatArePopularByScreenNameSortedbyPopularity(getFriends)
+            getFriends thatArePopularByScreenNameSortedbyPopularity
         }
     }
 
@@ -75,7 +70,7 @@ class SecondExerciseTest extends JUnit3Suite {
                  ("WardCunningham",4423),
                  ("headius",       2378))
         ) {
-            TwitterUsers.thatArePopularByScreenNameAndPopularitySortedbyPopularity(getFriends)
+            getFriends thatArePopularByScreenNameAndPopularitySortedbyPopularity
         }
     }
 
