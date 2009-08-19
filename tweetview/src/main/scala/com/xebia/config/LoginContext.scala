@@ -24,9 +24,7 @@ object LoginState {
 
   def logUserIn(u: TweetviewUser) {    
     primaryKey.set(Full(u.userId))
-    println("Setting user: " + u)
     currentUser.set(Full(u))
-    println("currentUser.is" + currentUser.is)
   }
 
   def logUserOut() {

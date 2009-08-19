@@ -6,13 +6,11 @@ import _root_.net.liftweb.util._
 
 class OfflineTwitter extends TwitterApi {
 
-    def publicTimeline():Seq[TwitterStatus] = {
+    def publicTimeline: TwitterTimeline = {
         val xml = XML.load(this.getClass.getResourceAsStream("/timeline-with-multiple-retweets.xml"))
-        val statuses = xml \\ "status"
-        statuses.elements.toList.map(s => TwitterStatus.fromXml(s))
+		TwitterTimeline.fromXML(xml)
     }
 
-    def userTimeline(user:TweetviewUser):Seq[TwitterStatus] = {
-        publicTimeline()
-    }
+    def userTimeline(user:TweetviewUser): TwitterTimeline = publicTimeline
+
 }

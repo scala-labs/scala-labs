@@ -25,7 +25,7 @@ class TwitterCometActor extends CometActor {
 
 
     def render = {
-        val entries = TwitterClient.client.publicTimeLine 
+        val entries = TwitterClient.client.publicTimeLine.statuses
         bind("time" -> timeSpan,
              "entry" -> <ol>{entries.flatMap(statusView _)}</ol>
         )
