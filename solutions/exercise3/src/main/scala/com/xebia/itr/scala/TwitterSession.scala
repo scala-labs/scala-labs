@@ -16,6 +16,7 @@ object TwiterApiUrls {
     val friendsTimelineUrl                  = "http://twitter.com/statuses/friends_timeline.xml"
     def userTimelineUrl(screenName: String) = "http://www.twitter.com/status/user_timeline/" + screenName + ".xml"
     val friendsUrl                          = "http://www.twitter.com/statuses/friends.xml"
+    val statusUpdateUrl                     = "http://twitter.com/statuses/update.xml"
 }
 
 
@@ -109,6 +110,14 @@ class AuthenticatedSession(val userName: String, password: String) extends Unaut
         mapToUsers(getXml(friendsUrl))
     }
 
+    def tweet(text: String): TwitterStatus = {
+        val response = httpPost(statusUpdateUrl, Map("status" -> text))
+
+        println("response = " + response)
+
+        TwitterStatus(XML.loadString(response))
+    }
+
 
     // ========================================================================
     // Implementation details
@@ -118,16 +127,29 @@ class AuthenticatedSession(val userName: String, password: String) extends Unaut
         println("Authenticated get of " + url)
 
         val http = new HttpClient()
-        val method = new GetMethod(url)
+        val get = new GetMethod(url)
+
+        get.setDoAuthentication(true)
+        get.getParams().setParameter(COOKIE_POLICY, IGNORE_COOKIES)
 
         http.getState().setCredentials(ANY, new UsernamePasswordCredentials(userName, password))
+        http.executeMethod(get)
 
-        method.setDoAuthentication(true)
-        method.getParams().setParameter(COOKIE_POLICY, IGNORE_COOKIES)
+        new String(get.getResponseBody())
+    }
 
-        http.executeMethod(method)
+    def httpPost(url: String, parameters: Map[String, String]): String = {
+        val http = new HttpClient()
+        val post = new PostMethod(url)
 
-        new String(method.getResponseBody())
+//        parameters.foreach {case (name, value) => post.addParameter(name, value)}
+
+        for ((name, value) <- parameters) post.addParameter(name, value)
+
+        http.getState().setCredentials(ANY, new UsernamePasswordCredentials(userName, password))
+        http.executeMethod(post)
+
+        post.getResponseBodyAsString
     }
 
     protected def mapToUsers(xml: Node): TwitterUsers = {
