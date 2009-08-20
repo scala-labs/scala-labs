@@ -21,7 +21,7 @@ class TwitterTimeline {
 
     def showUser (xhtml : NodeSeq) : NodeSeq = {
         val user:TweetviewUser = LoginState.currentUser.openOr(DummyUser.dummy)
-        bindEntries(xhtml, TwitterClient.client.userTimeLine(user).statuses)
+        bindEntries(xhtml, filter(TwitterClient.client.userTimeLine(user)).statuses)
     }
 
     def bindEntries(xhtml : NodeSeq, statusSeq:Seq[TwitterStatus]) : NodeSeq = {
@@ -37,14 +37,14 @@ class TwitterTimeline {
 		bind("status", xhtml, "entry" -> entries)
     }
 
-
     private def filter(timeline: com.xebia.model.TwitterTimeline): com.xebia.model.TwitterTimeline = {
         S.param("filter") match {
+            // ADD YOUR OWN FILTERS HERE
+            // The HTTP param contains the filter name, in this case "retweet_filter"
             case Full("retweet_filter") => RetweetFilter.filter(timeline)
             case _ => timeline
         }
     }
-
 }
 
 
