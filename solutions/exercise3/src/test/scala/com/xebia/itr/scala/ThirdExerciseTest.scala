@@ -1,5 +1,7 @@
 package com.xebia.itr.scala
 
+import _root_.scala.util.Random
+
 import org.scalatest._
 import org.scalatest.junit.JUnit3Suite
 
@@ -15,7 +17,6 @@ import org.scalatest.junit.JUnit3Suite
  * HttpClient. The boring http requst stuff has already been done so you can
  * concentrate on the good stuff.
  *
- *
  * Hints:
  *
  * - All classes that implement the Iterable[T] trait can be treated as any
@@ -23,7 +24,17 @@ import org.scalatest.junit.JUnit3Suite
  *
  * Bonus:
  *
- * - implement tweeting (i.e. post tweets to twitter) and test that the tweet shows up in your timeline.
+ * - implement tweeting (i.e. post tweets to twitter). Posting a tweet returns
+ *   the xml for the tweet you posted so a good API for tweet would be:
+ *
+ *   def tweet(text: String): TwitterStatus
+ *
+ *   The Twitter API docs for posting a status update are here:
+ *
+ *   http://apiwiki.twitter.com/Twitter-REST-API-Method%3A-statuses%C2%A0update
+ *
+ *   Note: Twitter will ignore duplicate tweets !!!
+ *         Your tweets must be unique so use scala.util.Random !
  *
  */
 class ThirdExerciseTest extends JUnit3Suite {
@@ -51,14 +62,14 @@ class ThirdExerciseTest extends JUnit3Suite {
         expect(true) {friendsTimeline.forall(_.user != null)}
     }
 
-    def testFriendsTimelineShouldOnlyContainTweetsByFriends {
+    def testFriendsTimelineShouldOnlyContainTweetsByFriendsOrByMyself {
         val twitter:AuthenticatedSession = TwitterSession(testAccountUsername, testAccountPassword)
 
         val friendsTimeline = twitter.friendsTimeline
         val friends:TwitterUsers = twitter.friends
 
         expect(20) {friendsTimeline.toList.size}
-        expect(true) {friendsTimeline.forall(tweet => friends.exists(_ == tweet.user))}
+        expect(true) {friendsTimeline.forall(tweet => friends.exists(_ == tweet.user) || testAccountUsername == tweet.user.screenName)}
     }
 
     def testUserTimelineWithoutAuthentication {
@@ -73,6 +84,19 @@ class ThirdExerciseTest extends JUnit3Suite {
         val userTimeline:TwitterTimeline = twitter.userTimeline
 
         expect(true) {userTimeline.forall(_.user.screenName == testAccountUsername)}
+    }
+
+    // Bonus exercise !!!
+
+    def testTweet() {
+        val twitter:AuthenticatedSession = TwitterSession(testAccountUsername, testAccountPassword)
+        val baseText = "Yet another test tweet from a #Scala unit test. Let's include a random number: "
+        val random = new Random
+
+        val tweet = twitter.tweet(baseText + random.nextLong);
+
+        expect(testAccountUsername) {tweet.user.screenName}
+        expect(true) {tweet.text.contains(baseText)}
     }
 
 }
