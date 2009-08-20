@@ -1,0 +1,882 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<statuses type="array">
+<status>
+  <created_at>Fri Aug 14 14:39:48 +0000 2009</created_at>
+  <id>3308469765</id>
+  <text>Support Baki_stan Islamic Republic, add a #twibbon to your avatar now! - http://bit.ly/1ahYrM</text>
+  <source>&lt;a href="http://twibbon.com" rel="nofollow"&gt;Twibbon&lt;/a&gt;</source>
+
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>19524095</id>
+
+    <name>Mullah Suaruddin</name>
+    <screen_name>napaki</screen_name>
+    <location>Land of the pure</location>
+    <description>A Jihadi who is promised 72 houris and 28 peach bottomed boys in the after-life.</description>
+    <profile_image_url>http://a3.twimg.com/profile_images/362305733/twitterProfilePhoto_normal.jpg</profile_image_url>
+    <url>http://www.napaki.co.cc/</url>
+
+    <protected>false</protected>
+    <followers_count>116</followers_count>
+    <profile_background_color>ffffff</profile_background_color>
+    <profile_text_color>000000</profile_text_color>
+    <profile_link_color>ff0000</profile_link_color>
+    <profile_sidebar_fill_color>ffffff</profile_sidebar_fill_color>
+
+    <profile_sidebar_border_color>ffffff</profile_sidebar_border_color>
+    <friends_count>155</friends_count>
+    <created_at>Mon Jan 26 07:35:11 +0000 2009</created_at>
+    <favourites_count>0</favourites_count>
+    <utc_offset>18000</utc_offset>
+    <time_zone>Karachi</time_zone>
+
+    <profile_background_image_url>http://s.twimg.com/a/1250203207/images/themes/theme1/bg.gif</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <statuses_count>535</statuses_count>
+    <notifications></notifications>
+    <verified>false</verified>
+    <following></following>
+  </user>
+
+</status>
+<status>
+  <created_at>Fri Aug 14 14:39:48 +0000 2009</created_at>
+  <id>3308469763</id>
+  <text>Tell me where you wanna go tell me where you wanna be....</text>
+  <source>&lt;a href="http://apiwiki.twitter.com/" rel="nofollow"&gt;API&lt;/a&gt;</source>
+  <truncated>false</truncated>
+
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>62994630</id>
+    <name>Hot booty Anna</name>
+
+    <screen_name>girlsarenice</screen_name>
+    <location>In bed with...</location>
+    <description>Fresh news about models now</description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/348627285/canvas_normal.png</profile_image_url>
+    <url>http://bit.ly/13TLZ5</url>
+    <protected>false</protected>
+
+    <followers_count>243</followers_count>
+    <profile_background_color>ffffff</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>ffccf4</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>BDDCAD</profile_sidebar_border_color>
+
+    <friends_count>267</friends_count>
+    <created_at>Wed Aug 05 01:41:42 +0000 2009</created_at>
+    <favourites_count>0</favourites_count>
+    <utc_offset>-10800</utc_offset>
+    <time_zone>Greenland</time_zone>
+    <profile_background_image_url>http://s3.amazonaws.com/twitter_production/profile_background_images/27684082/29425_background.jpg</profile_background_image_url>
+
+    <profile_background_tile>false</profile_background_tile>
+    <statuses_count>937</statuses_count>
+    <notifications></notifications>
+    <verified>false</verified>
+    <following></following>
+  </user>
+</status>
+<status>
+
+  <created_at>Fri Aug 14 14:39:48 +0000 2009</created_at>
+  <id>3308469755</id>
+  <text>please USA the poor deserve to have health care it is a right it should not be a priviliage</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>39769326</id>
+    <name>UKEducation</name>
+    <screen_name>lovedud</screen_name>
+
+    <location></location>
+    <description>just giving opinions and advice on education espeicaly to do with university</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/362129766/twitterProfilePhoto_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>32</followers_count>
+    <profile_background_color>9AE4E8</profile_background_color>
+
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDFFCC</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>BDDCAD</profile_sidebar_border_color>
+    <friends_count>37</friends_count>
+    <created_at>Wed May 13 15:14:55 +0000 2009</created_at>
+
+    <favourites_count>1</favourites_count>
+    <utc_offset>0</utc_offset>
+    <time_zone>London</time_zone>
+    <profile_background_image_url>http://static.twitter.com/images/themes/theme1/bg.gif</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <statuses_count>306</statuses_count>
+
+    <notifications></notifications>
+    <verified>false</verified>
+    <following></following>
+  </user>
+</status>
+<status>
+  <created_at>Fri Aug 14 14:39:48 +0000 2009</created_at>
+  <id>3308469754</id>
+
+  <text>@gisamauliina eehhhh controolll dooongg beb...aku jg td mam nasi uduk n bebek goreng d tebet...enaaakkkk beneeeerr!!hihihi</text>
+  <source>&lt;a href="http://ubertwitter.com" rel="nofollow"&gt;UberTwitter&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id>3306753875</in_reply_to_status_id>
+  <in_reply_to_user_id>65272928</in_reply_to_user_id>
+
+  <favorited>false</favorited>
+  <in_reply_to_screen_name>gisamauliina</in_reply_to_screen_name>
+  <user>
+    <id>65275668</id>
+    <name>putri larissa</name>
+    <screen_name>putrilarissa</screen_name>
+
+    <location>&#220;T: -6.476903,106.838931</location>
+    <description></description>
+    <profile_image_url>http://a1.twimg.com/profile_images/360032838/editan_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>9</followers_count>
+    <profile_background_color>FF6699</profile_background_color>
+
+    <profile_text_color>362720</profile_text_color>
+    <profile_link_color>B40B43</profile_link_color>
+    <profile_sidebar_fill_color>E5507E</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>CC3366</profile_sidebar_border_color>
+    <friends_count>21</friends_count>
+    <created_at>Thu Aug 13 04:35:45 +0000 2009</created_at>
+
+    <favourites_count>0</favourites_count>
+    <utc_offset></utc_offset>
+    <time_zone></time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/29088289/hello_kitty_5.jpg</profile_background_image_url>
+    <profile_background_tile>true</profile_background_tile>
+    <statuses_count>33</statuses_count>
+    <notifications></notifications>
+
+    <verified>false</verified>
+    <following></following>
+  </user>
+</status>
+<status>
+  <created_at>Fri Aug 14 14:39:48 +0000 2009</created_at>
+  <id>3308469750</id>
+  <text>liking the look of @joeyroth's new ceramic speakers http://bit.ly/4XxnT love the sorapot and felt mouse too</text>
+
+  <source>&lt;a href="http://www.atebits.com/" rel="nofollow"&gt;Tweetie&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+
+  <user>
+    <id>18380089</id>
+    <name>William Peng</name>
+    <screen_name>wpeng</screen_name>
+    <location>NYC / Princeton, NJ / MD</location>
+    <description>Princeton finance student, Analyst VC at RRE Ventures, web designer, ice cream connoisseur</description>
+
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/286359721/profile1_normal.jpg</profile_image_url>
+    <url>http://williampeng.com</url>
+    <protected>false</protected>
+    <followers_count>258</followers_count>
+    <profile_background_color>2b458b</profile_background_color>
+    <profile_text_color>3d3d3d</profile_text_color>
+
+    <profile_link_color>2e509d</profile_link_color>
+    <profile_sidebar_fill_color>ceded9</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>bec6d0</profile_sidebar_border_color>
+    <friends_count>412</friends_count>
+    <created_at>Thu Dec 25 22:16:55 +0000 2008</created_at>
+    <favourites_count>65</favourites_count>
+
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://s3.amazonaws.com/twitter_production/profile_background_images/5508355/black.png</profile_background_image_url>
+    <profile_background_tile>true</profile_background_tile>
+    <statuses_count>1157</statuses_count>
+
+    <notifications></notifications>
+    <verified>false</verified>
+    <following></following>
+  </user>
+</status>
+<status>
+  <created_at>Fri Aug 14 14:39:48 +0000 2009</created_at>
+  <id>3308469747</id>
+
+  <text>BK ALL DAY!! ITS FRIDAY ..TIME 2 PLAY..;-p</text>
+  <source>&lt;a href="http://twitterhelp.blogspot.com/2008/05/twitter-via-mobile-web-mtwittercom.html" rel="nofollow"&gt;mobile web&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>36381899</id>
+    <name>Renee M. Sarrocco</name>
+    <screen_name>MiiSSBoSSY</screen_name>
+    <location>Queens, New York</location>
+    <description>CARPE DIEM!!</description>
+
+    <profile_image_url>http://a3.twimg.com/profile_images/299280383/me_normal.jpg</profile_image_url>
+    <url>http://Facebook: Renee Sarrocco Myspace:</url>
+    <protected>false</protected>
+    <followers_count>4</followers_count>
+    <profile_background_color>642D8B</profile_background_color>
+    <profile_text_color>3D1957</profile_text_color>
+
+    <profile_link_color>FF0000</profile_link_color>
+    <profile_sidebar_fill_color>7AC3EE</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>65B0DA</profile_sidebar_border_color>
+    <friends_count>2</friends_count>
+    <created_at>Wed Apr 29 15:18:17 +0000 2009</created_at>
+    <favourites_count>0</favourites_count>
+
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1250203207/images/themes/theme10/bg.gif</profile_background_image_url>
+    <profile_background_tile>true</profile_background_tile>
+    <statuses_count>40</statuses_count>
+
+    <notifications></notifications>
+    <verified>false</verified>
+    <following></following>
+  </user>
+</status>
+<status>
+  <created_at>Fri Aug 14 14:39:48 +0000 2009</created_at>
+  <id>3308469746</id>
+
+  <text>@dpoedtke Oh YAY! I'm rolling out at 3 or 4!</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id>25868520</in_reply_to_user_id>
+  <favorited>false</favorited>
+
+  <in_reply_to_screen_name>dpoedtke</in_reply_to_screen_name>
+  <user>
+    <id>16935023</id>
+    <name>Katie Poedtke</name>
+    <screen_name>kpoedtke</screen_name>
+    <location>&#220;T: 33.990854,-84.098086</location>
+
+    <description>Student at Fordham University, President of the College Republicans, @FordhamCRs</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/349839050/madmen_icon_normal.jpg</profile_image_url>
+    <url>http://www.facebook.com/kpoedtke</url>
+    <protected>false</protected>
+    <followers_count>491</followers_count>
+    <profile_background_color>1A1B1F</profile_background_color>
+
+    <profile_text_color>666666</profile_text_color>
+    <profile_link_color>ebc319</profile_link_color>
+    <profile_sidebar_fill_color>252429</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>181A1E</profile_sidebar_border_color>
+    <friends_count>550</friends_count>
+    <created_at>Thu Oct 23 20:33:41 +0000 2008</created_at>
+
+    <favourites_count>1</favourites_count>
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1250203207/images/themes/theme9/bg.gif</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+
+    <statuses_count>931</statuses_count>
+    <notifications></notifications>
+    <verified>false</verified>
+    <following></following>
+  </user>
+</status>
+<status>
+  <created_at>Fri Aug 14 14:39:48 +0000 2009</created_at>
+
+  <id>3308469745</id>
+  <text>Ummmm lol :D RT @howiemmandel No air conditioning last night..too hot to spoon.. Just forked and went to sleep</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>17687436</id>
+    <name>WestCoastGal88</name>
+    <screen_name>WestCoastGal88</screen_name>
+    <location>TEXAS!!</location>
+    <description>Conservative Classy Lady - Personal Chef [looking for p/t job] Organic healthy Living ~ Dale Jr Fan always ~ Luv Nascar &amp; my 2 dogs </description>
+
+    <profile_image_url>http://a3.twimg.com/profile_images/65843749/Car_88_Amp_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>502</followers_count>
+    <profile_background_color>8B542B</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+
+    <profile_link_color>9D582E</profile_link_color>
+    <profile_sidebar_fill_color>EADEAA</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>D9B17E</profile_sidebar_border_color>
+    <friends_count>774</friends_count>
+    <created_at>Thu Nov 27 20:10:36 +0000 2008</created_at>
+    <favourites_count>16</favourites_count>
+
+    <utc_offset>-25200</utc_offset>
+    <time_zone>Mountain Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/17390949/Whisky_River.jpg</profile_background_image_url>
+    <profile_background_tile>true</profile_background_tile>
+    <statuses_count>5315</statuses_count>
+
+    <notifications></notifications>
+    <verified>false</verified>
+    <following></following>
+  </user>
+</status>
+<status>
+  <created_at>Fri Aug 14 14:39:48 +0000 2009</created_at>
+  <id>3308469742</id>
+
+  <text>@ScottMuc he's timeless, scott. timeless.</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id>3300127838</in_reply_to_status_id>
+  <in_reply_to_user_id>4668371</in_reply_to_user_id>
+  <favorited>false</favorited>
+
+  <in_reply_to_screen_name>ScottMuc</in_reply_to_screen_name>
+  <user>
+    <id>19054309</id>
+    <name>Andrea Gin</name>
+    <screen_name>andreagin</screen_name>
+    <location>Vancouver, B.C. Canada</location>
+
+    <description>Senior producer at CBC Radio 3. Collector of knick-knacks, paddy-wacks.</description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/354425243/P1000775_normal.jpg</profile_image_url>
+    <url>http://www.thefancy.ca</url>
+    <protected>false</protected>
+    <followers_count>476</followers_count>
+    <profile_background_color>BADFCD</profile_background_color>
+
+    <profile_text_color>0C3E53</profile_text_color>
+    <profile_link_color>FF0000</profile_link_color>
+    <profile_sidebar_fill_color>FFF7CC</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>F2E195</profile_sidebar_border_color>
+    <friends_count>629</friends_count>
+    <created_at>Fri Jan 16 04:13:39 +0000 2009</created_at>
+
+    <favourites_count>2</favourites_count>
+    <utc_offset>-28800</utc_offset>
+    <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://static.twitter.com/images/themes/theme12/bg.gif</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+
+    <statuses_count>124</statuses_count>
+    <notifications></notifications>
+    <verified>false</verified>
+    <following></following>
+  </user>
+</status>
+<status>
+  <created_at>Fri Aug 14 14:39:48 +0000 2009</created_at>
+
+  <id>3308469740</id>
+  <text>25-year old Heather Stephens was tackled to the floor by security guards during the incident outside a 3rd floor courtroom.</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>21213091</id>
+    <name>KJAN Radio</name>
+    <screen_name>KJAN1220</screen_name>
+    <location>Atlantic, IA</location>
+    <description>Serving southwest Iowa since 1950 with local news, weather, sports, information and entertainment!</description>
+
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/79830977/logo_normal.gif</profile_image_url>
+    <url>http://www.kjan.com</url>
+    <protected>false</protected>
+    <followers_count>56</followers_count>
+    <profile_background_color>9ae4e8</profile_background_color>
+    <profile_text_color>000000</profile_text_color>
+
+    <profile_link_color>0000ff</profile_link_color>
+    <profile_sidebar_fill_color>e0ff92</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>87bc44</profile_sidebar_border_color>
+    <friends_count>3</friends_count>
+    <created_at>Wed Feb 18 16:43:16 +0000 2009</created_at>
+    <favourites_count>0</favourites_count>
+
+    <utc_offset>-21600</utc_offset>
+    <time_zone>Central Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://static.twitter.com/images/themes/theme1/bg.gif</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <statuses_count>466</statuses_count>
+
+    <notifications></notifications>
+    <verified>false</verified>
+    <following></following>
+  </user>
+</status>
+<status>
+  <created_at>Fri Aug 14 14:39:48 +0000 2009</created_at>
+  <id>3308469739</id>
+
+  <text>Hasn&#8217;t anyone ever told you? Life isn&#8217;t fair. . .</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>15045087</id>
+    <name>Devita Triwibawa</name>
+    <screen_name>devitrwb</screen_name>
+    <location>Indonesia</location>
+    <description>Love everything about beauty &amp; makeup</description>
+
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/316125327/46_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>53</followers_count>
+    <profile_background_color>352726</profile_background_color>
+    <profile_text_color>3E4415</profile_text_color>
+
+    <profile_link_color>D02B55</profile_link_color>
+    <profile_sidebar_fill_color>99CC33</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>829D5E</profile_sidebar_border_color>
+    <friends_count>25</friends_count>
+    <created_at>Sun Jun 08 07:12:46 +0000 2008</created_at>
+    <favourites_count>0</favourites_count>
+
+    <utc_offset>25200</utc_offset>
+    <time_zone>Jakarta</time_zone>
+    <profile_background_image_url>http://static.twitter.com/images/themes/theme5/bg.gif</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <statuses_count>44</statuses_count>
+    <notifications></notifications>
+
+    <verified>false</verified>
+    <following></following>
+  </user>
+</status>
+<status>
+  <created_at>Fri Aug 14 14:39:48 +0000 2009</created_at>
+  <id>3308469735</id>
+  <text>too much thinking will kill myself, yeah..</text>
+
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+
+    <id>50284218</id>
+    <name>Lawrence Yun</name>
+    <screen_name>music_nonstop</screen_name>
+    <location>Seoul, South Korea</location>
+    <description>Yearning for the life in America.</description>
+    <profile_image_url>http://a3.twimg.com/profile_images/354759225/JY_normal.JPG</profile_image_url>
+
+    <url>http://www.myspace.com/music_nonstop</url>
+    <protected>false</protected>
+    <followers_count>25</followers_count>
+    <profile_background_color>1A1B1F</profile_background_color>
+    <profile_text_color>666666</profile_text_color>
+    <profile_link_color>2FC2EF</profile_link_color>
+
+    <profile_sidebar_fill_color>252429</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>181A1E</profile_sidebar_border_color>
+    <friends_count>8</friends_count>
+    <created_at>Wed Jun 24 11:54:45 +0000 2009</created_at>
+    <favourites_count>9</favourites_count>
+    <utc_offset>32400</utc_offset>
+
+    <time_zone>Seoul</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1250203207/images/themes/theme9/bg.gif</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <statuses_count>419</statuses_count>
+    <notifications></notifications>
+    <verified>false</verified>
+
+    <following></following>
+  </user>
+</status>
+<status>
+  <created_at>Fri Aug 14 14:39:48 +0000 2009</created_at>
+  <id>3308469734</id>
+  <text>@Pattyfathead Welcome Sir!</text>
+  <source>web</source>
+
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id>65632931</in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name>Pattyfathead</in_reply_to_screen_name>
+  <user>
+    <id>14721480</id>
+
+    <name>Chris Culbertson</name>
+    <screen_name>chrisculbertson</screen_name>
+    <location>NW Chipman Rd &amp; NW Jacob D</location>
+    <description>I am really into learning right now. Anything and everything. Business and Technology def allow plenty of that. Let's talk!</description>
+    <profile_image_url>http://a3.twimg.com/profile_images/58306967/chris_normal.jpg</profile_image_url>
+
+    <url>http://ideasandangles.com</url>
+    <protected>false</protected>
+    <followers_count>619</followers_count>
+    <profile_background_color>9ae4e8</profile_background_color>
+    <profile_text_color>000000</profile_text_color>
+    <profile_link_color>0000ff</profile_link_color>
+
+    <profile_sidebar_fill_color>e0ff92</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>87bc44</profile_sidebar_border_color>
+    <friends_count>500</friends_count>
+    <created_at>Sat May 10 04:38:55 +0000 2008</created_at>
+    <favourites_count>17</favourites_count>
+    <utc_offset>-21600</utc_offset>
+
+    <time_zone>Central Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1250203207/images/themes/theme1/bg.gif</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <statuses_count>1562</statuses_count>
+    <notifications></notifications>
+    <verified>false</verified>
+
+    <following></following>
+  </user>
+</status>
+<status>
+  <created_at>Fri Aug 14 14:39:48 +0000 2009</created_at>
+  <id>3308469731</id>
+  <text>http://tinyurl.com/ntz26j -I don't want to wake up to an annoying alarm clock.~</text>
+  <source>&lt;a href="http://twitrobot.com" rel="nofollow"&gt;twitRobot&lt;/a&gt;</source>
+
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>61228272</id>
+
+    <name>Mineres</name>
+    <screen_name>Gaborme</screen_name>
+    <location>Salt Lake City</location>
+    <description>System Analyst. Living life to the fullest. Earning good online income.</description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/337892105/2_normal.jpg</profile_image_url>
+    <url>http://tinyurl.com/lfblnq</url>
+
+    <protected>false</protected>
+    <followers_count>304</followers_count>
+    <profile_background_color>9ae4e8</profile_background_color>
+    <profile_text_color>000000</profile_text_color>
+    <profile_link_color>0000ff</profile_link_color>
+    <profile_sidebar_fill_color>e0ff92</profile_sidebar_fill_color>
+
+    <profile_sidebar_border_color>87bc44</profile_sidebar_border_color>
+    <friends_count>963</friends_count>
+    <created_at>Wed Jul 29 16:01:27 +0000 2009</created_at>
+    <favourites_count>0</favourites_count>
+    <utc_offset>-21600</utc_offset>
+    <time_zone>Central Time (US &amp; Canada)</time_zone>
+
+    <profile_background_image_url>http://static.twitter.com/images/themes/theme1/bg.gif</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <statuses_count>296</statuses_count>
+    <notifications></notifications>
+    <verified>false</verified>
+    <following></following>
+  </user>
+
+</status>
+<status>
+  <created_at>Fri Aug 14 14:39:48 +0000 2009</created_at>
+  <id>3308469730</id>
+  <text>On my way 2 get finger printed. Hope my pass don't show up. Neway just saw Rosa acostas twit.  Funny as shi haaaa lol</text>
+  <source>&lt;a href="http://twitterhelp.blogspot.com/2008/05/twitter-via-mobile-web-mtwittercom.html" rel="nofollow"&gt;mobile web&lt;/a&gt;</source>
+  <truncated>false</truncated>
+
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>23426066</id>
+    <name>Brian Grullon</name>
+
+    <screen_name>Th3kd</screen_name>
+    <location>Dyckman City. New York</location>
+    <description>Music Artist From Dyckman City New York, Here 2 Bring A New Breath OF Fresh Air Back 2 Thes Times Muisc...Here 2 Give Ya Th3k!d...Get AT Me</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/353904234/l_cb3a7346db4668ffb00a850933a936d6_normal.jpg</profile_image_url>
+    <url>http://www.twitter.com/th3kd</url>
+    <protected>false</protected>
+
+    <followers_count>109</followers_count>
+    <profile_background_color>1A1B1F</profile_background_color>
+    <profile_text_color>666666</profile_text_color>
+    <profile_link_color>2FC2EF</profile_link_color>
+    <profile_sidebar_fill_color>252429</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>181A1E</profile_sidebar_border_color>
+
+    <friends_count>196</friends_count>
+    <created_at>Mon Mar 09 11:49:05 +0000 2009</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>-28800</utc_offset>
+    <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+
+    <profile_background_image_url>http://a1.twimg.com/profile_background_images/28269208/l_955a63474fabd498ddf47c21bc56513d.jpg</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <statuses_count>518</statuses_count>
+    <notifications></notifications>
+    <verified>false</verified>
+    <following></following>
+  </user>
+
+</status>
+<status>
+  <created_at>Fri Aug 14 14:39:49 +0000 2009</created_at>
+  <id>3308469729</id>
+  <text>@TheRealCrayolaR What hurt?</text>
+  <source>&lt;a href="http://www.tweetdeck.com/" rel="nofollow"&gt;TweetDeck&lt;/a&gt;</source>
+  <truncated>false</truncated>
+
+  <in_reply_to_status_id>3308394869</in_reply_to_status_id>
+  <in_reply_to_user_id>46664402</in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name>TheRealCrayolaR</in_reply_to_screen_name>
+  <user>
+    <id>23474221</id>
+
+    <name>Faham 'Psy' Katamba</name>
+    <screen_name>PsykoUk</screen_name>
+    <location>iPhone: 51.570953,0.121407</location>
+    <description>I Am The The Photographer, The Film Maker, The Prodigy, I Am Him! I Am The One</description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/356358326/2572_64288431089_545596089_2106692_3695497_n_normal.jpg</profile_image_url>
+    <url>http://psykouk.blogspot.com/</url>
+
+    <protected>false</protected>
+    <followers_count>287</followers_count>
+    <profile_background_color>9200f0</profile_background_color>
+    <profile_text_color>7722b9</profile_text_color>
+    <profile_link_color>c16eed</profile_link_color>
+    <profile_sidebar_fill_color>f6d5e4</profile_sidebar_fill_color>
+
+    <profile_sidebar_border_color>f2318b</profile_sidebar_border_color>
+    <friends_count>38</friends_count>
+    <created_at>Mon Mar 09 18:18:57 +0000 2009</created_at>
+    <favourites_count>6</favourites_count>
+    <utc_offset>0</utc_offset>
+    <time_zone>London</time_zone>
+
+    <profile_background_image_url>http://s3.amazonaws.com/twitter_production/profile_background_images/5379345/Faham_Katamba_-_MidiAndPsy_Rainbow_PhotoShoot.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <statuses_count>2580</statuses_count>
+    <notifications></notifications>
+    <verified>false</verified>
+    <following></following>
+  </user>
+
+</status>
+<status>
+  <created_at>Fri Aug 14 14:39:48 +0000 2009</created_at>
+  <id>3308469727</id>
+  <text>@neelaa selbst schon gelesen?</text>
+  <source>&lt;a href="http://twitterfon.net/" rel="nofollow"&gt;TwitterFon&lt;/a&gt;</source>
+  <truncated>false</truncated>
+
+  <in_reply_to_status_id>3308022886</in_reply_to_status_id>
+  <in_reply_to_user_id>3301471</in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name>neelaa</in_reply_to_screen_name>
+  <user>
+    <id>15451529</id>
+
+    <name>m.rader</name>
+    <screen_name>r8r</screen_name>
+    <location>linz, austria</location>
+    <description>Photography Music SocNet ProjectManagement WebDevelopment Int'l Consciousness TwinCities 50s K9soft.com | http://tra.kz/r8r</description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/56738502/100_0061_normal.JPG</profile_image_url>
+    <url>http://r8r.us</url>
+
+    <protected>false</protected>
+    <followers_count>186</followers_count>
+    <profile_background_color>FFFFFF</profile_background_color>
+    <profile_text_color>000000</profile_text_color>
+    <profile_link_color>000099</profile_link_color>
+    <profile_sidebar_fill_color>B7B7B7</profile_sidebar_fill_color>
+
+    <profile_sidebar_border_color>787878</profile_sidebar_border_color>
+    <friends_count>152</friends_count>
+    <created_at>Wed Jul 16 07:04:00 +0000 2008</created_at>
+    <favourites_count>12</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Vienna</time_zone>
+
+    <profile_background_image_url>http://s3.amazonaws.com/twitter_production/profile_background_images/22483454/r8r_bg_20090710.jpg</profile_background_image_url>
+    <profile_background_tile>true</profile_background_tile>
+    <statuses_count>2340</statuses_count>
+    <notifications></notifications>
+    <verified>false</verified>
+    <following></following>
+  </user>
+
+</status>
+<status>
+  <created_at>Fri Aug 14 14:39:48 +0000 2009</created_at>
+  <id>3308469721</id>
+  <text>#FF #followfriday @RiceBunny @disarmmusic @hailtotheeskimo @CraftyMariaD @crossstitcher @amethystdragon @paperleaf @korrok @elfinwear</text>
+  <source>web</source>
+  <truncated>false</truncated>
+
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>21715501</id>
+    <name>TOXILOX</name>
+
+    <screen_name>toxilox</screen_name>
+    <location>United Kingdom</location>
+    <description>Craftaholic; Dread Maker (for TOXILOX), Novelist , Knitter, Sewer and occasional Fashion and Accessory Designer. </description>
+    <profile_image_url>http://a3.twimg.com/profile_images/340387763/P1070195_normal.jpg</profile_image_url>
+    <url>http://shop.ebay.co.uk/merchant/ebishop24</url>
+    <protected>false</protected>
+
+    <followers_count>141</followers_count>
+    <profile_background_color>0099B9</profile_background_color>
+    <profile_text_color>3C3940</profile_text_color>
+    <profile_link_color>0099B9</profile_link_color>
+    <profile_sidebar_fill_color>95E8EC</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>5ED4DC</profile_sidebar_border_color>
+
+    <friends_count>42</friends_count>
+    <created_at>Tue Feb 24 01:13:31 +0000 2009</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>0</utc_offset>
+    <time_zone>London</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1250203207/images/themes/theme4/bg.gif</profile_background_image_url>
+
+    <profile_background_tile>false</profile_background_tile>
+    <statuses_count>662</statuses_count>
+    <notifications></notifications>
+    <verified>false</verified>
+    <following></following>
+  </user>
+</status>
+<status>
+
+  <created_at>Fri Aug 14 14:39:48 +0000 2009</created_at>
+  <id>3308469720</id>
+  <text>Mas ganhei at&#233; elogio: "Tatiane, sua t&#233;cnica est&#225; melhor que a de alguns profs. por a&#237;!" (Fina pra cara***!)</text>
+  <source>web</source>
+
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>51839657</id>
+
+    <name>Tatiane Menezes</name>
+    <screen_name>tatianemenezes</screen_name>
+    <location></location>
+    <description></description>
+    <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/310117241/DSC02459_normal.JPG</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+
+    <followers_count>18</followers_count>
+    <profile_background_color>9AE4E8</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDFFCC</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>BDDCAD</profile_sidebar_border_color>
+
+    <friends_count>29</friends_count>
+    <created_at>Sun Jun 28 20:51:17 +0000 2009</created_at>
+    <favourites_count>0</favourites_count>
+    <utc_offset>-10800</utc_offset>
+    <time_zone>Brasilia</time_zone>
+    <profile_background_image_url>http://static.twitter.com/images/themes/theme1/bg.gif</profile_background_image_url>
+
+    <profile_background_tile>false</profile_background_tile>
+    <statuses_count>120</statuses_count>
+    <notifications></notifications>
+    <verified>false</verified>
+    <following></following>
+  </user>
+</status>
+<status>
+
+  <created_at>Fri Aug 14 14:39:48 +0000 2009</created_at>
+  <id>3308469719</id>
+  <text>Am luat sala !in sfarsit am reusit sa gasesc sensu unor intrebari inventate de niste idioti(politistii)</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>64458940</id>
+    <name>Razvan Paraschiv</name>
+    <screen_name>RazvanParaschiv</screen_name>
+
+    <location>Bucharest</location>
+    <description>Sunt student la ASE si imi place voluntariatul</description>
+    <profile_image_url>http://a3.twimg.com/profile_images/355593085/scafandru_normal.JPG</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>10</followers_count>
+
+    <profile_background_color>9ae4e8</profile_background_color>
+    <profile_text_color>000000</profile_text_color>
+    <profile_link_color>0000ff</profile_link_color>
+    <profile_sidebar_fill_color>e0ff92</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>87bc44</profile_sidebar_border_color>
+    <friends_count>16</friends_count>
+
+    <created_at>Mon Aug 10 17:28:03 +0000 2009</created_at>
+    <favourites_count>0</favourites_count>
+    <utc_offset>7200</utc_offset>
+    <time_zone>Bucharest</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1250203207/images/themes/theme1/bg.gif</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+
+    <statuses_count>23</statuses_count>
+    <notifications></notifications>
+    <verified>false</verified>
+    <following></following>
+  </user>
+</status>
+</statuses>
+
