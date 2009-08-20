@@ -12,7 +12,7 @@ import org.scalatest.junit.JUnit3Suite
  * some API design.
  *
  * Your assignment is to implement the twitter API tested below on top of
- * HttpClient. The boring http requst stuff has already been done so you can
+ * HttpClient. The boring http request stuff has already been done so you can
  * concentrate on the good stuff.
  *
  *

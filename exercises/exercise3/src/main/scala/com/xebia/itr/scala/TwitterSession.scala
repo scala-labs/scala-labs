@@ -15,18 +15,12 @@ object TwiterApiUrls {
     val publicTimelineUrl                   = "http://twitter.com/statuses/public_timeline.xml"
     val friendsTimelineUrl                  = "http://twitter.com/statuses/friends_timeline.xml"
     def userTimelineUrl(screenName: String) = "http://www.twitter.com/status/user_timeline/" + screenName + ".xml"
-    def friendsUrl                          = "http://www.twitter.com/statuses/friends.xml"
+    val friendsUrl                          = "http://www.twitter.com/statuses/friends.xml"
 }
 
 
 object TwitterSession {
-    def apply(): UnauthenticatedSession = {
-        new UnauthenticatedSession()
-    }
 
-    def apply(user: String, password: String): AuthenticatedSession = {
-        new AuthenticatedSession(user,password)
-    }
 }
 
 
@@ -34,6 +28,7 @@ object TwitterSession {
 * The base class of both TwitterSession types
 */
 abstract class TwitterSession {
+    // an abstract method
     protected def httpGet(url: String): String
 }
 
@@ -49,15 +44,7 @@ abstract class TwitterSession {
  * <a href="http://groups.google.com/group/twitter-development-talk/web/api-documentation">Twitter API Doc</a>
  */
 class UnauthenticatedSession extends TwitterSession {
-    import TwiterApiUrls._
 
-    def publicTimeline(): TwitterTimeline = {
-        mapToTimeline(getXml(publicTimelineUrl))
-    }
-
-    def userTimeline(screenName: String): TwitterTimeline = {
-        mapToTimeline(getXml(userTimelineUrl(screenName)))
-    }
 
 
     // ========================================================================
@@ -76,14 +63,6 @@ class UnauthenticatedSession extends TwitterSession {
 
         new String(method.getResponseBody())
     }
-
-    protected def getXml(url: String): Node = {
-        XML.loadString(httpGet(url))
-    }
-
-    protected def mapToTimeline(xml: Node): TwitterTimeline = {
-        new TwitterTimeline((xml \\ "status").elements.toList.map(s => TwitterStatus(s)))
-    }
 }
 
 
@@ -95,19 +74,7 @@ class UnauthenticatedSession extends TwitterSession {
  * <a href="http://groups.google.com/group/twitter-development-talk/web/api-documentation">Twitter API Doc</a>
  */
 class AuthenticatedSession(val userName: String, password: String) extends UnauthenticatedSession {
-    import TwiterApiUrls._
 
-    def friendsTimeline: TwitterTimeline = {
-        mapToTimeline(getXml(friendsTimelineUrl))
-    }
-
-    def userTimeline: TwitterTimeline = {
-        mapToTimeline(getXml(userTimelineUrl(userName)))
-    }
-
-    def friends: TwitterUsers = {
-        mapToUsers(getXml(friendsUrl))
-    }
 
 
     // ========================================================================
@@ -128,9 +95,5 @@ class AuthenticatedSession(val userName: String, password: String) extends Unaut
         http.executeMethod(method)
 
         new String(method.getResponseBody())
-    }
-
-    protected def mapToUsers(xml: Node): TwitterUsers = {
-        new TwitterUsers((xml \\ "user").elements.toList.map(s => TwitterUser(s)))
     }
 }

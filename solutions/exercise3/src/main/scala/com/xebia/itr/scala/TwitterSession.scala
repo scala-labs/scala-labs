@@ -15,7 +15,7 @@ object TwiterApiUrls {
     val publicTimelineUrl                   = "http://twitter.com/statuses/public_timeline.xml"
     val friendsTimelineUrl                  = "http://twitter.com/statuses/friends_timeline.xml"
     def userTimelineUrl(screenName: String) = "http://www.twitter.com/status/user_timeline/" + screenName + ".xml"
-    def friendsUrl                          = "http://www.twitter.com/statuses/friends.xml"
+    val friendsUrl                          = "http://www.twitter.com/statuses/friends.xml"
 }
 
 
