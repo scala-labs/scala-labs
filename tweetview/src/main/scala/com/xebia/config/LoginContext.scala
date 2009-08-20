@@ -14,7 +14,6 @@ object LoginState {
   }
 
   def getUser():Box[TweetviewUser] = {
-      println("getUserId: " + Props.get("user.id"))
       for {userId <- Props.get("user.id");
           passwd <- Props.get("user.passwd");
           email <- Props.get("user.email")
