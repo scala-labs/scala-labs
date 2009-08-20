@@ -69,7 +69,8 @@ object MenuInfo {
    Menu(Loc("Home", List("index"), "Home")) ::
    Menu(Loc("Login", List("login"), "Login")) ::
    Menu(Loc("CometTweet", List("ctweet"), "CometTweet")) ::
-   Menu(Loc("UserTwitterTimeline", List("mytimeline"), "My twitter time line")) :: Nil
+   Menu(Loc("UserTwitterTimeline", List("mytimeline"), "My twitter time line")) ::
+   Menu(Loc("FriendsTwitterTimeline", List("friendstimeline"), "My friends time line")) :: Nil
 }
 
 

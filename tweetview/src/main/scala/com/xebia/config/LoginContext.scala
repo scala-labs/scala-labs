@@ -35,8 +35,4 @@ object LoginState {
   def loggedIn_? = primaryKey.is.isDefined
 }
 
-object DummyUser {
-    def dummy : TweetviewUser = new TweetviewUser("dummy", "xxx", "xxx@mail.com")
-}
-
 case class TweetviewUser(val userId:String, val passwd:String, val email:String)

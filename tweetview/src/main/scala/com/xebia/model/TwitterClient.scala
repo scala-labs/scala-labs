@@ -10,4 +10,7 @@ class TwitterClient(env: {val twitter: TwitterApi}) {
         env.twitter.userTimeline(user)
     }
 
+    def friendsTimeLine(user:TweetviewUser): TwitterTimeline = {
+        env.twitter.friendsTimeline(user)
+    }
 }

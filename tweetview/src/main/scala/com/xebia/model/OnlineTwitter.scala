@@ -23,23 +23,34 @@ class OnlineTwitter extends TwitterApi {
 
     def publicTimeline: TwitterTimeline = {
 
-		val publicFeedURL = "http://twitter.com/statuses/public_timeline.xml"
+        val publicFeedURL = "http://twitter.com/statuses/public_timeline.xml"
 
-		val client:HttpClient = new HttpClient()
-		val method = new GetMethod(publicFeedURL)
-		client.executeMethod(method)
-		TwitterTimeline.fromXML(XML.loadString(new String(method.getResponseBody())))
+        val client:HttpClient = new HttpClient()
+        val method = new GetMethod(publicFeedURL)
+        client.executeMethod(method)
+        TwitterTimeline.fromXML(XML.loadString(new String(method.getResponseBody())))
     }
 
     def userTimeline(user:TweetviewUser): TwitterTimeline = {
         val userTimelineURL = "http://www.twitter.com/status/user_timeline/" + user.userId + ".xml"
         println("Getting timeline for: " + userTimelineURL)
-		//        val defaultcreds = new UsernamePasswordCredentials(user.email, user.password);
+        //        val defaultcreds = new UsernamePasswordCredentials(user.email, user.password);
         val client:HttpClient = new HttpClient()
-		//        client.getState().setCredentials(AuthScope.ANY, defaultcreds);
+        //        client.getState().setCredentials(AuthScope.ANY, defaultcreds);
         val method = new GetMethod(userTimelineURL)
-		//        method.setDoAuthentication(true)
+        //        method.setDoAuthentication(true)
         client.executeMethod(method)
-		TwitterTimeline.fromXML(XML.loadString(new String(method.getResponseBody())))
+        TwitterTimeline.fromXML(XML.loadString(new String(method.getResponseBody())))
     }
+
+    def friendsTimeline(user: TweetviewUser): TwitterTimeline = {
+        val userTimelineURL = "http://twitter.com/statuses/friends_timeline.xml"
+        val defaultcreds = new UsernamePasswordCredentials(user.userId, user.passwd);
+        val client:HttpClient = new HttpClient()
+        client.getState().setCredentials(AuthScope.ANY, defaultcreds);
+        val method = new GetMethod(userTimelineURL)
+        client.executeMethod(method)
+        TwitterTimeline.fromXML(XML.loadString(new String(method.getResponseBody())))
+    }
+
 }
