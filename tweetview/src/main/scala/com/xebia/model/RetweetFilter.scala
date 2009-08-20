@@ -9,7 +9,6 @@ object RetweetFilter extends TweetFilter {
 	val RETWEET_EXPRESSION = """^.*RT ?@([\S]*):?\s(.*)$""".r
 
 	def filter(timeline: TwitterTimeline): TwitterTimeline = {
-		var retweetTexts = Set.empty[String]
 		new TwitterTimeline(removeDuplicateStatuses(timeline.statuses.map(transformRetweetIfPossible(_))))
 	}
 
