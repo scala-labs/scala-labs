@@ -20,8 +20,11 @@ class TwitterTimeline {
     }
 
     def showUser (xhtml : NodeSeq) : NodeSeq = {
-        val user:TweetviewUser = LoginState.currentUser.openOr(DummyUser.dummy)
-        bindEntries(xhtml, filter(TwitterClient.client.userTimeLine(user)).statuses)
+        LoginState.currentUser.map(u => bindEntries(xhtml, filter(TwitterClient.client.userTimeLine(u)).statuses)).openOr(Nil)
+    }
+
+    def showFriends (xhtml : NodeSeq) : NodeSeq = {
+        LoginState.currentUser.map(u => bindEntries(xhtml, TwitterClient.client.friendsTimeLine(u).statuses)).openOr(Nil)
     }
 
     def bindEntries(xhtml : NodeSeq, statusSeq:Seq[TwitterStatus]) : NodeSeq = {

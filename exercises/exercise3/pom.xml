@@ -4,10 +4,10 @@
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.xebia</groupId>
-  <artifactId>exercise1-solution</artifactId>
+  <artifactId>exercise3</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <name>Exercise 1 Solution</name>
+  <name>Exercise 3</name>
   <inceptionYear>2009</inceptionYear>
   
   <properties>

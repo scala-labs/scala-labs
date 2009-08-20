@@ -7,7 +7,7 @@
   <artifactId>exercise2-solution</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <name>Exercise 1</name>
+  <name>Exercise 2 Solution</name>
   <inceptionYear>2009</inceptionYear>
   
   <properties>

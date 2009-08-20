@@ -14,7 +14,6 @@ object LoginState {
   }
 
   def getUser():Box[TweetviewUser] = {
-      println("getUserId: " + Props.get("user.id"))
       for {userId <- Props.get("user.id");
           passwd <- Props.get("user.passwd");
           email <- Props.get("user.email")
@@ -34,10 +33,6 @@ object LoginState {
   }
 
   def loggedIn_? = primaryKey.is.isDefined
-}
-
-object DummyUser {
-    def dummy : TweetviewUser = new TweetviewUser("dummy", "xxx", "xxx@mail.com")
 }
 
 case class TweetviewUser(val userId:String, val passwd:String, val email:String)

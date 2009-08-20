@@ -18,6 +18,7 @@ class MockTwitter extends TwitterApi {
         new TwitterTimeline(List[TwitterStatus]())
     }
 
+    def friendsTimeline(user:TweetviewUser): TwitterTimeline = publicTimeline
 
     def createStatus(statusId: Long, userId: Long, userName: String): TwitterStatus = new TwitterStatus {
         val createdAt = "20090601"

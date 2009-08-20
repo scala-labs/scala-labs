@@ -13,4 +13,6 @@ class OfflineTwitter extends TwitterApi {
 
     def userTimeline(user:TweetviewUser): TwitterTimeline = publicTimeline
 
+    def friendsTimeline(user: TweetviewUser): TwitterTimeline = publicTimeline
+
 }
