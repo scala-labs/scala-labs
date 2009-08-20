@@ -21,15 +21,6 @@ abstract class TwitterStatus {
     override def hashCode = id.hashCode
 
     override def equals(other: Any) = {
-        // The usual if else would be perfectly ok...
-        //
-        // if (other.isInstanceOf[TwitterStatus]){
-        //     other.asInstanceOf[TwitterStatus].id == id
-        // } else {
-        //     false
-        // }
-
-        // But doesn't this look a lot better ?
         other match {
             case otherStatus: TwitterStatus => id == otherStatus.id
             case _ => false
