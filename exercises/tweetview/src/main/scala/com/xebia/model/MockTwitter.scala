@@ -11,7 +11,7 @@ import com.xebia.config._
 class MockTwitter extends TwitterApi {
 
     def publicTimeline: TwitterTimeline = {
-		new TwitterTimeline(createStatus(1L, 1L, "piet") :: createStatus(2L, 2L, "klaas") :: Nil)
+        new TwitterTimeline(createStatus(1L, 1L, "piet") :: createStatus(2L, 2L, "klaas") :: Nil)
     }
 
     def userTimeline(user:TweetviewUser): TwitterTimeline = {
@@ -37,6 +37,8 @@ class MockTwitter extends TwitterApi {
             val location = "Netherlands"
             val followers_count = 3
             val statuses_count = 2
+            val profileImage = ""
+            val url = ""
         }     
-	}
+    }
 }
