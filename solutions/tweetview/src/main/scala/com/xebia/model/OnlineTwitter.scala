@@ -53,4 +53,20 @@ class OnlineTwitter extends TwitterApi {
         TwitterTimeline.fromXML(XML.loadString(new String(method.getResponseBody())))
     }
 
+    def updateStatus(user:TweetviewUser, s:String): Unit = {
+        val userTimelineURL = "http://twitter.com/statuses/update.xml"
+        val post = new PostMethod(userTimelineURL)
+        post.addParameter("status", s)
+        autorised(user, post)
+    }
+
+
+    def autorised[A <: TweetviewUser, B <: HttpMethod](u:TweetviewUser, m:HttpMethod):Unit = {
+          val defaultcreds = new UsernamePasswordCredentials(u.userId, u.passwd);
+        val client:HttpClient = new HttpClient()
+        client.getState().setCredentials(AuthScope.ANY, new UsernamePasswordCredentials(u.userId, u.passwd));
+        client.executeMethod(m)
+        new String(m getResponseBody)
+    }
+
 }

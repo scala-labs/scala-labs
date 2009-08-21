@@ -13,10 +13,6 @@ import _root_.net.liftweb.http._
 
 trait TwitterConfig {def twitter:TwitterApi}
 
-object MockTwitterConfig extends TwitterConfig {
-    lazy val twitter = new MockTwitter
-}
-
 object OfflineTwitterConfig extends TwitterConfig {
     lazy val twitter = new OfflineTwitter
 }

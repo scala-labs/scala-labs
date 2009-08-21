@@ -9,4 +9,7 @@ trait TwitterApi {
     def userTimeline(user: TweetviewUser): TwitterTimeline;
 
     def friendsTimeline(user: TweetviewUser): TwitterTimeline;
+
+    def updateStatus(user:TweetviewUser, t:String): Unit;
+    
 }

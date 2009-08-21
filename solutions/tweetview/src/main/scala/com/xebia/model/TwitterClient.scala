@@ -13,4 +13,9 @@ class TwitterClient(env: {val twitter: TwitterApi}) {
     def friendsTimeLine(user:TweetviewUser): TwitterTimeline = {
         env.twitter.friendsTimeline(user)
     }
+
+    def updateStatus(user:TweetviewUser, s:String): Unit = {
+        env.twitter.updateStatus(user, s)
+    }
+    
 }

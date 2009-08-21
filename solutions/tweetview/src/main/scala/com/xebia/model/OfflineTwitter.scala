@@ -15,4 +15,5 @@ class OfflineTwitter extends TwitterApi {
 
     def friendsTimeline(user: TweetviewUser): TwitterTimeline = publicTimeline
 
+    def updateStatus(user:TweetviewUser, t:String): Unit = {}
 }
