@@ -1,13 +1,23 @@
 package com.xebia.scala
-// root import because our own package is named "scala", which overrides the toplevel scala package
-import _root_.scala.xml._
 
 import org.scalatest._
 import org.scalatest.junit.JUnit3Suite
 
 /*
- * uh-oh, hoe zorgen we ervoor dat iemand een Trait gebruikt?
+ * Beginner Hello World:
+ * 
+ * Scala inheritence with Traits
+ *
+ * Your job is to implement the objects and classes in
+ * such a way that the tests in this suite all succeed.
+ * 
+ * Hint: 
+ * - combine the methods in HelloTrait and Worldtrait to 
+ *   create a new message
  */
+
 class HelloWorldTraitTest extends JUnit3Suite {
-	def testDummy() { fail }
+	def testHelloFromTraits() {
+	  assert ( "Hello World" === HelloWorldWithTraits.hello)
+	}
 }
