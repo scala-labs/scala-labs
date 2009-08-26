@@ -1,6 +1,4 @@
 package com.xebia.scala
-// root import because our own package is named "scala", which overrides the toplevel scala package
-import _root_.scala.xml._
 
 import org.scalatest._
 import org.scalatest.junit.JUnit3Suite
