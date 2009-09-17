@@ -1,3 +1,4 @@
 target
 .manager
 .DS_Store
+.scala_dependencies
