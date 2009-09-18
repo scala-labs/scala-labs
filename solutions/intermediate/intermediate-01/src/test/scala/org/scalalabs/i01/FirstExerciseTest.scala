@@ -1,7 +1,6 @@
-package com.xebia.itr.scala
+package org.scalalabs.i01
 
-// root import because our own package is named "scala", which overrides the toplevel scala package
-import _root_.scala.xml._
+import scala.xml._
 
 import org.joda.time._
 import org.joda.time.format._

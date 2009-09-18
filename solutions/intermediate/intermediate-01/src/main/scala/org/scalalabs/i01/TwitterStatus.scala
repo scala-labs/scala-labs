@@ -1,6 +1,6 @@
-package com.xebia.itr.scala
+package org.scalalabs.i01
 
-import _root_.scala.xml._
+import scala.xml._
 
 import org.joda.time._
 import org.joda.time.format._
