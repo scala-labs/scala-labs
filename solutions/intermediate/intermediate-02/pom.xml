@@ -3,11 +3,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.xebia</groupId>
-  <artifactId>exercise3-solution</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <groupId>org.scalalabs</groupId>
+  <artifactId>intermediate-02-solution</artifactId>
+  <name>Intermediate Lab 02 (Solution)</name>
+  <version>1.0</version>
   <packaging>jar</packaging>
-  <name>Exercise 3 Solution</name>
   <inceptionYear>2009</inceptionYear>
   
   <properties>
