@@ -16,14 +16,6 @@ class RecipeTest extends JUnit3Suite {
 		val actualResult=cookbook.findRecipesByName("EggplantWithMinceMeat").first.toString
 		expect (expectedOutput) { cookbook.findRecipesByName("EggplantWithMinceMeat").first.toString}
     }
-    def testParsingAnIllegalRecipeTextThrowsAnException {
-    	try {
-    		val cookbook:CookBook = CookBookDSL.parseCookBook(illegalText)
-    		fail ("Method should have thrown an Exeption")
-    	} catch {
-    	  case e:ParseErrorException =>  
-    	}
-    }
     def testIngredientHasPublicNameAttribute {
     	val rice:Ingredient=new Ingredient("Rice")
     	expect("Rice") { rice.name}
