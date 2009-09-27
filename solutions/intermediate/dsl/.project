@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>intermediate-dsl-solution</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>ch.epfl.lamp.sdt.core.scalabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>ch.epfl.lamp.sdt.core.scalanature</nature>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>prut</name>
+			<type>2</type>
+			<location>/opt/work/ontwikkeling/scalaLabs/scala-labs/solutions/intermediate/dsl/target/test-classes</location>
+		</link>
+		<link>
+			<name>test-classes</name>
+			<type>2</type>
+			<location>/opt/work/ontwikkeling/scalaLabs/scala-labs/solutions/intermediate/dsl/target/test-classes</location>
+		</link>
+	</linkedResources>
+</projectDescription>
