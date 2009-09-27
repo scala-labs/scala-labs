@@ -18,7 +18,7 @@ class FirstExerciseTest extends JUnit3Suite {
     val twitterDateTimeFormat = DateTimeFormat.forPattern("EE MMM dd HH:mm:ss Z yyyy")
 
     private def getListOfTweets(): List[TwitterStatus] = {
-        val xml = XML.load(this.getClass.getResourceAsStream("/friends_timeline_agemooij.xml"))
+        val xml = XML.load(this.getClass.getResourceAsStream("/friends_timeline.xml"))
         val statuses = xml \\ "status"
 
         // This is where the TwitterStatus domain class is instantiated with a scala.xml.Node
