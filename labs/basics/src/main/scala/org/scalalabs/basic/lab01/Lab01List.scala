@@ -1,6 +1,6 @@
 package org.scalalabs.basic.lab01
 
-object HelloWorldList {
+object Lab01List {
 	def firstElementInListOfStrings(listOfStrings:List[String]):String = {
 		"Fix me"
 	}

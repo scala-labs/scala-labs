@@ -1,7 +1,8 @@
-package com.xebia.scala
+package org.scalalabs.basic.lab01
 
 import org.scalatest._
-import org.scalatest.junit.JUnit3Suite
+import junit.{JUnitSuite}
+import org.junit.Test
 
 /*
  * Beginner Hello World:
@@ -17,8 +18,8 @@ import org.scalatest.junit.JUnit3Suite
  * - An Object can be constructed using an apply method
  */
 
-class HelloWorldClassAndObjectTest extends JUnit3Suite {
-    def testInstanceIsCreatedByCompanion() { 
+class Exercise03 extends JUnitSuite {
+    @Test def testInstanceIsCreatedByCompanion() {
       val helloWorldInstance = HelloWorldClassAndObject("Hello")
       assert("Hello" === helloWorldInstance.echo)
     }
