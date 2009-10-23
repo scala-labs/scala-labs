@@ -18,7 +18,7 @@ import org.junit.Test
  *   create a new message
  */
 
-class Exercise02 extends JUnitSuite {
+class Exercise02Test extends JUnitSuite {
 	@Test def testHelloFromTraits() {
 	  assert ( "Hello World" === HelloWorldWithTraits.hello)
 	}

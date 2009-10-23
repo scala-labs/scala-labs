@@ -18,7 +18,7 @@ import org.junit.Test
  * - An Object can be constructed using an apply method
  */
 
-class Exercise03 extends JUnitSuite {
+class Exercise03Test extends JUnitSuite {
     @Test def testInstanceIsCreatedByCompanion() {
       val helloWorldInstance = HelloWorldClassAndObject("Hello")
       assert("Hello" === helloWorldInstance.echo)
