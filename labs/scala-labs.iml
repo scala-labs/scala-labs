@@ -4,8 +4,8 @@
     <facet type="Scala" name="Scala">
       <configuration>
         <option name="takeFromSettings" value="true" />
-        <option name="myScalaCompilerJarPath" value="/home/arjan/dev/scala/scala-2.7.5.final/lib/scala-compiler.jar" />
-        <option name="myScalaSdkJarPath" value="/home/arjan/dev/scala/scala-2.7.5.final/lib/scala-library.jar" />
+        <option name="myScalaCompilerJarPath" value="$MAVEN_REPOSITORY$/org/scala-lang/scala-compiler/2.7.5/scala-compiler-2.7.5.jar" />
+        <option name="myScalaSdkJarPath" value="$MAVEN_REPOSITORY$/org/scala-lang/scala-library/2.7.5/scala-library-2.7.5.jar" />
       </configuration>
     </facet>
   </component>
@@ -20,13 +20,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="Maven: org.scala-lang:scala-library:2.7.5" level="project" />
-    <orderEntry type="library" exported="" name="Maven: commons-httpclient:commons-httpclient:3.1" level="project" />
-    <orderEntry type="library" exported="" name="Maven: commons-logging:commons-logging:1.0.4" level="project" />
-    <orderEntry type="library" exported="" name="Maven: commons-codec:commons-codec:1.2" level="project" />
-    <orderEntry type="library" exported="" name="Maven: joda-time:joda-time:1.6" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.scalatest:scalatest:1.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.7" level="project" />
+    <orderEntry type="library" exported="" name="scala-2.7.5" level="project" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
@@ -77,17 +71,6 @@
         <JAVADOC />
         <SOURCES>
           <root url="jar://$MAVEN_REPOSITORY$/joda-time/joda-time/1.6/joda-time-1.6-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MAVEN_REPOSITORY$/org/scala-lang/scala-library/2.7.5/scala-library-2.7.5.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$MAVEN_REPOSITORY$/org/scala-lang/scala-library/2.7.5/scala-library-2.7.5-sources.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
