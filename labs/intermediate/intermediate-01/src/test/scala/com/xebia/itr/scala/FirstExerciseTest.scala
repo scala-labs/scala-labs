@@ -7,7 +7,11 @@ import org.joda.time._
 import org.joda.time.format._
 
 import org.scalatest._
-import org.scalatest.junit.JUnit3Suite
+import org.scalatest.junit.JUnitSuite
+
+import org.junit.Test
+import org.junit.Before
+
 
 /*
  * Exercise 1:
@@ -15,7 +19,7 @@ import org.scalatest.junit.JUnit3Suite
  * Your job is to implement the TwiterStatus class (and it's associated classes) in
  * such a way that the tests in this suite all succeed.
  */
-class FirstExerciseTest extends JUnit3Suite {
+class FirstExerciseTest extends JUnitSuite {
     val twitterDateTimeFormat = DateTimeFormat.forPattern("EE MMM dd HH:mm:ss Z yyyy")
 
     private def getListOfTweets(): List[TwitterStatus] = {
@@ -32,6 +36,7 @@ class FirstExerciseTest extends JUnit3Suite {
     // The tests
     // ========================================================================
 
+	@Test
 	def testTwitterStatusParsing() {
 	    val tweets = getListOfTweets()
 
@@ -39,7 +44,8 @@ class FirstExerciseTest extends JUnit3Suite {
 	    expect(20) {tweets.size}
     }
 
-    def testAttributesOfFirstTweet() {
+    @Test
+	def testAttributesOfFirstTweet() {
 	    val firstTweet = getListOfTweets()(0)
 
 	    expect(3362029699L) {firstTweet.id}
@@ -58,7 +64,8 @@ class FirstExerciseTest extends JUnit3Suite {
         }
 	}
 
-    def testAttributesOfUserAssociatedWithFirstTweet() {
+    @Test
+	def testAttributesOfUserAssociatedWithFirstTweet() {
 	    val firstTweetUser: TwitterUser = getListOfTweets()(0).user
 
 	    expect(16665197L) {firstTweetUser.id}
