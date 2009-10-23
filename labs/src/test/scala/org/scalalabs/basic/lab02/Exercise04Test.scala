@@ -3,7 +3,6 @@ package org.scalalabs.basic.lab02
 import org.scalatest._
 import org.scalatest.junit.JUnitSuite
 import org.junit.Test
-import Exercise04._
 
 /*
  * Lab 02: List functions
@@ -22,47 +21,49 @@ import Exercise04._
  */
 
 class Exercise04Test extends JUnitSuite {
-  val listOfStrings = List("One", "Two", "Three")
+  val listOfStrings:List[String] = List("One", "Two", "Three")
 
   @Test
   def firstElementInList() {
-    assert("One" === firstElementInList(listOfStrings))
+    val result:String = Exercise04.firstElementInList(listOfStrings)
+    println("Found result: " + result)
+    assert("One" === result)
   }
 
   @Test
   def lastElementInList() {
-    assert("Three" === lastElementInList(listOfStrings))
-    assert("Two" === lastElementInList(List("Two", "Three")))
+    assert("Three" === Exercise04.lastElementInList(listOfStrings))
+    assert("Two" === Exercise04.lastElementInList(List("Two", "Three")))
   }
 
   @Test
   def nthElementInList() {
-    assert("One" === nthElementInList(1, listOfStrings))
-    assert("Two" === nthElementInList(2, listOfStrings))
-    assert("Three" === nthElementInList(3, listOfStrings))
+    assert("One" === Exercise04.nthElementInList(1, listOfStrings))
+    assert("Two" === Exercise04.nthElementInList(2, listOfStrings))
+    assert("Three" === Exercise04.nthElementInList(3, listOfStrings))
   }
 
   @Test
   def concatTwoLists() {
-    assert(List("One", "Two", "Three", "Four", "Five") === concatLists(listOfStrings, List("Four", "Five")))
+    assert(List("One", "Two", "Three", "Four", "Five") === Exercise04.concatLists(listOfStrings, List("Four", "Five")))
   }
 
   @Test
   def listContainsOneTwoAndThree() {
-    assert(elementExists(listOfStrings, "One"))
-    assert(elementExists(listOfStrings, "Two"))
-    assert(elementExists(listOfStrings, "Three"))
+    assert(Exercise04.elementExists(listOfStrings, "One"))
+    assert(Exercise04.elementExists(listOfStrings, "Two"))
+    assert(Exercise04.elementExists(listOfStrings, "Three"))
   }
 
   @Test
   def sortListOfStrings() {
     val l = List("Sjors", "Arjan", "Age", "Lieke", "J-Fall", "ScalaLabs")
-    assert(List("Age", "Arjan", "J-Fall", "Lieke", "ScalaLabs", "Sjors") === sortList(l))
+    assert(List("Age", "Arjan", "J-Fall", "Lieke", "ScalaLabs", "Sjors") === Exercise04.sortList(l))
   }
 
   @Test
   def listContainsTwoOddElements() {
-    assert(List(1, 3, 5) === oddElements(List(1, 2, 3, 4, 5)))
+    assert(List(1, 3, 5) === Exercise04.oddElements(List(1, 2, 3, 4, 5)))
   }
 
 }

@@ -48,53 +48,59 @@ class ThirdExerciseTest extends JUnitSuite {
 
     @Test
 	def testPublicTimelineWithoutAuthentication {
-        val twitter:UnauthenticatedSession = TwitterSession()
-        val publicTimeline:TwitterTimeline = twitter.publicTimeline
-
-        expect(20) {publicTimeline.toList.size}
-        expect(true) {publicTimeline.forall(_.user != null)}
+      fail("TODO: uncomment and fix")
+//        val twitter:UnauthenticatedSession = TwitterSession()
+//        val publicTimeline:TwitterTimeline = twitter.publicTimeline
+//
+//        expect(20) {publicTimeline.toList.size}
+//        expect(true) {publicTimeline.forall(_.user != null)}
     }
 
     @Test
 	def testFriendsTimelineWithAuthentication {
-        val twitter:AuthenticatedSession = TwitterSession(testAccountUsername, testAccountPassword)
-        val friendsTimeline = twitter.friendsTimeline
-
-        expect(20) {friendsTimeline.toList.size}
-        expect(true) {friendsTimeline.forall(_.user != null)}
+      fail("TODO: uncomment and fix")
+//        val twitter:AuthenticatedSession = TwitterSession(testAccountUsername, testAccountPassword)
+//        val friendsTimeline = twitter.friendsTimeline
+//
+//        expect(20) {friendsTimeline.toList.size}
+//        expect(true) {friendsTimeline.forall(_.user != null)}
     }
 
     @Test
 	def testFriendsTimelineShouldOnlyContainTweetsByFriendsOrByMyself {
-        val twitter:AuthenticatedSession = TwitterSession(testAccountUsername, testAccountPassword)
-
-        val friendsTimeline = twitter.friendsTimeline
-        val friends:TwitterUsers = twitter.friends
-
-        expect(20) {friendsTimeline.toList.size}
-        expect(true) {friendsTimeline.forall(tweet => friends.exists(_ == tweet.user) || testAccountUsername == tweet.user.screenName)}
+      fail("TODO: uncomment and fix")      
+//        val twitter:AuthenticatedSession = TwitterSession(testAccountUsername, testAccountPassword)
+//
+//        val friendsTimeline = twitter.friendsTimeline
+//        val friends:TwitterUsers = twitter.friends
+//
+//        expect(20) {friendsTimeline.toList.size}
+//        expect(true) {friendsTimeline.forall(tweet => friends.exists(_ == tweet.user) || testAccountUsername == tweet.user.screenName)}
     }
 
     @Test
 	def testUserTimelineWithoutAuthentication {
-        val twitter:UnauthenticatedSession = TwitterSession()
-        val userTimeline:TwitterTimeline = twitter.userTimeline("sgrijpink")
-
-        expect(true) {userTimeline.forall(_.user.screenName == "sgrijpink")}
+      fail("TODO: uncomment and fix")
+//        val twitter:UnauthenticatedSession = TwitterSession()
+//        val userTimeline:TwitterTimeline = twitter.userTimeline("sgrijpink")
+//
+//        expect(true) {userTimeline.forall(_.user.screenName == "sgrijpink")}
     }
 
     @Test
 	def testUserTimelineWithAuthentication {
-        val twitter:AuthenticatedSession = TwitterSession(testAccountUsername, testAccountPassword)
-        val userTimeline:TwitterTimeline = twitter.userTimeline
-
-        expect(true) {userTimeline.forall(_.user.screenName == testAccountUsername)}
+      fail("TODO: uncomment and fix")
+//        val twitter:AuthenticatedSession = TwitterSession(testAccountUsername, testAccountPassword)
+//        val userTimeline:TwitterTimeline = twitter.userTimeline
+//
+//        expect(true) {userTimeline.forall(_.user.screenName == testAccountUsername)}
     }
 
     // Bonus exercise !!!
 
 //    @Test
 //    def testTweet() {
+        fail("TODO: uncomment and fix")
 //        val twitter:AuthenticatedSession = TwitterSession(testAccountUsername, testAccountPassword)
 //        val baseText = "Yet another test tweet from a #Scala unit test. Let's include a random number: "
 //        val random = new Random
