@@ -13,7 +13,7 @@ import org.junit.Test
  * Your job is to implement the objects and classes in
  * such a way that the tests in this suite all succeed.
  */
-class Exercise01 extends JUnitSuite {
+class Exercise01Test extends JUnitSuite {
 
     @Test
     def shouldSayHello() {
