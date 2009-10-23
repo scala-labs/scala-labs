@@ -1,7 +1,9 @@
-package com.xebia.scala
+package org.scalalabs.basic.lab01
 
 import org.scalatest._
-import org.scalatest.junit.JUnit3Suite
+import org.scalatest.junit.JUnitSuite
+import org.junit.Assert._
+import org.junit.Test
 
 /*
  * Beginner Hello World:
@@ -11,13 +13,15 @@ import org.scalatest.junit.JUnit3Suite
  * Your job is to implement the objects and classes in
  * such a way that the tests in this suite all succeed.
  */
-class HelloWorldTest extends JUnit3Suite {
+class Exercise01 extends JUnitSuite {
 
-    def testSayHello() {
+    @Test
+    def shouldSayHello() {
         assert("Hello from Scala" === HelloWorld.sayHello)
     }
-    
-    def testEcho() {
+
+    @Test
+    def shouldEcho() {
     	assert("Echo" === HelloWorld.echo("Echo"))
     }
 }
