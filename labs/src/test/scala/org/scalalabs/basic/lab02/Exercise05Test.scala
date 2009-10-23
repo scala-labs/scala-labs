@@ -28,7 +28,4 @@ class Exercise05Test extends JUnitSuite {
     assert(25 === maxElementInList(List(1, 7, 5, 17, 25, 24, 22, 19)))
   }
 
-  @Test
-  def 
-
 }
