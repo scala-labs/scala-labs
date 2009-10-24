@@ -1,4 +1,4 @@
-package com.xebia.scala
+package org.scalalabs.basic.lab01
 
 object HelloWorldList {
 	def firstElementInListOfStrings(listOfStrings:List[String]):String = {

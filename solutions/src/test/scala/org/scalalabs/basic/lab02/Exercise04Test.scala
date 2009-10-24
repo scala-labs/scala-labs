@@ -1,0 +1,69 @@
+package org.scalalabs.basic.lab02
+
+import org.scalatest._
+import org.scalatest.junit.JUnitSuite
+import org.junit.Test
+
+/*
+ * Lab 02: List functions
+ * 
+ * Scala basic Lists
+ *
+ * Your job is to implement the objects and classes in
+ * such a way that the tests in this suite all succeed.
+ * 
+ * Hint: 
+ * - the methods in Exercise04 can all be implemented in various ways:
+ *   -- build in List functionality
+ *   -- pattern matching
+ *   -- 'functional' style, using recursion, and/or folds
+ * - note how a List can be constructed
+ */
+
+class Exercise04Test extends JUnitSuite {
+  val listOfStrings:List[String] = List("One", "Two", "Three")
+
+  @Test
+  def firstElementInList() {
+    val result:String = Exercise04.firstElementInList(listOfStrings)
+    println("Found result: " + result)
+    assert("One" === result)
+  }
+
+  @Test
+  def lastElementInList() {
+    assert("Three" === Exercise04.lastElementInList(listOfStrings))
+    assert(9 === Exercise04.lastElementInList(List(1,6,10,33,54,9)))
+  }
+
+  @Test
+  def nthElementInList() {
+    assert("One" === Exercise04.nthElementInList(1, listOfStrings))
+    assert("Two" === Exercise04.nthElementInList(2, listOfStrings))
+    assert("Three" === Exercise04.nthElementInList(3, listOfStrings))
+  }
+
+  @Test
+  def concatTwoLists() {
+    assert(List("One", "Two", "Three", "Four", "Five") === Exercise04.concatLists(listOfStrings, List("Four", "Five")))
+  }
+
+  @Test
+  def listContainsOneTwoAndThree() {
+    assert(Exercise04.elementExists(listOfStrings, "One"))
+    assert(Exercise04.elementExists(listOfStrings, "Two"))
+    assert(Exercise04.elementExists(listOfStrings, "Three"))
+  }
+
+  @Test
+  def sortListOfStrings() {
+    val l = List("Sjors", "Arjan", "Age", "Lieke", "J-Fall", "ScalaLabs")
+    assert(List("Age", "Arjan", "J-Fall", "Lieke", "ScalaLabs", "Sjors") === Exercise04.sortList(l))
+  }
+
+  @Test
+  def listContainsTwoOddElements() {
+    assert(List(1, 3, 5) === Exercise04.oddElements(List(1, 2, 3, 4, 5)))
+  }
+
+}

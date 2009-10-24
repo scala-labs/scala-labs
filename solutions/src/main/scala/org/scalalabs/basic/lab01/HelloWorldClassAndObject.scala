@@ -1,4 +1,4 @@
-package com.xebia.scala
+package org.scalalabs.basic.lab01
 
 object HelloWorldClassAndObject {
 	def apply(initialText:String):HelloWorldClassAndObject = {
