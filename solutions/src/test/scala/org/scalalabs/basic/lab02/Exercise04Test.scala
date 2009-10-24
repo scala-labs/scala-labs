@@ -38,9 +38,9 @@ class Exercise04Test extends JUnitSuite {
 
   @Test
   def nthElementInList() {
-    assert("One" === Exercise04.nthElementInList(1, listOfStrings))
-    assert("Two" === Exercise04.nthElementInList(2, listOfStrings))
-    assert("Three" === Exercise04.nthElementInList(3, listOfStrings))
+    assert("One" === Exercise04.nthElementInList(0, listOfStrings))
+    assert("Two" === Exercise04.nthElementInList(1, listOfStrings))
+    assert("Three" === Exercise04.nthElementInList(2, listOfStrings))
   }
 
   @Test

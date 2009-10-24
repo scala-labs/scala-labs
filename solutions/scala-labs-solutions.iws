@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager" verified="true">
     <list default="true" readonly="true" id="0b45ebe5-d4ec-47c9-b703-beb4df2d4785" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/scala/org/scalalabs/basic/lab01/HelloWorldTraitTest.scala" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/org/scalalabs/basic/lab01/HelloTrait.scala" afterPath="$PROJECT_DIR$/src/main/scala/org/scalalabs/basic/lab01/HelloTrait.scala" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/scala/org/scalalabs/basic/lab01/HelloWorldClassAndObjectTest.scala" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/org/scalalabs/basic/lab01/HelloWorldWithTraits.scala" afterPath="$PROJECT_DIR$/src/main/scala/org/scalalabs/basic/lab01/HelloWorldWithTraits.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/org/scalalabs/basic/lab01/HelloWorldList.scala" afterPath="$PROJECT_DIR$/src/main/scala/org/scalalabs/basic/lab01/HelloWorldList.scala" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/scala/org/scalalabs/basic/lab01/HelloWorldListTest.scala" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/org/scalalabs/basic/lab01/HelloWorldClassAndObject.scala" afterPath="$PROJECT_DIR$/src/main/scala/org/scalalabs/basic/lab01/HelloWorldClassAndObject.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/org/scalalabs/basic/lab01/WorldTrait.scala" afterPath="$PROJECT_DIR$/src/main/scala/org/scalalabs/basic/lab01/WorldTrait.scala" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/scala/org/scalalabs/basic/lab01/HelloWorldTest.scala" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/org/scalalabs/basic/lab01/HelloWorld.scala" afterPath="$PROJECT_DIR$/src/main/scala/org/scalalabs/basic/lab01/HelloWorld.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/org/scalalabs/basic/lab02/Exercise04Test.scala" afterPath="$PROJECT_DIR$/src/test/scala/org/scalalabs/basic/lab02/Exercise04Test.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/org/scalalabs/basic/lab02/Exercise04.scala" afterPath="$PROJECT_DIR$/src/main/scala/org/scalalabs/basic/lab02/Exercise04.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scala-labs-solutions.iws" afterPath="$PROJECT_DIR$/scala-labs-solutions.iws" />
     </list>
     <ignored path="scala-labs-solutinos.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -80,19 +73,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Exercise04.scala" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Exercise04.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/org/scalalabs/basic/lab02/Exercise04.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="7" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0">
+            <state line="2" column="7" selection-start="42" selection-end="42" vertical-scroll-proportion="-0.16431925">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Exercise04Test.scala" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Exercise04Test.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/org/scalalabs/basic/lab02/Exercise04Test.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="6" selection-start="542" selection-end="542" vertical-scroll-proportion="0.26291078">
+            <state line="44" column="28" selection-start="1244" selection-end="1244" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -605,7 +598,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="10" y="25" width="1900" height="1150" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" />
@@ -619,7 +612,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32916892" sideWeight="0.66400796" order="0" side_tool="false" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32901296" sideWeight="0.5" order="2" side_tool="false" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32901296" sideWeight="0.5" order="2" side_tool="false" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" />
@@ -688,16 +681,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/org/scalalabs/basic/lab02/Exercise04.scala">
+    <entry file="file://$PROJECT_DIR$/src/test/scala/org/scalalabs/basic/lab02/Exercise04Test.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="7" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0">
+        <state line="44" column="28" selection-start="1244" selection-end="1244" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/org/scalalabs/basic/lab02/Exercise04Test.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/org/scalalabs/basic/lab02/Exercise04.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="6" selection-start="542" selection-end="542" vertical-scroll-proportion="0.26291078">
+        <state line="2" column="7" selection-start="42" selection-end="42" vertical-scroll-proportion="-0.16431925">
           <folding />
         </state>
       </provider>

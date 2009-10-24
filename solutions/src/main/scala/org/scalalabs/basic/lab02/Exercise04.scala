@@ -10,24 +10,28 @@ object Exercise04 {
     //buildin: l.last
      //almost buildin: l.reverse.head
 
-    //own version: pattern match
-     def pLast[T](l: List[T]) : T = {
+    //custom version: pattern match
+     def myLast1[T](l: List[T]) : T = {
        l match {
           case head :: Nil => head
-          case _ :: tail => pLast(tail)
+          case _ :: tail => myLast1(tail)
           case _ => error("last on empty list")
        }
      }
 
-    //own version2: using fold
-    def fLast[T](l:List[T]): T = {
+    //custom version2: using fold
+    def myLast2[T](l:List[T]): T = {
       l.foldLeft(l.headOption){(a,b) => Some(b)}.getOrElse(error("last on empty list"))
     }
-     fLast(l)
+     myLast1(l)
   }
 
   def nthElementInList[T](n: Int, l: List[T]): T = {
-    error("fix me")
+    //solution using zipWithIndex
+    def myNth1(n:Int, l:List[T]): T = {
+       l.zipWithIndex.filter(p => p._2 == n).headOption.getOrElse(error("index out of bounds"))._1
+    }
+    myNth1(n, l)
   }
 
   def concatLists(list1: List[Any], list2: List[String]): List[String] = {
