@@ -21,11 +21,11 @@ import org.junit.Test
  */
 
 class Exercise04Test extends JUnitSuite {
-  val listOfStrings:List[String] = List("One", "Two", "Three")
+  val listOfStrings: List[String] = List("One", "Two", "Three")
 
   @Test
   def firstElementInList() {
-    val result:String = Exercise04.firstElementInList(listOfStrings)
+    val result: String = Exercise04.firstElementInList(listOfStrings)
     println("Found result: " + result)
     assert("One" === result)
   }
@@ -33,7 +33,7 @@ class Exercise04Test extends JUnitSuite {
   @Test
   def lastElementInList() {
     assert("Three" === Exercise04.lastElementInList(listOfStrings))
-    assert(9 === Exercise04.lastElementInList(List(1,6,10,33,54,9)))
+    assert(9 === Exercise04.lastElementInList(List(1, 6, 10, 33, 54, 9)))
   }
 
   @Test
@@ -64,6 +64,11 @@ class Exercise04Test extends JUnitSuite {
   @Test
   def listContainsTwoOddElements() {
     assert(List(1, 3, 5) === Exercise04.oddElements(List(1, 2, 3, 4, 5)))
+  }
+
+  @Test
+  def tailsOfList() {
+    assert(List(List(1, 2, 3, 4, 5), List(2, 3, 4, 5), List(3, 4, 5), List(4, 5), List(5), List()) === Exercise04.tails(List(1, 2, 3, 4, 5)))
   }
 
 }
