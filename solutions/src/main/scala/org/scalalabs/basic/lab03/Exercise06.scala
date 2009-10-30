@@ -14,10 +14,10 @@ object Exercise06 {
     x + y
   }
 
-  def using[A <: {def close(): Unit}, B](param: A)(f: A => B): B =
+  def using[A <: {def close(): Unit}, B](closable: A)(f: A => B): B =
     try {
-      f(param)
+      f(closable)
     } finally {
-      param.close()
+      closable.close()
     }
 }

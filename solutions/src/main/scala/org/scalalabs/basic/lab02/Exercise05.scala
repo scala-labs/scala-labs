@@ -7,7 +7,7 @@ case class Person(age: Int, firstName: String, lastName: String)
 
 object Exercise05 {
   def maxElementInList(l: List[Int]): Int = {
-    error("fix me")
+    l.foldLeft(0){(a,b) => if (a < b) a else b}
   }
 
   def separateTheMenFromTheBoys(persons: List[Person]): List[List[String]] = {
