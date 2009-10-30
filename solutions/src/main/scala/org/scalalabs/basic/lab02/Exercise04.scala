@@ -36,7 +36,7 @@ object Exercise04 {
 
   def concatLists[T](l1: List[T], l2: List[T]): List[T] = {
     //build in: l1 ::: l2
-    def myConcat(l1: List[T], l2: List[T]):List[T] = {
+    def myConcat(l1: List[T], l2: List[T]): List[T] = {
       l1 match {
         case Nil => l2
         case x :: xs => x :: myConcat(xs, l2)
@@ -45,8 +45,12 @@ object Exercise04 {
     myConcat(l1, l2)
   }
 
-  def sortList(list: List[String]): List[String] = {
-    error("fix me")
+  def sortList[T <% Ordered[T]](list: List[T]): List[T] = {
+    //not efficient, but fun
+    list.foldLeft(List[T]()) {
+      (x, y) => val (sorted, xs) = x.span(_ < y)
+      sorted ::: y :: xs
+    }
   }
 
   def elementExists(theList: List[String], elementToSearchFor: String): Boolean = {
