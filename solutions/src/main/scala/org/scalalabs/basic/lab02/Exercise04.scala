@@ -1,14 +1,17 @@
 package org.scalalabs.basic.lab02
 
 object Exercise04 {
+   
   def firstElementInList[T](l: List[T]): T = {
     //buildin
     l.first
   }
 
   def lastElementInList[T](l: List[T]): T = {
-    //buildin: l.last
-    //almost buildin: l.reverse.head
+//    buildin:
+    l.last
+//    almost buildin:
+    l.reverse.head
 
     //custom version: pattern match
     def myLast1[T](l: List[T]): T = {
@@ -53,12 +56,13 @@ object Exercise04 {
     }
   }
 
-  def elementExists(theList: List[String], elementToSearchFor: String): Boolean = {
-    error("fix me")
+  def elementExists[T](l: List[T], e: T): Boolean = {
+    //build in
+    l.exists(_ == e)    
   }
 
-  def oddElements(listOfInts: List[Int]): List[Int] = {
-    error("fix me")
+  def oddElements(iList: List[Int]): List[Int] = {
+    iList.filter(e => e % 2 == 1)
   }
 
   def tails[T](l: List[T]): List[List[T]] = {
