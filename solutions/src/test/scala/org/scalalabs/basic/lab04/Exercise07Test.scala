@@ -25,7 +25,8 @@ class Exercise07Test {
   def timeDsl = {
     import TimeUtils._
     println(1 days)
-    println((1 days).millis)
+    println(((1 days) + (2 hours)))
     assert((1 days).millis == new Duration(24L * 60L * 60L * 1000L).getMillis())
+    assert((1.days + 2.hours).millis == new Duration(26L * 60L * 60L * 1000L).getMillis())
   }
 }
