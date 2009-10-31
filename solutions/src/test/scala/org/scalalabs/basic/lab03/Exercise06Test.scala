@@ -8,6 +8,8 @@ import java.io.{FileReader, BufferedReader}
 
 /**
  * Fix the tests by implementing some functions given in Exercise06
+ *
+ * @author Arjan
  */
 
 class Exercise06Test extends JUnitSuite {
@@ -20,27 +22,26 @@ class Exercise06Test extends JUnitSuite {
 
   @Test
   def controlStructureShouldCloseClass {
-    //write a control structure that automatically closes anything that has a close method
+    //write a control structure that automatically closes any class that has a close method
 
     //a more real world example than given here would be a reader, or JDBC connection, or anything else that is closable:
     //val reader = new BufferedReader(new FileReader("myFile.txt"))
-    val closable = new Closable()
+    val closable = new Closable
+    val anotherClosable = new AnotherClosable
     assertFalse(closable closed)
-
-    val greeting = Exercise06.using(closable) {
-       c => c.sayHello("John")
-    }
-    assert(greeting === "Hello, John")
-    assertTrue(closable closed)
-
-    val anotherClosable = new AnotherClosable()
     assertFalse(anotherClosable closed)
 
-    val anotherGreeting = Exercise06.using(anotherClosable) {
-       c => c.sayHello("John")
+    val greeting = Exercise06.using(closable) {
+      c => c sayHello("John")
     }
-    assert(anotherGreeting === "Hello again, John")
+    val anotherGreeting = Exercise06.using(anotherClosable) {
+       c => c sayHello("John")
+    }
+
+    assertTrue(closable closed)
     assertTrue(anotherClosable closed)
+    assert(greeting === "Hello, John")
+    assert(anotherGreeting === "Hello again, John")
   }
 }
 
