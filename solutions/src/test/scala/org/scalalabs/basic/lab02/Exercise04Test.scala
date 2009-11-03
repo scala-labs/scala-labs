@@ -26,9 +26,14 @@ class Exercise04Test extends JUnitSuite {
   @Test
   def firstElementInList() {
     val result: String = Exercise04.firstElementInList(listOfStrings)
-    println("Found result: " + result)
     assert("One" === result)
   }
+
+  @Test
+  def sumOfList() {
+    assert(15 === Exercise04.sumOfList(List(1, 2, 3, 4, 5)))
+  }
+
 
   @Test
   def lastElementInList() {

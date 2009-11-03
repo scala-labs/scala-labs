@@ -22,7 +22,7 @@ class Exercise07Test {
   }
 
   @Test
-  def timeDsl = {
+  def durationDsl = {
     import TimeUtils._
     println(1 days)
     println(((1 days) + (2 hours)))

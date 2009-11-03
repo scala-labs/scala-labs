@@ -1,16 +1,29 @@
 package org.scalalabs.basic.lab02
 
 object Exercise04 {
-   
   def firstElementInList[T](l: List[T]): T = {
     //buildin
     l.first
   }
 
+  def sumOfList(l: List[Int]): Int = {
+    //almost buildin
+//    l.foldLeft(0)((a,b) => a+b)
+
+    //pattern match solution:
+    def mySum(acc:Int, curList: List[Int]): Int = {
+      curList match {
+        case Nil => acc
+        case x :: xs => mySum((acc + x), xs)
+      }
+    }
+    mySum(0, l)
+  }
+
   def lastElementInList[T](l: List[T]): T = {
-//    buildin:
+    //    buildin:
     l.last
-//    almost buildin:
+    //    almost buildin:
     l.reverse.head
 
     //custom version: pattern match
@@ -48,7 +61,7 @@ object Exercise04 {
     myConcat(l1, l2)
   }
 
-  def sortList[T <% Ordered[T]](list: List[T]): List[T] = {
+  def sortList[T <% Ordered[T]] (list: List[T]): List[T] = {
     //not efficient, but fun
     list.foldLeft(List[T]()) {
       (x, y) => val (sorted, xs) = x.span(_ < y)
@@ -58,7 +71,7 @@ object Exercise04 {
 
   def elementExists[T](l: List[T], e: T): Boolean = {
     //build in
-    l.exists(_ == e)    
+    l.exists(_ == e)
   }
 
   def oddElements(iList: List[Int]): List[Int] = {
