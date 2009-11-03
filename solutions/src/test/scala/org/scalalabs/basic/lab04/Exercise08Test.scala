@@ -3,7 +3,7 @@ package org.scalalabs.basic.lab04
 import org.scalatest.junit.JUnitSuite
 import org.junit.Test
 import org.junit.Assert._
-import Exercise07._
+import Exercise08._
 import org.joda.time.Duration
 
 /**
@@ -14,11 +14,11 @@ import org.joda.time.Duration
  * To change this template use File | Settings | File Templates.
  */
 
-class Exercise07Test {
+class Exercise08Test {
 
   @Test
   def convertStringToList = {
-     assert(List('H', 'e', 'l', 'l', 'o') == Exercise07.stringToList("Hello"))
+     assert(List('H', 'e', 'l', 'l', 'o') == Exercise08.stringToList("Hello"))
   }
 
   @Test

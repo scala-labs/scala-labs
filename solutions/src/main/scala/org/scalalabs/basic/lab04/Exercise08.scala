@@ -14,7 +14,7 @@ import org.joda.time.{Duration, DateTime}
  * It is also possible to define implicit parameters
  */
 
-object Exercise07 {
+object Exercise08 {
 
 
    def stringToList(s: String) : List[Char] = {
