@@ -17,6 +17,7 @@ object Exercise04 {
         case x :: xs => mySum((acc + x), xs)
       }
     }
+
     mySum(0, l)
   }
 

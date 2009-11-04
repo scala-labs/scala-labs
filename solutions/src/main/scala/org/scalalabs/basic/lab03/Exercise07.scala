@@ -1,23 +1,19 @@
 package org.scalalabs.basic.lab03
 
 /**
- * Functions and basic pattern matching
+ * Some pattern matching
  */
 
 object Exercise07 {
-  def plusOne(x: Int): Int = {
-    //implement this using a partial function
-    plus(1, x)
-  }
 
-  def plus(x: Int, y: Int): Int = {
-    x + y
-  }
-
-  def using[A <: {def close(): Unit}, B](closable: A)(f: A => B): B =
-    try {
-      f(closable)
-    } finally {
-      closable.close()
+    def describeLanguage(s:String) = {
+      s match {
+        case "Clojure" | "Haskell" | "Erlang" => "Functional"
+        case "Scala" => "Hybrid"
+        case "Java" | "Smalltalk"=> "OOP"
+        case "C" => "Procedural"
+        case _ => "Unknown"
+      }
     }
+
 }
