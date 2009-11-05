@@ -16,4 +16,13 @@ object Exercise07 {
       }
     }
 
+  def matchOnInputType(in:Any) = in match {
+    case s: String => "A string with length " + s.length
+    case i: Int if i > 0 => "A positive integer"
+    case i: Int if i < 0 => "A negative integer"
+    case o: Option[Any] => "A Scala Option subtype"
+    case a: AnyRef => "Some Scala class"
+    case _ => "A null value"
+  }
+
 }
