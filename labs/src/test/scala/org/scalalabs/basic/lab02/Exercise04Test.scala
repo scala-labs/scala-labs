@@ -33,7 +33,7 @@ class Exercise04Test extends JUnitSuite {
   @Test
   def lastElementInList() {
     assert("Three" === Exercise04.lastElementInList(listOfStrings))
-    assert("Two" === Exercise04.lastElementInList(List("Two", "Three")))
+    assert("Three" === Exercise04.lastElementInList(List("Two", "Three")))
   }
 
   @Test
