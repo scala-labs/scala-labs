@@ -14,7 +14,7 @@ import org.junit.Test
  * 
  * Hint: 
  * - the methods in Exercise04 can all be implemented in various ways:
- *   -- build in List functionality
+ *   -- 'build in' functionality in Scala's collection classes
  *   -- pattern matching
  *   -- 'functional' style, using recursion, and/or folds
  * - note how a List can be constructed
