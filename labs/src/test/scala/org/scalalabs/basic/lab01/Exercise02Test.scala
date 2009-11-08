@@ -1,7 +1,6 @@
 package org.scalalabs.basic.lab01
 
-import org.scalatest._
-import org.scalatest.junit.JUnitSuite
+import _root_.org.scalatest.junit.JUnitSuite
 import org.junit.Test
 
 
@@ -19,7 +18,8 @@ import org.junit.Test
  */
 
 class Exercise02Test extends JUnitSuite {
-	@Test def testHelloFromTraits() {
+	@Test
+  def testHelloFromTraits() {
 	  assert ( "Hello World" === HelloWorldWithTraits.hello)
 	}
 }

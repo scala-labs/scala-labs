@@ -5,42 +5,47 @@ import org.scalatest.junit.JUnitSuite
 import org.junit.Test
 
 /*
- * Lab 02: List functions
+ * Lab 02: List operations
  * 
  * Scala basic Lists
  *
- * Your job is to implement the objects and classes in
+ * Your job is to implement the functions in object Exercise04 and classes in
  * such a way that the tests in this suite all succeed.
  * 
  * Hint: 
  * - the methods in Exercise04 can all be implemented in various ways:
- *   -- build in List functionality
+ *   -- 'build in' functionality in Scala's collection classes
  *   -- pattern matching
  *   -- 'functional' style, using recursion, and/or folds
- * - note how a List can be constructed
+ * It's a nice exercise to try out various ways
  */
 
 class Exercise04Test extends JUnitSuite {
-  val listOfStrings:List[String] = List("One", "Two", "Three")
+  val listOfStrings: List[String] = List("One", "Two", "Three")
 
   @Test
   def firstElementInList() {
-    val result:String = Exercise04.firstElementInList(listOfStrings)
-    println("Found result: " + result)
+    val result: String = Exercise04.firstElementInList(listOfStrings)
     assert("One" === result)
   }
 
   @Test
+  def sumOfList() {
+    assert(15 === Exercise04.sumOfList(List(1, 2, 3, 4, 5)))
+  }
+
+
+  @Test
   def lastElementInList() {
     assert("Three" === Exercise04.lastElementInList(listOfStrings))
-    assert("Three" === Exercise04.lastElementInList(List("Two", "Three")))
+    assert(9 === Exercise04.lastElementInList(List(1, 6, 10, 33, 54, 9)))
   }
 
   @Test
   def nthElementInList() {
-    assert("One" === Exercise04.nthElementInList(1, listOfStrings))
-    assert("Two" === Exercise04.nthElementInList(2, listOfStrings))
-    assert("Three" === Exercise04.nthElementInList(3, listOfStrings))
+    assert("One" === Exercise04.nthElementInList(0, listOfStrings))
+    assert("Two" === Exercise04.nthElementInList(1, listOfStrings))
+    assert("Three" === Exercise04.nthElementInList(2, listOfStrings))
   }
 
   @Test
@@ -64,6 +69,11 @@ class Exercise04Test extends JUnitSuite {
   @Test
   def listContainsTwoOddElements() {
     assert(List(1, 3, 5) === Exercise04.oddElements(List(1, 2, 3, 4, 5)))
+  }
+
+  @Test
+  def tailsOfList() {
+    assert(List(List(1, 2, 3, 4, 5), List(2, 3, 4, 5), List(3, 4, 5), List(4, 5), List(5), List()) === Exercise04.tails(List(1, 2, 3, 4, 5)))
   }
 
 }

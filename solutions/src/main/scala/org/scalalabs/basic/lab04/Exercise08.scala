@@ -15,51 +15,45 @@ import org.joda.time.{Duration, DateTime}
  */
 
 object Exercise08 {
+  def stringToList(s: String): List[Char] = {
+    //build in: our String will be converted to Scala's RichString, because this is defined a Scala
+    //object called Predef. This is imported by the compiler by default.
+    //
+    s.toList
+  }
 
 
-   def stringToList(s: String) : List[Char] = {
-     //build in: our String will be converted to Scala's RichString, because this is defined a Scala
-     //object called Predef. This is imported by the compiler by default.
-     //
-     s.toList
-   }
-
-  
 }
 object TimeUtils {
-   case class DurationBuilder(timeSpan: Long) {
-
+  case class DurationBuilder(timeSpan: Long) {
     def now = new DateTime().getMillis()
 
-    def seconds = RichDuration(TimeUtils seconds(timeSpan))
+    def seconds = RichDuration(TimeUtils seconds (timeSpan))
 
-    def minutes = RichDuration(TimeUtils minutes(timeSpan))
+    def minutes = RichDuration(TimeUtils minutes (timeSpan))
 
-    def hours = RichDuration(TimeUtils hours(timeSpan))
+    def hours = RichDuration(TimeUtils hours (timeSpan))
 
-    def days = RichDuration(TimeUtils days(timeSpan))
-   }
+    def days = RichDuration(TimeUtils days (timeSpan))
+  }
 
-   implicit def longToDuration(l:Long) : Duration = new Duration(l)
-  
-   implicit def intToDurationBuilder(i:Int) : DurationBuilder ={
-     new DurationBuilder(i)
-   }
+  implicit def longToDuration(l: Long): Duration = new Duration(l)
 
-   def seconds(in:Long) = in * 1000L
+  implicit def intToDurationBuilder(i: Int): DurationBuilder = new DurationBuilder(i)
 
-   def minutes(in:Long) = seconds(in) * 60L
+  def seconds(in: Long) = in * 1000L
 
-   def hours(in:Long) = minutes(in) * 60L
-  
-   def days(in:Long) = hours(in) * 24L
+  def minutes(in: Long) = seconds(in) * 60L
+
+  def hours(in: Long) = minutes(in) * 60L
+
+  def days(in: Long) = hours(in) * 24L
 }
 
 case class RichDuration(val duration: Duration) {
+  def millis = duration.getMillis()
 
-    def millis = duration.getMillis()
-  
-    def afterNow = new DateTime().plus(duration)
+  def afterNow = new DateTime().plus(duration)
 
-    def +(that: RichDuration) = RichDuration(this.duration.plus(that.duration))
+  def +(that: RichDuration) = RichDuration(this.duration.plus(that.duration))
 }

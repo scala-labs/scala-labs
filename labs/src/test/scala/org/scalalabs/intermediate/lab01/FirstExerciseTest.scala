@@ -59,9 +59,9 @@ class FirstExerciseTest extends JUnitSuite {
 //        expect(false) {firstTweet.truncated}
 //        expect (false) {firstTweet.favorited}
 //
-//	    expect("Having much more fun working on #jaoo talks than  yesterday's hard drive crash recovery.") {
+//	    expect("Having much more fun working on #jaoo talks than  yesterday's hard drive crash redddddddcovery.") {
 //	        firstTweet.text
-//        }
+//        }                                                    
 //
 //	    expect(twitterDateTimeFormat.parseDateTime("Mon Aug 17 14:19:06 +0000 2009")) {
 //	        firstTweet.createdAt

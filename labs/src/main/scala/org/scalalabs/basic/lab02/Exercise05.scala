@@ -23,7 +23,7 @@ object Exercise05 {
           men += person
         }
     }
-    //TODO can this be made even more imperative?
+    
     var sortedBoys = boys.toList.sort(sortPerson _)
     var sortedMen = men.toList.sort(sortPerson _)
     

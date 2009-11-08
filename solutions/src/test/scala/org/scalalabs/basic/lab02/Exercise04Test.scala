@@ -5,11 +5,11 @@ import org.scalatest.junit.JUnitSuite
 import org.junit.Test
 
 /*
- * Lab 02: List functions
+ * Lab 02: List operations
  * 
  * Scala basic Lists
  *
- * Your job is to implement the objects and classes in
+ * Your job is to implement the functions in object Exercise04 and classes in
  * such a way that the tests in this suite all succeed.
  * 
  * Hint: 
@@ -17,7 +17,7 @@ import org.junit.Test
  *   -- 'build in' functionality in Scala's collection classes
  *   -- pattern matching
  *   -- 'functional' style, using recursion, and/or folds
- * - note how a List can be constructed
+ * It's a nice exercise to try out various ways
  */
 
 class Exercise04Test extends JUnitSuite {

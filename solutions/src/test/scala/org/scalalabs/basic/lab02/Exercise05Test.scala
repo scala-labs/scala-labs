@@ -5,19 +5,14 @@ import org.junit.Test
 import Exercise05._
 
 /*
- * Lab 02: some more advanced Scala collection operations
+ * Lab 02: more Scala collection operations
  * 
  * Scala advanced Lists
  *
  * Your job is to implement the objects and classes in
  * such a way that the tests in this suite all succeed.
- * 
- * Hint: 
- * - the methods in Exercise05 can all be implemented in various ways:
- *   -- build in List functionality
- *   -- pattern matching
- *   -- 'functional' style, using recursion, and/or folds
- * - note how a List can be constructed
+ *
+  * One exercise consists of rewriting imperatively written code to a style that is more functional. 
  */
 
 
