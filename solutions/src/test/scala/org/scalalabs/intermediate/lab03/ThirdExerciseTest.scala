@@ -66,7 +66,7 @@ class ThirdExerciseTest extends JUnitSuite {
         val twitter:AuthenticatedSession = TwitterSession(testAccountUsername, testAccountPassword)
         val friendsTimeline = twitter.friendsTimeline
 
-        expect(14) {friendsTimeline.toList.size}
+        expect(11) {friendsTimeline.toList.size}
         expect(true) {friendsTimeline.forall(_.user != null)}
     }
 
@@ -77,7 +77,7 @@ class ThirdExerciseTest extends JUnitSuite {
         val friendsTimeline = twitter.friendsTimeline
         val friends:TwitterUsers = twitter.friends
 
-        expect(14) {friendsTimeline.toList.size}
+        expect(11) {friendsTimeline.toList.size}
         expect(true) {friendsTimeline.forall(tweet => friends.exists(_ == tweet.user) || testAccountUsername == tweet.user.screenName)}
     }
 

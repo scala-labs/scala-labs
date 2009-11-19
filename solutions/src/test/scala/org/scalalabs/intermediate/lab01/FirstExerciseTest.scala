@@ -2,6 +2,8 @@ package org.scalalabs.intermediate.lab01
 
 import scala.xml._
 
+import java.util.Locale
+
 import org.joda.time._
 import org.joda.time.format._
 
@@ -17,7 +19,7 @@ import org.junit.Test
  * such a way that the tests in this suite all succeed.
  */
 class FirstExerciseTest extends JUnitSuite {
-    val twitterDateTimeFormat = DateTimeFormat.forPattern("EE MMM dd HH:mm:ss Z yyyy")
+    val twitterDateTimeFormat = DateTimeFormat.forPattern("EE MMM dd HH:mm:ss Z yyyy").withLocale(Locale.US)
 
     private def getListOfTweets(): List[TwitterStatus] = {
         val xml = XML.load(this.getClass.getResourceAsStream("/friends_timeline.xml"))
