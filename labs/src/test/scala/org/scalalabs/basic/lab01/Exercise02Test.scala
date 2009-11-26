@@ -11,10 +11,8 @@ import org.junit.Test
  *
  * Your job is to implement the objects and classes in
  * such a way that the tests in this suite all succeed.
- * 
- * Hint: 
- * - combine the methods in HelloTrait and Worldtrait to 
- *   create a new message
+ *
+ * See HelloWorldWithTraits.scala for help and hints.
  */
 
 class Exercise02Test extends JUnitSuite {

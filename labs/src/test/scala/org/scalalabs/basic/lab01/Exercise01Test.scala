@@ -10,6 +10,8 @@ import org.junit.Test
  *
  * Your job is to implement the objects and classes in
  * such a way that the tests in this suite all succeed.
+ *
+ * See HelloWorld.scala for help and hints.s
  */
 class Exercise01Test extends JUnitSuite {
 
