@@ -6,10 +6,16 @@ import _root_.scala.collection.mutable.ListBuffer
 case class Person(age: Int, firstName: String, lastName: String)
 
 object Exercise05 {
+
   def maxElementInList(l: List[Int]): Int = {
     error("fix me")
   }
 
+  /**
+   * The following method is implemented in the most in-elegant way we could think of.
+   * The idea is to re-write the method into more functional style. In the end, you may be able to achieve the same functionality as implemented below
+   * in a one-liner.
+   */
   def separateTheMenFromTheBoys(persons: List[Person]): List[List[String]] = {
     var boys: ListBuffer[Person] = new ListBuffer[Person]()
     var men: ListBuffer[Person] = new ListBuffer[Person]()
