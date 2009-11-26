@@ -7,6 +7,10 @@ case class Person(age: Int, firstName: String, lastName: String)
 
 object Exercise05 {
 
+  /**
+   * Find the maximum element in a list, e.g. maxElementInList(List(1,9,3,5)) == 9
+   * As usual, various ways exist: pattern matching, folding, ...
+   */
   def maxElementInList(l: List[Int]): Int = {
     error("fix me")
   }

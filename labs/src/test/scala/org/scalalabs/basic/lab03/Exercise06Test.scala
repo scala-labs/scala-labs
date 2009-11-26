@@ -5,13 +5,10 @@ import org.junit.Test
 import org.junit.Assert._
 import Exercise06._
 import java.io.{FileReader, BufferedReader}
-
+                   
 /**
- * Fix the tests by implementing some functions given in Exercise06
- *
- * @author Arjan
+ * @see Exercise06
  */
-
 class Exercise06Test extends JUnitSuite {
 
   @Test
