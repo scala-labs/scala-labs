@@ -3,27 +3,66 @@ package org.scalalabs.basic.lab04
 import org.joda.time.{Duration, DateTime}
 
 /**
- * Created by IntelliJ IDEA.
- * @author arjan
+ * This excersice introduces you to Scala implicit conversion features.
  *
- * Scala has a nice feature that automatically lets you add methods to an existing class.
- * For instance, it is possible to write "Hello".toList, which yields List(H, e, l, l, o)
+ * Scala has a nice feature that automatically lets you convert types and add methods to an existing class.
+ * For instance, it is possible to write "Hello".toList, which yields List(H, e, l, l, o) even though
+ * the implementation of the String class does not provide a toList method.
  * This is coined 'library pimping' and is achieved via implicit conversions.
- * In this exercise, we will try out some implicit conversions from integers to Joda's DateTime,
+ * In this exercise, you will among other try out some implicit conversions from integers to Joda's DateTime,
  * so we can write little DSL like statements like 1 day + 2 hours.
- * It is also possible to define implicit parameters
+ *
+ * Provide a suitable implementation in order to make the corresponding unittest work.
+ *
+ * Reference material to solve these exercises can be found here:
+ * Implicit conversions: http://programming-scala.labs.oreilly.com/ch08.html#Implicits
+ *
  */
 
 object Exercise08 {
+
+  /** ============================================================================ */
+  class Celsius(val degree:Double)
+  class Fahrenheit(val fahrenheit:Double)
+
+  object TemperaturPrinter {
+    def printCelsius(c:Celsius) : String = {
+      "It's " + c.degree + " degree celsius"
+    }
+    def printFahrenheit(f:Fahrenheit) : String = {
+      "It's " + f.fahrenheit + " fahrenheit"
+    }
+  }
+
+  /**
+   * Use this conversion helper to convert fahrenheit to degree celsius and vice versa in
+   * the implicit function you will define.
+   */
+  object ConversionHelper {
+    def fahrenheit2CelsiusConversion(fahrenheit:Double) ={
+      val converted = (fahrenheit - 32) / 1.8
+      Math.round(converted * 100).toDouble / 100
+    }
+    def celsius2FahrenheitConversion(degreeCelsius:Double) ={
+      degreeCelsius * 1.8 + 32
+    }
+  }
+
+  implicit def celsiusToFahrenheit(f:Fahrenheit) = {new Celsius(ConversionHelper.fahrenheit2CelsiusConversion(f.fahrenheit))}
+  implicit def fahrenheitToCelsius(c:Celsius) = {new Fahrenheit(ConversionHelper.celsius2FahrenheitConversion(c.degree))}
+
+  /** ============================================================================ */
+
   def stringToList(s: String): List[Char] = {
     //build in: our String will be converted to Scala's RichString, because this is defined a Scala
     //object called Predef. This is imported by the compiler by default.
     //
     s.toList
   }
-
-
 }
+
+/** ============================================================================ */
+
 object TimeUtils {
   case class DurationBuilder(timeSpan: Long) {
     def now = new DateTime().getMillis()

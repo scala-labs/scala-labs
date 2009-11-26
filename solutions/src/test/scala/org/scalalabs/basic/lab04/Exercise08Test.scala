@@ -7,14 +7,21 @@ import Exercise08._
 import org.joda.time.Duration
 
 /**
- * Created by IntelliJ IDEA.
- * User: arjan
- * Date: Oct 31, 2009
- * Time: 8:19:07 AM
- * To change this template use File | Settings | File Templates.
+ * @see Exercise08
  */
 
 class Exercise08Test {
+
+  @Test
+  def celsiusToFahrenheitConverter = {
+    val c = new Celsius(10)
+    val f = new Fahrenheit(30)
+    assertEquals("It's 10.0 degree celsius", TemperaturPrinter.printCelsius(c))
+    assertEquals("It's -1.11 degree celsius", TemperaturPrinter.printCelsius(f))
+    assertEquals("It's 50.0 fahrenheit", TemperaturPrinter.printFahrenheit(c))
+    assertEquals("It's 30.0 fahrenheit", TemperaturPrinter.printFahrenheit(f))
+  }
+
 
   @Test
   def convertStringToList = {

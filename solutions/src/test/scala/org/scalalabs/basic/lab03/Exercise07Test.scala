@@ -7,12 +7,8 @@ import org.junit.Test
 import org.junit.Assert._
 
 /**
- * Fix the tests by implementing some functions given in Exercise07
- * The exercises should all be implemented via a pattern matching
- *
- * @author Arjan
+ * @see Exercise07
  */
-
 
 class Exercise07Test extends JUnitSuite {
   @Test
