@@ -2,6 +2,8 @@ package org.scalalabs.intermediate.lab03
 
 import scala.xml._
 
+import java.util.Locale
+
 import org.joda.time._
 import org.joda.time.format._
 
@@ -30,7 +32,7 @@ abstract class TwitterStatus {
 }
 
 object TwitterStatus {
-    val fmt = DateTimeFormat.forPattern("EE MMM dd HH:mm:ss Z yyyy")
+    val fmt = DateTimeFormat.forPattern("EE MMM dd HH:mm:ss Z yyyy").withLocale(Locale.US)
 
     def apply(node: Node): TwitterStatus = {
       new TwitterStatus {
