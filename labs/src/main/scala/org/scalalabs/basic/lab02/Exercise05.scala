@@ -17,7 +17,8 @@ object Exercise05 {
 
   /**
    * The following method is implemented in the most in-elegant way we could think of.
-   * The idea is to re-write the method into more functional style. In the end, you may be able to achieve the same functionality as implemented below
+   * The idea is to re-write the method into more functional style. In the end, you
+   * may be able to achieve the same functionality as implemented below
    * in a one-liner.
    */
   def separateTheMenFromTheBoys(persons: List[Person]): List[List[String]] = {
@@ -33,10 +34,10 @@ object Exercise05 {
           men += person
         }
     }
-    
+
     var sortedBoys = boys.toList.sort(sortPerson _)
     var sortedMen = men.toList.sort(sortPerson _)
-    
+
     for (boy <- sortedBoys) {
       validBoyNames += boy.firstName
     }

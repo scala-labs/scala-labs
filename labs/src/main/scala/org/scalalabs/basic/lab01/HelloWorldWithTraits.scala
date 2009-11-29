@@ -15,6 +15,7 @@ object HelloWorldWithTraits extends HelloTrait with WorldTrait {
  /*
  * Hint:
  * - combine the 'helloMethod' of HelloTrait and the 'worldMethod' of WorldTrait to create a new message
+ * - just replacing the FixMe string would of course be cheating :)
  */
 	def hello:String = "FixMe"
 }

@@ -17,6 +17,11 @@ class Exercise01Test extends JUnitSuite {
 
     @Test
     def shouldSayHello() {
+        // The === operator used below is not an operator at all but a method in the
+        // JUnitSuite super class, which is part of the ScalaTest library. it behaves
+        // as a traditional assertEquals but produces very clear assertion errors when
+        // values don't match. In Scala, methods can be used as if they were operators.
+
         assert("Hello from Scala" === HelloWorld.sayHello)
     }
 

@@ -31,8 +31,9 @@ class Exercise06Test extends JUnitSuite {
     val greeting = Exercise06.using(closable) {
       c => c sayHello("John")
     }
+
     val anotherGreeting = Exercise06.using(anotherClosable) {
-       c => c sayHello("John")
+      c => c sayHello("John")
     }
 
     assertTrue(closable closed)

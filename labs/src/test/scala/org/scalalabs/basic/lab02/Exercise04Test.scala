@@ -14,9 +14,10 @@ import org.junit.Test
  * 
  * Hint: 
  * - the methods in Exercise04 can all be implemented in various ways:
- *   -- 'build in' functionality in Scala's collection classes
+ *   -- 'built in' functionality in Scala's collection classes
  *   -- pattern matching
  *   -- 'functional' style, using recursion, and/or folds
+ * 
  * It's a nice exercise to try out various ways
  */
 

@@ -3,7 +3,7 @@ package org.scalalabs.basic.lab02
 /**
  * The goal of this exercise is to get familiar with the basic collections API of Scala. Implement all methods so that the unit test passes.
  * Using collections will be a different experience than the way you're familiar with in Java.
- * In Scala the way to deal with collections is to use higher order functions, and not using a for-loop.
+ * In Scala the way to deal with collections is to use higher order functions instead of a for-loop.
  *
  * An overview of some functional programming techniques can be found here in the O'reilly book:
  * http://programming-scala.labs.oreilly.com/ch08.html#FunctionalDataStructures 
@@ -31,7 +31,7 @@ object Exercise04 {
   /**
    * Get the last element in the list, e.g. lastElementInList(List(1,2,3)) = 3.
    * Hint: this can be achieved in multiple ways:
-   *  - build in
+   *  - built in
    *  - via a pattern match
    *  - by using a foldLeft function
    *  - ... etc
@@ -43,7 +43,7 @@ object Exercise04 {
    /**
    * Get the nth element in the list, e.g. nthElementInList(3, List(1,2,3,4)) = 3.
    * Hint: this can be achieved in multiple ways:
-   *  - build in
+   *  - built in
    *  - via a pattern match
    *  - custom made (for instance, it can be done in a fun way by using the zipWithIndex function, that is available on a List)
    *  - ... etc
@@ -55,7 +55,7 @@ object Exercise04 {
   /**
    * Concatenate two lists into one, e.g. concatLists(List(1,2,3), List(4,5,6)) = List(1,2,3,4,5,6)
    * Hint: this can be achieved in multiple ways:
-   *  - build in
+   *  - built in
    *  - via a pattern match
    *  - custom made
    *  - ... etc 
@@ -67,7 +67,7 @@ object Exercise04 {
   /**
    * Sort a list on the natural ordering, so sortList(3,1,2) = List(1,2,3).
    * Hint: this can be achieved in multiple ways:
-   * - build in using the sort method
+   * - built in using the sort method
    * - via a foldLeft method (a bit complex, but fun)
    * - ... whichever way you like 
    * 

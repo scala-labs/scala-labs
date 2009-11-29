@@ -19,7 +19,7 @@ object HelloWorld {
    * val sayHello: String = {"FixMe"}                 -> Brackets are also optional
    *
    * Declaring a value with val will create an immutable field. An immutable field in Scala is the same as a final field
-   * Java. A mutable field can be created by declaring the field with var:
+   * in Java. A mutable field can be created by declaring the field with var:
    * var sayHello: String = "FixMe"
    *
    * More on variable declarations can be found here:
