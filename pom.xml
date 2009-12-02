@@ -15,8 +15,10 @@
   </properties>
 
   <modules>
-    <module>scala-labs</module>
-    <module>scala-labs-solutions</module>
+	<!-- We build the solutions first because that build should always work. 
+	     The labs build should always fail on the tests because that's the whole purpose of the labs :) -->
+    <module>solutions</module>
+    <module>labs</module>
   </modules>
 
   <repositories>
