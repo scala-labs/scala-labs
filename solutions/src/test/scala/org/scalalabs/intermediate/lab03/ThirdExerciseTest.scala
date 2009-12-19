@@ -102,6 +102,9 @@ class ThirdExerciseTest extends JUnitSuite {
         val twitter:AuthenticatedSession = TwitterSession(testAccountUsername, testAccountPassword)
         val baseText = "A test tweet from a scala-labs unit test. This test was run by "
 
+		// this might a bit of a privacy-sensitive but I was looking for a way to be able to
+		// recognize your own generated tweet from others. Other solutions that are less privacy
+		// sensitive are more than welcome.
         val tweet = twitter.tweet(baseText + System.getProperty("user.name"));
 
         expect(testAccountUsername) {tweet.user.screenName}
