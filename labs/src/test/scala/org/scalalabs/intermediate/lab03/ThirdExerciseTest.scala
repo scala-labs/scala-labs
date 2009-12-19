@@ -103,6 +103,10 @@ class ThirdExerciseTest extends JUnitSuite {
 //        val baseText = "Yet another test tweet from a #Scala unit test. Let's include a random number: "
 //        val random = new Random
 //
+          // this might a bit of a privacy-sensitive but I was looking for a way to be able to
+          // recognize your own generated tweet from others. Other solutions that are less privacy
+          // sensitive are more than welcome. Feel free to change this to any other string that 
+          // you will recognize.
 //        val tweet = twitter.tweet(baseText + random.nextLong);
 //
 //        expect(testAccountUsername) {tweet.user.screenName}
