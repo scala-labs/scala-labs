@@ -10,7 +10,6 @@ import org.junit.{Before, BeforeClass}
 
 trait LoggingTest extends Logging {
 
-  @Before
   def initialize() {
     import ScalaLabsConfig._
     val version = config.getString("scalalabs", "0")
