@@ -6,7 +6,6 @@ package org.scalalabs.advanced.lab01
 
 import scala.actors.Actor
 import scala.actors.Actor._
-import org.scalalabs.util.Logging
 
 class EchoActor extends Actor {
   def act = loop {
@@ -21,14 +20,14 @@ case class Messages(msg: List[String])
 case class Remove(who: Actor)
 case class Add(who: Actor)
 
-class ChatServerActor extends Actor with Logging {
+class ChatServerActor extends Actor /*with Logging*/ {
   private var messages: List[String] = Nil
   private var listeners: List[Actor] = Nil
 
   def act = loop {
     react {
       case message: String => {
-        log.debug("Got message: " + message)
+        println("Got message: " + message)
         messages = message :: messages
       }
       case ChatLog => reply(Messages(messages))

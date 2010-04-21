@@ -2,15 +2,9 @@ package org.scalalabs.intermediate.lab02
 
 import scala.xml._
 
-import org.joda.time._
-import org.joda.time.format._
-
-import org.scalatest._
 import org.scalatest.junit.JUnitSuite
 
 import org.junit.Test
-
-
 /*
  * Exercise 2: The almighty List
  *
@@ -50,7 +44,7 @@ class SecondExerciseTest extends JUnitSuite {
         // Imports can appear all over your code. This is a local import that also
         // includes an alias (sometimes handy to prevent name-clashes but used here
         // simply because we can).
-       import lab02.{TwitterUsers => Friends}
+        import org.scalalabs.intermediate.lab02.{TwitterUsers => Friends}
 
         expect(List("headius", "twitterapi", "stephenfry", "macrumors", "spolsky", "martinfowler", "WardCunningham", "unclebobmartin", "pragdave", "KentBeck")) {
             Friends.thatArePopularByScreenName(getFriends)

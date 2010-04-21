@@ -3,7 +3,6 @@ package org.scalalabs.advanced.lab01
 import org.scalatest._
 import org.scalatest.junit.JUnitSuite
 import org.junit.Assert._
-import org.scalalabs.util.{LoggingTest, ScalaLabsConfig, Logging}
 import org.junit.{Before, Test}
 
 /**
@@ -12,15 +11,14 @@ import org.junit.{Before, Test}
  * Time: 2:12:16 PM
  */
 
-class ActorExerciseTest extends JUnitSuite with LoggingTest {
+class ActorExerciseTest extends JUnitSuite {
 
-  @Before  
-  override def initialize() {
-    import ScalaLabsConfig._
-    config.getString("scalalabs", "0")
-//    println("found version " + version)
-  }
-
+//  @Before
+//  override def initialize() {
+//    import ScalaLabsConfig._
+//    config.getString("scalalabs", "0")
+//  }
+//
  @Test
  def shouldReply = {
    val echo = new EchoActor

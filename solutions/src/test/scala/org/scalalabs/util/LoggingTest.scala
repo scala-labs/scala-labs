@@ -8,11 +8,11 @@ import org.junit.{Before, BeforeClass}
  * Time: 7:42:46 PM
  */
 
-trait LoggingTest extends Logging {
-
-  def initialize() {
-    import ScalaLabsConfig._
-    val version = config.getString("scalalabs", "0")
-    println("found version " + version)
-  }
-}
+//trait LoggingTest extends Logging {
+//
+//  def initialize() {
+//    import ScalaLabsConfig._
+//    val version = config.getString("scalalabs", "0")
+//    println("found version " + version)
+//  }
+//}

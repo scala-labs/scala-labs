@@ -6,11 +6,14 @@ package org.scalalabs.advanced.lab03
  * Date: Apr 9, 2010
  * Time: 1:52:26 PM
  */
-
 trait Monoid[T] {
   def append(x: T, y: T): T
 
   def empty: T
+}
+
+trait FoldLeft[Container[_]] {
+   def foldLeft[A, B](xs: Container[A], b: B, f: (B, A) => B): B
 }
 
 object Monoid {
@@ -29,6 +32,6 @@ object Monoid {
 }
 object ImplicitExercise {
 
-  def sum[T](xs: List[T])(implicit m: Monoid[T]): T = if(xs.isEmpty) m empty else m append(xs.head, sum(xs.tail))
+  def add[T](xs: List[T])(implicit m: Monoid[T]): T = if(xs.isEmpty) m empty else m append(xs.head, add(xs.tail))
 
 }

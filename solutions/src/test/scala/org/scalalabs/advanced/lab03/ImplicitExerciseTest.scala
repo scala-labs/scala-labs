@@ -1,7 +1,7 @@
 package org.scalalabs.advanced.lab03
 
 import org.junit.{Test, Before}
-import org.scalalabs.util.{LoggingTest, ScalaLabsConfig}
+//import org.scalalabs.util.{LoggingTest, ScalaLabsConfig}
 import org.scalatest.junit.JUnitSuite
 import org.junit.Assert._
 
@@ -13,19 +13,19 @@ import org.junit.Assert._
  * To change this template use File | Settings | File Templates.
  */
 
-class ImplicitExerciseTest extends JUnitSuite with LoggingTest {
+class ImplicitExerciseTest extends JUnitSuite {
 
-  @Before
-  def setup() {
-     initialize
-  }
+//  @Before
+//  def setup() {
+//     initialize
+//  }
 
   @Test
   def shouldAddIntsAndStrings = {
     import ImplicitExercise._
 
-    assertEquals(10, sum(List(1, 2, 3, 4)))
-    assertEquals("1234", sum(List("1", "2", "3", "4")))
+    assertEquals(10, add(List(1, 2, 3, 4)))
+    assertEquals("1234", add(List("1", "2", "3", "4")))
   }
 
 }
