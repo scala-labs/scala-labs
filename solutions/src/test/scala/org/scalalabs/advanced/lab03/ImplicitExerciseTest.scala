@@ -28,4 +28,14 @@ class ImplicitExerciseTest extends JUnitSuite {
     assertEquals("1234", add(List("1", "2", "3", "4")))
   }
 
+
+    @Test
+    def nicerAddIntsAndStrings = {
+      import ImplicitExercise._
+      
+      assertEquals(10, List(1, 2, 3, 4) add)
+      assertEquals("1234", List("1", "2", "3", "4") add)
+    }
+
+  
 }
