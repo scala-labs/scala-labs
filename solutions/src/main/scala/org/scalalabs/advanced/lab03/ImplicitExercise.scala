@@ -22,6 +22,26 @@ trait Monoid[T] {
 //    def foldLeft[A, B](xs: List[A], b: B, f: (B, A) => B): B = xs.foldLeft(b)(f)
 //  }
 //}
+trait Ord[A] {
+  def compare(x: A, y: A): Int
+  
+  def max[T](xs: List[T])(implicit ord: Ord[T]): T = xs reduceLeft((x,y) => if (ord.compare(x, y) < 0) x else y)
+}
+
+object Ord {
+
+  def apply[A](implicit ord: Ord[A]) = ord
+
+  implicit def stringOrd = new Ord[String] {
+    override def compare(x: String, y: String) = x.compareTo(y)
+  }
+
+  implicit def intOrd = new Ord[Int] {
+    override def compare(x: Int, y: Int) = if (x < y) -1 else if (x > y) +1 else 0
+  }
+
+}
+
 
 trait AddableList[A] {
   val value: List[A]
@@ -44,10 +64,16 @@ object Monoid {
 
 }
 
+
 object ImplicitExercise {
 
   implicit def toAddableList[A](xs: List[A]) = new AddableList[A]{val value = xs}
 
   def add[T](xs: List[T])(implicit m: Monoid[T]): T = if(xs.isEmpty) m empty else m append(xs.head, add(xs.tail))
 
+  def add[A](ns: A*)(implicit n: Numeric[A]) = {
+    ns reduceLeft(n plus(_,_))    
+  }
+
 }
+

@@ -37,5 +37,18 @@ class ImplicitExerciseTest extends JUnitSuite {
       assertEquals("1234", List("1", "2", "3", "4") add)
     }
 
-  
+    @Test
+    def addUsingNumerics = {
+      import ImplicitExercise._
+
+      assertEquals(150, add(10, 20, 30, 40, 50))
+    }
+
+  @Test
+  def shouldOrderUsingImplicitOrd = {
+    import ImplicitExercise._
+
+    assertEquals(3, Ord[Int] max (List(10, 20, 3, 4, 5)) )
+  }
+
 }
