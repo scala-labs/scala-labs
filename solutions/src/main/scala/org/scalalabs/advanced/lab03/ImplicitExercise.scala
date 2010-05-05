@@ -25,8 +25,13 @@ trait Monoid[T] {
 trait Ord[A] {
   def compare(x: A, y: A): Int
   
-  def max[T](xs: List[T])(implicit ord: Ord[T]): T = xs reduceLeft((x,y) => if (ord.compare(x, y) < 0) x else y)
+  def max[T](xs: List[T])(implicit ord: Ord[T]): T = xs reduceLeft((x,y) => if (ord.compare(x, y) < 0) y else x)
+
+  def min[T](xs: List[T])(implicit ord: Ord[T]): T = xs reduceLeft((x,y) => if (ord.compare(x, y) < 0) x else y)
+
+//  def naturalOrder[T](xs: List[T])(implicit ord: Ord[T]) : List[T] =  xs
 }
+
 
 object Ord {
 
@@ -40,8 +45,18 @@ object Ord {
     override def compare(x: Int, y: Int) = if (x < y) -1 else if (x > y) +1 else 0
   }
 
+//  implicit def listOrd = new Ord[List[Ord[_]]] {
+//    override def compare(xs: List[_], y: Int) = if (x < y) -1 else if (x > y) +1 else 0
+//  }
+
+
+  implicit def personOrdByName = new Ord[User] {
+    override def compare(x: User, y: User) = x.name.compareTo(y.name) 
+  }
+
 }
 
+case class User(val name: String, val age: Int)
 
 trait AddableList[A] {
   val value: List[A]

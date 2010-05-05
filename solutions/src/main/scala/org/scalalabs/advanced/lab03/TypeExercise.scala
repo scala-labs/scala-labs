@@ -1,5 +1,7 @@
 package org.scalalabs.advanced.lab03
 
+import org.joda.time.{LocalDate, DateTime}
+
 /**
  * Created by IntelliJ IDEA.
  * User: arjan
@@ -8,4 +10,4 @@ package org.scalalabs.advanced.lab03
  * To change this template use File | Settings | File Templates.
  */
 
-class TypeExercise
+class TypeExercise{}

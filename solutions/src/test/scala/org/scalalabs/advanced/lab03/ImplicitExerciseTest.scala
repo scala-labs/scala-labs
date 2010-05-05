@@ -48,7 +48,11 @@ class ImplicitExerciseTest extends JUnitSuite {
   def shouldOrderUsingImplicitOrd = {
     import ImplicitExercise._
 
-    assertEquals(3, Ord[Int] max (List(10, 20, 3, 4, 5)) )
+    assertEquals(20, Ord[Int] max (List(10, 20, 3, 4, 5)) )
+    assertEquals(3, Ord[Int] min (List(10, 20, 3, 4, 5)) )
+
+    assertEquals("ba", Ord[String] min (List("ca", "da", "bb", "ba", "bd")) )
+    assertEquals("da", Ord[String] max (List("ca", "da", "bb", "ba", "bd")) )
   }
 
 }
