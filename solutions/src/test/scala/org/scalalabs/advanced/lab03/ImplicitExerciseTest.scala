@@ -53,6 +53,9 @@ class ImplicitExerciseTest extends JUnitSuite {
 
     assertEquals("ba", Ord[String] min (List("ca", "da", "bb", "ba", "bd")) )
     assertEquals("da", Ord[String] max (List("ca", "da", "bb", "ba", "bd")) )
+
+
+//    assertEquals("aa", Ord[List[_]].on(List("cabbd", "dadddd", "bb4598459845", "baas", "bd"))(t => t.length ))
   }
 
 }

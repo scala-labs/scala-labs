@@ -23,11 +23,16 @@ trait Monoid[T] {
 //  }
 //}
 trait Ord[A] {
+  self =>
   def compare(x: A, y: A): Int
   
   def max[T](xs: List[T])(implicit ord: Ord[T]): T = xs reduceLeft((x,y) => if (ord.compare(x, y) < 0) y else x)
 
   def min[T](xs: List[T])(implicit ord: Ord[T]): T = xs reduceLeft((x,y) => if (ord.compare(x, y) < 0) x else y)
+
+  def on[T](f: T => A): Ord[T] = new Ord[T] {
+    def compare(x: T, y: T) = self.compare(f(x), f(y))
+  }
 
 //  def naturalOrder[T](xs: List[T])(implicit ord: Ord[T]) : List[T] =  xs
 }
@@ -44,10 +49,22 @@ object Ord {
   implicit def intOrd = new Ord[Int] {
     override def compare(x: Int, y: Int) = if (x < y) -1 else if (x > y) +1 else 0
   }
+ 
+  implicit def listOrd[T](implicit o: Ord[T]) = new Ord[List[T]] {
+    override def compare(xs: List[T], ys: List[T]): Int = {
+        val xi = xs.iterator
+        val yi = ys.iterator
 
-//  implicit def listOrd = new Ord[List[Ord[_]]] {
-//    override def compare(xs: List[_], y: Int) = if (x < y) -1 else if (x > y) +1 else 0
-//  }
+        while (xi.hasNext && yi.hasNext) {
+          val res = o.compare(xi.next, yi.next)
+          if (res != 0) res
+        }
+
+        if (xi.hasNext) 1
+        else if (yi.hasNext) -1
+        else 0
+    }
+  }
 
 
   implicit def personOrdByName = new Ord[User] {
