@@ -2,6 +2,7 @@ package org.scalalabs.advanced.lab03
 
 import org.junit.{Test}
 import org.junit.Assert._
+import org.scalalabs.advanced.lab03.ManifestSample.TSReg
 
 /**
  * Created by IntelliJ IDEA.
@@ -28,6 +29,24 @@ class TypeExerciseTest {
     type _2 = _1#succ
     assertEquals(Equals[_1, one], Equals())
     assertEquals(Equals[_2, two], Equals())
+    //TODO
+//    assertEquals(Equals[two, one plus one], Equals())
   }
+
+  @Test
+  def typeSafeRegistry = {
+    val tsReg = new TSReg[Int,String]
+
+    tsReg.add(1, "Scala")
+    tsReg.add(2, "Haskell")
+
+    assertEquals(Some("Scala"), tsReg.safeGet[String](1))
+    assertEquals(Some("Haskell"), tsReg.safeGet[String](2))
+    assertEquals(None, tsReg.safeGet[String](3))
+
+    //the following returns a None, since the get has been made typeSafe
+    assertEquals(None, tsReg.safeGet[Int](1))
+  }
+
 }
 

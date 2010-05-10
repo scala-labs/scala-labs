@@ -13,8 +13,14 @@ object ChurchEncoding {
   trait CFalse extends CBool {type cond[T,F] = F}
   trait CTrue extends CBool {type condition[T,F] = T}
 
-  trait CNum {type succ <: CNum}
-  trait next[P <: CNum] extends CNum{type succ=next[next[P]]}
+  trait CNum {
+     type succ <: CNum
+     type add[N <: CNum] <: CNum
+  }
+  trait next[P <: CNum] extends CNum{
+     type succ=next[next[P]]
+     type add[N <: CNum] = P#add[N]#succ
+  }
   abstract class zero extends CNum {type succ = next[zero]}
 
   type one=zero#succ
