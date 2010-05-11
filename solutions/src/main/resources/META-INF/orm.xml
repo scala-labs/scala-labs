@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+        http://java.sun.com/xml/ns/persistence/orm_1_0.xsd" version="1.0">
+
+  <package>org.scalalabs.advanced.lab04</package>
+
+  <entity class="Movie">
+    <named-query name="findMoviesByDirector">
+      <query><![CDATA[from Movie m where m.director.id = :id order by m.title]]></query>
+    </named-query>
+    <named-query name="findMoviesByDate">
+      <query><![CDATA[from Movie m where m.released between :startDate and :endDate]]></query>
+    </named-query>
+    <named-query name="findMoviesByTitle">
+      <query><![CDATA[from Movie m where lower(m.title) like :title order by m.title]]></query>
+    </named-query>
+    <named-query name="findAllMovies">
+      <query><![CDATA[from Movie m order by m.title]]></query>
+    </named-query>
+  </entity>
+
+  <entity class="Director">
+    <named-query name="findAllDirectors">
+      <query><![CDATA[from Director d order by d.name]]></query>
+    </named-query>
+  </entity>
+
+</entity-mappings>
