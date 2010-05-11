@@ -198,7 +198,7 @@ object PatternMatchingExercise {
 
   private def getXML =XML.load(this.getClass.getResourceAsStream("/movies.xml"))
 
-  private def movieNodeProcessor(filter:(Node, MList[String]) => Unit):List[String] = {
+  private def movieNodeProcessor(filter:(Node, MList[String]) => Any):List[String] = {
     var capturer = new MList[String]()
     for(movieNode <- getXML \\ "Movie" \ "_") {
       filter(movieNode, capturer)
