@@ -1,6 +1,8 @@
 import sbt._
 
 class ScalaLabsProject(info: ProjectInfo) extends DefaultProject(info) {
+  val embeddedrepo = "embedded repo" at (info.projectPath / "embedded-repo").asURL.toString
+
   val configgyRepo = "Configgy" at "http://www.lag.net/repo"
   val codehaus = "Codehaus" at "http://repository.codehaus.org"
   val scalaToolsSnapshots = "Scala-Tools Maven2 Snapshots Repository" at "http://scala-tools.org/repo-snapshots"
@@ -29,5 +31,6 @@ class ScalaLabsProject(info: ProjectInfo) extends DefaultProject(info) {
   val geronimospecjta = "geronimo-spec" % "geronimo-spec-jta" % "1.0.1B-rc4"
   val slf4j = "org.slf4j" % "slf4j-simple" % "1.4.2" % "runtime"
 
+  val scalajpa = "org.scalajpa" % "scalajpa" % "1.2-SNAPSHOT" 
 
 }
