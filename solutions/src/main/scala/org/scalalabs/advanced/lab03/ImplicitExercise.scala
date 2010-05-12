@@ -13,15 +13,12 @@ trait Monoid[T] {
   def empty: T
 }
 
-//trait FoldLeft[Container[_]] {
-//   def foldLeft[A, B](xs: Container[A], b: B, f: (B, A) => B): B
-//}
-
-//object FoldLeft {
-//  implicit def ListFoldLeft = new FoldLeft[List] {
-//    def foldLeft[A, B](xs: List[A], b: B, f: (B, A) => B): B = xs.foldLeft(b)(f)
-//  }
-//}
+/**
+ * An very simple implimentation of trait representing anything that can be compared.
+ * In Java this is similar to the Comparator interface.
+ *
+ * In the Scala libraries, a far more complete (and thus more complex) version is the scala.math.Ordering trait. 
+ */
 trait Ord[A] {
   self =>
   def compare(x: A, y: A): Int
@@ -33,8 +30,6 @@ trait Ord[A] {
   def on[T](f: T => A): Ord[T] = new Ord[T] {
     def compare(x: T, y: T) = self.compare(f(x), f(y))
   }
-
-//  def naturalOrder[T](xs: List[T])(implicit ord: Ord[T]) : List[T] =  xs
 }
 
 
