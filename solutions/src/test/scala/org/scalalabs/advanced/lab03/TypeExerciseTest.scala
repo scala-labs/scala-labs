@@ -29,8 +29,10 @@ class TypeExerciseTest {
     type _2 = _1#succ
     assertEquals(Equals[_1, one], Equals())
     assertEquals(Equals[_2, two], Equals())
-    //TODO
-//    assertEquals(Equals[two, one plus one], Equals())
+
+    assertEquals(Equals[two, one + one], Equals())
+    assertEquals(Equals[two, one plus one], Equals())
+    assertEquals(Equals[one, two - one], Equals())
   }
 
   @Test
