@@ -4,7 +4,7 @@ import javax.persistence._
                  
 import java.util.Date
 import org.joda.time.DateTime
-
+ 
 object JpaExercise {
 
   implicit def convertJodaDateTimeToJavaDate(jodaDate:DateTime) = new Date(jodaDate.getMillis)
