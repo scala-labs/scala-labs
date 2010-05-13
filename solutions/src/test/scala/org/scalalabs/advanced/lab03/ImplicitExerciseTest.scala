@@ -59,4 +59,15 @@ class ImplicitExerciseTest extends JUnitSuite {
     assertEquals("sentence", Ord[Int].maxFor[String](List("A", "sentence", "of", "various", "lengths"),(t => t.length)))
   }
 
+  @Test
+  def useEvenMoreAwesomeImplicitsAndTypesForOrderingLists = {
+    import ImplicitExercise._
+
+    assertEquals(20, List(10, 20, 3, 4, 5) mymax )
+    assertEquals(3, List(10, 20, 3, 4, 5) mymin )
+
+    assertEquals("jumped", List("the", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog") mymax Ord[Int].on[String](t => t.length))
+    assertEquals("the", List("the", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog") mymin Ord[Int].on[String](t => t.length))
+  }
+
 }
