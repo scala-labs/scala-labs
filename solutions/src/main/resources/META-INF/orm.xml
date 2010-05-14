@@ -14,7 +14,7 @@
       <query><![CDATA[from Movie m where m.released between :startDate and :endDate]]></query>
     </named-query>
     <named-query name="findMoviesByTitle">
-      <query><![CDATA[from Movie m where lower(m.title) like :title order by m.title]]></query>
+      <query><![CDATA[from Movie m where lower(m.title) like '%'||:title||'%' order by m.title]]></query>
     </named-query>
     <named-query name="findAllMovies">
       <query><![CDATA[from Movie m order by m.title]]></query>
