@@ -9,8 +9,11 @@ import java.util.Date
 import org.joda.time.DateTime
 import JpaExercise._
 
-
+/**
+ * See @JpaExercise
+ */
 class JpaExerciseTest {
+
 
   @Test
   def testPersistDirector() = {
@@ -46,6 +49,50 @@ class JpaExerciseTest {
     assert(movies.size == 1)
     removeDirector(pd)
   }
+
+
+  /**
+   * See @JpaExercise
+   */
+  @Test
+  def daoTestFindAllDirectors() = {
+    val d = getDirectorWithMovies
+    val pd = persistDirectorWithDao(d)
+    val directors = findAllDirectorsWithDao
+    assert(directors.size == 1)
+    removeDirectorWithDao(pd)
+  }
+
+  @Test
+  def daoTestFindAllMovies() = {
+    val d = getDirectorWithMovies
+    val pd = persistDirectorWithDao(d)
+    var movies = findAllMoviesWithDao
+    assert(movies.size == 2)
+    removeDirectorWithDao(pd)
+  }
+
+  @Test
+  def daoTestRemoveMovie() = {
+    val d = getDirectorWithMovies
+    val pd = persistDirectorWithDao(d)
+    var movies = findAllMoviesWithDao
+    assert(movies.size == 2)
+    removeMovieWithDao(movies (0))
+    movies = findAllMoviesWithDao
+    assert(movies.size == 1)
+    removeDirectorWithDao(pd)
+  }
+  
+  @Test
+  def daoTestFindMoviesByTitle() = {
+    val d = getDirectorWithMovies
+    val pd = persistDirectorWithDao(d)
+    val movies = findMoviesByTitleWithDao("Shakespeare")
+    assert(movies.size == 1)
+    removeDirectorWithDao(pd)
+  }
+
 
 
   def getDirector() = {
