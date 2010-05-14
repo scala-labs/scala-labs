@@ -8,7 +8,7 @@ import _root_.java.util.{HashSet => JHashSet}
 import scala.collection.JavaConversions._
 
 @Entity
-class Director {    
+class Director  {    
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
