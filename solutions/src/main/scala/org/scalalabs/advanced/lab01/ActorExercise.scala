@@ -42,6 +42,7 @@ class Counter extends Actor {
 sealed trait ChatEvent
 case object ChatLog extends ChatEvent
 case class Message(from: String, msg: String) extends ChatEvent
+case class BroadcastMessage(from: String, msg: String) extends ChatEvent
 case class AnonymousMessage(msg: String) extends ChatEvent
 case class Messages(msg: List[String]) extends ChatEvent
 case class Remove(who: String) extends ChatEvent
@@ -96,7 +97,11 @@ trait ChatClientOps extends Actor {
     server ! Message(name, name + ": " + message)
   }
 
-  protected def messageMgt: PartialFunction[Any, Unit]
+  def broadCast(message: String) = {
+      println("Client " + name + " posts broadcast message " + message + " to server")
+      server ! BroadcastMessage(name, name + ": " + message)
+  }
+
 
   def login = {
      this.start
@@ -114,7 +119,7 @@ trait ChatClientOps extends Actor {
   }
 }
 
-case class ChatClient(val name: String, val server: Actor) extends ChatClientOps with MessageMgt with ChatMgt
+case class ChatClient(val name: String, val server: Actor) extends ChatClientOps
 
 /**
  * * Implements an im-memory message store.
@@ -129,6 +134,11 @@ trait MessageMgt {
     case m @ Message(from, msg) => {
       println("Got message from " + from + " message: " + msg)
       sessions(from) ! AnonymousMessage(msg)
+      messages = msg :: messages
+    }
+    case m @ BroadcastMessage(from, msg) => {
+      println("Got broadcast message from " + from + " message: " + msg)
+      sessions.valuesIterator.foreach(_ ! AnonymousMessage(msg))
       messages = msg :: messages
     }
     case m @ AnonymousMessage(msg) => {

@@ -50,6 +50,7 @@ object ChurchEncoding {
 
   type one=zero#succ
   type two=one#succ
+  type three=two#succ
 
   type plus[N1<:CNum, N2<:CNum] = N1#add[N2]
   type +[N1<:CNum, N2<:CNum] = plus[N1, N2]

@@ -5,7 +5,7 @@ import org.joda.time.{Duration, DateTime}
 /**
  * @author arjan
  *
- * This excersice introduces you to Scala implicit conversion features.
+ * This excercise introduces you to Scala implicit conversion features.
  *
  * Scala has a nice feature that automatically lets you convert types and add methods to an existing class.
  * For instance, it is possible to write "Hello".toList, which yields List(H, e, l, l, o) even though

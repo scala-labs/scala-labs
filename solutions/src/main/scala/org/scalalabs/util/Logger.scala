@@ -1,7 +1,7 @@
 package org.scalalabs.util
 
-import net.lag.logging.Logger
-import net.lag.configgy.{ParseException, Configgy}
+//import net.lag.logging.Logger
+//import net.lag.configgy.{ParseException, Configgy}
 
 /**
  * User: arjan

@@ -85,7 +85,7 @@ object JpaExercise {
    * In addition implement an implicit conversion definition
    * that converts org.joda.time.DateTime to a java.util.Date
    */
-  def findMoviesByDate(start:Date, end:Date):List[Movie] = {
+  def findMoviesByDate(start:DateTime, end:DateTime):List[Movie] = {
     //TODO implement
     List[Movie]()
   }

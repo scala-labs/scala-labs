@@ -13,18 +13,12 @@ import org.junit.{Before, Test}
 
 class ActorExerciseTest extends JUnitSuite {
 
-//  @Before
-//  override def initialize() {
-//    import ScalaLabsConfig._
-//    config.getString("scalalabs", "0")
-//  }
-//
  @Test
  def shouldEcho = {
    val echo = new EchoActor
    echo.start
-   assertEquals("Got message: Hello EchoActor", (echo !? "Hello EchoActor"))
-
+   //the !? method sends a message to the actor and wait (synchronously) for a reply, within the specified timeout.
+   assertEquals("Got message: Hello EchoActor", (echo !? (10, "Hello EchoActor")) getOrElse(""))
  }
 
   @Test
@@ -32,13 +26,13 @@ class ActorExerciseTest extends JUnitSuite {
     val ctr = new Counter
     ctr.start
 
-    assertEquals(0, (ctr !? Curr))
+    assertEquals(0, (ctr !? (10, Curr)) getOrElse(-1))
     ctr ! Inc
-    assertEquals(1, (ctr !? Curr))
+    assertEquals(1, (ctr !? (10, Curr)) getOrElse(-1))
     ctr ! Inc
-    assertEquals(2, (ctr !? Curr))
+    assertEquals(2, (ctr !? (10, Curr)) getOrElse(-1))
     ctr ! Dec
-    assertEquals(1, (ctr !? Curr))
+    assertEquals(1, (ctr !? (10, Curr)) getOrElse(-1))
   }
 
 
@@ -50,11 +44,11 @@ class ActorExerciseTest extends JUnitSuite {
      chatClient ! Message("testuser", "message1")
      chatClient ! Message("testuser", "message2")
 
-     val msg: Option[List[String]] = chatClient !? ChatLog match {
-       case Messages(msg) => Some(msg)
+     val msg: Option[List[String]] = chatClient !? (20, ChatLog) match {
+       case Some(Messages(msg)) => Some(msg)
        case _ => None
      }
-     assertEquals(List("message2", "message1"), msg.getOrElse(Nil))
+     assertEquals(List("message2", "message1"), msg getOrElse(Nil))
     }
 
 
@@ -65,8 +59,8 @@ class ActorExerciseTest extends JUnitSuite {
     chatServer ! AnonymousMessage("message1")
     chatServer ! AnonymousMessage("message2")
 
-    val msg: Option[List[String]] = chatServer !? ChatLog match {
-      case Messages(msg) => Some(msg)
+    val msg: Option[List[String]] = chatServer !? (20, ChatLog) match {
+      case Some(Messages(msg)) => Some(msg)
       case _ => None
     }
     assertEquals(List("message2", "message1"), msg.getOrElse(Nil))
@@ -86,21 +80,21 @@ class ActorExerciseTest extends JUnitSuite {
     client2.post("second message")
     Thread.sleep(500)
 
-    val msg1: Option[List[String]] = client1 !? ChatLog match {
-      case Messages(msg) => Some(msg)
+    val msg1: Option[List[String]] = client1 !? (20, ChatLog) match {
+      case Some(Messages(msg)) => Some(msg)
       case _ => None
     }
     assertEquals(List("client1: first message"), msg1.getOrElse(Nil))
 
-    val msg2: Option[List[String]] = client2 !? ChatLog match {
-      case Messages(msg) => Some(msg)
+    val msg2: Option[List[String]] = client2 !? (20, ChatLog) match {
+      case Some(Messages(msg)) => Some(msg)
       case _ => None
     }
 
     assertEquals(List("client2: second message"), msg2.getOrElse(Nil))
 
-    val msg: Option[List[String]] = chatServer !? ChatLog match {
-      case Messages(msg) => Some(msg)
+    val msg: Option[List[String]] = chatServer !? (20, ChatLog) match {
+      case Some(Messages(msg)) => Some(msg)
       case _ => None
     }
     assertEquals(List("client2: second message", "client1: first message"), msg.getOrElse(Nil))
@@ -109,13 +103,12 @@ class ActorExerciseTest extends JUnitSuite {
     client1.broadCast("a broadcast message")
 
     Thread.sleep(500)
-    
+
     val msg3: Option[List[String]] = client2 !? ChatLog match {
-      case Messages(msg) => Some(msg)
+      case Some(Messages(msg)) => Some(msg)
       case _ => None
     }
 
     assertEquals(List("client1: a broadcast message", "client2: second message"), msg3.getOrElse(Nil))
-
   }
 }
