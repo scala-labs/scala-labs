@@ -33,7 +33,7 @@ object Movie {
     m.description = desc
     m.released = released
     m.director = director
-    director.addMovie(m)
+    director.movies += m
     m
   }
   
