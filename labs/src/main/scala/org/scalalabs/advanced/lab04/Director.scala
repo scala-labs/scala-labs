@@ -8,7 +8,7 @@ import _root_.java.util.{HashSet => JHashSet}
 import scala.collection.JavaConversions._
 
 @Entity
-class Director  {    
+class Director  {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,15 +21,12 @@ class Director  {
   @Column(nullable = true)
   var dateOfBirth : Date = new Date()
 
-  @OneToMany(mappedBy = "director", cascade = Array(CascadeType.ALL))  
-  var movies: JSet[Movie] = new JHashSet[Movie]()
+  @OneToMany(mappedBy = "director", cascade = Array(CascadeType.ALL))
+  private [this] var movieList: JSet[Movie] = new JHashSet[Movie]()
 
-  def getMovies:MSet[Movie] = movies
+  def movies:MSet[Movie] = movieList
 
-  def addMovie(m:Movie) {
-    movies += m
-  }
-
+  def movies_=(m:MSet[Movie]) = movieList = m
 
 }
 
@@ -42,9 +39,9 @@ object Director {
     d
   }
 
-  def apply(name:String, dateOfBirth:Date, movies:Seq[Movie]):Director = {
+  def apply(name:String, dateOfBirth:Date, m:Seq[Movie]):Director = {
     val d:Director = apply(name, dateOfBirth)
-    d.movies = MSet[Movie](movies : _*)
+    d.movies = MSet[Movie](m : _*)
     d
   }
 
