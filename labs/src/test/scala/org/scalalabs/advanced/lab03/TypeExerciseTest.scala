@@ -40,20 +40,6 @@ class TypeExerciseTest {
     //    val cm3:ComboMealProduct = builder ~ withBurger("BigMac") ~ withBeverage(Tall) ~ withBeverage(Tall) ~ withSideOrder("Fries") ~ build
   }
 
-
-  @Test
-  def churchNaturalNumbers = {
-    import ChurchEncoding._
-    type _1 = zero#succ
-    type _2 = _1#succ
-    assertEquals(Equals[_1, one], Equals())
-    assertEquals(Equals[_2, two], Equals())
-
-    assertEquals(Equals[two, one + one], Equals())
-    assertEquals(Equals[two, one plus one], Equals())
-    assertEquals(Equals[one, two - one], Equals())
-  }
-
   @Test
   def typeSafeRegistry = {
     val tsReg = new TSReg[Int, String]
@@ -68,5 +54,19 @@ class TypeExerciseTest {
     //the following returns a None, since the get has been made typeSafe
     assertEquals(None, tsReg.safeGet[Int](1))
   }
+
+  @Test
+  def churchNaturalNumbers = {
+    import ChurchEncoding._
+    type _1 = zero#succ
+    type _2 = _1#succ
+    assertEquals(Equals[_1, one], Equals())
+    assertEquals(Equals[_2, two], Equals())
+
+    assertEquals(Equals[two, one + one], Equals())
+    assertEquals(Equals[two, one plus one], Equals())
+    assertEquals(Equals[one, two - one], Equals())
+  }
+
 
 }
