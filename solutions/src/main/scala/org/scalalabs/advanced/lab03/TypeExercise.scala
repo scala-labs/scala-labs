@@ -48,44 +48,44 @@ def builder:Builder[None,None,None] = Builder(None,None,None)
 }
 
 
-trait Buildable[T] {
-  def build: T
-}
-
-trait HeadBuilder extends Buildable[String] {
-  var eyeColor = "brown"
-  var hairColor = "red"
-
-  def withEyeColor(color: String): this.type = {
-    eyeColor = color
-    this
+object ComposableBuilder {
+  trait Buildable[T] {
+    def build: T
   }
 
-  def withHairColor(color: String): this.type = {
-    hairColor = color
-    this
+  trait TireBuilder extends Buildable[String] {
+    var size = 15
+
+    def withTireSize(i: Int): this.type = {
+      size = i;
+      this
+    }
+
+    def build = "tire size: " + size + " Inch"
   }
 
-  def build = "eyes: " + eyeColor + ", hair: " + hairColor
-}
+  trait BasicCarBuilder extends Buildable[String] {
+    var color = "Metallic"
+    var brand = "Toyota"
 
-trait BodyBuilder extends Buildable[String] {
-  var limbCount = 4
+    def withColor(c: String): this.type = {
+      color = c
+      this
+    }
 
-  def withNumLimbs(count: Int): this.type = {
-    limbCount = count
-    this
+    def withBrand(b: String): this.type = {
+      brand = b
+      this
+    }
+
+    def build = "brand: " + brand + ", color: " + color
   }
 
-  def build = "limbs: " + limbCount
+  case class CarBuilder extends BasicCarBuilder with TireBuilder with Buildable[String] {
+    override def build: String = List(super[BasicCarBuilder].build, super[TireBuilder].build).mkString(", ")
+  }
 }
 
-class PersonBuilder extends HeadBuilder with BodyBuilder with Buildable[String] {
-  override def build: String = List(super[BodyBuilder].build, super[HeadBuilder].build).mkString(", ")
-}
-
-//val person = new PersonBuilder().withEyeColor("blue").withNumLimbs(3).build
-//println(person) // limbs: 3, eyes: blue, hair: red
 
 
 object Combo {

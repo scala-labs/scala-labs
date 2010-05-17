@@ -1,5 +1,6 @@
 package org.scalalabs.advanced.lab03
 
+
 import org.junit.{Test}
 import org.junit.Assert._
 import org.scalalabs.advanced.lab03.ManifestSample.TSReg
@@ -11,20 +12,9 @@ import org.scalalabs.advanced.lab03.ManifestSample.TSReg
  * Time: 2:43:15 PM
  * To change this template use File | Settings | File Templates.
  */
+
+
 class TypeExerciseTest {
-  @Test
-  def shouldBuildCompleteCombomeal = {
-    import ComboMeal._
-
-
-    //The following statements should not compile if the builder fully works:
-    //val cm2:ComboMealProduct = builder ~ withBurger("BigMac") ~ withBeverage(Tall) ~ build
-    //val cm3: ComboMealProduct = builder ~ withBurger("BigMac") ~ withBeverage(Tall) ~ withSideOrder("Fries") ~ withSideOrder("AnotherPortion") ~ build
-
-    //Only the following statement should
-    val cm: ComboMealProduct = builder ~ withBurger("BigMac") ~ withBeverage(Tall) ~ withSideOrder("Fries") ~ build
-  }
-
   @Test
   def shouldBuildCar = {
     import ComposableBuilder._
@@ -32,12 +22,22 @@ class TypeExerciseTest {
     val car1 = new CarBuilder().build
     assertEquals("brand: Toyota, color: Metallic, tire size: 15 Inch", car1)
 
-    val car2 = new CarBuilder().withBrand("Mercedes").withColor("Green").build
-    assertEquals("brand: Mercedes, color: Green, tire size: 15 Inch", car2)
+    //TODO uncomment and let the tests run afer implementation of our builder
+//    val car2 = new CarBuilder().withBrand("Mercedes").withColor("Green").build
+//    assertEquals("brand: Mercedes, color: Green, tire size: 15 Inch", car2)
+//
+//    val car3 = new CarBuilder().withBrand("Mercedes").withColor("Green").withTireSize(17).build
+//    assertEquals("brand: Mercedes, color: Green, tire size: 17 Inch", car3)
+  }
 
-    val car3 = new CarBuilder().withBrand("Mercedes").withColor("Green").withTireSize(17).build
-    assertEquals("brand: Mercedes, color: Green, tire size: 17 Inch", car3)
+  @Test
+  def shouldOnlyBuildCompleteCombomeal = {
+    import ComboMeal._
+    val cm: ComboMealProduct = builder ~ withBurger("BigMac") ~ withBeverage(Tall) ~ withSideOrder("Fries") ~ build
 
+    //the following don't compile, if the builder is correctly implemented
+    //    val cm2:ComboMealProduct = builder ~ withBurger("BigMac") ~ withBeverage(Tall) ~ build
+    //    val cm3:ComboMealProduct = builder ~ withBurger("BigMac") ~ withBeverage(Tall) ~ withBeverage(Tall) ~ withSideOrder("Fries") ~ build
   }
 
 
@@ -70,4 +70,3 @@ class TypeExerciseTest {
   }
 
 }
-
