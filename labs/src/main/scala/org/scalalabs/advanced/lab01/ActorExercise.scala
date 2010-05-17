@@ -126,15 +126,7 @@ trait ChatClientOps extends Actor {
    * When it recieves a ChatLog message, it should reply its chatLog to the sender, wraped inside a Messages class. 
    */
   def act = exit //TODO
-//  def act = loop {
-//    react {
-//      case m @ AnonymousMessage(msg) => {
-//        println("Client " + self.name + " got message " + msg);
-//        chatLog = msg :: chatLog
-//      }
-//      case ChatLog => reply(Messages(chatLog))
-//    }
-//  }
+
 }
 
 case class ChatClient(val name: String, val server: Actor) extends ChatClientOps
@@ -161,16 +153,7 @@ trait MessageMgt {
   protected def messageMgt: PartialFunction[Any, Unit] = {
     //TODO implement
     case _ =>
-//    case m@Message(from, msg) => {
-//      println("Got message from " + from + " message: " + msg)
-//      sessions(from) ! AnonymousMessage(msg)
-//      messages = msg :: messages
-//    }
-//    case m@AnonymousMessage(msg) => {
-//      messages = msg :: messages
-//    }
-//
-//    case ChatLog => reply(Messages(messages))
+
   }
 }
 
@@ -194,17 +177,7 @@ trait ChatMgt {
   protected def chatMgt: PartialFunction[Any, Unit] = {
     //TODO implement
     case _ =>
-//    case Add(user) => {
-//      println(String.format("User %s has been added", user.name))
-//      sessions += (user.name -> user)
-//    }
-//
-//    case Remove(user) => {
-//      //      log.info("User [%s] has logged out", username)
-//      println(String.format("User %s has logged out", user))
-//      val chat = sessions(user)
-//      sessions -= user
-//    }
+
   }
 
   protected def shutdown: Unit = {
