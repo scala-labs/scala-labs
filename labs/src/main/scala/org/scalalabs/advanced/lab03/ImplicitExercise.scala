@@ -102,9 +102,22 @@ trait PimpedList[A] {
 
 /**
  *  A pimped version of a List that supports an 'add' method.
+ * This is a list that is converted from a 'normal' list using an implicit conversion.
  */
 trait AddableList[A] {
+  /**
+   * The initial value of this list, representing just the original list.
+   */
   val value: List[A]
+
+  /**
+   * The 'pimped' add method, that can now be called on the List class, as if it were a normal method on that class.
+   * This method assumes another implicit variable, or object, to be in scope: the Monoid trait.
+   * All elements of our AddableList should therefore be implicitly convertable to a Monoid trait.
+   * The implicit conversions have been defined (if all is well) in the Monoid object, and will be in scope if our unit test runs.
+   * If such a required conversion is not in scope, the client calling our little API would not compile. 
+   *
+   */
   def add(implicit m: Monoid[A]): A = value.foldLeft(m empty)(m append)
 }
 /**
