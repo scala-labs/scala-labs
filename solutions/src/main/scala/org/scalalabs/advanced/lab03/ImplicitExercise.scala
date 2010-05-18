@@ -1,5 +1,6 @@
 package org.scalalabs.advanced.lab03
 
+import org.scalalabs.advanced.lab03.Monoid
 
 
 /**
@@ -81,7 +82,9 @@ trait Monoid[T] {
   def empty: T
 }
 
+
 object Monoid {
+
   implicit object stringMonoid extends Monoid[String] {
     override def append(x: String, y: String): String = x.concat(y)
 
@@ -93,6 +96,8 @@ object Monoid {
 
     override def empty = 0
   }
+
+  
 
 }
 

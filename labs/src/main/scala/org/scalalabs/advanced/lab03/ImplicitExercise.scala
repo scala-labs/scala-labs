@@ -61,7 +61,7 @@ trait Ord[A] {
 object Ord {
 
   /**
-   *  Returns an instance of the Ord trai.
+   *  Returns an instance of the Ord trait.
    */
   def apply[A](implicit ord: Ord[A]) = ord
 
@@ -71,24 +71,37 @@ object Ord {
 
 case class User(val name: String, val age: Int)
 
+/**
+ * A general Pimped list class, defining extra methods for a List.
+ */
 trait PimpedList[A] {
    val l: List[A]
 
-  def mymax[B >: A](implicit o: Ord[B]): A = {
-    if (l isEmpty) error ("bzzt.. max on empty list")
+  /**
+   * A 'mymax', instead of the 'normal' max defined on a list, that determines the maximum element based
+   * on a given Ord.
+   * Note that this method is supposed to be called like this from the client side:
+   * List(foo, bar, baz) mymax //yields foo
+   *
+   * The elements of the List should be instances of the Ord class, therefore, and should be defined implicitly.
+   * The implicit conversion to the Ord should also be in scope in order to compile this correctly.
+   */
+  def mymax /*TODO pass on type parameters and implicit parameters here*/: A = error("TODO implement me")
+  /**
+   * A 'mymin', instead of the 'normal' min defined on a list, that determines the minimum element based
+   * on a given Ord.
+   * Note that this method is supposed to be called like this from the client side:
+   * List(foo, bar, baz) mymax //yields foo
+   *
+   * The elements of the List should be instances of the Ord class, therefore, and should be defined implicitly.
+   * The implicit conversion to the Ord should also be in scope in order to compile this correctly.
+   */
+  def mymin /*TODO pass on type parameters and implicit parameters here*/: A = error("TODO implement me")
 
-    l.reduceLeft((x, y) => if (o.compare(x, y) > 0) x else y)
-  }
-
-  def mymin[B >: A](implicit o: Ord[B]): A = {
-    if (l isEmpty) error ("bzzt.. min on empty list")
-
-    l.reduceLeft((x, y) => if (o.compare(x, y) > 0) y else x)
-  }
 }
 
 /**
- * A pimped version of a List that supports an 'add' method.
+ *  A pimped version of a List that supports an 'add' method.
  */
 trait AddableList[A] {
   val value: List[A]
@@ -103,7 +116,7 @@ trait AddableList[A] {
  *
  * - it has an identity element, so that the append operation append(identity: T, x:T) returns x.
  *
- * For example, a String monoid implemtation would yield: append("ab", "cde") = "abcde"
+ * For example, a String monoid implementation would yield: append("ab", "cde") = "abcde"
  *  
  */
 trait Monoid[T] {
@@ -112,13 +125,33 @@ trait Monoid[T] {
   def empty: T
 }
 
+/**
+ * This object defines the main implicits that should be in scope for our unit tests to work.
+ * The implicit definitions (objects, in this case) in this module are in scope because this is a companion module of the Monoid trait.
+ */
 object Monoid {
-  implicit object stringMonoid //TODO implement
+  /**
+   * This implicit object should implement the Monoid trait for a String.
+   * Implement the appropriate methods for append and empty that are suitable for Strings.
+   * This object is used in various unit tests that use the 'add' method.
+   *
+   * Note that this object, and the implicit conversion it defines, will be in scope when the ImplicitExercise._ is imported,
+   * because it is the companion module of the Monoid trait. 
+   */
+  implicit object stringMonoid //TODO implement the Monoid trait for Strings
 
-  implicit object intMonoid //TODO implement
+  /**
+   * This implicit object should implement the Monoid trait for an Int.
+   * Implement the appropriate methods for append and empty that are suitable for Strings.
+   * This object is used in various unit tests that use the 'add' method.
+   */
+  implicit object intMonoid //TODO implement the Monoid trait for Ints
 
 
-  //TODO implement implicit conversion for list to trait AddableList defined above, so that our pimped list now supports an 'add' method.
+  //TODO implement implicit conversion for list to trait AddableList defined above.
+  //If this implicit is defined, we can call list.add, as if it was a normal method on the List class.
+  //Note that we use list.add here, instead of the more normal list.sum, because the latter is already
+  //defined on the list class itself.
 }
 
 object AddUsingVarargsAndScalaNumeric {
@@ -133,8 +166,14 @@ object ListToPimpedList {
 }
 object ImplicitExercise {
 
-
+  /**
+   * Defines an add method that takes a list as an explicit argument.
+   * As you see, there is also an implicit argument Monoid defined.
+   * This assumes that there is an implicit converion from the List element of type T to the
+   * Monoid trait defined above in scope.
+   *
+   * If no such conversion is in scope, compilation will fail.
+   */
   def add[T](xs: List[T])(implicit m: Monoid[T]): T = if(xs.isEmpty) m empty else m append(xs.head, add(xs.tail))
 
 }
-

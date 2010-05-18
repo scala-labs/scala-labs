@@ -9,18 +9,34 @@ package org.scalalabs.advanced.lab03
 
 /**
  * A not so useful, but fun if you like it, exercise in encoding Church natural numbers using Scala types.
- *  
+ * This is implemented using type aliases. The idea is that a trait can define an abstract type alias,
+ * that can than be refined in subtraits or classes. In this way, one can define type-safe systems.
  */
 object ChurchEncoding {
 
   /**
    * Trait representing a Church Boolean data type.
    * @see http://en.wikipedia.org/wiki/Church_encoding
+   *
+   * Note: The type defined by this trait can be accessed by the following (for example):
+   *
+   * val bool = CBool#cond[String, Int]
    */
   trait CBool {type cond[T, F]}
-  trait CFalse extends CBool {type cond[T,F] = F}
+
+  /**
+   * The CFalse trait should refine the type to  F
+   */
+  trait CFalse /*extends CBool {TODO insert type implementation here} */
+  /**
+   * The CFalse trait should return the type F
+   */
   trait CTrue extends CBool {type condition[T,F] = T}
 
+  /**
+   * Trait representing a Church Numeric data type.
+   * @see http://en.wikipedia.org/wiki/Church_encoding
+   */
   trait CNum {
      type succ <: CNum
      type pred <: CNum

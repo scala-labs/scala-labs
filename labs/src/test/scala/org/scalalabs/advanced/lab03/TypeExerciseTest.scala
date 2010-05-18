@@ -4,6 +4,7 @@ package org.scalalabs.advanced.lab03
 import org.junit.{Test}
 import org.junit.Assert._
 import org.scalalabs.advanced.lab03.ManifestSample.TSReg
+import org.scalalabs.advanced.lab03.ChurchEncoding.{CFalse, CTrue}
 
 /**
  * Created by IntelliJ IDEA.
@@ -57,20 +58,6 @@ class TypeExerciseTest {
 
 
   @Test
-  def churchNaturalNumbers = {
-    import ChurchEncoding._
-    //Zero 
-    type _1 = zero#succ
-    type _2 = _1#succ
-    assertEquals(Equals[_1, one], Equals())
-    assertEquals(Equals[_2, two], Equals())
-
-    assertEquals(Equals[two, one + one], Equals())
-    assertEquals(Equals[two, one plus one], Equals())
-    assertEquals(Equals[one, two - one], Equals())
-  }
-
-  @Test
   def onlyMamalsWithSameDietCanShareAMeal {
     import org.scalalabs.advanced.lab03.FoodExercise._
     val Cow = new Mamal { val eats = Grass }
@@ -83,6 +70,41 @@ class TypeExerciseTest {
     jake.joinDinnerWith(peet)
     //doesn't compile!
     //Cow.joinDinnerWith(jake)
+  }
+
+
+    @Test
+    def churchBooleanTypes = {
+      //TODO implement the Church Boolean data types so that the following line compiles:
+//      val ctrue: CTrue#cond[Int, String] = 10
+      //TODO and the following line should not compile:
+//      val ctrue2: CTrue#cond[Int, String] = "10"
+//      error: type mismatch;
+//                found   : java.lang.String("10")
+//                required: Int
+//       val ctrue2: CTrue#cond[Int,String] = "10"
+
+      //TODO and the following line should again compile:
+//      val cfalse: CFalse#cond[Int,String] = "10"
+
+    }
+
+
+  @Test
+  def churchNaturalNumbers = {
+
+    //TODO define the Church numerals using Scala traits/types/classes or whatever you can think of.
+    // Then uncomment the lines below so that the following compiles:
+//    import ChurchEncoding._
+//
+//    assertEquals(Equals[two, one + one], Equals())
+//    assertEquals(Equals[two, one plus one], Equals())
+//    assertEquals(Equals[one, two - one], Equals())
+//
+//    type _1 = zero#succ
+//    type _2 = _1#succ
+//    assertEquals(Equals[_1, one], Equals())
+//    assertEquals(Equals[_2, two], Equals())
   }
 
 }
