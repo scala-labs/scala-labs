@@ -7,9 +7,16 @@ package org.scalalabs.advanced.lab03
  */
 
 
+/**
+ * A not so useful, but fun if you like it, exercise in encoding Church natural numbers using Scala types.
+ *  
+ */
 object ChurchEncoding {
 
-
+  /**
+   * Trait representing a Church Boolean data type.
+   * @see http://en.wikipedia.org/wiki/Church_encoding
+   */
   trait CBool {type cond[T, F]}
   trait CFalse extends CBool {type cond[T,F] = F}
   trait CTrue extends CBool {type condition[T,F] = T}

@@ -102,3 +102,20 @@ object Combo {
     def ~[X](f: Builder[HAS_BUR, HAS_BEV, HAS_SIDE] => X): X = f(this)
   }
 }
+
+
+
+object FoodExercise {
+
+  trait Food {def name: String}
+  object Grass extends Food { def name="Grass" }
+  object Beef extends Food {def name = "Beef"}
+  object Fish extends Food {def name = "Fish"}
+  object Pizza extends Food { def name="Beef" }
+  
+  trait Mamal { self =>
+    val eats : Food
+    def joinDinnerWith[T <: Mamal](other : T)(implicit sameFood: other.eats.type =:= self.eats.type) {}
+    def prefers = "Eating " + eats.name
+  }
+}

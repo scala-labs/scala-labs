@@ -132,3 +132,37 @@ object Combo {
     def ~[X](f: Builder[HAS_BUR, HAS_BEV, HAS_SIDE] => X): X = f(this)
   }
 }
+
+
+object FoodExercise {
+
+  /**
+   * Types of food that are commonly eaten.
+   */
+  trait Food {def name: String}
+  object Grass extends Food { def name="Grass" }
+  object Beef extends Food {def name = "Beef"}
+  object Fish extends Food {def name = "Fish"}
+  object Pizza extends Food { def name="Beef" }
+
+  /**
+   * The Mamal trait should be implemented so that the joinDinnerWith method only compiles
+   * if two mamals eat exactly the same type of foo.d
+   */
+  trait Mamal { self =>
+    val eats : Food
+
+    /**
+     * TODO
+     * Inmplement this is such a way using clever type parameters and implicits such that
+     * a Mamal can only join dinner with another mamal that eats exactly the same type of Food,
+     * i.e. Mamal1.eats.type == Mamal2.eats.type
+     * the method should be callable as follows:
+     * mamal1.joinDinnerWith(mamal2)
+     * 
+     */
+    def joinDinnerWith(other : Any /*TODO Any is not the right type here, add type parameters, and possibly some clever implicits.*/) = None //TODO implement me
+
+    def prefers = "Eating " + eats.name
+  }
+}

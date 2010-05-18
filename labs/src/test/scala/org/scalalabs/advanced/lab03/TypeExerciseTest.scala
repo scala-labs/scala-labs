@@ -55,9 +55,11 @@ class TypeExerciseTest {
     assertEquals(None, tsReg.safeGet[Int](1))
   }
 
+
   @Test
   def churchNaturalNumbers = {
     import ChurchEncoding._
+    //Zero 
     type _1 = zero#succ
     type _2 = _1#succ
     assertEquals(Equals[_1, one], Equals())
@@ -68,5 +70,19 @@ class TypeExerciseTest {
     assertEquals(Equals[one, two - one], Equals())
   }
 
+  @Test
+  def onlyMamalsWithSameDietCanShareAMeal {
+    import org.scalalabs.advanced.lab03.FoodExercise._
+    val Cow = new Mamal { val eats = Grass }
+    val Horse = new Mamal { val eats = Grass }
+    val Shark = new Mamal { val eats = Fish }
+    val jake = new Mamal { val eats = Pizza }
+    val peet = new Mamal { val eats = Pizza }
+
+    Cow.joinDinnerWith(Horse)
+    jake.joinDinnerWith(peet)
+    //doesn't compile!
+    //Cow.joinDinnerWith(jake)
+  }
 
 }
