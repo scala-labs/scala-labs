@@ -133,8 +133,15 @@ trait AddableList[A] {
  *  
  */
 trait Monoid[T] {
+  /**
+   * The append is the operation dat adds two parameters, resulting in a parameter of the same type.
+   * For example, in case of an Int, this will be the addition method (+).
+   */
   def append(x: T, y: T): T
 
+  /**
+   * Defines the empty, or zero, value for the designated type. 
+   */
   def empty: T
 }
 
@@ -161,11 +168,6 @@ object Monoid {
    */
   implicit object intMonoid //TODO implement the Monoid trait for Ints
 
-
-  //TODO implement implicit conversion for list to trait AddableList defined above.
-  //If this implicit is defined, we can call list.add, as if it was a normal method on the List class.
-  //Note that we use list.add here, instead of the more normal list.sum, because the latter is already
-  //defined on the list class itself.
 }
 
 object AddUsingVarargsAndScalaNumeric {
@@ -179,6 +181,11 @@ object ListToPimpedList {
   //TODO implement implicit conversion for list to pimped list trait, so that the various methods in that class are supported. 
 }
 object ImplicitExercise {
+
+  //TODO implement implicit conversion for list to trait AddableList defined above.
+  //If this implicit is defined, we can call list.add, as if it was a normal method on the List class.
+  //Note that we use list.add here, instead of the more normal list.sum, because the latter is already
+  //defined on the list class itself.
 
   /**
    * Defines an add method that takes a list as an explicit argument.
