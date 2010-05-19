@@ -112,7 +112,7 @@ trait AddableList[A] {
 
   /**
    * The 'pimped' add method, that can now be called on the List class, as if it were a normal method on that class.
-   * This method assumes another implicit variable, or object, to be in scope: the Monoid trait.
+   * This method assumes an implicit variable, to be in scope, that must be an instance of the Monoid trait.
    * All elements of our AddableList should therefore be implicitly convertable to a Monoid trait.
    * The implicit conversions have been defined (if all is well) in the Monoid object, and will be in scope if our unit test runs.
    * If such a required conversion is not in scope, the client calling our little API would not compile. 
@@ -140,11 +140,12 @@ trait Monoid[T] {
 
 /**
  * This object defines the main implicits that should be in scope for our unit tests to work.
- * The implicit definitions (objects, in this case) in this module are in scope because this is a companion module of the Monoid trait.
+ * The implicit variables (objects, in this case) in this module are in scope because this is a companion module of the Monoid trait.
+ * They will be used whenever an implicit variable that has the Monoid type in a method call is used. 
  */
 object Monoid {
   /**
-   * This implicit object should implement the Monoid trait for a String.
+   * The implicit variables object should implement the Monoid trait for a String.
    * Implement the appropriate methods for append and empty that are suitable for Strings.
    * This object is used in various unit tests that use the 'add' method.
    *
@@ -181,11 +182,10 @@ object ImplicitExercise {
 
   /**
    * Defines an add method that takes a list as an explicit argument.
-   * As you see, there is also an implicit argument Monoid defined.
-   * This assumes that there is an implicit converion from the List element of type T to the
-   * Monoid trait defined above in scope.
+   * As you see, there is also an implicit variable of the type Monoid defined.
+   * This assumes that there is an implicit variable in scope thath has this type.
    *
-   * If no such conversion is in scope, compilation will fail.
+   * If no such variable is in scope, compilation will fail.
    */
   def add[T](xs: List[T])(implicit m: Monoid[T]): T = if(xs.isEmpty) m empty else m append(xs.head, add(xs.tail))
 
