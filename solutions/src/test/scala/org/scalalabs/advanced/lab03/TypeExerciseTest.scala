@@ -84,5 +84,6 @@ class TypeExerciseTest {
     assertEquals(None, tsReg.safeGet[Int](1))
   }
 
+
 }
 

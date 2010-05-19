@@ -74,4 +74,23 @@ class ImplicitExerciseTest extends JUnitSuite {
 //    assertEquals("the", List("the", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog") mymin Ord[Int].on[String](t => t.length))
   }
 
+
+    @Test
+  def aSimpleMonadIllustration = {
+
+    //TODO uncomment the following lines, and make them work by implementing some implicit magic in the Monads object
+//    import Monads._
+//
+//    assertEquals(none, just(3) bind (x => if (x % 2 == 0) just(x - 1) else none))
+//    assertEquals(just(3), just(4) bind (x => if (x % 2 == 0) just(x - 1) else none))
+//    assertEquals(just(7), just(4) bind (x => just(x+1)) bind (x =>just(x+2)))
+//    assertEquals(none, just(4) bind (x => just(x+1)) bind (x => just(x+2)) bind (x => none))
+//
+//    assertEquals(List(1), inject[List, Int](1))
+//    assertEquals(Just("Scala is great"), inject[Maybe, String]("Scala") bind (x => just(x + " is great")))
+//
+//    assertEquals(List(3), List(1) bind (x => List(x+2)))
+//    assertEquals(List('T', 'h', 'e', 'q', 'u', 'i', 'c', 'k', 'b', 'r', 'o', 'w', 'n', 'f', 'o', 'x'), List("The", "quick", "brown", "fox") bind (x => x.toList))
+
+  }
 }
