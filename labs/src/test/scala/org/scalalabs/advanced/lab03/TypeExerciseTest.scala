@@ -97,9 +97,7 @@ class TypeExerciseTest {
     // Then uncomment the lines below so that the following compiles:
 //    import ChurchEncoding._
 //
-//    assertEquals(Equals[two, one + one], Equals())
 //    assertEquals(Equals[two, one plus one], Equals())
-//    assertEquals(Equals[one, two - one], Equals())
 //
 //    type _1 = zero#succ
 //    type _2 = _1#succ
