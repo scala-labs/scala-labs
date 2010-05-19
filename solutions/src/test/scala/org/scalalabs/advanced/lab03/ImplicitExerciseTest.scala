@@ -73,6 +73,8 @@ class ImplicitExerciseTest extends JUnitSuite {
   def aSimpleMonadIllustration = {
     import Monads._
 
+    implicit def toMA[M[_], A](ma: M[A]) = new {val value: M[A] = ma} with MA[M, A]
+    
     assertEquals(none, just(3) bind (x => if (x % 2 == 0) just(x - 1) else none))
     assertEquals(just(3), just(4) bind (x => if (x % 2 == 0) just(x - 1) else none))
     assertEquals(just(7), just(4) bind (x => just(x+1)) bind (x =>just(x+2)))

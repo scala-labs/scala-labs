@@ -127,13 +127,14 @@ object Monads {
   case object None extends Maybe[Nothing]
 
 
-  implicit def maybeToMonad[A, B](a: Maybe[A])(implicit m: Monad[Maybe]) = new {
-   def bind[B](f: A => Maybe[B]): Maybe[B] = m bind (a, f)
- }
-
-  implicit def listToMonad[A, B](a: List[A])(implicit m: Monad[List]) = new {
-    def bind[B](f: A => List[B]) = m bind (a, f)
-  }
+//  implicit def maybeToMonad[A, B](a: Maybe[A])(implicit m: Monad[Maybe]) = new {
+//   def bind[B](f: A => Maybe[B]): Maybe[B] = m bind (a, f)
+// }
+//
+//  implicit def listToMonad[A, B](a: List[A])(implicit m: Monad[List]) = new {
+//    def bind[B](f: A => List[B]) = m bind (a, f)
+//  }
+  
 
   /**
    * Defines the inject function for the specified container.
@@ -209,4 +210,9 @@ object Monads {
     }
   }
 
+  trait MA[M[_], A] {
+    val value: M[A]
+
+    def bind[B](f: A => M[B])(implicit m: Monad[M]) = m bind(value, f)
+  }
 }
