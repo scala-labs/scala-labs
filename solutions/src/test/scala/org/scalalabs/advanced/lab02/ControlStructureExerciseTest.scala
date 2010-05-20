@@ -1,11 +1,28 @@
 package org.scalalabs.advanced.lab02
 
+import org.junit.Test
+import org.scalatest.junit.JUnitSuite
+import org.junit.Assert._
+
 /**
  * Created by IntelliJ IDEA.
- * User: arjan
+ * User: lieke
  * Date: Apr 9, 2010
- * Time: 2:42:41 PM
- * To change this template use File | Settings | File Templates.
  */
 
-class ControlStructureExerciseTest
+class ControlStructureExerciseTest {
+
+
+  @Test
+  def testStringFilter {
+    val list : List[String] = List("aaa", "bbb", "cab", "def", "aab", "cba")
+    val exercise = new ControlStructureExercise(list)
+    assertEquals(exercise.stringsContaining("c"), List("cab", "cba"))
+    assertEquals(exercise.stringsContaining("ab"), List("cab", "aab"))
+
+    assertEquals(exercise.stringsEnding("b"), List("bbb", "cab", "aab"))
+    assertEquals(exercise.stringsEnding("c"), List())
+  }
+
+  
+}

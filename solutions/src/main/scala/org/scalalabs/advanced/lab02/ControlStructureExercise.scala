@@ -2,10 +2,21 @@ package org.scalalabs.advanced.lab02
 
 /**
  * Created by IntelliJ IDEA.
- * User: arjan
+ * User: lieke
  * Date: Apr 9, 2010
- * Time: 1:55:01 PM
- * To change this template use File | Settings | File Templates.
  */
 
-class ControlStructureExercise
+class ControlStructureExercise(val list : List[String]) {
+
+  private def stringsMatching(matcher: String => Boolean) = {
+    for (string <- list; if matcher(string))
+      yield string
+  }
+  
+  def stringsEnding(query: String) = stringsMatching(_.endsWith(query))
+  def stringsContaining(query: String) = stringsMatching(_.contains(query))
+
+}
+
+
+
