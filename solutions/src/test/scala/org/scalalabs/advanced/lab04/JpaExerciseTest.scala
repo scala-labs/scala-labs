@@ -8,11 +8,12 @@ import javax.persistence._
 import java.util.Date
 import org.joda.time.DateTime
 import JpaExercise._
+import org.scalatest.junit.JUnitSuite
 
 /**
  * See @JpaExercise
  */
-class JpaExerciseTest {
+class JpaExerciseTest extends JUnitSuite {
 
 
   @Test

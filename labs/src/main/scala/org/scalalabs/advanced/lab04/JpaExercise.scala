@@ -4,6 +4,7 @@ import javax.persistence._
                  
 import java.util.Date
 import org.joda.time.DateTime
+import org.scalatest.junit.JUnitSuite
 
 /**
  * The JPA exercises let experiment with Scala and JPA,
@@ -20,7 +21,7 @@ import org.joda.time.DateTime
  * In the second section you will implement DAOs (Data Access Object),
  * which delegate persistency operations to the Scala JPA utility API.
  */
-object JpaExercise {
+object JpaExercise extends JUnitSuite {
 
   /*************************************************************************
    * Exercises with the Scala JPA API

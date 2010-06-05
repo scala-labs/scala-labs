@@ -167,11 +167,13 @@ object JpaExercise {
   /**
    * Helper method
    */
-  def doWithEM[T](f: => T): T = {
-    if(!Repository.isOpen) Repository.newEM
+  def doWithEM[T](perform: => T): T = {
+    //adds the ScalaEntityManger to ThreadLocal if needed
+    Repository.sem
     try {
-    return f
+    return perform
     } finally {
+      //Commits and closes the EntityManager
       Repository.cleanup
     }
   }

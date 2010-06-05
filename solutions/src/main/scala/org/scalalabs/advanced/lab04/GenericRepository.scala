@@ -19,8 +19,10 @@ trait GenericDao[T <: { var id:Long}] {
  * - findById
  * - save
  * - remove
- * */
-abstract class GenericDaoImpl[T <: { var id:Long}] (val sem:ScalaEntityManager) extends GenericDao[T] {
+ * In order to access the ScalaEntityManager make use of
+ * the ScalaEntityManagerFactory trait
+ */
+abstract class GenericDaoImpl[T <: { var id:Long}] (val semf:ScalaEntityManagerFactory) extends GenericDao[T] {
 
   def findById(id:Any)(implicit m: Manifest[T]):  T = {
     sem.find(m.erasure, id).asInstanceOf[T]
@@ -35,6 +37,10 @@ abstract class GenericDaoImpl[T <: { var id:Long}] (val sem:ScalaEntityManager) 
     sem.remove(sem.getReference(m.erasure,entity.id).asInstanceOf[AnyRef]);
   }
 
+  def sem = {
+    semf.sem
+  }
+
 }
 
 /**
@@ -42,7 +48,7 @@ abstract class GenericDaoImpl[T <: { var id:Long}] (val sem:ScalaEntityManager) 
  * extends from the GenericDaoImpl. In addition, implement
  * the findAll() method
  */
-class DirectorDao(sem:ScalaEntityManager) extends GenericDaoImpl[Director](sem) {
+class DirectorDao(semf:ScalaEntityManagerFactory) extends GenericDaoImpl[Director](semf) {
 
   def findAll():List[Director] = {
     sem.findAll("findAllDirectors")
@@ -54,7 +60,7 @@ class DirectorDao(sem:ScalaEntityManager) extends GenericDaoImpl[Director](sem) 
  * extends from the GenericDaoImpl. In addition, implement
  * the findAll() and findByTitle() method
  */
-class MovieDao(sem:ScalaEntityManager) extends GenericDaoImpl[Movie](sem) {
+class MovieDao(semf:ScalaEntityManagerFactory) extends GenericDaoImpl[Movie](semf) {
 
   def findAll():List[Movie] = {
     sem.findAll("findAllMovies")

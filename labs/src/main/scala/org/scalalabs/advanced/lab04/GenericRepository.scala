@@ -19,6 +19,8 @@ trait GenericDao[T <: { var id:Long}] {
  * - findById
  * - save
  * - remove
+ * In order to access the ScalaEntityManager make use of
+ * the ScalaEntityManagerFactory trait
  * */
 abstract class GenericDaoImpl {
   //TODO impelement

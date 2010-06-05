@@ -13,7 +13,7 @@ class ScalaLabsProject(info: ProjectInfo) extends DefaultProject(info) {
   val commonsHttp = "commons-httpclient" % "commons-httpclient" % "3.1"
 //  val configgy = "net.lag" % "configgy" % "1.5.2" % "compile"
   val geronimospecjta = "geronimo-spec" % "geronimo-spec-jta" % "1.0.1B-rc4"
-  val slf4j = "org.slf4j" % "slf4j-simple" % "1.4.2" % "runtime"
+  val slf4j = "org.slf4j" % "slf4j-simple" % "1.4.2" % "compile"
   val scalajpa = "org.scalajpa" % "scalajpa" % "1.2-SNAPSHOT"
   val javax = "javax.persistence" % "persistence-api" % "1.0"
   val scalatest = "org.scalatest" % "scalatest" % "1.0.1-for-scala-2.8.0.RC1-SNAPSHOT" % "test"
