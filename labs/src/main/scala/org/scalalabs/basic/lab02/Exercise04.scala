@@ -16,7 +16,7 @@ object Exercise04 {
    */
   def firstElementInList[T](l: List[T]): T = {
     //buildin
-    l.first
+    l.head
   }
 
   /**

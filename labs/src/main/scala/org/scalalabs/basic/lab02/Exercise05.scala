@@ -35,8 +35,8 @@ object Exercise05 {
         }
     }
 
-    var sortedBoys = boys.toList.sort(sortPerson _)
-    var sortedMen = men.toList.sort(sortPerson _)
+    var sortedBoys = boys.toList.sortWith(sortPerson _)
+    var sortedMen = men.toList.sortWith(sortPerson _)
 
     for (boy <- sortedBoys) {
       validBoyNames += boy.firstName
