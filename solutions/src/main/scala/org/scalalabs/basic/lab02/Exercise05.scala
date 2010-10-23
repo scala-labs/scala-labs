@@ -6,36 +6,40 @@ import _root_.scala.collection.mutable.ListBuffer
 case class Person(age: Int, firstName: String, lastName: String)
 
 object Exercise05 {
-  def maxElementInList(l: List[Int]): Int = {
-    l.foldLeft(0){(a,b) => if (a < b) b else a}
+  def sumOfElementsInList(l: List[Int]): Int = {
+    //different solutions:
+    //** List API **
+    //l.sum
+
+    //** recursive with match**
+    def sum(l: List[Int]): Int = {
+      l match {
+        case Nil => 0
+        case first :: tail => first + sum(tail)
+      }
+    }
+    sum(l)
+
+    //** recursive with if else**
+    //def sum2(l:List[Int]):Int = if(l.isEmpty) 0 else l.head + sum2(l.tail)
+
+    //** with fold**    
+    //    l.foldRight(0)((a, b) => a + b)
+    //    l.foldRight(0)(_ + _)
   }
+
+
+
+  def maxElementInList(l: List[Int]): Int = {
+    l.foldLeft(0) {(a, b) => if (a < b) b else a}
+  }
+
 
   def separateTheMenFromTheBoys(persons: List[Person]): List[List[String]] = {
-    var boys: ListBuffer[Person] = new ListBuffer[Person]()
-    var men: ListBuffer[Person] = new ListBuffer[Person]()
-    var validBoyNames: ListBuffer[String] = new ListBuffer[String]()
-    var validMenNames: ListBuffer[String] = new ListBuffer[String]()
-
-    for (person <- persons) {
-        if (person.age < 18) {
-          boys += person
-        } else {
-          men += person
-        }
-    }
-    
-    var sortedBoys = boys.toList.sort(sortPerson _)
-    var sortedMen = men.toList.sort(sortPerson _)
-    
-    for (boy <- sortedBoys) {
-      validBoyNames += boy.firstName
-    }
-    for (man <- sortedMen) {
-      validMenNames += man.firstName
-    }
-    List(validBoyNames.toList, validMenNames.toList)
+    def sortByAgeAndMapToName(persons: List[Person]) = persons.sortBy(_.age).map(_.firstName) 
+    val (minors, adults) = persons.partition(_.age < 18)
+    List(sortByAgeAndMapToName(minors), sortByAgeAndMapToName(adults))
   }
 
-  def sortPerson(a: Person, b: Person) = a.age < b.age
 
 }
