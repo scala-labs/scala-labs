@@ -4,6 +4,7 @@ import javax.persistence._
                  
 import java.util.Date
 import org.joda.time.DateTime
+import collection.mutable.Buffer
 
 /**
  * The JPA exercises let experiment with Scala and JPA,
@@ -78,7 +79,7 @@ object JpaExercise {
    * Complete the named query: findMoviesByDirector
    * in the META-INF/orm.xml
    */
-  def findMoviesByDirector(d:Director):List[Movie] = {
+  def findMoviesByDirector(d:Director):Buffer[Movie] = {
     return doWithEM {
       Repository.findAll[Movie]("findMoviesByDirector", "id" -> d.id)
     }
@@ -98,7 +99,7 @@ object JpaExercise {
    * In addition implement an implicit conversion definition
    * that converts org.joda.time.DateTime to a java.util.Date
    */
-  def findMoviesByDate(start:Date, end:Date):List[Movie] = {
+  def findMoviesByDate(start:Date, end:Date):Buffer[Movie] = {
     return doWithEM {
       Repository.findAll[Movie]("findMoviesByDate", "startDate" -> start, "endDate" -> end)
     }

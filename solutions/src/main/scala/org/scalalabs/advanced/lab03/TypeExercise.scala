@@ -81,7 +81,7 @@ object ComposableBuilder {
     def build = "brand: " + brand + ", color: " + color
   }
 
-  case class CarBuilder extends BasicCarBuilder with TireBuilder with Buildable[String] {
+  class CarBuilder extends BasicCarBuilder with TireBuilder with Buildable[String] {
     override def build: String = List(super[BasicCarBuilder].build, super[TireBuilder].build).mkString(", ")
   }
 }

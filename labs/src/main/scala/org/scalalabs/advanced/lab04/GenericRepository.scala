@@ -1,13 +1,13 @@
 package org.scalalabs.advanced.lab04
 
 import org.scala_libs.jpa.ScalaEntityManager
-
+import collection.mutable.Buffer
 /**
  * Interface of a generic dao with basic persistency
  * methods
  */
 trait GenericDao[T <: { var id:Long}] {
-   def findAll() : List[T]
+   def findAll() : Buffer[T]
    def save(entity:T) :T
    def remove(entity:T)(implicit m: Manifest[T]):Unit
    def findById(id:Any)(implicit m: Manifest[T]) : T

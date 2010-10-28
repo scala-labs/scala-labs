@@ -1,13 +1,14 @@
 package org.scalalabs.advanced.lab04
 
 import org.scala_libs.jpa.ScalaEntityManager
+import collection.mutable.Buffer
 
 /**
  * Interface of a generic dao with basic persistency
  * methods
  */
 trait GenericDao[T <: { var id:Long}] {
-   def findAll() : List[T]
+   def findAll() : Buffer[T]
    def save(entity:T) :T
    def remove(entity:T)(implicit m: Manifest[T]):Unit
    def findById(id:Any)(implicit m: Manifest[T]) : T
@@ -50,7 +51,7 @@ abstract class GenericDaoImpl[T <: { var id:Long}] (val semf:ScalaEntityManagerF
  */
 class DirectorDao(semf:ScalaEntityManagerFactory) extends GenericDaoImpl[Director](semf) {
 
-  def findAll():List[Director] = {
+  def findAll():Buffer[Director] = {
     sem.findAll("findAllDirectors")
   }
 }
@@ -62,11 +63,11 @@ class DirectorDao(semf:ScalaEntityManagerFactory) extends GenericDaoImpl[Directo
  */
 class MovieDao(semf:ScalaEntityManagerFactory) extends GenericDaoImpl[Movie](semf) {
 
-  def findAll():List[Movie] = {
+  def findAll():Buffer[Movie] = {
     sem.findAll("findAllMovies")
   }
 
-  def findByTitle(title:String):List[Movie] = {
+  def findByTitle(title:String):Buffer[Movie] = {
     sem.findAll("findMoviesByTitle", "title" -> title.toLowerCase)
 
   }

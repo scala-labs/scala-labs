@@ -1,11 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <parent>
-    <groupId>org.scalalabs</groupId>
-    <artifactId>scala-labs-parent</artifactId>
-    <version>1.0</version>
-  </parent>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.scalalabs</groupId>
 	<artifactId>scala-labs</artifactId>
@@ -13,4 +8,198 @@
 	<version>1.0</version>
 	<packaging>jar</packaging>
 	<inceptionYear>2009</inceptionYear>
+
+	<properties>
+		<scala.version>2.8.0</scala.version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>scala-tools.org</id>
+			<name>Scala-Tools Maven2 Repository</name>
+			<url>http://scala-tools.org/repo-releases/</url>
+		</repository>
+		<repository>
+			<id>nexus.scala-tools.org</id>
+			<name>Nexus Scala Tools</name>
+			<url>http://nexus.scala-tools.org/content/repositories/hosted</url>
+		</repository>
+		<repository>
+			<id>jboss.org</id>
+			<name>JBoss Repository</name>
+			<url>http://repository.jboss.org/maven2</url>
+		</repository>
+		<repository>
+			<id>codehous.org</id>
+			<name>Codehaus</name>
+			<url>http://repository.codehaus.org</url>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>scala-tools.org</id>
+			<name>Scala-Tools Maven2 Repository</name>
+			<url>http://scala-tools.org/repo-snapshots/</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>scala-tools.org-snapshots</id>
+			<name>Scala-Tools Maven2 Repository</name>
+			<url>http://scala-tools.org/repo-releases/</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-library</artifactId>
+			<version>${scala.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>1.6</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.scalatest</groupId>
+			<artifactId>scalatest</artifactId>
+			<version>1.2</version>
+			<scope>test</scope>
+		</dependency>    
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.7</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- test db -->
+		<dependency>
+			<groupId>hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>1.8.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.scala-libs</groupId>
+			<artifactId>scalajpa_2.8.0</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<!-- jpa-->
+		<dependency>
+			<groupId>geronimo-spec</groupId>
+			<artifactId>geronimo-spec-ejb</artifactId>
+			<version>2.1-rc4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>3.4.0.GA</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.transaction</groupId>
+					<artifactId>jta</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>geronimo-spec</groupId>
+			<artifactId>geronimo-spec-jta</artifactId>
+			<version>1.0.1B-rc4</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.4.2</version>
+			<scope>runtime</scope>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<sourceDirectory>src/main/scala</sourceDirectory>
+		<testSourceDirectory>src/test/scala</testSourceDirectory>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.scala-tools</groupId>
+				<artifactId>maven-scala-plugin</artifactId>
+				<version>2.10.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile</goal>
+							<goal>testCompile</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<jvmArgs>
+						<jvmArg>-Xmx1024m</jvmArg>
+					</jvmArgs>
+					<args>
+						<arg>-unchecked</arg>
+						<arg>-deprecation</arg>
+					</args>
+					<scalaVersion>${scala.version}</scalaVersion>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-idea-plugin</artifactId>
+				<configuration>
+					<downloadSources>true</downloadSources>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<configuration>
+					<downloadSources>true</downloadSources>
+					<excludes>
+						<exclude>org.scala-lang:scala-library</exclude>
+					</excludes>
+					<classpathContainers>
+						<classpathContainer>ch.epfl.lamp.sdt.launching.SCALA_CONTAINER</classpathContainer>
+					</classpathContainers>
+					<projectnatures>
+						<java.lang.String>ch.epfl.lamp.sdt.core.scalanature</java.lang.String>
+						<java.lang.String>org.eclipse.jdt.core.javanature</java.lang.String>
+					</projectnatures>
+					<buildcommands>
+						<java.lang.String>ch.epfl.lamp.sdt.core.scalabuilder</java.lang.String>
+					</buildcommands>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.scala-tools</groupId>
+				<artifactId>maven-scala-plugin</artifactId>
+				<configuration>
+					<scalaVersion>${scala.version}</scalaVersion>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
 </project>
