@@ -1,10 +1,10 @@
 package org.scalalabs.advanced.lab04
 
 import javax.persistence._
-                 
+
 import java.util.Date
 import org.joda.time.DateTime
-import org.scalatest.junit.JUnitSuite
+import collection.mutable.Buffer
 
 /**
  * The JPA exercises let experiment with Scala and JPA,
@@ -21,7 +21,7 @@ import org.scalatest.junit.JUnitSuite
  * In the second section you will implement DAOs (Data Access Object),
  * which delegate persistency operations to the Scala JPA utility API.
  */
-object JpaExercise extends JUnitSuite {
+object JpaExercise  {
 
   /*************************************************************************
    * Exercises with the Scala JPA API
@@ -71,9 +71,9 @@ object JpaExercise extends JUnitSuite {
    * Complete the named query: findMoviesByDirector
    * in the META-INF/orm.xml
    */
-  def findMoviesByDirector(d:Director):List[Movie] = {
+  def findMoviesByDirector(d:Director):Buffer[Movie] = {
     //TODO implement
-    List[Movie]()
+    Buffer[Movie]()
   }
 
 
@@ -86,9 +86,9 @@ object JpaExercise extends JUnitSuite {
    * In addition implement an implicit conversion definition
    * that converts org.joda.time.DateTime to a java.util.Date
    */
-  def findMoviesByDate(start:DateTime, end:DateTime):List[Movie] = {
+  def findMoviesByDate(start:DateTime, end:DateTime):Buffer[Movie] = {
     //TODO implement
-    List[Movie]()
+    Buffer[Movie]()
   }
 
   /*************************************************************************
@@ -127,7 +127,7 @@ object JpaExercise extends JUnitSuite {
    */
   def findAllDirectorsWithDao() =  {
     //TODO implement using directorDao
-    List[Director]()
+    Buffer[Director]()
   }
 
 
@@ -138,7 +138,7 @@ object JpaExercise extends JUnitSuite {
    */
   def findAllMoviesWithDao() = {
     //TODO implement using movieDao
-    List[Movie]()
+    Buffer[Movie]()
   }
 
   /**
@@ -147,7 +147,7 @@ object JpaExercise extends JUnitSuite {
    */
   def findMoviesByTitleWithDao(title:String) = {
     //TODO implement using movieDao
-    List[Movie]()
+    Buffer[Movie]()
   }
 
   /**
