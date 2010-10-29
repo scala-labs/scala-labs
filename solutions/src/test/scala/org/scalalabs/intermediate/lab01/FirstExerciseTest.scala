@@ -27,7 +27,7 @@ class FirstExerciseTest extends JUnitSuite {
 
         // This is where the TwitterStatus domain class is instantiated with a scala.xml.Node
         // representing the <status> element.
-        statuses.elements.toList.map(s => TwitterStatus(s))
+        statuses.toList.map(s => TwitterStatus(s))
     }
 
 

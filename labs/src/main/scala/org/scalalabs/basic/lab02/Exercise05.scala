@@ -35,8 +35,8 @@ object Exercise05 {
         }
     }
 
-    var sortedBoys = boys.toList.sort(sortPerson _)
-    var sortedMen = men.toList.sort(sortPerson _)
+    var sortedBoys = boys.toList.sortBy(_.age)
+    var sortedMen = men.toList.sortBy(_.age)
 
     for (boy <- sortedBoys) {
       validBoyNames += boy.firstName
@@ -46,7 +46,5 @@ object Exercise05 {
     }
     List(validBoyNames.toList, validMenNames.toList)
   }
-
-  def sortPerson(a: Person, b: Person) = a.age < b.age
 
 }

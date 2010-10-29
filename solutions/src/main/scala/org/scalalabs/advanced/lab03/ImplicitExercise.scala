@@ -1,13 +1,5 @@
 package org.scalalabs.advanced.lab03
 
-import org.scalalabs.advanced.lab03.Monoid
-
-
-/**
- * User: arjan
- * Date: Apr 9, 2010
- * Time: 1:52:26 PM
- */
 /**
  * An very simple implementation of trait representing anything that can be compared.
  * In Java this is similar to the Comparator interface.

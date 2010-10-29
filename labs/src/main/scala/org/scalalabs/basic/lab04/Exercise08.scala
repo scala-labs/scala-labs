@@ -1,6 +1,7 @@
 package org.scalalabs.basic.lab04
 
 import org.joda.time.{Duration, DateTime}
+import scala.math._
 
 /**
  * @author arjan
@@ -43,7 +44,7 @@ object Exercise08 {
   object ConversionHelper {
     def fahrenheit2CelsiusConversion(fahrenheit:Double) ={
       val converted = (fahrenheit - 32) / 1.8
-      Math.round(converted * 100).toDouble / 100
+      round(converted * 100).toDouble / 100
     }
     def celsius2FahrenheitConversion(degreeCelsius:Double) ={
       degreeCelsius * 1.8 + 32

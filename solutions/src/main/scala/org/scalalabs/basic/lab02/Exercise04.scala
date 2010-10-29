@@ -3,7 +3,7 @@ package org.scalalabs.basic.lab02
 object Exercise04 {
   def firstElementInList[T](l: List[T]): T = {
     //buildin
-    l.first
+    l.head
   }
 
   def sumOfList(l: List[Int]): Int = {
