@@ -2,7 +2,7 @@ package org.scalalabs.basic.lab01
 
 object HelloWorldList {
 	def firstElementInListOfStrings(listOfStrings:List[String]):String = {
-		listOfStrings.first
+		listOfStrings.head
 	}
  
 	def concatLists(list1:List[String], list2:List[String]):List[String] = {

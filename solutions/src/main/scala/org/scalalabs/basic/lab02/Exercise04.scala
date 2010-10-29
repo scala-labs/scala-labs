@@ -2,12 +2,12 @@ package org.scalalabs.basic.lab02
 
 object Exercise04 {
   def firstElementInList[T](l: List[T]): T = {
-    //buildin
-    l.first
+    //built in
+    l.head
   }
 
   def sumOfList(l: List[Int]): Int = {
-    //almost buildin
+    //almost built in
 //    l.foldLeft(0)((a,b) => a+b)
 
     //pattern match solution:
@@ -22,9 +22,9 @@ object Exercise04 {
   }
 
   def lastElementInList[T](l: List[T]): T = {
-    //    buildin:
+    //    built in:
     l.last
-    //    almost buildin:
+    //    almost built in:
     l.reverse.head
 
     //custom version: pattern match
@@ -52,7 +52,7 @@ object Exercise04 {
   }
 
   def concatLists[T](l1: List[T], l2: List[T]): List[T] = {
-    //build in: l1 ::: l2
+    //built in: l1 ::: l2
     def myConcat(l1: List[T], l2: List[T]): List[T] = {
       l1 match {
         case Nil => l2
@@ -71,7 +71,7 @@ object Exercise04 {
   }
 
   def elementExists[T](l: List[T], e: T): Boolean = {
-    //build in
+    //built in
     l.exists(_ == e)
   }
 
