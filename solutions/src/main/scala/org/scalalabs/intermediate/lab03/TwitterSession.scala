@@ -82,7 +82,7 @@ class UnauthenticatedSession extends TwitterSession {
     }
 
     protected def mapToTimeline(xml: Node): TwitterTimeline = {
-        new TwitterTimeline((xml \\ "status").elements.toList.map(s => TwitterStatus(s)))
+        new TwitterTimeline((xml \\ "status").iterator.toList.map(s => TwitterStatus(s)))
     }
 }
 
@@ -152,6 +152,6 @@ class AuthenticatedSession(val userName: String, password: String) extends Unaut
     }
 
     protected def mapToUsers(xml: Node): TwitterUsers = {
-        new TwitterUsers((xml \\ "user").elements.toList.map(s => TwitterUser(s)))
+        new TwitterUsers((xml \\ "user").iterator.toList.map(s => TwitterUser(s)))
     }
 }
