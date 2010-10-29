@@ -41,7 +41,7 @@ object Exercise08 {
   object ConversionHelper {
     def fahrenheit2CelsiusConversion(fahrenheit:Double) ={
       val converted = (fahrenheit - 32) / 1.8
-      Math.round(converted * 100).toDouble / 100
+      scala.math.round(converted * 100).toDouble / 100
     }
     def celsius2FahrenheitConversion(degreeCelsius:Double) ={
       degreeCelsius * 1.8 + 32
