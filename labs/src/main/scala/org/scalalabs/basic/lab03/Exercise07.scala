@@ -9,6 +9,8 @@ package org.scalalabs.basic.lab03
  * further. Practically everything from all types of objects and Collections
  * can be matched, not forgetting xml and a special type of class called case classes.
  *
+ * Pattern matching is also often used in combination with recursive algorithms.
+ *
  * For this exercise exclusively use pattern matching constructs in order to make the
  * corresponding unit test work.
  *
@@ -18,6 +20,12 @@ package org.scalalabs.basic.lab03
  */
 
 object Exercise07 {
+
+  /*************************************************************************
+   * Basic pattern matching exercises
+   * For expected solution see unittest @Exercise07Test
+   *************************************************************************/
+
   def describeLanguage(s: String) = {
     error("fix me")
   }
@@ -26,6 +34,14 @@ object Exercise07 {
     error("fix me")
   }
 
+  def older(p: Person): Option[String] = {
+    error("fix me")
+  }
+
+  /*************************************************************************
+   * Pattern matching with partial functions
+   * For expected solution see @Exercise07Test
+   *************************************************************************/
 
   val pf1: PartialFunction[String, String] = {
     error("fix me")
@@ -40,11 +56,32 @@ object Exercise07 {
   }
 
 
-  def older(p: Person): Option[String] = {
+  /*************************************************************************
+   * Recursive algorithms with pattern matching
+   * For expected solution see unittest @Exercise07Test
+   *************************************************************************/
+
+  def compress[T](in: List[T]): List[T] = {
     error("fix me")
   }
 
-  def compress[T](in: List[T]): List[T] = {
+  def groupConsecutive[T](in: List[T]): List[List[T]] = {
+    error("fix me")
+  }
+
+  def groupEquals[T](in: List[T]): List[List[T]] = {
+    error("fix me")
+  }
+
+  def amountEqualMembers[T](in: List[T]): List[(Int, T)] = {
+    error("fix me")
+  }
+
+  def zipMultiple(in: List[List[_]]): List[List[_]] = {
+    error("fix me")
+  }
+
+  def zipMultipleWithDifferentSize(in: List[List[_]]): List[List[_]] = {
     error("fix me")
   }
 
