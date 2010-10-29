@@ -24,15 +24,24 @@ import scala.math._
 
 object Exercise08 {
 
-  /** ============================================================================ */
-  class Celsius(val degree:Double)
-  class Fahrenheit(val fahrenheit:Double)
+  /**============================================================================ */
+  def stringToList(s: String): List[Char] = {
+    //built in: our String will be converted to Scala's RichString, because this is defined a Scala
+    //object called Predef. This is imported by the compiler by default.
+    //
+    List[Char]()
+  }
+
+  /**============================================================================ */
+  class Celsius(val degree: Double)
+  class Fahrenheit(val fahrenheit: Double)
 
   object TemperaturPrinter {
-    def printCelsius(c:Celsius) : String = {
+    def printCelsius(c: Celsius): String = {
       "It's " + c.degree + " degree celsius"
     }
-    def printFahrenheit(f:Fahrenheit) : String = {
+
+    def printFahrenheit(f: Fahrenheit): String = {
       "It's " + f.fahrenheit + " fahrenheit"
     }
   }
@@ -42,57 +51,53 @@ object Exercise08 {
    * and vice versa in the implicit function you will define.
    */
   object ConversionHelper {
-    def fahrenheit2CelsiusConversion(fahrenheit:Double) ={
+    def fahrenheit2CelsiusConversion(fahrenheit: Double) = {
       val converted = (fahrenheit - 32) / 1.8
       round(converted * 100).toDouble / 100
     }
-    def celsius2FahrenheitConversion(degreeCelsius:Double) ={
+
+    def celsius2FahrenheitConversion(degreeCelsius: Double) = {
       degreeCelsius * 1.8 + 32
     }
   }
 
-  /** ============================================================================ */
+  /**============================================================================ */
+  // Write here an implict conversion that adds a camelCase method to string.
 
 
-   def stringToList(s: String) : List[Char] = {
-     //build in: our String will be converted to Scala's RichString, because this is defined a Scala
-     //object called Predef. This is imported by the compiler by default.
-     //
-     s.toList
-   }
+
 }
-/** ============================================================================ */
+
+/**============================================================================ */
 
 object TimeUtils {
-   case class DurationBuilder(timeSpan: Long) {
-
+  case class DurationBuilder(timeSpan: Long) {
     def now = new DateTime().getMillis()
 
-//    def seconds = TODO your implementation here...
+    //    def seconds = TODO your implementation here...
 
-//    def minutes = TODO your implementation here...
+    //    def minutes = TODO your implementation here...
 
-//    def hours = TODO your implementation here...
+    //    def hours = TODO your implementation here...
 
-//    def days = TODO your implementation here...
-   }
+    //    def days = TODO your implementation here...
+  }
 
   //TODO define some implicits that convert integers and longs to durations and builders to make it all work
 
-   def seconds(in:Long) = in * 1000L
+  def seconds(in: Long) = in * 1000L
 
-   def minutes(in:Long) = seconds(in) * 60L
+  def minutes(in: Long) = seconds(in) * 60L
 
-   def hours(in:Long) = minutes(in) * 60L
-  
-   def days(in:Long) = hours(in) * 24L
+  def hours(in: Long) = minutes(in) * 60L
+
+  def days(in: Long) = hours(in) * 24L
 }
 
 case class RichDuration(val duration: Duration) {
+  def millis = duration.getMillis()
 
-    def millis = duration.getMillis()
-  
-    def afterNow = new DateTime().plus(duration)
+  def afterNow = new DateTime().plus(duration)
 
-    def +(that: RichDuration) = RichDuration(this.duration.plus(that.duration))
+  def +(that: RichDuration) = RichDuration(this.duration.plus(that.duration))
 }

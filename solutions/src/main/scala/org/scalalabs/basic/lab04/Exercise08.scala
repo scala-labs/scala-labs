@@ -22,15 +22,25 @@ import scala.math._
 
 object Exercise08 {
 
-  /** ============================================================================ */
-  class Celsius(val degree:Double)
-  class Fahrenheit(val fahrenheit:Double)
+  /**============================================================================ */
+
+  def stringToList(s: String): List[Char] = {
+    //build in: our String will be converted to Scala's RichString, because this is defined a Scala
+    //object called Predef. This is imported by the compiler by default.
+    s.toList
+  }
+
+  /**============================================================================ */
+
+  class Celsius(val degree: Double)
+  class Fahrenheit(val fahrenheit: Double)
 
   object TemperaturPrinter {
-    def printCelsius(c:Celsius) : String = {
+    def printCelsius(c: Celsius): String = {
       "It's " + c.degree + " degree celsius"
     }
-    def printFahrenheit(f:Fahrenheit) : String = {
+
+    def printFahrenheit(f: Fahrenheit): String = {
       "It's " + f.fahrenheit + " fahrenheit"
     }
   }
@@ -40,29 +50,41 @@ object Exercise08 {
    * the implicit function you will define.
    */
   object ConversionHelper {
-    def fahrenheit2CelsiusConversion(fahrenheit:Double) ={
+    def fahrenheit2CelsiusConversion(fahrenheit: Double) = {
       val converted = (fahrenheit - 32) / 1.8
       round(converted * 100).toDouble / 100
     }
-    def celsius2FahrenheitConversion(degreeCelsius:Double) ={
+
+    def celsius2FahrenheitConversion(degreeCelsius: Double) = {
       degreeCelsius * 1.8 + 32
     }
   }
 
-  implicit def celsiusToFahrenheit(f:Fahrenheit) = {new Celsius(ConversionHelper.fahrenheit2CelsiusConversion(f.fahrenheit))}
-  implicit def fahrenheitToCelsius(c:Celsius) = {new Fahrenheit(ConversionHelper.celsius2FahrenheitConversion(c.degree))}
+  implicit def celsiusToFahrenheit(f: Fahrenheit) = {new Celsius(ConversionHelper.fahrenheit2CelsiusConversion(f.fahrenheit))}
 
-  /** ============================================================================ */
+  implicit def fahrenheitToCelsius(c: Celsius) = {new Fahrenheit(ConversionHelper.celsius2FahrenheitConversion(c.degree))}
 
-  def stringToList(s: String): List[Char] = {
-    //build in: our String will be converted to Scala's RichString, because this is defined a Scala
-    //object called Predef. This is imported by the compiler by default.
-    //
-    s.toList
+
+  /**============================================================================ */
+
+  /**Use an implict conversion from string to an anonymous object that contains a camelCase method.
+   *  By doing so, the camelCase method is added to the string
+   */
+  implicit def str2CamelCase(s: String) = new {
+    def camelCase: String = {
+      def camelCase(s: String): String = {
+        val spaceLetterAndRestOfTextSeqRegExp = """\s(.?)(.*)""".r
+        s.span(!_.isSpaceChar) match {
+          case (all, "") => all
+          case (head, spaceLetterAndRestOfTextSeqRegExp(firstLetter, restOfText)) => head + camelCase(firstLetter.toUpperCase + restOfText)
+        }
+      }
+      camelCase(s)
+    }
   }
 }
 
-/** ============================================================================ */
+/**============================================================================ */
 
 object TimeUtils {
   case class DurationBuilder(timeSpan: Long) {

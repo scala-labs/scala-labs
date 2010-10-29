@@ -13,6 +13,11 @@ import org.joda.time.Duration
 class Exercise08Test {
 
   @Test
+  def convertStringToList = {
+    assert(List('H', 'e', 'l', 'l', 'o') == Exercise08.stringToList("Hello"))
+  }
+
+  @Test
   def celsiusToFahrenheitConverter = {
     val c = new Celsius(10)
     val f = new Fahrenheit(30)
@@ -22,11 +27,12 @@ class Exercise08Test {
     assertEquals("It's 30.0 fahrenheit", TemperaturPrinter.printFahrenheit(f))
   }
 
-
   @Test
-  def convertStringToList = {
-     assert(List('H', 'e', 'l', 'l', 'o') == Exercise08.stringToList("Hello"))
+  def addMethodToString = {
+    //write an implict conversion that adds the camelCase method to a string
+    assertEquals("camelCaseMe", "camel case me".camelCase)
   }
+
 
   @Test
   def durationDsl = {
