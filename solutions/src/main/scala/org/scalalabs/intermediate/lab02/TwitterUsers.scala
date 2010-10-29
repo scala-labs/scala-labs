@@ -15,8 +15,8 @@ object TwitterUsers {
         thatArePopularByScreenName(input.sortWith(_.followersCount > _.followersCount))
 
         // alternative solutions:
-//        thatArePopularByScreenName(input.sort((first, second) => compareByFollowersCount(first, second)))
-//        thatArePopularByScreenName(input.sort(compareByFollowersCount(_, _)))
+//        thatArePopularByScreenName(input.sortWith((first, second) => compareByFollowersCount(first, second)))
+//        thatArePopularByScreenName(input.sortWith(compareByFollowersCount(_, _)))
     }
 
     def thatArePopularByScreenNameAndPopularitySortedbyPopularity(input: List[TwitterUser]): List[(String, Int)] = {
