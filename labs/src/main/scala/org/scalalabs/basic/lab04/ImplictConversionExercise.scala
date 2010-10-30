@@ -22,7 +22,7 @@ import scala.math._
  *
  */
 
-object Exercise08 {
+object ImplictConversionExercise {
 
   /**============================================================================ */
   def stringToList(s: String): List[Char] = {

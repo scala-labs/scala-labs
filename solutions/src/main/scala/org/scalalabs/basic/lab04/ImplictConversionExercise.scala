@@ -20,7 +20,7 @@ import scala.math._
  *
  */
 
-object Exercise08 {
+object ImplictConversionExercise {
 
   /**============================================================================ */
 

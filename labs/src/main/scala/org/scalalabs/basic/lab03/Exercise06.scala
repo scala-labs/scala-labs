@@ -13,7 +13,7 @@ package org.scalalabs.basic.lab03
  * Partial Functions: http://programming-scala.labs.oreilly.com/ch08.html#PartialFunctions
  * Currying: http://programming-scala.labs.oreilly.com/ch08.html#Currying
  */
-object Exercise06 {
+object BasicFunctionsExercise {
 
   def plusOne(x: Int): Int = {
     //implement this using a partial function

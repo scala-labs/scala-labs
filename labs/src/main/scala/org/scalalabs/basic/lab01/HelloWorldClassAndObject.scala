@@ -3,7 +3,7 @@ package org.scalalabs.basic.lab01
 /**
  * The goal of this exercise is to get familiar with the idea behind Companion Objects
  *
- * Fix the code so that the unit test 'Exercise03Test' passes.
+ * Fix the code so that the unit test 'HelloWorldExerciseTest' passes.
  *
  * More information on Companion Objects can be found here:
  * http://programming-scala.labs.oreilly.com/ch06.html#CompanionObjects

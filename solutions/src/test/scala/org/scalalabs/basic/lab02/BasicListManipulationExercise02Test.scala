@@ -2,7 +2,7 @@ package org.scalalabs.basic.lab02
 
 import org.scalatest.junit.JUnitSuite
 import org.junit.Test
-import Exercise05._
+import BasicListManipulationExercise02._
 
 /*
  * Lab 02: more Scala collection operations
@@ -16,19 +16,19 @@ import Exercise05._
  */
 
 
-class Exercise05Test extends JUnitSuite {
+class BasicListManipulationExercise02Test extends JUnitSuite {
 
   @Test
   def maxIntInList() {
-    assert(9 === Exercise05.maxElementInList(List(1, 9, 4, 9, 8)))
-    assert(25 === Exercise05.maxElementInList(List(1, 7, 5, 17, 25, 24, 22, 19)))
+    assert(9 === BasicListManipulationExercise02.maxElementInList(List(1, 9, 4, 9, 8)))
+    assert(25 === BasicListManipulationExercise02.maxElementInList(List(1, 7, 5, 17, 25, 24, 22, 19)))
   }
 
   @Test
   def rewriteImperativeToFunctional() {
      //This unit test succeeds! But, the code that is called is written 'Java style',
     //it contains a lot of boilerplate code. Your job is to rewrite the code, get rid of the
-    //loops and variables, and use only functions.
+    //loops and variabels, and use only functions.
     val anton1 = Person(15, "Anton1", "Jansen")
     val anton2 = Person(17, "Anton2", "Janssen")
     val anton3 = Person(18, "Anton3", "Jansssen")
@@ -36,8 +36,8 @@ class Exercise05Test extends JUnitSuite {
     val peter2 = Person(19, "Peter2", "Petersson")
     val jason = Person(21, "Jason", "Jasonsson")
     
-    val result = Exercise05.separateTheMenFromTheBoys(List(jason, anton1, anton2, anton3, peter1, peter2))
-    
+    val result = BasicListManipulationExercise02.separateTheMenFromTheBoys(List(jason, anton1, anton2, anton3, peter1, peter2))
     assert(List(List("Anton1", "Anton2", "Peter1"), List("Anton3", "Peter2", "Jason")) === result)
+
   }
 }

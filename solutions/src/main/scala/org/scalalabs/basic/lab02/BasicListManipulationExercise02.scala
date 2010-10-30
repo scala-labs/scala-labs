@@ -5,7 +5,7 @@ import _root_.scala.collection.mutable.ListBuffer
 
 case class Person(age: Int, firstName: String, lastName: String)
 
-object Exercise05 {
+object BasicListManipulationExercise02 {
   def sumOfElementsInList(l: List[Int]): Int = {
     //different solutions:
     //** List API **

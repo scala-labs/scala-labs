@@ -1,7 +1,7 @@
 package org.scalalabs.basic.lab03
 
 /**
- * This excersice introduces you to the powerful pattern matching features of Scala.
+ * This exercise introduces you to the powerful pattern matching features of Scala.
  *
  * Pattern matching can in its essence be compared to Java's 'switch' statement, even though it provides
  * many more possibilites. Whereas the Java switch statmenet lets you 'match' primitive types up to int's,
@@ -17,11 +17,11 @@ package org.scalalabs.basic.lab03
  * Pattern matching in combination with partial functions: http://programming-scala.labs.oreilly.com/ch08.html#PartialFunctions
  */
 
-object Exercise07 {
+object BasicPatternMatchingExercise {
 
   /*************************************************************************
    * Basic pattern matching exercises
-   * For expected solution see unittest @Exercise07Test
+   * For expected solution see unittest @BasicPatternMatchingExerciseTest
    *************************************************************************/
 
   def describeLanguage(s: String) = {
@@ -52,7 +52,7 @@ object Exercise07 {
 
   /*************************************************************************
    * Pattern matching with partial functions
-   * For expected solution see @Exercise07Test
+   * For expected solution see @BasicPatternMatchingExerciseTest
    *************************************************************************/
   val pf1: PartialFunction[String, String] = {
     case "scala-labs" => "Got scala-labs"
@@ -70,7 +70,7 @@ object Exercise07 {
 
   /*************************************************************************
    * Recursive algorithms with pattern matching
-   * For expected solution see unittest @Exercise07Test
+   * For expected solution see unittest @BasicPatternMatchingExerciseTest
    *************************************************************************/
   def compress[T](in: List[T]): List[T] = {
     //built in:

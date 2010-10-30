@@ -19,11 +19,11 @@ package org.scalalabs.basic.lab03
  * Pattern matching in combination with partial functions: http://programming-scala.labs.oreilly.com/ch08.html#PartialFunctions
  */
 
-object Exercise07 {
+object BasicPatternMatchingExercise {
 
   /*************************************************************************
    * Basic pattern matching exercises
-   * For expected solution see unittest @Exercise07Test
+   * For expected solution see unittest @BasicPatternMatchingExerciseTest
    *************************************************************************/
 
   def describeLanguage(s: String) = {
@@ -40,7 +40,7 @@ object Exercise07 {
 
   /*************************************************************************
    * Pattern matching with partial functions
-   * For expected solution see @Exercise07Test
+   * For expected solution see @BasicPatternMatchingExerciseTest
    *************************************************************************/
 
   val pf1: PartialFunction[String, String] = {
@@ -55,10 +55,10 @@ object Exercise07 {
     error("fix me")
   }
 
-
+                          
   /*************************************************************************
    * Recursive algorithms with pattern matching
-   * For expected solution see unittest @Exercise07Test
+   * For expected solution see unittest @BasicPatternMatchingExerciseTest
    *************************************************************************/
 
   def compress[T](in: List[T]): List[T] = {

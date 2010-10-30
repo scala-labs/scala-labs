@@ -1,7 +1,7 @@
 package org.scalalabs.basic.lab03
 
 /**
- * This excersice introduces you to Scala functions.
+ * This exercise introduces you to Scala functions.
  *
  * Functions let you create control abstractions, which give extra opportunities to condense
  * and simplify code.
@@ -13,7 +13,7 @@ package org.scalalabs.basic.lab03
  * Partial Functions: http://programming-scala.labs.oreilly.com/ch08.html#PartialFunctions
  * Currying: http://programming-scala.labs.oreilly.com/ch08.html#Currying
  */
-object Exercise06 {
+object BasicFunctionsExercise {
   def plusOne(x: Int): Int = {
     //implement this using a partial function
     plus(1, x)

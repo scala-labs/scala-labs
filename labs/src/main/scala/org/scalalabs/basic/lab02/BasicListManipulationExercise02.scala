@@ -5,7 +5,7 @@ import _root_.scala.collection.mutable.ListBuffer
 
 case class Person(age: Int, firstName: String, lastName: String)
 
-object Exercise05 {
+object BasicListManipulationExercise02 {
 
   /**
    * Find the maximum element in a list, e.g. maxElementInList(List(1,9,3,5)) == 9

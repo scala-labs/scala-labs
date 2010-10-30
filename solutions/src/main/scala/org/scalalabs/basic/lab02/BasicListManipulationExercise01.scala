@@ -1,6 +1,6 @@
 package org.scalalabs.basic.lab02
 
-object Exercise04 {
+object BasicListManipulationExercise01 {
   def firstElementInList[T](l: List[T]): T = {
     //built in
     l.head

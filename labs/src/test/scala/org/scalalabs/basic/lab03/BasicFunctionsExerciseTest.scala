@@ -3,18 +3,18 @@ package org.scalalabs.basic.lab03
 import org.scalatest.junit.JUnitSuite
 import org.junit.Test
 import org.junit.Assert._
-import Exercise06._
+import BasicFunctionsExercise._
 import java.io.{FileReader, BufferedReader}
                    
 /**
- * @see Exercise06
+ * @see BasicFunctionsExercise
  */
-class Exercise06Test extends JUnitSuite {
+class BasicFunctionsExerciseTest extends JUnitSuite {
 
   @Test
   def increment() {
-    assert(3 == Exercise06.plusOne(2))
-    assert(6 == Exercise06.plusOne(5))
+    assert(3 == BasicFunctionsExercise.plusOne(2))
+    assert(6 == BasicFunctionsExercise.plusOne(5))
   }
 
   @Test
@@ -28,11 +28,11 @@ class Exercise06Test extends JUnitSuite {
     assertFalse(closable closed)
     assertFalse(anotherClosable closed)
 
-    val greeting = Exercise06.using(closable) {
+    val greeting = BasicFunctionsExercise.using(closable) {
       c => c sayHello("John")
     }
 
-    val anotherGreeting = Exercise06.using(anotherClosable) {
+    val anotherGreeting = BasicFunctionsExercise.using(anotherClosable) {
       c => c sayHello("John")
     }
 

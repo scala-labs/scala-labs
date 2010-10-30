@@ -3,16 +3,16 @@ package org.scalalabs.basic.lab04
 import org.scalatest.junit.JUnitSuite
 import org.junit.Test
 import org.junit.Assert._
-import Exercise08._
+import ImplictConversionExercise._
 import org.joda.time.Duration
 
 /**
- * @see Exercise08
+ * @see ImplictConversionExercise
  */
-class Exercise08Test {
+class ImplictConversionExerciseTest {
   @Test
   def convertStringToList = {
-    assert(List('H', 'e', 'l', 'l', 'o') == Exercise08.stringToList("Hello"))
+    assert(List('H', 'e', 'l', 'l', 'o') == ImplictConversionExercise.stringToList("Hello"))
   }
 
   @Test
@@ -29,7 +29,7 @@ class Exercise08Test {
 
   @Test
   def addMethodToString = {
-    //TODO uncomment this test and let it work using some implicit magic in object Exercise08
+    //TODO uncomment this test and let it work using some implicit magic in object ImplictConversionExercise
     //assertEquals("camelCaseMe", "camel case me".camelCase)
   }
 
