@@ -3,8 +3,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.scalalabs</groupId>
-	<artifactId>scala-labs</artifactId>
-	<name>Scala Labs</name>
+	<artifactId>scala-labs-solutions</artifactId>
+	<name>Scala Labs Solutions</name>
 	<version>1.0</version>
 	<packaging>jar</packaging>
 	<inceptionYear>2009</inceptionYear>
