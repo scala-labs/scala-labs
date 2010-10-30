@@ -39,38 +39,6 @@ class BasicPatternMatchingExerciseTest extends JUnitSuite {
   }
 
   @Test
-  def removeConsecutiveDuplicates = {
-    assert(List(1, 5, 8, 4, 9) === BasicPatternMatchingExercise.compress(List(1, 1, 1, 1, 5, 8, 8, 4, 4, 4, 9, 9)))
-  }
-
-
-  @Test
-  def groupConsecutiveMembers = {
-    assert(List(List(1, 1, 1), List(5), List(4, 4), List(1, 1)) === BasicPatternMatchingExercise.groupConsecutive(List(1, 1, 1, 5, 4, 4, 1, 1)))
-  }
-
-  @Test
-  def groupEqualMembers = {
-    assert(List(List(1, 1, 1, 1), List(5, 5), List(4, 4)) === BasicPatternMatchingExercise.groupEquals(List(1, 1, 1, 5, 4, 4, 5, 1)))
-  }
-
-  @Test
-  def defineAmountEqualMembers = {
-    assert(List((4, 'x), (2, 'y), (2, 'z)) === BasicPatternMatchingExercise.amountEqualMembers(List('x, 'x, 'x, 'y, 'z, 'z, 'y, 'x)))
-    assert(List((4, "Cow"), (2, "Boy"), (1, "Hut")) === BasicPatternMatchingExercise.amountEqualMembers(List("Cow", "Cow", "Boy", "Cow", "Boy", "Hut", "Cow")))
-  }
-
-  @Test
-  def zipMultiple = {
-    assert(List(List(1, 'A, 'a), List(2, 'B, 'b), List(3,'C, 'c)) === BasicPatternMatchingExercise.zipMultiple(List(List(1,2,3), List('A, 'B ,'C), List('a, 'b, 'c))))
-  }
-
-  @Test
-  def zipMultipleWithDifferentSize = {
-    assert(List(List(1, 'A, 'a)) === BasicPatternMatchingExercise.zipMultipleWithDifferentSize(List(List(1,2), List('A, 'B , 'C), List('a))))
-  }
-
-  @Test
   def matchPartialFunctions = {
     //pf1 and pf2 are both partial functions.
     //These inherit from Scala's Function class, with an extra method: isDefinedAt

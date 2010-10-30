@@ -1,7 +1,7 @@
 package org.scalalabs.basic.lab03
 
 /**
- * This excersice introduces you to the powerful pattern matching features of Scala.
+ * This exercise introduces you to the powerful pattern matching features of Scala.
  *
  * Pattern matching can in its essence be compared to Java's 'switch' statement,
  * even though it provides many more possibilites. Whereas the Java switch statmenet
@@ -52,36 +52,6 @@ object BasicPatternMatchingExercise {
   }
 
   val pf3:PartialFunction[String, String] = {
-    error("fix me")
-  }
-
-                          
-  /*************************************************************************
-   * Recursive algorithms with pattern matching
-   * For expected solution see unittest @BasicPatternMatchingExerciseTest
-   *************************************************************************/
-
-  def compress[T](in: List[T]): List[T] = {
-    error("fix me")
-  }
-
-  def groupConsecutive[T](in: List[T]): List[List[T]] = {
-    error("fix me")
-  }
-
-  def groupEquals[T](in: List[T]): List[List[T]] = {
-    error("fix me")
-  }
-
-  def amountEqualMembers[T](in: List[T]): List[(Int, T)] = {
-    error("fix me")
-  }
-
-  def zipMultiple(in: List[List[_]]): List[List[_]] = {
-    error("fix me")
-  }
-
-  def zipMultipleWithDifferentSize(in: List[List[_]]): List[List[_]] = {
     error("fix me")
   }
 
