@@ -16,6 +16,22 @@ object BasicListManipulationExercise02 {
   }
 
   /**
+   * Calculate the sum of the equally position elements
+   * of the two list
+   */
+  def sumOfTwo(l1: List[Int], l2: List[Int]): List[Int] = {
+    error("fix me")
+  }
+
+  /**
+   *  For this exercise preferably make use of the sumOfTwo
+   * method above
+   */
+  def sumOfMany(l: List[Int]*): List[Int] = {
+    error("fix me")
+  }
+
+  /**
    * The following method is implemented in the most in-elegant way we could think of.
    * The idea is to re-write the method into more functional style. In the end, you
    * may be able to achieve the same functionality as implemented below

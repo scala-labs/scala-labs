@@ -25,6 +25,19 @@ class BasicListManipulationExercise02Test extends JUnitSuite {
   }
 
   @Test
+  def calcSumOfSamePositionedElementsInTwoLists() = {
+    assert(List(2, 8, 14) === BasicListManipulationExercise02.sumOfTwo(List(1, 5, 9), List(1, 3, 5)))
+    //if one of the lists is empty return the ones with values
+    assert(List(1, 2, 3) === BasicListManipulationExercise02.sumOfTwo(List(1, 2, 3), List()))
+    assert(List(1, 2, 3) === BasicListManipulationExercise02.sumOfTwo(List(), List(1, 2, 3)))
+  }
+
+  @Test
+  def calcSumOfSamePositionedElementsInManyLists() = {
+    assert(List(12, 15, 18) === BasicListManipulationExercise02.sumOfMany(List(1, 2, 3), List(4, 5, 6), List(7, 8, 9)))
+  }
+  
+  @Test
   def rewriteImperativeToFunctional() {
      //This unit test succeeds! But, the code that is called is written 'Java style',
     //it contains a lot of boilerplate code. Your job is to rewrite the code, get rid of the
