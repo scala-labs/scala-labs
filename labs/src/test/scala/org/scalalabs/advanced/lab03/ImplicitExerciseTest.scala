@@ -1,7 +1,6 @@
 package org.scalalabs.advanced.lab03
 
-import org.junit.{Test, Before}
-//import org.scalalabs.util.{LoggingTest, ScalaLabsConfig}
+import org.junit.Test
 import org.scalatest.junit.JUnitSuite
 import org.junit.Assert._
 

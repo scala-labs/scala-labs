@@ -1,8 +1,9 @@
 package org.scalalabs.basic.lab03
 
-import RecursionPatternMatchingExercise._
 import org.scalatest.junit.JUnitSuite
 import org.junit.Test
+import org.junit.Assert._
+
 
 /**
  * @see RecursionPatternMatchingExercise

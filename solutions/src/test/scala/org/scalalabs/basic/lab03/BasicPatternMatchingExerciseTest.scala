@@ -1,6 +1,5 @@
 package org.scalalabs.basic.lab03
 
-import BasicPatternMatchingExercise._
 import org.scalatest.junit.JUnitSuite
 import org.junit.Test
 import org.junit.Assert._

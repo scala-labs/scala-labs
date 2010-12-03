@@ -1,8 +1,6 @@
 package org.scalalabs.basic.lab01
 
-import org.scalatest._
 import org.scalatest.junit.JUnitSuite
-import org.junit.Assert._
 import org.junit.Test
 
 /**

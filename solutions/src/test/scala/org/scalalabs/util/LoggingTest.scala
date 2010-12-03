@@ -1,6 +1,5 @@
 package org.scalalabs.util
 
-import org.junit.{Before, BeforeClass}
 
 /**
  * User: arjan

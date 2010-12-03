@@ -2,7 +2,6 @@ package org.scalalabs.basic.lab02
 
 import org.scalatest.junit.JUnitSuite
 import org.junit.Test
-import BasicListManipulationExercise02._
 
 /*
  * Lab 02: more Scala collection operations

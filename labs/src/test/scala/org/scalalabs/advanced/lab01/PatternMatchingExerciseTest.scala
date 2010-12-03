@@ -3,10 +3,7 @@ package org.scalalabs.advanced.lab01
 import org.scalatest.junit.JUnitSuite
 import org.junit.Test
 import org.junit.Assert._
-import java.io.{FileReader, BufferedReader}
 import PatternMatchingExercise._
-import scala.xml._
-import collection.mutable.{ListBuffer => MList}
 
 /**
  * @see PatternMatchingExcercise

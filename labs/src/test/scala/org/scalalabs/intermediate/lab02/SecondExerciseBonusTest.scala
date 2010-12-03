@@ -2,10 +2,6 @@ package org.scalalabs.intermediate.lab02
 
 import scala.xml._
 
-import org.joda.time._
-import org.joda.time.format._
-
-import org.scalatest._
 import org.scalatest.junit.JUnitSuite
 import org.scalatest.junit.JUnitRunner
 

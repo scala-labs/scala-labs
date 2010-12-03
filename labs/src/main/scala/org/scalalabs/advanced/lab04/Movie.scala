@@ -1,7 +1,7 @@
 package org.scalalabs.advanced.lab04
 
 
-import _root_.javax.persistence._
+import javax.persistence._
 import java.util.Date
 
 @Entity                                            

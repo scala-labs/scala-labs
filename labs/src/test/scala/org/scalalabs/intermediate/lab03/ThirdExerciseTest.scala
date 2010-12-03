@@ -1,6 +1,5 @@
 package org.scalalabs.intermediate.lab03
 
-import org.scalatest._
 import org.scalatest.junit.JUnitSuite
 
 import org.junit.Test

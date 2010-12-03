@@ -1,8 +1,6 @@
 package org.scalalabs.basic.lab03
 
 import org.scalatest.junit.JUnitSuite
-//import org.scalalabs.basic.lab03.Person
-import org.scalatest.junit.JUnitSuite
 import org.junit.Test
 import org.junit.Assert._
 

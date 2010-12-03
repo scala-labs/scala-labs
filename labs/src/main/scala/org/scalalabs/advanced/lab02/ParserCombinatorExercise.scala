@@ -1,6 +1,6 @@
 package org.scalalabs.advanced.lab02
 
-import _root_.scala.util.parsing.combinator.JavaTokenParsers
+import scala.util.parsing.combinator.JavaTokenParsers
 
 /**
  * Created by IntelliJ IDEA.
