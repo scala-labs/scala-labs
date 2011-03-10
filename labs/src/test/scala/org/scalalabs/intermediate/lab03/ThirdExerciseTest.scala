@@ -1,6 +1,5 @@
 package org.scalalabs.intermediate.lab03
 
-import org.scalatest._
 import org.scalatest.junit.JUnitSuite
 
 import org.junit.Test
@@ -41,6 +40,10 @@ class ThirdExerciseTest extends JUnitSuite {
     val testAccountUsername = "XebiaScalaItr"
     val testAccountPassword = "Scala!Is!Cool!"
 
+    val testAuthInfo = new TwitterAuthInfo(
+      oauthAccessToken = "66988471-6UejYlvm65JNG9DW5JRmpmTwE6X90Pyyzx3RbJEjf",
+      oauthTokenSecret = "VMuNpQ7YZGCtoojtEBxoROj0bdEQFlzZrD6j6tbk"
+    )
 
     // ========================================================================
     // The tests
@@ -59,7 +62,7 @@ class ThirdExerciseTest extends JUnitSuite {
     @Test
 	def testFriendsTimelineWithAuthentication {
       fail("TODO: uncomment and fix")
-//        val twitter:AuthenticatedSession = TwitterSession(testAccountUsername, testAccountPassword)
+//        val twitter:AuthenticatedSession = TwitterSession(testAuthInfo)
 //        val friendsTimeline = twitter.friendsTimeline
 //
 //        expect(true) {friendsTimeline.forall(_.user != null)}
@@ -68,7 +71,7 @@ class ThirdExerciseTest extends JUnitSuite {
     @Test
 	def testFriendsTimelineShouldOnlyContainTweetsByFriendsOrByMyself {
       fail("TODO: uncomment and fix")      
-//        val twitter:AuthenticatedSession = TwitterSession(testAccountUsername, testAccountPassword)
+//        val twitter:AuthenticatedSession = TwitterSession(testAuthInfo)
 //
 //        val friendsTimeline = twitter.friendsTimeline
 //        val friends:TwitterUsers = twitter.friends
@@ -88,8 +91,8 @@ class ThirdExerciseTest extends JUnitSuite {
     @Test
 	def testUserTimelineWithAuthentication {
       fail("TODO: uncomment and fix")
-//        val twitter:AuthenticatedSession = TwitterSession(testAccountUsername, testAccountPassword)
-//        val userTimeline:TwitterTimeline = twitter.userTimeline
+//        val twitter:AuthenticatedSession = TwitterSession(testAuthInfo)
+//        val userTimeline:TwitterTimeline = twitter.userTimeline(testAccountUsername)
 //
 //        expect(true) {userTimeline.forall(_.user.screenName == testAccountUsername)}
     }
@@ -99,7 +102,7 @@ class ThirdExerciseTest extends JUnitSuite {
 //    @Test
 //    def testTweet() {
         fail("TODO: uncomment and fix")
-//        val twitter:AuthenticatedSession = TwitterSession(testAccountUsername, testAccountPassword)
+//        val twitter:AuthenticatedSession = TwitterSession(testAuthInfo)
 //        val baseText = "Yet another test tweet from a #Scala unit test. Let's include a random number: "
 //        val random = new Random
 //

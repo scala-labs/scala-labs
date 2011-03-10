@@ -2,20 +2,31 @@ package org.scalalabs.intermediate.lab03
 
 import scala.xml._
 
-import org.apache.commons.httpclient._
-import org.apache.commons.httpclient.methods._
-import org.apache.commons.httpclient.params.HttpMethodParams._
-import org.apache.commons.httpclient.auth.AuthScope._
-import org.apache.commons.httpclient.cookie.CookiePolicy._
 
+import oauth.signpost.commonshttp._
+import org.apache.http.client.methods.{HttpPost, HttpGet}
+import org.apache.http.impl.client.{BasicResponseHandler, DefaultHttpClient}
+import org.apache.http.message.BasicNameValuePair
+import org.apache.http.client.entity.UrlEncodedFormEntity
+import org.apache.http.{HttpRequest, HttpResponse}
+import org.apache.http.params.CoreProtocolPNames
+
+/*
+* Scala-labs OAuth tokens to authenticate into Twitter.
+* See <a href="http://dev.twitter.com/pages/oauth_faq">Twitter OAuth Docs</a> for details.
+*/
+class TwitterAuthInfo(
+   val oauthAccessToken:String,
+   val oauthTokenSecret:String
+)
 
 /* Simple set of Twiter API URLs for easy reuse. */
 object TwiterApiUrls {
-    val publicTimelineUrl                   = "http://twitter.com/statuses/public_timeline.xml"
-    val friendsTimelineUrl                  = "http://twitter.com/statuses/friends_timeline.xml"
-    def userTimelineUrl(screenName: String) = "http://www.twitter.com/status/user_timeline/" + screenName + ".xml"
-    val friendsUrl                          = "http://www.twitter.com/statuses/friends.xml"
-    val statusUpdateUrl                     = "http://twitter.com/statuses/update.xml"
+    val publicTimelineUrl                   = "http://api.twitter.com/1/statuses/public_timeline.xml"
+    val friendsTimelineUrl                  = "http://api.twitter.com/1/statuses/friends_timeline.xml"
+    def userTimelineUrl(screenName: String) = "http://api.twitter.com/1/statuses/user_timeline.xml?screen_name=" + screenName
+    val friendsUrl                          = "http://api.twitter.com/1/statuses/friends.xml"
+    val statusUpdateUrl                     = "http://api.twitter.com/1/statuses/update.xml"
 }
 
 
@@ -24,11 +35,10 @@ object TwitterSession {
         new UnauthenticatedSession()
     }
 
-    def apply(user: String, password: String): AuthenticatedSession = {
-        new AuthenticatedSession(user,password)
+    def apply(authInfo: TwitterAuthInfo): AuthenticatedSession = {
+        new AuthenticatedSession(authInfo)
     }
 }
-
 
 /**
 * The base class of both TwitterSession types
@@ -46,7 +56,7 @@ abstract class TwitterSession {
  * This class should be completely thread safe, allowing multiple simultaneous calls to Twitter via this object.
  *
  * All methods are fairly direct representations of calls specified in the
- * <a href="http://groups.google.com/group/twitter-development-talk/web/api-documentation">Twitter API Doc</a>
+ * <a href="http://dev.twitter.com/doc">Twitter API Doc</a>
  */
 class UnauthenticatedSession extends TwitterSession {
     import TwiterApiUrls._
@@ -67,14 +77,11 @@ class UnauthenticatedSession extends TwitterSession {
     protected override def httpGet(url: String): String = {
         println("Unauthenticated get of " + url)
 
-        val http = new HttpClient()
-        val method = new GetMethod(url)
+        val http = new DefaultHttpClient()
+        val method = new HttpGet(url)
 
-        method.getParams().setParameter(COOKIE_POLICY, IGNORE_COOKIES)
+        new BasicResponseHandler().handleResponse(http.execute(method))
 
-        http.executeMethod(method)
-
-        new String(method.getResponseBody())
     }
 
     protected def getXml(url: String): Node = {
@@ -86,23 +93,32 @@ class UnauthenticatedSession extends TwitterSession {
     }
 }
 
+class OAuthService(authInfo: TwitterAuthInfo) {
+  //scala-labs oauth credentials for twitter
+  private val consumerKey = "TprkmO1olOHKn9rbth5o6Q"
+  private val consumerSecret = "6EOJJHhb9ooo0zRiJoK87PbwnVKoUpwDZSCi7Lct1DU"
+
+  def sign(request: HttpRequest) = {
+    val consumer =
+      new CommonsHttpOAuthConsumer(consumerKey, consumerSecret)
+    consumer.setTokenWithSecret(authInfo.oauthAccessToken, authInfo.oauthTokenSecret)
+    consumer.sign(request)
+  }
+
+}
 
 
 /*
  * Provides access to Twitter API methods that require authentication.
  *
  * Like UnauthenticatedSession, this class is thread safe, and more or less directly mirrors the
- * <a href="http://groups.google.com/group/twitter-development-talk/web/api-documentation">Twitter API Doc</a>
+ * <a href="http://dev.twitter.com/doc">Twitter API Doc</a>
  */
-class AuthenticatedSession(val userName: String, password: String) extends UnauthenticatedSession {
+class AuthenticatedSession(val authInfo: TwitterAuthInfo) extends UnauthenticatedSession {
     import TwiterApiUrls._
 
     def friendsTimeline: TwitterTimeline = {
         mapToTimeline(getXml(friendsTimelineUrl))
-    }
-
-    def userTimeline: TwitterTimeline = {
-        mapToTimeline(getXml(userTimelineUrl(userName)))
     }
 
     def friends: TwitterUsers = {
@@ -123,32 +139,32 @@ class AuthenticatedSession(val userName: String, password: String) extends Unaut
     // ========================================================================
 
     protected override def httpGet(url: String): String = {
-        println("Authenticated get of " + url)
+      println("Authenticated get of " + url)
 
-        val http = new HttpClient()
-        val get = new GetMethod(url)
+      val http = new DefaultHttpClient()
+      val get = new HttpGet(url)
 
-        get.setDoAuthentication(true)
-        get.getParams().setParameter(COOKIE_POLICY, IGNORE_COOKIES)
+      new OAuthService(authInfo).sign(get);
 
-        http.getState().setCredentials(ANY, new UsernamePasswordCredentials(userName, password))
-        http.executeMethod(get)
-
-        new String(get.getResponseBody())
+      new BasicResponseHandler().handleResponse(http.execute(get))
     }
 
+
     def httpPost(url: String, parameters: Map[String, String]): String = {
-        val http = new HttpClient()
-        val post = new PostMethod(url)
+      import collection.JavaConversions._
+      val http = new DefaultHttpClient()
+      val post = new HttpPost(url)
 
-//        parameters.foreach {case (name, value) => post.addParameter(name, value)}
+      val postParams:List[BasicNameValuePair] =
+        for((key,value) <- parameters.toList) yield new BasicNameValuePair(key, value)
+      post.setEntity(new UrlEncodedFormEntity(asList(postParams), "UTF-8"))
 
-        for ((name, value) <- parameters) post.addParameter(name, value)
+      post.getParams().setBooleanParameter(CoreProtocolPNames.USE_EXPECT_CONTINUE, false);
 
-        http.getState().setCredentials(ANY, new UsernamePasswordCredentials(userName, password))
-        http.executeMethod(post)
+      new OAuthService(authInfo).sign(post);
 
-        post.getResponseBodyAsString
+      val response: HttpResponse = http.execute(post)
+      new BasicResponseHandler().handleResponse(response)
     }
 
     protected def mapToUsers(xml: Node): TwitterUsers = {

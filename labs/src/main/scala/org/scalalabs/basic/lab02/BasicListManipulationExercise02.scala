@@ -1,6 +1,6 @@
 package org.scalalabs.basic.lab02
 
-import _root_.scala.collection.mutable.ListBuffer
+import scala.collection.mutable.ListBuffer
 
 
 case class Person(age: Int, firstName: String, lastName: String)

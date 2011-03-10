@@ -4,10 +4,8 @@ import scala.xml._
 
 import java.util.Locale
 
-import org.joda.time._
 import org.joda.time.format._
 
-import org.scalatest._
 import org.scalatest.junit.JUnitSuite
 
 import org.junit.Test

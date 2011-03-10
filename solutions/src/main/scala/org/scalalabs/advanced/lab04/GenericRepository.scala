@@ -1,6 +1,5 @@
 package org.scalalabs.advanced.lab04
 
-import org.scala_libs.jpa.ScalaEntityManager
 import collection.mutable.Buffer
 
 /**

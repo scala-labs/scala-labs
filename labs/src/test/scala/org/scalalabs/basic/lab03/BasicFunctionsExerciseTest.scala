@@ -3,8 +3,6 @@ package org.scalalabs.basic.lab03
 import org.scalatest.junit.JUnitSuite
 import org.junit.Test
 import org.junit.Assert._
-import BasicFunctionsExercise._
-import java.io.{FileReader, BufferedReader}
                    
 /**
  * @see BasicFunctionsExercise

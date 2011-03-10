@@ -4,7 +4,6 @@ package org.scalalabs.advanced.lab03
 import org.junit.{Test}
 import org.junit.Assert._
 import org.scalalabs.advanced.lab03.ManifestSample.TSReg
-import org.scalalabs.advanced.lab03.ChurchEncoding.{CFalse, CTrue}
 
 /**
  * Created by IntelliJ IDEA.

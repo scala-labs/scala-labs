@@ -1,6 +1,5 @@
 package org.scalalabs.basic.lab04
 
-import org.scalatest.junit.JUnitSuite
 import org.junit.Test
 import org.junit.Assert._
 import ImplictConversionExercise._

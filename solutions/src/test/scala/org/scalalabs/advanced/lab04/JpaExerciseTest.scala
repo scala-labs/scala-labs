@@ -4,8 +4,6 @@ package org.scalalabs.advanced.lab04
 import org.junit.Test
 import org.junit.Assert._
 
-import javax.persistence._
-import java.util.Date
 import org.joda.time.DateTime
 import JpaExercise._
 import org.scalatest.junit.JUnitSuite

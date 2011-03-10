@@ -1,7 +1,6 @@
 package org.scalalabs.advanced.lab02
 
 import org.junit.Test
-import org.scalatest.junit.JUnitSuite
 import org.junit.Assert._
 
 /**

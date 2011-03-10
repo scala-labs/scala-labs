@@ -1,10 +1,10 @@
 package org.scalalabs.advanced.lab04
 
-import _root_.javax.persistence._
+import javax.persistence._
 import java.util.Date
-import _root_.java.util.{Set => JSet}
+import java.util.{Set => JSet}
 import scala.collection.mutable.{Set => MSet}
-import _root_.java.util.{HashSet => JHashSet}
+import java.util.{HashSet => JHashSet}
 import scala.collection.JavaConversions._
 
 @Entity
