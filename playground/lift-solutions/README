@@ -1,0 +1,7 @@
+Welcome to the Lift JPA Archetype. To run the sample app:
+
+mvn install
+cd web
+mvn jetty:run
+
+Then point your favorite browser to http://localhost:9090/

@@ -1,0 +1,14 @@
+<lift:surround with="default" at="content">
+    <head>
+        <title>
+            <lift:loc>User Management</lift:loc>
+        </title>
+    </head>
+    <lift:Users.show eager_eval="true">
+        <div class="column span-10">
+            <h2>Users</h2>
+            <lift:embed what="user_table"/>
+            <!-- TODO: needs pagination -->
+        </div>
+    </lift:Users.show>
+</lift:surround>

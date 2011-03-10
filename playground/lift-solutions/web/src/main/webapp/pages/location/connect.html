@@ -1,0 +1,39 @@
+<lift:surround with="default" at="content">
+    <head>
+        <title>
+            <lift:loc>Connect with others</lift:loc>
+        </title>
+    </head>
+
+
+    <p>
+
+        <lift:UserLinker.sample form="post">
+            <h4>Find a person you want to connect with: </h4>
+            <f:searchBox/>
+            <f:submit/>
+
+            <div id="selectedPicture"/>
+        </lift:UserLinker.sample>
+    </p>
+
+
+    <script type="text/javascript">
+        // <![CDATA[
+        function placeimg(id) {
+        try{
+        jQuery("#selectedPicture").each(
+        function(id) {
+        var img = document.createElement('img');
+        img.src="/service/userimage/" + id;
+
+        // var s = eval("<img src=/service/userimage/ height=45 width=38><img/>")
+        //this.innerHTML = '<b>hallo</b><b>cool<b/>';
+        //this.appendChild(img);
+        });
+        } catch (e) {}
+        }
+        // ]]>
+
+    </script>
+</lift:surround>

@@ -1,0 +1,33 @@
+<lift:surround with="default" at="content">
+    <head>
+        <title>
+            <lift:loc>Show Map</lift:loc>
+        </title>
+    </head>
+
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAi5BZeYOYRahWvrgL-UU4qBQz5JJ2zPi3YI9JDWBFF6NSsxhe4BRETtzDNj-B9mBoszb9zKmnsMz6pA"
+            type="text/javascript"></script>
+
+   <script type="text/javascript" src="/scripts/map.js"></script>
+
+    <lift:comet type="PositionActor">
+          <div id="unkownPos"></div>
+    </lift:comet>
+    <div id="map_canvas" style="width: 640px; height: 480px; float:left; border: 1px solid green;"></div>
+
+    <p>
+        <!--
+        <lift:Tracker.gmap>
+            <div id="unkownPos"></div>
+            <t:gmap/>
+            <div id="map_canvas" style="width: 640px; height: 480px; float:left; border: 1px solid green;"></div>
+            <t:refresh/>
+
+        </lift:Tracker.gmap>
+        -->
+    </p>
+
+
+
+
+</lift:surround>

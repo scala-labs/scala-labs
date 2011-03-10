@@ -1,0 +1,105 @@
+<div>
+<head>
+    <title>
+        <lift:loc>
+            <acc:title/>
+        </lift:loc>
+    </title>
+    <!-- required plugins -->
+    <script type="text/javascript" src="/scripts/date.js"></script>
+    <!--[if IE]>
+    <script type="text/javascript" src="/scripts/jquery.bgiframe.js"></script><![endif]-->
+
+    <!-- jquery.datePicker.js -->
+    <script type="text/javascript" src="/scripts/jquery.datePicker.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/datePicker.css"/>
+    <style>
+        a.dp-choose-date {
+        float: left;
+        width: 16px;
+        height: 16px;
+        padding: 0;
+        margin: 5px 3px 0;
+        display: block;
+        text-indent: -2000px;
+        overflow: hidden;
+        background: url(/scripts/calendar.png) no-repeat;
+        }
+        a.dp-choose-date.dp-disabled {
+        background-position: 0 -20px;
+        cursor: default;
+        }
+        /* makes the input field shorter once the date picker code
+        * has run (to allow space for the calendar icon
+        */
+        input.dp-applied {
+        width: 140px;
+        float: left;
+        }
+    </style>
+</head>
+
+<div class="column span-10">
+    <h2>
+        <acc:title/>
+    </h2>
+    <table>
+        <tr>
+            <td><label>First Name</label></td>
+            <td>
+                <acc:firstname/>
+                <lift:Msg id="firstname"/>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Last Name</label></td>
+            <td>
+                <acc:lastname/>
+                <lift:Msg id="lastname"/>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Birthdate (dd/mm/yyyy)</label></td>
+            <td>
+                <acc:birthdate/>
+                <lift:Msg id="birthdate"/>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Email</label></td>
+            <td>
+                <acc:email/>
+                <lift:Msg id="email"/>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Password</label></td>
+            <td>
+                <acc:password/>
+                <lift:Msg id="password"/>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Picture</label></td>
+            <td>
+                <acc:pictureupload/>
+            </td>
+        </tr>
+    </table>
+    <acc:save/>
+    <div id="actionmsg"/>
+
+</div>
+<div style="float:left">
+    <acc:userimage />
+</div>
+
+<script type="text/javascript">
+    Date.format = 'dd/mm/yyyy';
+    jQuery(function () {
+    jQuery('#birthdateinput').datePicker({startDate:'00010101'});
+    })
+</script>
+</div>
+

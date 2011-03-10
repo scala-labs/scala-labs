@@ -1,0 +1,15 @@
+<persistence>
+   <persistence-unit name="jpaweb" transaction-type="RESOURCE_LOCAL">
+       <class>com.xebia.model.User</class>
+       <class>com.xebia.model.Position</class>
+
+       <properties>
+         <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyDialect"/>
+         <property name="hibernate.connection.driver_class" value="org.apache.derby.jdbc.EmbeddedDriver"/>
+         <property name="hibernate.connection.url" value="jdbc:derby:lift_example;create=true"/>
+         <property name="hibernate.max_fetch_depth" value="3"/>
+         <property name="hibernate.show_sql" value="true" />
+         <property name="hibernate.hbm2ddl.auto" value="update" />
+      </properties>
+   </persistence-unit>
+</persistence>

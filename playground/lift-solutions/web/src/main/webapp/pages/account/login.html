@@ -1,0 +1,28 @@
+<lift:surround with="default" at="content">
+    <head>
+        <title>
+            <lift:loc>Login</lift:loc>
+        </title>
+    </head>
+
+
+    <lift:Login.login form="post">
+        <ul>
+            <li>
+                Email
+                <entry:email/>
+            </li>
+            <li>
+                Password
+                <entry:password/>
+            </li>
+            <li>
+                <entry:submit/>
+            </li>
+        </ul>
+    </lift:Login.login>
+
+    <lift:comet type="Clock">
+        <clk:time>Missing Clock</clk:time>
+    </lift:comet>
+</lift:surround>
