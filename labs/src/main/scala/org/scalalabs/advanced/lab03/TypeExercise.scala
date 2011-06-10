@@ -1,5 +1,5 @@
 package org.scalalabs.advanced.lab03
-
+import sys._
 /**
  * Created by IntelliJ IDEA.
  * User: arjan

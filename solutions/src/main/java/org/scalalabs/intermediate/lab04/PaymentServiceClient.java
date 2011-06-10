@@ -41,7 +41,7 @@ public class PaymentServiceClient {
     }
 
     public List<Order> findAllOrders() {
-        Function2<Order, Order, Boolean> sortRule = new AbstractFunction2<Order, Order, Boolean>() {
+        Function2<Order, Order, Object> sortRule = new AbstractFunction2<Order, Order, Object>() {
             public Boolean apply(Order o1, Order o2) {
                 return o1.amount() > o2.amount();
             }

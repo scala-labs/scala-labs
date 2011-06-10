@@ -10,7 +10,7 @@
 	<inceptionYear>2009</inceptionYear>
 
 	<properties>
-		<scala.version>2.8.0</scala.version>
+		<scala.version>2.9.0</scala.version>
 	</properties>
 
 	<repositories>
@@ -98,8 +98,8 @@
 		</dependency>
 		<dependency>
 			<groupId>org.scala-libs</groupId>
-			<artifactId>scalajpa_2.8.0</artifactId>
-			<version>1.2</version>
+			<artifactId>scalajpa_2.9.0</artifactId>
+			<version>1.4</version>
 		</dependency>
 		<!-- jpa-->
 		<dependency>
@@ -145,9 +145,6 @@
 
 	</dependencies>
 	<build>
-		<sourceDirectory>src/main/scala</sourceDirectory>
-		<testSourceDirectory>src/test/scala</testSourceDirectory>
-
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

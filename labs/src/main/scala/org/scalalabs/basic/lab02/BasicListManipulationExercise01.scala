@@ -1,5 +1,5 @@
 package org.scalalabs.basic.lab02
-
+import sys._
 /**
  * The goal of this exercise is to get familiar with the basic collections API of Scala. Implement all methods so that the unit test passes.
  * Using collections will be a different experience than the way you're familiar with in Java.

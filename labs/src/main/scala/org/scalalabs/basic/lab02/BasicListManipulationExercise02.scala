@@ -1,7 +1,7 @@
 package org.scalalabs.basic.lab02
 
 import scala.collection.mutable.ListBuffer
-
+ import sys._
 
 case class Person(age: Int, firstName: String, lastName: String)
 

@@ -24,6 +24,14 @@ import scala.math._
 
 object ImplictConversionExercise {
 
+  implicit def myConf(i:Int) = new {
+     def *(s:String):String = s * i
+     }
+/*
+scala> 5 * "abc"
+res6: String = abcabcabcabcabc
+*/
+
   /**============================================================================ */
   def stringToList(s: String): List[Char] = {
     //built in: our String will be converted to Scala's RichString, because this is defined a Scala

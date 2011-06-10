@@ -1,5 +1,5 @@
 package org.scalalabs.advanced.lab03
-
+import sys._
 /**
  * An very simple implementation of trait representing anything that can be compared.
  * In Java this is similar to the Comparator interface.

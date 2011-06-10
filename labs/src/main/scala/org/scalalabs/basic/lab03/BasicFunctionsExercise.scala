@@ -1,5 +1,5 @@
 package org.scalalabs.basic.lab03
-
+import sys._
 /**
  * This excersice introduces you to Scala functions.
  *

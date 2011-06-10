@@ -157,7 +157,7 @@ class AuthenticatedSession(val authInfo: TwitterAuthInfo) extends Unauthenticate
 
       val postParams:List[BasicNameValuePair] =
         for((key,value) <- parameters.toList) yield new BasicNameValuePair(key, value)
-      post.setEntity(new UrlEncodedFormEntity(asList(postParams), "UTF-8"))
+      post.setEntity(new UrlEncodedFormEntity(seqAsJavaList(postParams), "UTF-8"))
 
       post.getParams().setBooleanParameter(CoreProtocolPNames.USE_EXPECT_CONTINUE, false);
 
