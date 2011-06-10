@@ -1,0 +1,3 @@
+[submodule "playground/akka"]
+	path = playground/akka
+	url = git@github.com:RayRoestenburg/duse12.git
