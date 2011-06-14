@@ -16,5 +16,8 @@ libraryDependencies ++= Seq("joda-time" % "joda-time" % "1.6",
 	"oauth.signpost" % "signpost-core" % "1.2",
 	"oauth.signpost" % "signpost-commonshttp4" % "1.2",
 	"org.scalatest" %% "scalatest" % "1.6.1" % "test",
-	"junit" % "junit" % "4.7" % "test")
+	"junit" % "junit" % "4.7" % "test",
+	"hsqldb" % "hsqldb" % "1.8.0.1" % "test",
+	"org.hibernate" % "hibernate-entitymanager" % "3.4.0.GA",
+	"org.slf4j" % "slf4j-simple" % "1.4.2")
 
