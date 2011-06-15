@@ -79,8 +79,8 @@
 
 		<dependency>
 			<groupId>org.scalatest</groupId>
-			<artifactId>scalatest</artifactId>
-			<version>1.2</version>
+			<artifactId>scalatest_2.9.0</artifactId>
+			<version>1.6.1.RC1</version>
 			<scope>test</scope>
 		</dependency>    
 		<dependency>
