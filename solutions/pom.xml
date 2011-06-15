@@ -77,16 +77,15 @@
 			<version>1.6</version>
 		</dependency>
 
-
 		<dependency>
-			<groupId>org.scalatest</groupId>
-			<artifactId>scalatest</artifactId>
-			<version>1.2</version>
-			<scope>test</scope>
-		</dependency>    
+		<groupId>org.scalatest</groupId>
+		<artifactId>scalatest_2.9.0</artifactId>
+		<version>1.6.1.RC1</version>
+		<scope>test</scope>
+		</dependency>
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
 			<version>4.7</version>
 			<scope>test</scope>
 		</dependency>
