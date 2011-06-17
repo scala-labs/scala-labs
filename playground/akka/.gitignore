@@ -1,0 +1,15 @@
+target
+build
+lib_managed
+lib
+logs
+*.log
+*.log.*
+.project
+.classpath
+*.iml
+.idea
+*~
+*.orig
+out
+.scala_dependencies
