@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="true" debug="false">
+  <appender name="R" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <File>./logs/test.log</File>
+    <encoder>
+      <pattern>[%4p] [%d{ISO8601}] [%t] %c{1}: %m%n</pattern>
+    </encoder>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>./logs/test.log.%d{yyyy-MM-dd-HH}</fileNamePattern>
+      <maxHistory>30</maxHistory>
+    </rollingPolicy>
+  </appender>
+  <logger name="akka" level="INFO"/>
+  <logger name="org.mortbay.log.class" level="INFO"/>
+  <logger name="ch.qos.logback" level="INFO"/>
+  <root level="INFO">
+    <appender-ref ref="R"/>
+  </root>
+</configuration>
