@@ -3,10 +3,8 @@ package org.scalalabs.intermediate.lab02
 import scala.xml._
 
 import org.scalatest.junit.JUnitSuite
-import org.scalatest.junit.JUnitRunner
 
 import org.junit.Test
-import org.junit.runner.RunWith
 
 /*
  * Exercise 2: Collect your bonus !
@@ -15,7 +13,6 @@ import org.junit.runner.RunWith
  * conversion to make the below tests compile. All the methods from before are now called as
  * if they were methods on the List class itself...
  */
-@RunWith(classOf[JUnitRunner])
 class SecondExerciseBonusTest extends JUnitSuite {
   private def getFriends(): List[TwitterUser] = loadUsersFromXml("/friends.xml")
   private def getFollowers(): List[TwitterUser] = loadUsersFromXml("/followers.xml")
