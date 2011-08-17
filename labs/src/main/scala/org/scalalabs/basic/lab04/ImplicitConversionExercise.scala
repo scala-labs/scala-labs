@@ -22,7 +22,7 @@ import scala.math._
  *
  */
 
-object ImplictConversionExercise {
+object ImplicitConversionExercise {
 
   implicit def myConf(i: Int) = new {
     def *(s: String): String = s * i
@@ -43,7 +43,7 @@ res6: String = abcabcabcabcabc
   class Celsius(val degree: Double)
   class Fahrenheit(val fahrenheit: Double)
 
-  object TemperaturPrinter {
+  object TemperaturePrinter {
     def printCelsius(c: Celsius): String = {
       "It's " + c.degree + " degree celsius"
     }

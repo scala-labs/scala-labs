@@ -13,8 +13,8 @@ class TwitterAuthInfo(
   val oauthAccessToken: String,
   val oauthTokenSecret: String)
 
-/* Simple set of Twiter API URLs for easy reuse. */
-object TwiterApiUrls {
+/* Simple set of Twitter API URLs for easy reuse. */
+object TwitterApiUrls {
   val publicTimelineUrl = "http://api.twitter.com/1/statuses/public_timeline.xml"
   val friendsTimelineUrl = "http://api.twitter.com/1/statuses/friends_timeline.xml"
   def userTimelineUrl(screenName: String) = "http://api.twitter.com/1/statuses/user_timeline.xml?screen_name=" + screenName

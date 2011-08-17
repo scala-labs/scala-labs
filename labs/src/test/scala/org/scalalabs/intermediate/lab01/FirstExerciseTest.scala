@@ -13,7 +13,7 @@ import org.junit.Test
 /*
  * Exercise 1:
  *
- * Your job is to implement the TwiterStatus class (and it's associated classes) in
+ * Your job is to implement the TwitterStatus class (and it's associated classes) in
  * such a way that the tests in this suite all succeed.
  * N.B.: a lot of code here is commented, just to let the lab compile. Uncomment all code, fix it by implementing the appropriate classes,
  * and make the tests pass.

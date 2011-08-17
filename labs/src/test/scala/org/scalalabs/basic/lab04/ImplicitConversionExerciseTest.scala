@@ -2,16 +2,16 @@ package org.scalalabs.basic.lab04
 
 import org.junit.Test
 import org.junit.Assert._
-import ImplictConversionExercise._
+import ImplicitConversionExercise._
 import org.joda.time.Duration
 
 /**
- * @see ImplictConversionExercise
+ * @see ImplicitConversionExercise
  */
-class ImplictConversionExerciseTest {
+class ImplicitConversionExerciseTest {
   @Test
   def convertStringToList = {
-    assert(List('H', 'e', 'l', 'l', 'o') == ImplictConversionExercise.stringToList("Hello"))
+    assert(List('H', 'e', 'l', 'l', 'o') == ImplicitConversionExercise.stringToList("Hello"))
   }
 
   @Test
@@ -20,15 +20,15 @@ class ImplictConversionExerciseTest {
     // TODO uncomment this test and let it work using some implicit magic to convert Celsius objects to Fahrenheit objects.
     // val c = new Celsius(10)
     // val f = new Fahrenheit(30)
-    // assertEquals("It's 10.0 degree celsius", TemperaturPrinter.printCelsius(c))
-    // assertEquals("It's -1.11 degree celsius", TemperaturPrinter.printCelsius(f))
-    // assertEquals("It's 50.0 fahrenheit", TemperaturPrinter.printFahrenheit(c))
-    // assertEquals("It's 30.0 fahrenheit", TemperaturPrinter.printFahrenheit(f))
+    // assertEquals("It's 10.0 degree celsius", TemperaturePrinter.printCelsius(c))
+    // assertEquals("It's -1.11 degree celsius", TemperaturePrinter.printCelsius(f))
+    // assertEquals("It's 50.0 fahrenheit", TemperaturePrinter.printFahrenheit(c))
+    // assertEquals("It's 30.0 fahrenheit", TemperaturePrinter.printFahrenheit(f))
   }
 
   @Test
   def addMethodToString = {
-    // TODO uncomment this test and let it work using some implicit magic in object ImplictConversionExercise
+    // TODO uncomment this test and let it work using some implicit magic in object ImplicitConversionExercise
     // assertEquals("camelCaseMe", "camel case me".camelCase)
   }
 
