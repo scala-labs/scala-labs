@@ -25,3 +25,5 @@ libraryDependencies ++= Seq("joda-time" % "joda-time" % "1.6",
 	"org.hibernate" % "hibernate-entitymanager" % "3.4.0.GA",
 	"org.slf4j" % "slf4j-simple" % "1.4.2")
 
+seq(ScalariformPlugin.settings: _*)
+
