@@ -40,7 +40,7 @@ object ManifestSample {
      * Implement the add method. You should use the Manifest as an implicit parameter in order to know the
      * runtime type of value B, which we need to know to implement the safeGet method properly.
      */
-    def add(k: A, v: B) = {/*TODO implement me */}
+    def add(k: A, v: B) = { /*TODO implement me */ }
 
     /**
      * This is the method that should do the type safe get: i.e. it should return Some(value)

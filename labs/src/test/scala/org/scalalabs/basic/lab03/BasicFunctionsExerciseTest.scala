@@ -3,7 +3,7 @@ package org.scalalabs.basic.lab03
 import org.scalatest.junit.JUnitSuite
 import org.junit.Test
 import org.junit.Assert._
-                   
+
 /**
  * @see BasicFunctionsExercise
  */
@@ -26,12 +26,12 @@ class BasicFunctionsExerciseTest extends JUnitSuite {
     assertFalse(closable closed)
     assertFalse(anotherClosable closed)
 
-    val greeting = BasicFunctionsExercise.using(closable) {
-      c => c sayHello("John")
+    val greeting = BasicFunctionsExercise.using(closable) { c =>
+      c sayHello ("John")
     }
 
-    val anotherGreeting = BasicFunctionsExercise.using(anotherClosable) {
-      c => c sayHello("John")
+    val anotherGreeting = BasicFunctionsExercise.using(anotherClosable) { c =>
+      c sayHello ("John")
     }
 
     assertTrue(closable closed)
@@ -41,15 +41,14 @@ class BasicFunctionsExerciseTest extends JUnitSuite {
   }
 }
 
-
 class Closable {
   var closed = false;
-  
-  def close() : Unit = {
+
+  def close(): Unit = {
     closed = true
   }
 
-  def sayHello(toWho:String):String = {
+  def sayHello(toWho: String): String = {
     "Hello, " + toWho
   }
 }
@@ -57,11 +56,11 @@ class Closable {
 class AnotherClosable {
   var closed = false;
 
-  def close() : Unit = {
+  def close(): Unit = {
     closed = true
   }
 
-  def sayHello(toWho:String):String = {
+  def sayHello(toWho: String): String = {
     "Hello again, " + toWho
   }
 }

@@ -3,7 +3,7 @@ package org.scalalabs.advanced.lab01
 import org.scalatest._
 import org.scalatest.junit.JUnitSuite
 import org.junit.Assert._
-import org.junit.{Before, Test}
+import org.junit.{ Before, Test }
 
 /**
  * User: arjan
@@ -13,44 +13,42 @@ import org.junit.{Before, Test}
 
 class ActorExerciseTest extends JUnitSuite {
 
- @Test
- def shouldEcho = {
-   val echo = new EchoActor
-   echo.start
-   //the !? method sends a message to the actor and wait (synchronously) for a reply, within the specified timeout.
-   assertEquals("Got message: Hello EchoActor", (echo !? (10, "Hello EchoActor")) getOrElse(""))
- }
+  @Test
+  def shouldEcho = {
+    val echo = new EchoActor
+    echo.start
+    //the !? method sends a message to the actor and wait (synchronously) for a reply, within the specified timeout.
+    assertEquals("Got message: Hello EchoActor", (echo !? (10, "Hello EchoActor")) getOrElse (""))
+  }
 
   @Test
   def shouldIncrementAndDecrement = {
     val ctr = new Counter
     ctr.start
 
-    assertEquals(0, (ctr !? (10, Curr)) getOrElse(-1))
+    assertEquals(0, (ctr !? (10, Curr)) getOrElse (-1))
     ctr ! Inc
-    assertEquals(1, (ctr !? (10, Curr)) getOrElse(-1))
+    assertEquals(1, (ctr !? (10, Curr)) getOrElse (-1))
     ctr ! Inc
-    assertEquals(2, (ctr !? (10, Curr)) getOrElse(-1))
+    assertEquals(2, (ctr !? (10, Curr)) getOrElse (-1))
     ctr ! Dec
-    assertEquals(1, (ctr !? (10, Curr)) getOrElse(-1))
+    assertEquals(1, (ctr !? (10, Curr)) getOrElse (-1))
   }
 
+  @Test
+  def clientShouldAddMessageToPrivateLog = {
+    val chatClient = new SimpleChatClient
+    chatClient.start
 
-   @Test
-   def clientShouldAddMessageToPrivateLog = {
-      val chatClient = new SimpleChatClient
-      chatClient.start
+    chatClient ! Message("testuser", "message1")
+    chatClient ! Message("testuser", "message2")
 
-     chatClient ! Message("testuser", "message1")
-     chatClient ! Message("testuser", "message2")
-
-     val msg: Option[List[String]] = chatClient !? (20, ChatLog) match {
-       case Some(Messages(msg)) => Some(msg)
-       case _ => None
-     }
-     assertEquals(List("message2", "message1"), msg getOrElse(Nil))
+    val msg: Option[List[String]] = chatClient !? (20, ChatLog) match {
+      case Some(Messages(msg)) => Some(msg)
+      case _ => None
     }
-
+    assertEquals(List("message2", "message1"), msg getOrElse (Nil))
+  }
 
   @Test
   def shouldAddMessageToChatLog = {

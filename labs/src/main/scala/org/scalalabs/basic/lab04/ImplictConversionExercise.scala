@@ -1,6 +1,6 @@
 package org.scalalabs.basic.lab04
 
-import org.joda.time.{Duration, DateTime}
+import org.joda.time.{ Duration, DateTime }
 import scala.math._
 
 /**
@@ -24,10 +24,10 @@ import scala.math._
 
 object ImplictConversionExercise {
 
-  implicit def myConf(i:Int) = new {
-     def *(s:String):String = s * i
-     }
-/*
+  implicit def myConf(i: Int) = new {
+    def *(s: String): String = s * i
+  }
+  /*
 scala> 5 * "abc"
 res6: String = abcabcabcabcabc
 */
@@ -71,8 +71,6 @@ res6: String = abcabcabcabcabc
 
   /**============================================================================ */
   // Write here an implict conversion that adds a camelCase method to string.
-
-
 
 }
 

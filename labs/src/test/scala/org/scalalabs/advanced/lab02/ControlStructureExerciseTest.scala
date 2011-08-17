@@ -11,15 +11,15 @@ import org.junit.Assert._
 
 class ControlStructureExerciseTest {
 
-  val list : List[String] = List("aaa", "bbb", "cab", "def", "aab", "cba")
-    val exercise = new ControlStructureExercise(list)
+  val list: List[String] = List("aaa", "bbb", "cab", "def", "aab", "cba")
+  val exercise = new ControlStructureExercise(list)
 
   /**
    * TODO
    * The exercises are commented out because otherwise nothing would compile
    * To start working on this exercise, comment them out and implement ControlStructureExercise
    */
-  
+
   @Test
   def testStringFilter {
     /*
@@ -33,7 +33,7 @@ class ControlStructureExerciseTest {
 
   @Test
   def testCurriedString {
-   /*
+    /*
     assertEquals(exercise.helloConcat("Martin"), "Hello Martin")
     assertEquals(exercise.helloConcat("Lex"), "Hello Lex")
 

@@ -25,14 +25,14 @@ package org.scalalabs.basic.lab01
  * and the apply method in the companion object could then just call that constructor.
  */
 object HelloWorldClassAndObject {
-	def apply(initialText:String):HelloWorldClassAndObject = {
-		new HelloWorldClassAndObject {
-			val text="FixMe"
-		}
-	}
+  def apply(initialText: String): HelloWorldClassAndObject = {
+    new HelloWorldClassAndObject {
+      val text = "FixMe"
+    }
+  }
 }
 
 abstract class HelloWorldClassAndObject {
-	val text:String
-	def echo:String = text
+  val text: String
+  def echo: String = text
 }

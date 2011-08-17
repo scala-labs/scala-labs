@@ -32,7 +32,6 @@ class ImplictConversionExerciseTest {
     //assertEquals("camelCaseMe", "camel case me".camelCase)
   }
 
-
   @Test
   def durationDsl = {
     fail("uncomment and fix this test")

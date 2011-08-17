@@ -25,8 +25,7 @@ object HelloWorld {
    * More on variable declarations can be found here:
    * http://programming-scala.labs.oreilly.com/ch02.html#VariableDeclarationsAndDefinitions
    */
-	val sayHello: String = "FixMe"
-
+  val sayHello: String = "FixMe"
 
   /*
    * This defines the 'echo' method of the HelloWorld object.
@@ -45,5 +44,5 @@ object HelloWorld {
    * More on method declarations can be found here:
    * http://programming-scala.labs.oreilly.com/ch02.html#MethodDeclarationsAndDefinitions
    */
-	def echo(text: String): String = "FixMe"
+  def echo(text: String): String = "FixMe"
 }

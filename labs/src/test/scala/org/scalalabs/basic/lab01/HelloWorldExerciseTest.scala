@@ -11,7 +11,6 @@ import org.junit.Test
  */
 class HelloWorldExerciseTest extends JUnitSuite {
 
-
   /*
   * Scala Objects
   *
@@ -35,7 +34,6 @@ class HelloWorldExerciseTest extends JUnitSuite {
 
   /*==============================================================*/
 
-
   /*
   * Scala inheritence with Traits
   *
@@ -47,10 +45,10 @@ class HelloWorldExerciseTest extends JUnitSuite {
   *   create a new message
   */
 
-  @Test def testHelloFromTraits() {
+  @Test
+  def testHelloFromTraits() {
     assert("Hello World" === HelloWorldWithTraits.hello)
   }
-
 
   /*==============================================================*/
 
@@ -66,7 +64,8 @@ class HelloWorldExerciseTest extends JUnitSuite {
   * - An Object can be constructed using an apply method
   */
 
-  @Test def testInstanceIsCreatedByCompanion() {
+  @Test
+  def testInstanceIsCreatedByCompanion() {
     val helloWorldInstance = HelloWorldClassAndObject("Hello")
     assert("Hello" === helloWorldInstance.echo)
   }

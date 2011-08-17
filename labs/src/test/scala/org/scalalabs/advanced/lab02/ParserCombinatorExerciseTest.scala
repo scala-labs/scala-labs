@@ -4,7 +4,6 @@ import org.junit.Test
 import org.scalatest.junit.JUnitSuite
 import org.junit.Assert._
 
-
 /**
  * Created by IntelliJ IDEA.
  * User: lieke
@@ -90,7 +89,7 @@ class ParserCombinatorExerciseTest extends ParserCombinatorExercise {
     assertEquals(parseAll(minus, "-64 - 3.853").get, -67.853, 0)
   }
 
-@Test
+  @Test
   def parseMultipleAdditions {
     assertEquals(parseAll(math, "2 + 10 + 34 + 5").get, 51.0, 0)
     assertEquals(parseAll(math, "1.3 + 6.2 + 1.6 + 87.256").get, 96.356, 0)

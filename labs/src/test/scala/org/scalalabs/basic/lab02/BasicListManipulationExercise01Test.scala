@@ -34,7 +34,6 @@ class BasicListManipulationExercise01Test extends JUnitSuite {
     assert(15 === BasicListManipulationExercise01.sumOfList(List(1, 2, 3, 4, 5)))
   }
 
-
   @Test
   def lastElementInList() {
     assert("Three" === BasicListManipulationExercise01.lastElementInList(listOfStrings))

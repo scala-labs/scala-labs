@@ -1,6 +1,5 @@
 package org.scalalabs.advanced.lab03
 
-
 import sys._
 /**
  * User: arjan
@@ -11,7 +10,7 @@ import sys._
  * An very simple implementation of trait representing anything that can be compared.
  * In Java this is similar to the Comparator interface.
  *
- * In the Scala libraries, a far more complete (and more complex) version is the scala.math.Ordering trait. 
+ * In the Scala libraries, a far more complete (and more complex) version is the scala.math.Ordering trait.
  */
 trait Ord[A] {
   self =>
@@ -54,9 +53,8 @@ trait Ord[A] {
    * is supposed to be implicitly convertable to the Ord trait.
    * the Ord trait itself. Again, this can be achieved by passing Ord as an implicit parameter to achieve this, and defined the required implicit conversions in the Ord object.
    */
-  def on[T](f: T => A): Ord[T]  = error("implement me")
+  def on[T](f: T => A): Ord[T] = error("implement me")
 }
-
 
 object Ord {
 
@@ -66,7 +64,7 @@ object Ord {
   def apply[A](implicit ord: Ord[A]) = ord
 
   //TODO defining implicit conversions from String and Int classes to the Ord trait here.
-  
+
 }
 
 case class User(val name: String, val age: Int)
@@ -75,7 +73,7 @@ case class User(val name: String, val age: Int)
  * A general Pimped list class, defining extra methods for a List.
  */
 trait PimpedList[A] {
-   val l: List[A]
+  val l: List[A]
 
   /**
    * A 'mymax', instead of the 'normal' max defined on a list, that determines the maximum element based
@@ -86,7 +84,7 @@ trait PimpedList[A] {
    * The elements of the List should be instances of the Ord class, therefore, and should be defined implicitly.
    * The implicit conversion to the Ord should also be in scope in order to compile this correctly.
    */
-  def mymax /*TODO pass on type parameters and implicit parameters here*/: A = error("TODO implement me")
+  def mymax /*TODO pass on type parameters and implicit parameters here*/ : A = error("TODO implement me")
   /**
    * A 'mymin', instead of the 'normal' min defined on a list, that determines the minimum element based
    * on a given Ord.
@@ -96,7 +94,7 @@ trait PimpedList[A] {
    * The elements of the List should be instances of the Ord class, therefore, and should be defined implicitly.
    * The implicit conversion to the Ord should also be in scope in order to compile this correctly.
    */
-  def mymin /*TODO pass on type parameters and implicit parameters here*/: A = error("TODO implement me")
+  def mymin /*TODO pass on type parameters and implicit parameters here*/ : A = error("TODO implement me")
 
 }
 
@@ -115,7 +113,7 @@ trait AddableList[A] {
    * This method assumes an implicit variable, to be in scope, that must be an instance of the Monoid trait.
    * All elements of our AddableList should therefore be implicitly convertable to a Monoid trait.
    * The implicit conversions have been defined (if all is well) in the Monoid object, and will be in scope if our unit test runs.
-   * If such a required conversion is not in scope, the client calling our little API would not compile. 
+   * If such a required conversion is not in scope, the client calling our little API would not compile.
    *
    */
   def add(implicit m: Monoid[A]): A = value.foldLeft(m empty)(m append)
@@ -130,7 +128,7 @@ trait AddableList[A] {
  * - it has an identity element, so that the append operation append(identity: T, x:T) returns x.
  *
  * For example, a String monoid implementation would yield: append("ab", "cde") = "abcde"
- *  
+ *
  */
 trait Monoid[T] {
   /**
@@ -140,7 +138,7 @@ trait Monoid[T] {
   def append(x: T, y: T): T
 
   /**
-   * Defines the empty, or zero, value for the designated type. 
+   * Defines the empty, or zero, value for the designated type.
    */
   def empty: T
 }
@@ -148,7 +146,7 @@ trait Monoid[T] {
 /**
  * This object defines the main implicits that should be in scope for our unit tests to work.
  * The implicit variables (objects, in this case) in this module are in scope because this is a companion module of the Monoid trait.
- * They will be used whenever an implicit variable that has the Monoid type in a method call is used. 
+ * They will be used whenever an implicit variable that has the Monoid type in a method call is used.
  */
 object Monoid {
   /**
@@ -157,7 +155,7 @@ object Monoid {
    * This object is used in various unit tests that use the 'add' method.
    *
    * Note that this object, and the implicit conversion it defines, will be in scope when the ImplicitExercise._ is imported,
-   * because it is the companion module of the Monoid trait. 
+   * because it is the companion module of the Monoid trait.
    */
   implicit object stringMonoid //TODO implement the Monoid trait for Strings
 
@@ -174,7 +172,7 @@ object AddUsingVarargsAndScalaNumeric {
   //TODO implement the add method such that add(1,2,3,4,5) works. The argument should take a type parameter (which it now doesn't), and return that type.
   //In this case, add(1,2,3) should return an Int, but add(1L, 2L, 3L) returns a long. The type in the argument list is now Any, but that should be changed as well.
   //Lastly, you can use (implicitly) the Numeric trait of Scala to implement the addition of the various types. 
-    def add(a: Any*) = error("implement me")
+  def add(a: Any*) = error("implement me")
 }
 
 object ListToPimpedList {
@@ -194,7 +192,7 @@ object ImplicitExercise {
    *
    * If no such variable is in scope, compilation will fail.
    */
-  def add[T](xs: List[T])(implicit m: Monoid[T]): T = if(xs.isEmpty) m empty else m append(xs.head, add(xs.tail))
+  def add[T](xs: List[T])(implicit m: Monoid[T]): T = if (xs.isEmpty) m empty else m append (xs.head, add(xs.tail))
 
 }
 
@@ -207,7 +205,6 @@ object Monads {
   case class Just[T](value: T) extends Maybe[T]
   case object None extends Maybe[Nothing]
 
-
   /**
    * TODO
    * implement the implicit conversion from a Maybe type to the Monad.
@@ -218,7 +215,7 @@ object Monads {
    */
   implicit def maybeToMonad[A, B] = new {
     //TODO bind function here
- }
+  }
 
   /**
    * TODO
@@ -243,7 +240,6 @@ object Monads {
   def just[A](a: A): Maybe[A] = Just(a)
   def none = None
 
-
   /**
    * A Monad is a Container that has the following operations:
    * - an inject function, that puts a simple value into the container and returns it
@@ -262,7 +258,7 @@ object Monads {
    * In our example, we use a simplified version named 'Maybe', the name that is used in Haskell.
    *
    */
-  trait Monad[C[_]]  {
+  trait Monad[C[_]] {
     /**
      * Puts a value in the Container.
      */
@@ -275,33 +271,32 @@ object Monads {
     def bind[A, B](a: C[A], f: A => C[B]): C[B]
   }
 
-
   object Monad {
     /**
      * An instance of the Monad for the Maybe type.
      */
-   implicit object MaybeMonad /*extends Monad[Maybe]  TODO uncomment and implement the bind and inject methods */ {
-     /**
-      * The bind method does the following: in case the value on the left, a: Maybe[A] is Just(something), the function is applied
-      * to something. In case it is None, the result is None
-      */
-     def bind = {}
-     /**
-      * The inject function just returns a Just(a).
-      */
-     def inject = {}
-   }
+    implicit object MaybeMonad /*extends Monad[Maybe]  TODO uncomment and implement the bind and inject methods */ {
+      /**
+       * The bind method does the following: in case the value on the left, a: Maybe[A] is Just(something), the function is applied
+       * to something. In case it is None, the result is None
+       */
+      def bind = {}
+      /**
+       * The inject function just returns a Just(a).
+       */
+      def inject = {}
+    }
 
-   implicit object ListMonad /*extends Monad[List] TODO uncomment and implement the bind and inject methods*/ {
-     /**
-      * bind is just the same as the flatmap method on the list.
-      */
-     def bind = {}
+    implicit object ListMonad /*extends Monad[List] TODO uncomment and implement the bind and inject methods*/ {
+      /**
+       * bind is just the same as the flatmap method on the list.
+       */
+      def bind = {}
 
-     /**
-      * The inject uses the List object to create a list with one value.
-      */
-     def inject = {}
+      /**
+       * The inject uses the List object to create a list with one value.
+       */
+      def inject = {}
     }
   }
 

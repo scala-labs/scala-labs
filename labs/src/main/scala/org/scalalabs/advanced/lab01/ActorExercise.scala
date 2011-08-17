@@ -7,7 +7,7 @@ package org.scalalabs.advanced.lab01
  * Messages are processed asynchronously and  Actor's process only one message at a time.
  * Because the actor's state can only be modified by sending a message, and messages are processed serially
  * they are thread-safe by default.
- * It is therefore an interesting alternative to the normal concurrency model of taking locks. 
+ * It is therefore an interesting alternative to the normal concurrency model of taking locks.
  */
 
 import scala.actors.Actor
@@ -29,7 +29,8 @@ case object Curr
 class Counter extends Actor {
   private var value: Int = 0
 
-  /**implement the act method so that it:
+  /**
+   * implement the act method so that it:
    * <ul>
    * <li> increments a private counter when it receives an 'Inc' message.</li>
    * <li> decrements the counter when it receives a 'Dec' message.</li>
@@ -63,8 +64,6 @@ case class AnonymousMessage(msg: String) extends ChatEvent
 case class Add(who: ChatClient) extends ChatEvent
 case class Remove(who: String) extends ChatEvent
 
-
-
 class SimpleChatClient extends Actor {
   private val loggedInAt = new DateTime
   private var messages: List[String] = Nil
@@ -92,7 +91,6 @@ trait ChatServer extends Actor {
    */
   def act = exit //TODO
 }
-
 
 trait ChatClientOps extends Actor {
   self: ChatClient =>
@@ -123,7 +121,7 @@ trait ChatClientOps extends Actor {
 
   /**
    * In the act method the client should add any AnonymousMessage it receives to its private chatLog
-   * When it recieves a ChatLog message, it should reply its chatLog to the sender, wraped inside a Messages class. 
+   * When it recieves a ChatLog message, it should reply its chatLog to the sender, wraped inside a Messages class.
    */
   def act = exit //TODO
 

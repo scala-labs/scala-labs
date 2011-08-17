@@ -6,11 +6,7 @@ package org.scalalabs.advanced.lab02
  * Date: Apr 9, 2010
  */
 
-
-
-
-
-class ControlStructureExercise(val list : List[String]) {
+class ControlStructureExercise(val list: List[String]) {
 
   //Exercise 1
   def stringsMatching /*DO SOMETHING HERE*/ {
