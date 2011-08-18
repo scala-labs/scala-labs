@@ -1,105 +1,16 @@
 package org.scalalabs.advanced.lab03
 
 import sys._
-/**
- * User: arjan
- * Date: Apr 9, 2010
- * Time: 1:52:26 PM
- */
-/**
- * An very simple implementation of trait representing anything that can be compared.
- * In Java this is similar to the Comparator interface.
- *
- * In the Scala libraries, a far more complete (and more complex) version is the scala.math.Ordering trait.
- */
-trait Ord[A] {
-  self =>
-  def compare(x: A, y: A): Int
 
-  /**
-   * TODO implement the max method, so that it returns the maximum element of the given list. The elements in the list are supposed to be implementing
-   * the Ord trait itself.
-   * You can apply the Ord as an implicit parameter to achieve this, so that the method can just be called as max(List(a, b, c)) where the elements
-   * of the List can be converted to an Ord by an implicit conversion, defined in the Ord object.
-   */
-  def max[T](xs: List[T]) = error("implement me")
-
-  /**
-   * TODO implement the min method, so that it returns the min element of the given list. The elements in the list are supposed to be implementing
-   * the Ord trait itself.
-   * You can apply the Ord as an implicit parameter to achieve this, so that the method can just be called as max(List(a, b, c)) where the elements
-   * of the List can be converted to an Ord by an implicit conversion, defined in the Ord object.
-   */
-  def min[T](xs: List[T]) = error("implement me")
-
-  /**
-   * TODO implement the minFor method, so that it returns the min element of the given list. The Ordering is defined by the given
-   * function f, which takes a list parameter, and returns an element of a possibly different type (denoted by A). The return type of the function f
-   * is supposed to be implicitly convertable to the Ord trait.
-   * the Ord trait itself. Again, this can be achieved by passing Ord as an implicit parameter to achieve this, and defined the required implicit conversions in the Ord object.
-   */
-  def minFor[T](xs: List[T], f: T => A) = error("implement me")
-
-  /**
-   * TODO implement the minFor method, so that it returns the max element of the given list. The Ordering is defined by the given
-   * function f, which takes a list parameter, and returns an element of a possibly different type (denoted by A). The return type of the function f
-   * is supposed to be implicitly convertable to the Ord trait.
-   * the Ord trait itself. Again, this can be achieved by passing Ord as an implicit parameter to achieve this, and defined the required implicit conversions in the Ord object.
-   */
-  def maxFor[T](xs: List[T], f: T => A) = error("implement me")
-  /**
-   * TODO implement the on method, so that it returns the and Ord that is defined by the given
-   * function f, which takes a list parameter, and returns an element of a possibly different type (denoted by A). The return type of the function f
-   * is supposed to be implicitly convertable to the Ord trait.
-   * the Ord trait itself. Again, this can be achieved by passing Ord as an implicit parameter to achieve this, and defined the required implicit conversions in the Ord object.
-   */
-  def on[T](f: T => A): Ord[T] = error("implement me")
-}
-
-object Ord {
-
-  /**
-   *  Returns an instance of the Ord trait.
-   */
-  def apply[A](implicit ord: Ord[A]) = ord
-
-  //TODO defining implicit conversions from String and Int classes to the Ord trait here.
-
-}
-
-case class User(val name: String, val age: Int)
-
-/**
- * A general Pimped list class, defining extra methods for a List.
- */
-trait PimpedList[A] {
-  val l: List[A]
-
-  /**
-   * A 'mymax', instead of the 'normal' max defined on a list, that determines the maximum element based
-   * on a given Ord.
-   * Note that this method is supposed to be called like this from the client side:
-   * List(foo, bar, baz) mymax //yields foo
-   *
-   * The elements of the List should be instances of the Ord class, therefore, and should be defined implicitly.
-   * The implicit conversion to the Ord should also be in scope in order to compile this correctly.
-   */
-  def mymax /*TODO pass on type parameters and implicit parameters here*/ : A = error("TODO implement me")
-  /**
-   * A 'mymin', instead of the 'normal' min defined on a list, that determines the minimum element based
-   * on a given Ord.
-   * Note that this method is supposed to be called like this from the client side:
-   * List(foo, bar, baz) mymax //yields foo
-   *
-   * The elements of the List should be instances of the Ord class, therefore, and should be defined implicitly.
-   * The implicit conversion to the Ord should also be in scope in order to compile this correctly.
-   */
-  def mymin /*TODO pass on type parameters and implicit parameters here*/ : A = error("TODO implement me")
-
+object AddUsingVarargsAndScalaNumeric {
+  //TODO implement the add method such that add(1,2,3,4,5) works. The argument should take a type parameter (which it now doesn't), and return that type.
+  //In this case, add(1,2,3) should return an Int, but add(1L, 2L, 3L) returns a long. The type in the argument list is now Any, but that should be changed as well.
+  //Lastly, you can use (implicitly) the Numeric trait of Scala to implement the addition of the various types. 
+  def add(a: Any*) = error("implement me")
 }
 
 /**
- *  A pimped version of a List that supports an 'add' method.
+ * A pimped version of a List that supports an 'add' method.
  * This is a list that is converted from a 'normal' list using an implicit conversion.
  */
 trait AddableList[A] {
@@ -118,6 +29,25 @@ trait AddableList[A] {
    */
   def add(implicit m: Monoid[A]): A = value.foldLeft(m empty)(m append)
 }
+
+object AddableList {
+
+  //TODO implement implicit conversion for list to trait AddableList defined above.
+  //If this implicit is defined, we can call list.add, as if it was a normal method on the List class.
+  //Note that we use list.add here, instead of the more normal list.sum, because the latter is already
+  //defined on the list class itself.
+
+  /**
+   * Defines an add method that takes a list as an explicit argument.
+   * As you see, there is also an implicit variable of the type Monoid defined.
+   * This assumes that there is an implicit variable in scope thath has this type.
+   *
+   * If no such variable is in scope, compilation will fail.
+   */
+  def add[T](xs: List[T])(implicit m: Monoid[T]): T = if (xs.isEmpty) m empty else m append (xs.head, add(xs.tail))
+
+}
+
 /**
  * @see http://en.wikipedia.org/wiki/Monoid
  *
@@ -168,31 +98,93 @@ object Monoid {
 
 }
 
-object AddUsingVarargsAndScalaNumeric {
-  //TODO implement the add method such that add(1,2,3,4,5) works. The argument should take a type parameter (which it now doesn't), and return that type.
-  //In this case, add(1,2,3) should return an Int, but add(1L, 2L, 3L) returns a long. The type in the argument list is now Any, but that should be changed as well.
-  //Lastly, you can use (implicitly) the Numeric trait of Scala to implement the addition of the various types. 
-  def add(a: Any*) = error("implement me")
-}
+object OrdExercise {
+  /**
+   * An very simple implementation of trait representing anything that can be compared.
+   * In Java this is similar to the Comparator interface.
+   *
+   * In the Scala libraries, a far more complete (and more complex) version is the scala.math.Ordering trait.
+   */
+  trait Ord[A] {
+    self =>
+    def compare(x: A, y: A): Int
 
-object ListToPimpedList {
-  //TODO implement implicit conversion for list to pimped list trait, so that the various methods in that class are supported. 
-}
-object ImplicitExercise {
+    /**
+     * TODO implement the max method, so that it returns the maximum element of the given list. The elements in the list are supposed to be implementing
+     * the Ord trait itself.
+     * You can apply the Ord as an implicit parameter to achieve this, so that the method can just be called as max(List(a, b, c)) where the elements
+     * of the List can be converted to an Ord by an implicit conversion, defined in the Ord object.
+     */
+    def max[T](xs: List[T]) = error("implement me")
 
-  //TODO implement implicit conversion for list to trait AddableList defined above.
-  //If this implicit is defined, we can call list.add, as if it was a normal method on the List class.
-  //Note that we use list.add here, instead of the more normal list.sum, because the latter is already
-  //defined on the list class itself.
+    /**
+     * TODO implement the min method, so that it returns the min element of the given list. The elements in the list are supposed to be implementing
+     * the Ord trait itself.
+     * You can apply the Ord as an implicit parameter to achieve this, so that the method can just be called as max(List(a, b, c)) where the elements
+     * of the List can be converted to an Ord by an implicit conversion, defined in the Ord object.
+     */
+    def min[T](xs: List[T]) = error("implement me")
+
+    /**
+     * TODO implement the minFor method, so that it returns the min element of the given list. The Ordering is defined by the given
+     * function f, which takes a list parameter, and returns an element of a possibly different type (denoted by A). The return type of the function f
+     * is supposed to be implicitly convertable to the Ord trait.
+     * the Ord trait itself. Again, this can be achieved by passing Ord as an implicit parameter to achieve this, and defined the required implicit conversions in the Ord object.
+     */
+    def minFor[T](xs: List[T], f: T => A) = error("implement me")
+
+    /**
+     * TODO implement the minFor method, so that it returns the max element of the given list. The Ordering is defined by the given
+     * function f, which takes a list parameter, and returns an element of a possibly different type (denoted by A). The return type of the function f
+     * is supposed to be implicitly convertable to the Ord trait.
+     * the Ord trait itself. Again, this can be achieved by passing Ord as an implicit parameter to achieve this, and defined the required implicit conversions in the Ord object.
+     */
+    def maxFor[T](xs: List[T], f: T => A) = error("implement me")
+    /**
+     * TODO implement the on method, so that it returns the and Ord that is defined by the given
+     * function f, which takes a list parameter, and returns an element of a possibly different type (denoted by A). The return type of the function f
+     * is supposed to be implicitly convertable to the Ord trait.
+     * the Ord trait itself. Again, this can be achieved by passing Ord as an implicit parameter to achieve this, and defined the required implicit conversions in the Ord object.
+     */
+    def on[T](f: T => A): Ord[T] = error("implement me")
+  }
+
+  object Ord {
+
+    /**
+     *  Returns an instance of the Ord trait.
+     */
+    def apply[A](implicit ord: Ord[A]) = ord
+
+    //TODO define implicit conversions from String and Int classes to the Ord trait here.
+
+  }
 
   /**
-   * Defines an add method that takes a list as an explicit argument.
-   * As you see, there is also an implicit variable of the type Monoid defined.
-   * This assumes that there is an implicit variable in scope thath has this type.
-   *
-   * If no such variable is in scope, compilation will fail.
+   * A general Pimped list class, defining extra methods for a List.
    */
-  def add[T](xs: List[T])(implicit m: Monoid[T]): T = if (xs.isEmpty) m empty else m append (xs.head, add(xs.tail))
+  trait PimpedList[A] {
+    val l: List[A]
+
+    /**
+     * A 'mymax', instead of the 'normal' max defined on a list, that determines the maximum element based
+     * on a given Ord.
+     * Note that this method is supposed to be called like this from the client side:
+     * List(foo, bar, baz) mymax //yields foo
+     *
+     * The elements of the List should be instances of the Ord class, therefore, and should be defined implicitly.
+     * The implicit conversion to the Ord should also be in scope in order to compile this correctly.
+     */
+    def mymax /*TODO pass on type parameters and implicit parameters here*/ : A = error("TODO implement me")
+
+    /**
+     * A 'mymin', instead of the 'normal' min defined on a list, similar to 'mymax' above
+     */
+    def mymin /*TODO pass on type parameters and implicit parameters here*/ : A = error("TODO implement me")
+
+  }
+
+  //TODO implement implicit conversion for list to pimped list trait, so that the various methods in that class are supported. 
 
 }
 
