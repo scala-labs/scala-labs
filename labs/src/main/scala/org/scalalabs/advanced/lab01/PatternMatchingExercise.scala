@@ -14,11 +14,9 @@ import scala.None
  */
 object PatternMatchingExercise {
 
-  /**
-   * ***********************************************************************
-   * CUSTOM ARGUMENT EXTRACTORS
-   * ***********************************************************************
-   */
+  // ======================================================================
+  // CUSTOM ARGUMENT EXTRACTORS
+  // ======================================================================
 
   /**
    * Use the FileName object to write a simple argument extractor,
@@ -61,11 +59,9 @@ object PatternMatchingExercise {
     ""
   }
 
-  /**
-   * ***********************************************************************
-   * REGEXP MATCHING
-   * ***********************************************************************
-   */
+  // ======================================================================
+  // REGEXP MATCHING
+  // ======================================================================
 
   /**
    * Define a regexp to match properties the following properties of a performance log-line
@@ -89,11 +85,9 @@ object PatternMatchingExercise {
 
   val PhoneNumberRE = """TODO_IMPLEMENT_REGEXP""".r
 
-  /**
-   * ***********************************************************************
-   * XML MATCHING
-   * ***********************************************************************
-   */
+  // ======================================================================
+  // XML MATCHING
+  // ======================================================================
 
   /**
    * Take a look at the movies.xml. Use xml matching to extract all genres.
@@ -165,9 +159,9 @@ object PatternMatchingExercise {
     //TODO implement recursion
   }
 
-  /*------------------------------------------
-   * XML MATCHING HELPER METHODS
-   ------------------------------------------*/
+  // ======================================================================
+  // XML MATCHING HELPER METHODS
+  // ======================================================================
 
   private def getXML = XML.load(this.getClass.getResourceAsStream("/movies.xml"))
 

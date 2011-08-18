@@ -9,6 +9,7 @@ import JpaExercise._
 /**
  * See @JpaExercise
  */
+
 class JpaExerciseTest {
 
   @Test
@@ -97,7 +98,6 @@ class JpaExerciseTest {
     Movie("Ocean's 13", "Ocean's 13", new DateTime(2010, 1, 1, 0, 0, 0, 0).toDate, d)
     Movie("Shakespeare in Love", "Shakespeare in Love", new DateTime(1996, 1, 1, 0, 0, 0, 0).toDate, d)
     d
-
   }
 
 }

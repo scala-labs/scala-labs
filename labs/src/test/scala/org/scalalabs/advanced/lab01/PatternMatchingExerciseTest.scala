@@ -6,16 +6,14 @@ import org.junit.Assert._
 import PatternMatchingExercise._
 
 /**
- * @see PatternMatchingExcercise
+ * See @PatternMatchingExcercise
  */
 
 class PatternMatchingExcerciseTest extends JUnitSuite {
 
-  /**
-   * ***********************************************************************
-   * CUSTOM ARGUMENT EXTRACTORS
-   * ***********************************************************************
-   */
+  // ======================================================================
+  // CUSTOM ARGUMENT EXTRACTORS
+  // ======================================================================
   @Test
   def matchFileNameTest() {
     val matchResult = "HelloAdvancedWorldOf.scala" match {
@@ -40,11 +38,9 @@ class PatternMatchingExcerciseTest extends JUnitSuite {
     assert(matchResult == "HelloAdvancedWorldOf")
   }
 
-  /**
-   * ***********************************************************************
-   * REGEXP MATCHING
-   * ***********************************************************************
-   */
+  // ======================================================================
+  // REGEXP MATCHING
+  // ======================================================================
 
   @Test
   def regexLogLineMatchTest() {
@@ -63,11 +59,9 @@ class PatternMatchingExcerciseTest extends JUnitSuite {
     assert("040-2920029" :: "0402920029" :: "(040)2920029" :: Nil == result)
   }
 
-  /**
-   * ***********************************************************************
-   * XML MATCHING
-   * ***********************************************************************
-   */
+  // ======================================================================
+  // XML MATCHING
+  // ======================================================================
 
   @Test
   def xmlMatchAllGenres() {

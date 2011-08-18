@@ -31,11 +31,11 @@ class Counter extends Actor {
 
   /**
    * implement the act method so that it:
-   * <ul>
-   * <li> increments a private counter when it receives an 'Inc' message.</li>
-   * <li> decrements the counter when it receives a 'Dec' message.</li>
-   * <li> replies the current value of the counter back tot the sender.
-   * </ul>
+   *
+   * -  increments a private counter when it receives an 'Inc' message.
+   * -  decrements the counter when it receives a 'Dec' message.
+   * -  replies the current value of the counter back tot the sender.
+   *
    */
   def act = exit //TODO
 }
@@ -43,17 +43,17 @@ class Counter extends Actor {
 /**
  * The various events that are used in our chatserver examples.
  * The events have the following meaning:
- * <ol>
- * <li>When receiving a ChatLog message the client, or server, should reply to the sender with all messages currently in its chat.
- *     This should be wrapped in a Messages class.</li>
- * <li>When receiving a Message from an Actor, the Chatserver should store it in its private chatLog, and also send this message
+ *
+ * - When receiving a ChatLog message the client, or server, should reply to the sender with all messages currently in its chat.
+ *     This should be wrapped in a Messages class.
+ * - When receiving a Message from an Actor, the Chatserver should store it in its private chatLog, and also send this message
  *     to the client given by the from key.
- *  </li>
- * <li>When the client receives an AnonymousMessage, it should add it to its chatLog.</li>
- * <li>When the server receives a BroadcastMessage, it should send it to all logged in clients.</li>
- * <li>When the server receives an Add message, it should add the chatclient to its list of logged in in clients.</li>
- * <li>When the server receives an Remove message, it should remove the chatclient from its list of logged in in clients.</li>
- * <li>When the client or server receives an Messages message, it should reply its chatLog
+ *
+ * - When the client receives an AnonymousMessage, it should add it to its chatLog.
+ * - When the server receives a BroadcastMessage, it should send it to all logged in clients.
+ * - When the server receives an Add message, it should add the chatclient to its list of logged in in clients.
+ * - When the server receives an Remove message, it should remove the chatclient from its list of logged in in clients.
+ * - When the client or server receives an Messages message, it should reply its chatLog
  */
 sealed trait ChatEvent
 case object ChatLog extends ChatEvent
@@ -130,8 +130,8 @@ trait ChatClientOps extends Actor {
 case class ChatClient(val name: String, val server: Actor) extends ChatClientOps
 
 /**
- * * Implements an im-memory message store.
- * <p/>
+ * Implements an im-memory message store.
+ *
  * The self-type annotation (self: Actor =>) means that this trait can only be used when mixed in with an Actor.
  */
 trait MessageMgt {
@@ -140,13 +140,13 @@ trait MessageMgt {
 
   /**
    * Implement messageMgt to handle the following messages
-   * <ul>
-   * <li>In case of a Message(from, msg) message, it should send it the client given by the from key.
-   *     In order to do this, the ChatMgt trait is mixed in so that the client can be obtained from there.</li>
-   * <li>In case of an AnonymousMessage(msg) message, it should add it to its private list of messages.</li>
-   * <li>In case of a BroadcastMessage(msg) message, it should send it to all logged in clients.</li>
-   * <li>In case of an ChatLog message, it should reply the list of messages to the sender, wraped inside a Messages object</li>
-   * </ul>
+   *
+   * - In case of a Message(from, msg) message, it should send it the client given by the from key.
+   *     In order to do this, the ChatMgt trait is mixed in so that the client can be obtained from there.
+   * - In case of an AnonymousMessage(msg) message, it should add it to its private list of messages.
+   * - In case of a BroadcastMessage(msg) message, it should send it to all logged in clients.
+   * - In case of an ChatLog message, it should reply the list of messages to the sender, wraped inside a Messages object
+   *
    */
   protected def messageMgt: PartialFunction[Any, Unit] = {
     //TODO implement
@@ -157,7 +157,7 @@ trait MessageMgt {
 
 /**
  * Implements listener management.
- * <p/>
+ *
  * The self-type annotation (self: Actor =>) means that this trait can only be used when mixed in with an Actor.
  */
 trait ChatMgt {
@@ -167,10 +167,10 @@ trait ChatMgt {
 
   /**
    * Implement chatMgt so that it does the following:
-   * <ul>
-   *  <li>In case of a Add(user) message, add the user to the list of logged in clients.</li>
-   *  <li>In case of a Remove(user) message, remove the user from the list of logged in clients.</li>
-   * </ul>
+   *
+   *  - In case of a Add(user) message, add the user to the list of logged in clients.
+   *  - In case of a Remove(user) message, remove the user from the list of logged in clients.
+   *
    */
   protected def chatMgt: PartialFunction[Any, Unit] = {
     //TODO implement

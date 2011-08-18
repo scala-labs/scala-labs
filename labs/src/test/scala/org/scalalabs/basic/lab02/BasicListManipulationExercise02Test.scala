@@ -11,7 +11,7 @@ import org.junit.Test
  * Your job is to implement the objects and classes in
  * such a way that the tests in this suite all succeed.
  *
-  * One exercise consists of rewriting imperatively written code to a style that is more functional. 
+ * One exercise consists of rewriting imperatively written code to a style that is more functional. 
  */
 
 class BasicListManipulationExercise02Test extends JUnitSuite {

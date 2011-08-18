@@ -35,9 +35,9 @@ class SecondExerciseTest extends JUnitSuite {
   def testFindPopularFriends() {
     // TwitterUsers are popular if they have at least 2000 followers
     fail("TODO uncomment and fix")
-    //        expect(10) {
-    //            TwitterUsers.thatArePopular(getFriends()).size
-    //        }
+    // expect(10) {
+    //   TwitterUsers.thatArePopular(getFriends()).size
+    // }
   }
 
   @Test
@@ -46,49 +46,49 @@ class SecondExerciseTest extends JUnitSuite {
     // includes an alias (sometimes handy to prevent name-clashes but used here
     // simply because we can).
     fail("TODO uncomment and fix")
-    //       import scala.{TwitterUsers => Friends}
-    //
-    //        expect(List("headius", "twitterapi", "stephenfry", "macrumors", "spolsky", "martinfowler", "WardCunningham", "unclebobmartin", "pragdave", "KentBeck")) {
-    //            Friends.thatArePopularByScreenName(getFriends)
-    //        }
+    // import scala.{TwitterUsers => Friends}
+    // 
+    // expect(List("headius", "twitterapi", "stephenfry", "macrumors", "spolsky", "martinfowler", "WardCunningham", "unclebobmartin", "pragdave", "KentBeck")) {
+    //   Friends.thatArePopularByScreenName(getFriends)
+    // }
   }
 
   // the same List[String] as last time but now sorted by followersCount (highest first)
   @Test
   def testFindScreenNamesOfPupularFriendsSortedByPopularity() {
     fail("TODO uncomment and fix")
-    //        expect(List("stephenfry", "macrumors", "twitterapi", "spolsky", "martinfowler", "KentBeck", "unclebobmartin", "pragdave", "WardCunningham", "headius")) {
-    //            TwitterUsers.thatArePopularByScreenNameSortedbyPopularity(getFriends)
-    //        }
+    // expect(List("stephenfry", "macrumors", "twitterapi", "spolsky", "martinfowler", "KentBeck", "unclebobmartin", "pragdave", "WardCunningham", "headius")) {
+    //   TwitterUsers.thatArePopularByScreenNameSortedbyPopularity(getFriends)
+    // }
   }
 
   // We expect a List[(String, Int)], i.e. a List of tuples, each with a screen name and a number of followers
   @Test
   def testFindPopularFriendsAndTheirRankings() {
     fail("TODO: uncomment and fix")
-    //        expect(
-    //            List(("stephenfry",    714779),
-    //                 ("macrumors",     74132),
-    //                 ("twitterapi",    18817),
-    //                 ("spolsky",       12607),
-    //                 ("martinfowler",  8759),
-    //                 ("KentBeck",      6440),
-    //                 ("unclebobmartin",5175),
-    //                 ("pragdave",      4462),
-    //                 ("WardCunningham",4423),
-    //                 ("headius",       2378))
-    //        ) {
-    //            TwitterUsers.thatArePopularByScreenNameAndPopularitySortedbyPopularity(getFriends)
-    //        }
+    // expect(
+    //   List(("stephenfry",    714779),
+    //   ("macrumors",     74132),
+    //   ("twitterapi",    18817),
+    //   ("spolsky",       12607),
+    //   ("martinfowler",  8759),
+    //   ("KentBeck",      6440),
+    //   ("unclebobmartin",5175),
+    //   ("pragdave",      4462),
+    //   ("WardCunningham",4423),
+    //   ("headius",       2378))
+    // ) {
+    //   TwitterUsers.thatArePopularByScreenNameAndPopularitySortedbyPopularity(getFriends)
+    // }
   }
 
   // Hint: you might want to implement equals and hashcode for this one
   @Test
   def testFindFriendsThatAreAlsoFollowers() {
     fail("TODO: uncomment and fix")
-    //        expect(10) {
-    //            TwitterUsers.thatAreInBothLists(getFriends, getFollowers).size
-    //        }
+    // expect(10) {
+    //   TwitterUsers.thatAreInBothLists(getFriends, getFollowers).size
+    // }
   }
 
 }

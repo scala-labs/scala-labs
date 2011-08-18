@@ -97,9 +97,9 @@ class AuthenticatedSession(val authInfo: TwitterAuthInfo) extends Unauthenticate
     new BasicResponseHandler().handleResponse(http.execute(get))
   }
 
-  //def httpPost(url: String, parameters: Map[String, String]): String = {
+  // def httpPost(url: String, parameters: Map[String, String]): String = {
   //
-  //  post.getParams().setBooleanParameter(CoreProtocolPNames.USE_EXPECT_CONTINUE, false);
+  //   post.getParams().setBooleanParameter(CoreProtocolPNames.USE_EXPECT_CONTINUE, false);
   //
-  //}
+  // }
 }

@@ -32,15 +32,14 @@ scala> 5 * "abc"
 res6: String = abcabcabcabcabc
 */
 
-  /**============================================================================ */
+  // ===============================================================================
   def stringToList(s: String): List[Char] = {
     //built in: our String will be converted to Scala's RichString, because this is defined a Scala
     //object called Predef. This is imported by the compiler by default.
-    //
     List[Char]()
   }
 
-  /**============================================================================ */
+  // ===============================================================================
   class Celsius(val degree: Double)
   class Fahrenheit(val fahrenheit: Double)
 
@@ -69,24 +68,24 @@ res6: String = abcabcabcabcabc
     }
   }
 
-  /**============================================================================ */
-  // Write here an implict conversion that adds a camelCase method to string.
+  // ===============================================================================
+  // TODO: Write here an implict conversion that adds a camelCase method to string.
 
 }
 
-/**============================================================================ */
+// ===============================================================================
 
 object TimeUtils {
   case class DurationBuilder(timeSpan: Long) {
     def now = new DateTime().getMillis()
 
-    //    def seconds = TODO your implementation here...
+    // def seconds = TODO your implementation here...
 
-    //    def minutes = TODO your implementation here...
+    // def minutes = TODO your implementation here...
 
-    //    def hours = TODO your implementation here...
+    // def hours = TODO your implementation here...
 
-    //    def days = TODO your implementation here...
+    // def days = TODO your implementation here...
   }
 
   //TODO define some implicits that convert integers and longs to durations and builders to make it all work

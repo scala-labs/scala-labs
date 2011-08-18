@@ -4,9 +4,7 @@ import org.junit.Test
 import org.junit.Assert._
 
 /**
- * Created by IntelliJ IDEA.
- * User: lieke
- * Date: Apr 9, 2010
+ * See @ControlStructureExercise
  */
 
 class ControlStructureExerciseTest {

@@ -6,9 +6,7 @@ import org.junit.Assert._
 import org.junit.{ Before, Test }
 
 /**
- * User: arjan
- * Date: Apr 9, 2010
- * Time: 2:12:16 PM
+ * See @ActorExercise
  */
 
 class ActorExerciseTest extends JUnitSuite {

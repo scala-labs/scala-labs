@@ -5,9 +5,7 @@ import org.scalatest.junit.JUnitSuite
 import org.junit.Assert._
 
 /**
- * Created by IntelliJ IDEA.
- * User: lieke
- * Date: May 2, 2010
+ * See @ParserCombinatorExercise
  */
 
 class ParserCombinatorExerciseTest extends ParserCombinatorExercise {

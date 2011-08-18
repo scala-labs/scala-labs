@@ -15,12 +15,9 @@ import sys._
 
 object RecursionPatternMatchingExercise {
 
-  /**
-   * ***********************************************************************
-   * Recursive algorithms with pattern matching
-   * For expected solution see unittest @RecursionPatternMatchingExerciseTest
-   * ***********************************************************************
-   */
+  // =======================================================================
+  // Recursive algorithms with pattern matching
+  // =======================================================================
 
   def compress[T](in: List[T]): List[T] = {
     error("fix me")
