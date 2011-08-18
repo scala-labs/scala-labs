@@ -1,1 +1,7 @@
 This is the top level project for the Scala ITR. It will contain all the exercises and the test suite.
+---
+This fork has a few minor changes that would've made my life easier at the time I ran through the labs
+- Formatted typesafe's sbt-scalariform plugin
+- Fixed a few typos
+- Fixed tests that were failing or not running when they should have been passing
+- Broke up and reordered exercises in advanced/lab03, added reference for the "Mammals" problem
