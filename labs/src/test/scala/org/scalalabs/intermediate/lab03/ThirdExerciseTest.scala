@@ -101,7 +101,7 @@ class ThirdExerciseTest extends JUnitSuite {
 
   // @Test
   // def testTweet() {
-     fail("TODO: uncomment and fix")
+  //   fail("TODO: uncomment and fix")
   //   val twitter:AuthenticatedSession = TwitterSession(testAuthInfo)
   //   val baseText = "Yet another test tweet from a #Scala unit test. Let's include a random number: "
   //   val random = new Random
