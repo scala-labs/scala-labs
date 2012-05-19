@@ -1,7 +1,7 @@
 package org.scalalabs.advanced.lab01
 
 import scala.xml._
-import collection.mutable.{ListBuffer => MList}
+import collection.mutable.{ ListBuffer => MList }
 import scala.None
 
 /**
@@ -14,9 +14,9 @@ import scala.None
  */
 object PatternMatchingExercise {
 
-  /*************************************************************************
-   * CUSTOM ARGUMENT EXTRACTORS
-   *************************************************************************/
+  // ======================================================================
+  // CUSTOM ARGUMENT EXTRACTORS
+  // ======================================================================
 
   /**
    * Use the FileName object to write a simple argument extractor,
@@ -27,7 +27,7 @@ object PatternMatchingExercise {
    * -> MyNotes txt
    */
   object FileName {
-    def unapply(name:String):Option[(String, String)] = {
+    def unapply(name: String): Option[(String, String)] = {
       //TODO implement simple argument extractor
       None
     }
@@ -42,7 +42,7 @@ object PatternMatchingExercise {
    * -> scala development anyuser home
    */
   object Path {
-    def unapplySeq(path:String):Option[Seq[String]] = {
+    def unapplySeq(path: String): Option[Seq[String]] = {
       //TODO implement variable argument extractor
       None
     }
@@ -54,14 +54,14 @@ object PatternMatchingExercise {
    * /home/anyuser/development/scala/AdvancedPatternMatchingTest.scala
    * -> AdvancedPatternMatchingTest
    */
-  def fileNameRetriever(path:String) = {
+  def fileNameRetriever(path: String) = {
     //TODO implement
     ""
   }
 
-  /*************************************************************************
-   * REGEXP MATCHING
-   *************************************************************************/
+  // ======================================================================
+  // REGEXP MATCHING
+  // ======================================================================
 
   /**
    * Define a regexp to match properties the following properties of a performance log-line
@@ -78,17 +78,16 @@ object PatternMatchingExercise {
    * For marketing call 040-2920029, for sales: 0402920029 for finance: (040)2920029
    * -> 040-2920029, 0402920029, (040)2920029
    */
-  def phoneNumberRetriever(phoneNumberText:String):List[String] = {
+  def phoneNumberRetriever(phoneNumberText: String): List[String] = {
     //TODO implement
     List[String]()
   }
 
   val PhoneNumberRE = """TODO_IMPLEMENT_REGEXP""".r
 
-
-  /*************************************************************************
-   * XML MATCHING
-   *************************************************************************/
+  // ======================================================================
+  // XML MATCHING
+  // ======================================================================
 
   /**
    * Take a look at the movies.xml. Use xml matching to extract all genres.
@@ -100,11 +99,10 @@ object PatternMatchingExercise {
    * <movie> nodes. Use the function parameter of the movieNodeProcessor
    * method to implement your solution.
    */
-  def filterAllGenres():List[String] = {
+  def filterAllGenres(): List[String] = {
     //TODO implement
     List[String]()
   }
-
 
   /**
    * Take a look at the movies.xml. Use xml matching to extract all actors
@@ -123,7 +121,7 @@ object PatternMatchingExercise {
    * <movie> nodes. Use the function parameter of the movieNodeProcessor
    * method to implement your solution.
    */
-  def filterActorsStartingWithG():List[String] = {
+  def filterActorsStartingWithG(): List[String] = {
     //TODO implement
     List[String]()
   }
@@ -131,7 +129,7 @@ object PatternMatchingExercise {
   /**
    * Take a look at the movies.xml. Use xml matching to extract all movies
    * with the top10 attribute set to true.
-   * 	<Movie>                         
+   * 	<Movie>
    *    <Title top10="true">Ocean's 13</Title>
    *  ...
    * Store the extracted actorname-values in a mutable List in order for
@@ -140,7 +138,7 @@ object PatternMatchingExercise {
    * <movie> nodes. Use the function parameter of the movieNodeProcessor
    * method to implement your solution.
    */
-  def filterTop10Titles():List[String] = {
+  def filterTop10Titles(): List[String] = {
     //TODO implement
     List[String]()
   }
@@ -152,30 +150,27 @@ object PatternMatchingExercise {
    * the unittest to succeed. Preferrably, provide your solution in the
    * textNodeMatcher method.
    */
-  def recursivelyExtractAllTextNodes():List[String] = {
+  def recursivelyExtractAllTextNodes(): List[String] = {
     //TODO implement using the recursive textNodeMatcher method
     List[String]()
   }
 
-  private def textNodeMatcher(node:NodeSeq, capturer:MList[String]):Unit = {
+  private def textNodeMatcher(node: NodeSeq, capturer: MList[String]): Unit = {
     //TODO implement recursion
   }
 
+  // ======================================================================
+  // XML MATCHING HELPER METHODS
+  // ======================================================================
 
-  /*------------------------------------------
-   * XML MATCHING HELPER METHODS
-   ------------------------------------------*/
+  private def getXML = XML.load(this.getClass.getResourceAsStream("/movies.xml"))
 
-
-  private def getXML =XML.load(this.getClass.getResourceAsStream("/movies.xml"))
-
-  private def movieNodeProcessor(filter:(Node, MList[String]) => Any):List[String] = {
+  private def movieNodeProcessor(filter: (Node, MList[String]) => Any): List[String] = {
     var capturer = new MList[String]()
-    for(movieNode <- getXML \\ "Movie" \ "_") {
+    for (movieNode <- getXML \\ "Movie" \ "_") {
       filter(movieNode, capturer)
-   }
-   capturer.toList
+    }
+    capturer.toList
   }
-
 
 }

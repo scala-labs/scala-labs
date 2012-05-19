@@ -11,9 +11,8 @@ import org.junit.Test
  * Your job is to implement the objects and classes in
  * such a way that the tests in this suite all succeed.
  *
-  * One exercise consists of rewriting imperatively written code to a style that is more functional. 
+ * One exercise consists of rewriting imperatively written code to a style that is more functional. 
  */
-
 
 class BasicListManipulationExercise02Test extends JUnitSuite {
 
@@ -35,10 +34,10 @@ class BasicListManipulationExercise02Test extends JUnitSuite {
   def calcSumOfSamePositionedElementsInManyLists() = {
     assert(List(12, 15, 18) === BasicListManipulationExercise02.sumOfMany(List(1, 2, 3), List(4, 5, 6), List(7, 8, 9)))
   }
-  
+
   @Test
   def rewriteImperativeToFunctional() {
-     //This unit test succeeds! But, the code that is called is written 'Java style',
+    //This unit test succeeds! But, the code that is called is written 'Java style',
     //it contains a lot of boilerplate code. Your job is to rewrite the code, get rid of the
     //loops and variables, and use only functions.
     val anton1 = Person(15, "Anton1", "Jansen")
@@ -47,9 +46,9 @@ class BasicListManipulationExercise02Test extends JUnitSuite {
     val peter1 = Person(17, "Peter1", "Peterson")
     val peter2 = Person(19, "Peter2", "Petersson")
     val jason = Person(21, "Jason", "Jasonsson")
-    
+
     val result = BasicListManipulationExercise02.separateTheMenFromTheBoys(List(jason, anton1, anton2, anton3, peter1, peter2))
-    
+
     assert(List(List("Anton1", "Anton2", "Peter1"), List("Anton3", "Peter2", "Jason")) === result)
   }
 }

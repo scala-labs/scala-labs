@@ -2,7 +2,7 @@ package org.scalalabs.intermediate.lab04
 
 import java.util.Date
 import org.junit.Assert._
-import org.junit.{After, Test}
+import org.junit.{ After, Test }
 
 /**
  *  Lab 04 Interoperability Between Java and Scala
@@ -19,11 +19,11 @@ import org.junit.{After, Test}
 
 class PaymentClientTest {
 
- @Test
+  @Test
   def dummyBecauseItDoesNotCompile = {
-     assertEquals(true, true);
+    assertEquals(true, true);
   }
- /*
+  /*
   val paymentClient = new PaymentServiceClient()
 
   @After def resetServiceState(){

@@ -48,7 +48,6 @@ class BasicPatternMatchingExerciseTest extends JUnitSuite {
     assertFalse(BasicPatternMatchingExercise.pf1.isDefinedAt("other stuff"))
     assertTrue(BasicPatternMatchingExercise.pf2.isDefinedAt("other stuff"))
 
-
     assertTrue(BasicPatternMatchingExercise.pf3.isDefinedAt("scala-labs"))
     assertTrue(BasicPatternMatchingExercise.pf3.isDefinedAt("other stuff"))
   }

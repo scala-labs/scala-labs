@@ -1,9 +1,7 @@
 package org.scalalabs.advanced.lab04
 
-
 import org.junit.Test
 import org.junit.Assert._
-
 
 import org.joda.time.DateTime
 import JpaExercise._
@@ -11,8 +9,8 @@ import JpaExercise._
 /**
  * See @JpaExercise
  */
-class JpaExerciseTest {
 
+class JpaExerciseTest {
 
   @Test
   def testPersistDirector() = {
@@ -44,11 +42,10 @@ class JpaExerciseTest {
   def testFindMoviesByDate() = {
     val d = getDirectorWithMovies
     val pd = persistDirectorWithMovies(d)
-    val movies = findMoviesByDate(new DateTime(2000,1,1,0,0,0,0), new DateTime(2011,1,1,0,0,0,0))
+    val movies = findMoviesByDate(new DateTime(2000, 1, 1, 0, 0, 0, 0), new DateTime(2011, 1, 1, 0, 0, 0, 0))
     assert(movies.size == 1)
     removeDirector(pd)
   }
-
 
   /**
    * See @JpaExercise
@@ -77,12 +74,12 @@ class JpaExerciseTest {
     val pd = persistDirectorWithDao(d)
     var movies = findAllMoviesWithDao
     assert(movies.size == 2)
-    removeMovieWithDao(movies (0))
+    removeMovieWithDao(movies(0))
     movies = findAllMoviesWithDao
     assert(movies.size == 1)
     removeDirectorWithDao(pd)
   }
-  
+
   @Test
   def daoTestFindMoviesByTitle() = {
     val d = getDirectorWithMovies
@@ -92,19 +89,15 @@ class JpaExerciseTest {
     removeDirectorWithDao(pd)
   }
 
-
-
   def getDirector() = {
-    Director("Steven Spielberg", new DateTime(1945,1,1,0,0,0,0).toDate)
+    Director("Steven Spielberg", new DateTime(1945, 1, 1, 0, 0, 0, 0).toDate)
   }
 
   def getDirectorWithMovies() = {
-    val d = Director("John Madden", new DateTime(1960,1,1,0,0,0,0).toDate)
-    Movie("Ocean's 13", "Ocean's 13", new DateTime(2010,1,1,0,0,0,0).toDate, d)
-    Movie("Shakespeare in Love", "Shakespeare in Love", new DateTime(1996,1,1,0,0,0,0).toDate, d)
+    val d = Director("John Madden", new DateTime(1960, 1, 1, 0, 0, 0, 0).toDate)
+    Movie("Ocean's 13", "Ocean's 13", new DateTime(2010, 1, 1, 0, 0, 0, 0).toDate, d)
+    Movie("Shakespeare in Love", "Shakespeare in Love", new DateTime(1996, 1, 1, 0, 0, 0, 0).toDate, d)
     d
-
   }
-
 
 }

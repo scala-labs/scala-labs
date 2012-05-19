@@ -14,16 +14,16 @@ class ParserCombinatorExercise extends JavaTokenParsers {
    * Exercise 1:
    * Create a context-free grammar that correctly parses a sentence
    */
-  def particle : Parser[Any] = "the"
-  def noun : Parser[Any] = "fox" | "dog"
+  def particle: Parser[Any] = "the"
+  def noun: Parser[Any] = "fox" | "dog"
   def adjective: Parser[Any] = "quick" | "brown" | "lazy"
   def verb: Parser[Any] = "jumps"
   def preposition: Parser[Any] = "over"
 
-  def nounPhrase : Parser[Any]  = error("TODO")
-  def prepositionPhrase: Parser[Any]  = error("TODO")
-  def verbPhrase: Parser[Any]  = error("TODO")
-  def sentence: Parser[Any]  = error("TODO")
+  def nounPhrase: Parser[Any] = error("TODO")
+  def prepositionPhrase: Parser[Any] = error("TODO")
+  def verbPhrase: Parser[Any] = error("TODO")
+  def sentence: Parser[Any] = error("TODO")
 
   /**
    * Exercise 2:
@@ -31,11 +31,11 @@ class ParserCombinatorExercise extends JavaTokenParsers {
    * calculates the result
    */
 
-  def parsedDigit : Parser[Double] = error("TODO")
+  def parsedDigit: Parser[Double] = error("TODO")
 
-  def plus : Parser[Double] = error("TODO")
+  def plus: Parser[Double] = error("TODO")
 
-  def minus : Parser[Double] = error("TODO")
+  def minus: Parser[Double] = error("TODO")
 
-  def math : Parser[Double] = error("TODO")
+  def math: Parser[Double] = error("TODO")
 }

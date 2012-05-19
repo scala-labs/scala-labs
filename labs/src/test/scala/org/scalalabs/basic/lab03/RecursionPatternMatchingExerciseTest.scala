@@ -14,7 +14,6 @@ class RecursionPatternMatchingExerciseTest extends JUnitSuite {
     assert(List(1, 5, 8, 4, 9) === RecursionPatternMatchingExercise.compress(List(1, 1, 1, 1, 5, 8, 8, 4, 4, 4, 9, 9)))
   }
 
-
   @Test
   def groupConsecutiveMembers = {
     assert(List(List(1, 1, 1), List(5), List(4, 4), List(1, 1)) === RecursionPatternMatchingExercise.groupConsecutive(List(1, 1, 1, 5, 4, 4, 1, 1)))

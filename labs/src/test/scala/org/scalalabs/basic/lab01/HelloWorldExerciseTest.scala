@@ -11,13 +11,12 @@ import org.junit.Test
  */
 class HelloWorldExerciseTest extends JUnitSuite {
 
-
-  /*
-  * Scala Objects
-  *
-  * Your job is to implement the objects and classes in
-  * such a way that the tests in this suite all succeed.
-  */
+  /**
+   * Scala Objects
+   *
+   * Your job is to implement the objects and classes in
+   * such a way that the tests in this suite all succeed.
+   */
 
   @Test
   def shouldSayHello() {
@@ -33,40 +32,36 @@ class HelloWorldExerciseTest extends JUnitSuite {
     assert("Echo" === HelloWorld.echo("Echo"))
   }
 
-  /*==============================================================*/
+  /**
+   * Scala inheritence with Traits
+   *
+   * Your job is to implement the objects and classes in
+   * such a way that the tests in this suite all succeed.
+   *
+   * Hint:
+   * - combine the methods in HelloTrait and Worldtrait to
+   *   create a new message
+   */
 
-
-  /*
-  * Scala inheritence with Traits
-  *
-  * Your job is to implement the objects and classes in
-  * such a way that the tests in this suite all succeed.
-  *
-  * Hint:
-  * - combine the methods in HelloTrait and Worldtrait to
-  *   create a new message
-  */
-
-  @Test def testHelloFromTraits() {
+  @Test
+  def testHelloFromTraits() {
     assert("Hello World" === HelloWorldWithTraits.hello)
   }
 
+  /**
+   * Scala Classes and companion Objects
+   *
+   * Your job is to implement the objects and classes in
+   * such a way that the tests in this suite all succeed.
+   *
+   * Hint:
+   * - A Class may have a companion Ojbect by the same name, defined
+   *   in the same source file
+   * - An Object can be constructed using an apply method
+   */
 
-  /*==============================================================*/
-
-  /*
-  * Scala Classes and companion Objects
-  *
-  * Your job is to implement the objects and classes in
-  * such a way that the tests in this suite all succeed.
-  *
-  * Hint:
-  * - A Class may have a companion Ojbect by the same name, defined
-  *   in the same source file
-  * - An Object can be constructed using an apply method
-  */
-
-  @Test def testInstanceIsCreatedByCompanion() {
+  @Test
+  def testInstanceIsCreatedByCompanion() {
     val helloWorldInstance = HelloWorldClassAndObject("Hello")
     assert("Hello" === helloWorldInstance.echo)
   }

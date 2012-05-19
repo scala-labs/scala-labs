@@ -4,22 +4,20 @@ import org.junit.Test
 import org.junit.Assert._
 
 /**
- * Created by IntelliJ IDEA.
- * User: lieke
- * Date: Apr 9, 2010
+ * See @ControlStructureExercise
  */
 
 class ControlStructureExerciseTest {
 
-  val list : List[String] = List("aaa", "bbb", "cab", "def", "aab", "cba")
-    val exercise = new ControlStructureExercise(list)
+  val list: List[String] = List("aaa", "bbb", "cab", "def", "aab", "cba")
+  val exercise = new ControlStructureExercise(list)
 
   /**
    * TODO
    * The exercises are commented out because otherwise nothing would compile
    * To start working on this exercise, comment them out and implement ControlStructureExercise
    */
-  
+
   @Test
   def testStringFilter {
     /*
@@ -33,7 +31,7 @@ class ControlStructureExerciseTest {
 
   @Test
   def testCurriedString {
-   /*
+    /*
     assertEquals(exercise.helloConcat("Martin"), "Hello Martin")
     assertEquals(exercise.helloConcat("Lex"), "Hello Lex")
 
