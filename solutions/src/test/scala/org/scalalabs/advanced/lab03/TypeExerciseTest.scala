@@ -28,7 +28,7 @@ class TypeExerciseTest {
 
   @Test
   def shouldBuildCar = {
-    import ComposableBuilder._
+    import ComposableBuilder._ 
 
     val car1 = new CarBuilder().build
     assertEquals("brand: Toyota, color: Metallic, tire size: 15 Inch", car1)

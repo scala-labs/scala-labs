@@ -38,25 +38,25 @@ class FirstExerciseTest extends JUnitSuite {
         val tweets = getListOfTweets()
 
         // there should be 20 tweets
-        expect(20) {tweets.size}
+        assertResult(20) {tweets.size}
     }
 
     @Test
 	def testAttributesOfFirstTweet() {
         val firstTweet = getListOfTweets()(0)
 
-        expect(3362029699L) {firstTweet.id}
+        assertResult(3362029699L) {firstTweet.id}
 
-        expect(None) {firstTweet.inReplyToStatusId}
-        expect(None) {firstTweet.inReplyToUserId}
-        expect(false) {firstTweet.truncated}
+        assertResult(None) {firstTweet.inReplyToStatusId}
+        assertResult(None) {firstTweet.inReplyToUserId}
+        assertResult(false) {firstTweet.truncated}
         expect (false) {firstTweet.favorited}
 
-        expect("Having much more fun working on #jaoo talks than  yesterday's hard drive crash recovery.") {
+        assertResult("Having much more fun working on #jaoo talks than  yesterday's hard drive crash recovery.") {
             firstTweet.text
         }
 
-        expect(twitterDateTimeFormat.parseDateTime("Mon Aug 17 14:19:06 +0000 2009")) {
+        assertResult(twitterDateTimeFormat.parseDateTime("Mon Aug 17 14:19:06 +0000 2009")) {
             firstTweet.createdAt
         }
     }
@@ -65,16 +65,16 @@ class FirstExerciseTest extends JUnitSuite {
 	def testAttributesOfUserAssociatedWithFirstTweet() {
         val firstTweetUser: TwitterUser = getListOfTweets()(0).user
 
-        expect(16665197L) {firstTweetUser.id}
-        expect("Martin Fowler") {firstTweetUser.name}
-        expect("martinfowler")   {firstTweetUser.screen_name}
-        expect("Loud Mouth, ThoughtWorks") {firstTweetUser.description}
-        expect("Boston") {firstTweetUser.location}
-        expect("http://www.martinfowler.com/") {firstTweetUser.url}
-        expect("http://a3.twimg.com/profile_images/79787739/mf-tg-sq_normal.jpg") {firstTweetUser.profileImageUrl}
-        expect(787) {firstTweetUser.statusesCount}
-        expect(166) {firstTweetUser.friendsCount}
-        expect(8735) {firstTweetUser.followersCount}
+        assertResult(16665197L) {firstTweetUser.id}
+        assertResult("Martin Fowler") {firstTweetUser.name}
+        assertResult("martinfowler")   {firstTweetUser.screen_name}
+        assertResult("Loud Mouth, ThoughtWorks") {firstTweetUser.description}
+        assertResult("Boston") {firstTweetUser.location}
+        assertResult("http://www.martinfowler.com/") {firstTweetUser.url}
+        assertResult("http://a3.twimg.com/profile_images/79787739/mf-tg-sq_normal.jpg") {firstTweetUser.profileImageUrl}
+        assertResult(787) {firstTweetUser.statusesCount}
+        assertResult(166) {firstTweetUser.friendsCount}
+        assertResult(8735) {firstTweetUser.followersCount}
     }
 
 }

@@ -1,10 +1,8 @@
 package org.scalalabs.intermediate.lab03
 
-
 import org.scalatest.junit.JUnitSuite
-
 import org.junit.Test
-
+import org.junit.Ignore
 
 /*
  * Exercise 3: Talking http to the real deal: building a Twitter API
@@ -42,71 +40,76 @@ class ThirdExerciseTest extends JUnitSuite {
   val testAccountPassword = "Scala!Is!Cool!"
 
   val testAuthInfo = new TwitterAuthInfo(
-      oauthAccessToken = "66988471-6UejYlvm65JNG9DW5JRmpmTwE6X90Pyyzx3RbJEjf",
-      oauthTokenSecret = "VMuNpQ7YZGCtoojtEBxoROj0bdEQFlzZrD6j6tbk"
-  )
+    oauthAccessToken = "66988471-6UejYlvm65JNG9DW5JRmpmTwE6X90Pyyzx3RbJEjf",
+    oauthTokenSecret = "VMuNpQ7YZGCtoojtEBxoROj0bdEQFlzZrD6j6tbk")
 
-    // ========================================================================
-    // The tests
-    // ========================================================================
+  // ========================================================================
+  // The tests
+  // ========================================================================
 
-    @Test
-	def testPublicTimelineWithoutAuthentication {
-        val twitter:UnauthenticatedSession = TwitterSession()
-        val publicTimeline:TwitterTimeline = twitter.publicTimeline
+  @Test
+  @Ignore
+  def testPublicTimelineWithoutAuthentication {
+    val twitter: UnauthenticatedSession = TwitterSession()
+    val publicTimeline: TwitterTimeline = twitter.publicTimeline
 
-        expect(20) {publicTimeline.toList.size}
-        expect(true) {publicTimeline.forall(_.user != null)}
-    }
+    expect(20) { publicTimeline.toList.size }
+    expect(true) { publicTimeline.forall(_.user != null) }
+  }
 
-    @Test
-	def testFriendsTimelineWithAuthentication {
-        val twitter:AuthenticatedSession = TwitterSession(testAuthInfo)
-        val friendsTimeline = twitter.friendsTimeline
+  @Test
+  @Ignore
+  def testFriendsTimelineWithAuthentication {
+    val twitter: AuthenticatedSession = TwitterSession(testAuthInfo)
+    val friendsTimeline = twitter.friendsTimeline
 
-        expect(true) {friendsTimeline.forall(_.user != null)}
-    }
+    expect(true) { friendsTimeline.forall(_.user != null) }
+  }
 
-    @Test
-	def testFriendsTimelineShouldOnlyContainTweetsByFriendsOrByMyself {
-        val twitter:AuthenticatedSession = TwitterSession(testAuthInfo)
+  @Test
+  @Ignore
+  def testFriendsTimelineShouldOnlyContainTweetsByFriendsOrByMyself {
+    val twitter: AuthenticatedSession = TwitterSession(testAuthInfo)
 
-        val friendsTimeline = twitter.friendsTimeline
-        val friends:TwitterUsers = twitter.friends
+    val friendsTimeline = twitter.friendsTimeline
+    val friends: TwitterUsers = twitter.friends
 
-        expect(true) {friendsTimeline.forall(tweet => friends.exists(_ == tweet.user) || testAccountUsername == tweet.user.screenName)}
-    }
+    expect(true) { friendsTimeline.forall(tweet => friends.exists(_ == tweet.user) || testAccountUsername == tweet.user.screenName) }
+  }
 
-    @Test
-	def testUserTimelineWithoutAuthentication {
-        val twitter:UnauthenticatedSession = TwitterSession()
-        val userTimeline:TwitterTimeline = twitter.userTimeline("sgrijpink")
+  @Test
+  @Ignore
+  def testUserTimelineWithoutAuthentication {
+    val twitter: UnauthenticatedSession = TwitterSession()
+    val userTimeline: TwitterTimeline = twitter.userTimeline("sgrijpink")
 
-        expect(true) {userTimeline.forall(_.user.screenName == "sgrijpink")}
-    }
+    expect(true) { userTimeline.forall(_.user.screenName == "sgrijpink") }
+  }
 
-   @Test
-	def testUserTimelineWithAuthentication {
-        val twitter:AuthenticatedSession = TwitterSession(testAuthInfo)
-        val userTimeline:TwitterTimeline = twitter.userTimeline(testAccountUsername)
+  @Test
+  @Ignore
+  def testUserTimelineWithAuthentication {
+    val twitter: AuthenticatedSession = TwitterSession(testAuthInfo)
+    val userTimeline: TwitterTimeline = twitter.userTimeline(testAccountUsername)
 
-        expect(true) {userTimeline.forall(_.user.screenName == testAccountUsername)}
-    }
+    expect(true) { userTimeline.forall(_.user.screenName == testAccountUsername) }
+  }
 
-    // Bonus exercise !!!
+  // Bonus exercise !!!
 
-    @Test
-	def testTweet() {
-        val twitter:AuthenticatedSession = TwitterSession(testAuthInfo)
-        val baseText = "A test tweet from a scala-labs unit test. This test was run by "
+  @Test
+  @Ignore
+  def testTweet() {
+    val twitter: AuthenticatedSession = TwitterSession(testAuthInfo)
+    val baseText = "A test tweet from a scala-labs unit test. This test was run by "
 
-		// this might a bit of a privacy-sensitive but I was looking for a way to be able to
-		// recognize your own generated tweet from others. Other solutions that are less privacy
-		// sensitive are more than welcome.
+    // this might a bit of a privacy-sensitive but I was looking for a way to be able to
+    // recognize your own generated tweet from others. Other solutions that are less privacy
+    // sensitive are more than welcome.
 
-        val tweet = twitter.tweet(baseText + System.getProperty("user.name") + " on " + System.currentTimeMillis())
-        expect(testAccountUsername) {tweet.user.screenName}
-        expect(true) {tweet.text.startsWith(baseText)}
-    }
+    val tweet = twitter.tweet(baseText + System.getProperty("user.name") + " on " + System.currentTimeMillis())
+    expect(testAccountUsername) { tweet.user.screenName }
+    expect(true) { tweet.text.startsWith(baseText) }
+  }
 
 }

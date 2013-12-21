@@ -3,7 +3,7 @@ package org.scalalabs.intermediate.lab04;
 
 import scala.Function2;
 import scala.Predef$;
-import scala.collection.immutable.List;
+import scala.collection.immutable.*;
 import scala.collection.immutable.List$;
 import scala.runtime.AbstractFunction2;
 import scala.collection.immutable.$colon$colon;
@@ -23,7 +23,7 @@ public class PaymentServiceClient {
 
     public void cardPayment(String userId, int value, Date date) {
         Order order = new Order(userId, new PaymentCard(date, userId), value);
-        List<Order> orders = List.empty();
+        List<Order> orders = List$.MODULE$.empty();
         orders = new $colon$colon(order, orders);
         PaymentService.pay(orders);
     }

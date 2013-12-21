@@ -1,6 +1,10 @@
 package org.scalalabs.advanced.lab04
 
 import collection.mutable.Buffer
+import scala.reflect.ClassTag
+import scala.reflect.ClassTag._
+import scala.reflect._
+
 
 /**
  * Interface of a generic dao with basic persistency
@@ -9,8 +13,8 @@ import collection.mutable.Buffer
 trait GenericDao[T <: { var id:Long}] {
    def findAll() : Buffer[T]
    def save(entity:T) :T
-   def remove(entity:T)(implicit m: Manifest[T]):Unit
-   def findById(id:Any)(implicit m: Manifest[T]) : T
+   def remove(entity:T):Unit
+   def findById(id:Any) : T
 }
 
 /**
@@ -22,10 +26,11 @@ trait GenericDao[T <: { var id:Long}] {
  * In order to access the ScalaEntityManager make use of
  * the ScalaEntityManagerFactory trait
  */
-abstract class GenericDaoImpl[T <: { var id:Long}] (val semf:ScalaEntityManagerFactory) extends GenericDao[T] {
+abstract class GenericDaoImpl[T <: { var id:Long} : ClassTag] (val semf:ScalaEntityManagerFactory) extends GenericDao[T] {
 
-  def findById(id:Any)(implicit m: Manifest[T]):  T = {
-    sem.find(m.erasure, id).asInstanceOf[T]
+  private def t = classTag[T]
+  def findById(id:Any):  T = {
+    sem.find(t.runtimeClass, id).asInstanceOf[T] 
   }
 
   def save(entity:T) :T = {
@@ -33,8 +38,8 @@ abstract class GenericDaoImpl[T <: { var id:Long}] (val semf:ScalaEntityManagerF
      entity
   }
 
-  def remove(entity:T)(implicit m: Manifest[T]) = {
-    sem.remove(sem.getReference(m.erasure,entity.id).asInstanceOf[AnyRef]);
+  def remove(entity:T) = {
+    sem.remove(sem.getReference(t.runtimeClass,entity.id).asInstanceOf[AnyRef]);
   }
 
   def sem = {
