@@ -3,14 +3,14 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.scalalabs</groupId>
-	<artifactId>scala-labs</artifactId>
-	<name>Scala Labs</name>
+	<artifactId>scala-labs-solutions</artifactId>
+	<name>Scala Labs Solutions</name>
 	<version>1.0</version>
 	<packaging>jar</packaging>
 	<inceptionYear>2009</inceptionYear>
 
 	<properties>
-		<scala.version>2.10.3</scala.version>
+		<scala.version>2.10.2</scala.version>
 	</properties>
 
 	<repositories>
@@ -55,7 +55,7 @@
 			<artifactId>scala-library</artifactId>
 			<version>${scala.version}</version>
 		</dependency>
-		<dependency>
+        <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
             <version>4.0</version>
@@ -70,22 +70,32 @@
             <artifactId>jcip-annotations</artifactId>
             <version>1.0</version>
         </dependency>
+
 		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>
 			<version>1.6</version>
 		</dependency>
 
-
 		<dependency>
-			<groupId>org.scalatest</groupId>
-			<artifactId>scalatest_2.9.0</artifactId>
-			<version>1.6.1.RC1</version>
-			<scope>test</scope>
-		</dependency>    
+		<groupId>org.scalatest</groupId>
+		<artifactId>scalatest_2.10</artifactId>
+		<version>2.0</version>
+		<scope>test</scope>
+		</dependency>
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
+				<groupId>org.scala-lang</groupId>
+					<artifactId>scala-reflect</artifactId>
+						<version>2.10.2</version>
+					</dependency>
+		<dependency>
+				<groupId>org.scala-lang</groupId>
+					<artifactId>scala-actors</artifactId>
+						<version>2.10.2</version>
+					</dependency>
+		<dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
 			<version>4.7</version>
 			<scope>test</scope>
 		</dependency>
@@ -97,7 +107,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.scala-libs</groupId>
-			<artifactId>scalajpa_2.9.0</artifactId>
+			<artifactId>scalajpa_2.10</artifactId>
 			<version>1.4</version>
 		</dependency>
 		<!-- jpa-->
@@ -128,7 +138,7 @@
 			<artifactId>slf4j-simple</artifactId>
 			<version>1.4.2</version>
 			<scope>runtime</scope>
-		</dependency>
+        </dependency>
         <dependency>
             <groupId>oauth.signpost</groupId>
             <artifactId>signpost-core</artifactId>
@@ -158,25 +168,33 @@
 			<plugin>
 				<groupId>org.scala-tools</groupId>
 				<artifactId>maven-scala-plugin</artifactId>
-				<executions>
+				<version>2.10.1</version>
 
-		
-<execution>
-						<id>scala-compile-first</id>
-						<phase>process-resources</phase>
-						<goals>
-						    <goal>add-source</goal>
-							<goal>compile</goal>
-						</goals>
-					</execution>									
-					<execution>
-						<id>scala-test-compile</id>
-						<phase>process-test-resources</phase>
-						<goals>
-							<goal>testCompile</goal>
-						</goals>
-					</execution>
-				</executions>
+
+			<executions>
+        <execution>
+            <id>compile</id>
+            <goals>
+            <goal>compile</goal>
+            </goals>
+            <phase>compile</phase>
+        </execution>
+ 
+        <execution>
+            <id>test-compile</id>
+            <goals>
+            <goal>testCompile</goal>
+            </goals>
+            <phase>test-compile</phase>
+        </execution>
+ 
+        <execution>
+            <phase>process-resources</phase>
+            <goals>
+            <goal>compile</goal>
+            </goals>
+        </execution>
+    </executions>
 				<configuration>
 					<jvmArgs>
 						<jvmArg>-Xmx1024m</jvmArg>
