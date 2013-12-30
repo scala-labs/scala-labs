@@ -1,7 +1,8 @@
 package org.scalalabs.basic.lab01
 
-import org.scalatest.junit.JUnitSuite
-import org.junit.Test
+import org.junit.runner.RunWith
+import org.specs2.mutable.Specification
+import org.specs2.runner.JUnitRunner
 
 /**
  * Beginner Hello World:
@@ -9,8 +10,8 @@ import org.junit.Test
  * Scala inheritence with Traits
  * Scala Classes and companion Objects
  */
-class HelloWorldExerciseTest extends JUnitSuite {
-
+@RunWith(classOf[JUnitRunner])
+class HelloWorldExerciseTest extends Specification {
 
   /*
   * Scala Objects
@@ -18,23 +19,19 @@ class HelloWorldExerciseTest extends JUnitSuite {
   * Your job is to implement the objects and classes in
   * such a way that the tests in this suite all succeed.
   */
-
-  @Test
-  def shouldSayHello() {
-    // The === operator used below is not an operator at all but a method in the
-    // JUnitSuite super class, which is part of the ScalaTest library. it behaves
-    // as a traditional assertEquals but produces very clear assertion errors when
-    // values don't match. In Scala, methods can be used as if they were operators.
-    assert("Hello from Scala" === HelloWorld.sayHello)
+  "Scala Objects" should {
+    "say hello" in {
+      // The === operator used below is not an operator at all but a method in the
+      // JUnitSuite super class, which is part of the ScalaTest library. it behaves
+      // as a traditional assertEquals but produces very clear assertion errors when
+      // values don't match. In Scala, methods can be used as if they were operators.
+      "Hello from Scala" === HelloWorld.sayHello
+    }
+    "echo" in {
+      "Echo" === HelloWorld.echo("Echo")
+    }
   }
-
-  @Test
-  def shouldEcho() {
-    assert("Echo" === HelloWorld.echo("Echo"))
-  }
-
   /*==============================================================*/
-
 
   /*
   * Scala inheritence with Traits
@@ -46,11 +43,11 @@ class HelloWorldExerciseTest extends JUnitSuite {
   * - combine the methods in HelloTrait and Worldtrait to
   *   create a new message
   */
-
-  @Test def testHelloFromTraits() {
-    assert("Hello World" === HelloWorldWithTraits.hello)
+  "Scala Traits" should {
+    "say hello" in {
+      "Hello World" === HelloWorldWithTraits.hello
+    }
   }
-
 
   /*==============================================================*/
 
@@ -65,10 +62,11 @@ class HelloWorldExerciseTest extends JUnitSuite {
   *   in the same source file
   * - An Object can be constructed using an apply method
   */
-
-  @Test def testInstanceIsCreatedByCompanion() {
-    val helloWorldInstance = HelloWorldClassAndObject("Hello")
-    assert("Hello" === helloWorldInstance.echo)
+  "Scala Companion Object" should {
+    "serve as factory" in {
+      val helloWorldInstance = HelloWorldClassAndObject("Hello")
+      "Hello" === helloWorldInstance.echo
+    }
   }
 
 }
