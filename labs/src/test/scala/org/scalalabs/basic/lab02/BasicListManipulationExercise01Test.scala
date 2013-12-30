@@ -2,6 +2,10 @@ package org.scalalabs.basic.lab02
 
 import org.scalatest.junit.JUnitSuite
 import org.junit.Test
+import java.lang.{ IllegalArgumentException => IAE }
+import org.junit.runner.RunWith
+import org.specs2.mutable.Specification
+import org.specs2.runner.JUnitRunner
 
 /*
  * Lab 02: List operations
@@ -19,61 +23,54 @@ import org.junit.Test
  * 
  * It's a nice exercise to try out various ways
  */
+@RunWith(classOf[JUnitRunner])
+class BasicListManipulationExercise01Test extends Specification {
 
-class BasicListManipulationExercise01Test extends JUnitSuite {
   val listOfStrings: List[String] = List("One", "Two", "Three")
+  "A Scala List" should {
+    
+    "get first Element in list" in {
+      val result: String = BasicListManipulationExercise01.firstElementInList(listOfStrings)
+      "One" === result
+    }
 
-  @Test
-  def firstElementInList() {
-    val result: String = BasicListManipulationExercise01.firstElementInList(listOfStrings)
-    assert("One" === result)
-  }
+    "calculate sum of list" in {
+      15 === BasicListManipulationExercise01.sumOfList(List(1, 2, 3, 4, 5))
+    }
 
-  @Test
-  def sumOfList() {
-    assert(15 === BasicListManipulationExercise01.sumOfList(List(1, 2, 3, 4, 5)))
-  }
+    "get last element in list" in {
+      "Three" === BasicListManipulationExercise01.lastElementInList(listOfStrings)
+      9 === BasicListManipulationExercise01.lastElementInList(List(1, 6, 10, 33, 54, 9))
+    }
 
+    "get nth element in list" in {
+      "One" === BasicListManipulationExercise01.nthElementInList(0, listOfStrings)
+      "Two" === BasicListManipulationExercise01.nthElementInList(1, listOfStrings)
+      "Three" === BasicListManipulationExercise01.nthElementInList(2, listOfStrings)
+    }
 
-  @Test
-  def lastElementInList() {
-    assert("Three" === BasicListManipulationExercise01.lastElementInList(listOfStrings))
-    assert(9 === BasicListManipulationExercise01.lastElementInList(List(1, 6, 10, 33, 54, 9)))
-  }
+    "concat two lists" in {
+      List("One", "Two", "Three", "Four", "Five") === BasicListManipulationExercise01.concatLists(listOfStrings, List("Four", "Five"))
+    }
 
-  @Test
-  def nthElementInList() {
-    assert("One" === BasicListManipulationExercise01.nthElementInList(0, listOfStrings))
-    assert("Two" === BasicListManipulationExercise01.nthElementInList(1, listOfStrings))
-    assert("Three" === BasicListManipulationExercise01.nthElementInList(2, listOfStrings))
-  }
+    "contains One Two And Three" in {
+      BasicListManipulationExercise01.elementExists(listOfStrings, "One")
+      BasicListManipulationExercise01.elementExists(listOfStrings, "Two")
+      BasicListManipulationExercise01.elementExists(listOfStrings, "Three")
+    }
 
-  @Test
-  def concatTwoLists() {
-    assert(List("One", "Two", "Three", "Four", "Five") === BasicListManipulationExercise01.concatLists(listOfStrings, List("Four", "Five")))
-  }
+    "sort list of strings" in {
+      val l = List("Sjors", "Arjan", "Age", "Lieke", "J-Fall", "ScalaLabs")
+      List("Age", "Arjan", "J-Fall", "Lieke", "ScalaLabs", "Sjors") === BasicListManipulationExercise01.sortList(l)
+    }
 
-  @Test
-  def listContainsOneTwoAndThree() {
-    assert(BasicListManipulationExercise01.elementExists(listOfStrings, "One"))
-    assert(BasicListManipulationExercise01.elementExists(listOfStrings, "Two"))
-    assert(BasicListManipulationExercise01.elementExists(listOfStrings, "Three"))
-  }
+    "get list contains two odd elements" in {
+      List(1, 3, 5) === BasicListManipulationExercise01.oddElements(List(1, 2, 3, 4, 5))
+    }
 
-  @Test
-  def sortListOfStrings() {
-    val l = List("Sjors", "Arjan", "Age", "Lieke", "J-Fall", "ScalaLabs")
-    assert(List("Age", "Arjan", "J-Fall", "Lieke", "ScalaLabs", "Sjors") === BasicListManipulationExercise01.sortList(l))
-  }
-
-  @Test
-  def listContainsTwoOddElements() {
-    assert(List(1, 3, 5) === BasicListManipulationExercise01.oddElements(List(1, 2, 3, 4, 5)))
-  }
-
-  @Test
-  def tailsOfList() {
-    assert(List(List(1, 2, 3, 4, 5), List(2, 3, 4, 5), List(3, 4, 5), List(4, 5), List(5), List()) === BasicListManipulationExercise01.tails(List(1, 2, 3, 4, 5)))
+    "get tails of list" in {
+      List(List(1, 2, 3, 4, 5), List(2, 3, 4, 5), List(3, 4, 5), List(4, 5), List(5), List()) === BasicListManipulationExercise01.tails(List(1, 2, 3, 4, 5))
+    }
   }
 
 }
