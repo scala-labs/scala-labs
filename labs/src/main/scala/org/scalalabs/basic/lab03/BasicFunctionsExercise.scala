@@ -1,19 +1,33 @@
 package org.scalalabs.basic.lab03
 import sys._
 /**
- * This excersice introduces you to Scala functions.
+ * This exercise introduces you to Scala functions.
  *
+ * Functions let you separate responsibilities, which allow you to maximally reuse code.
+ *
+ * Create a method measure that accepts any code blocks, executes it and prints the execution time.
+ * E.g. 'The execution took <elapsed> ms'.
+ * Use the logPerf method provided.
+ * Provide a suitable implementation in order to make the corresponding unittest work.
+ */
+object BasicFunctionsExercise1 {
+
+  var printed = "" 
+  private def logPerf(elapsed: Long) = printed = s"The execution took: $elapsed ms"
+
+  def measure[T](/* provide correct method parameter */): T = {
+    error("fix me")
+  }
+
+}
+
+/**
  * Functions let you create control abstractions, which give extra opportunities to condense
  * and simplify code.
  *
  * Provide a suitable implementation in order to make the corresponding unittest work.
- *
- * Reference material to solve these exercises can be found here:
- * Functional programming in general: http://programming-scala.labs.oreilly.com/ch08.html
- * Partial Functions: http://programming-scala.labs.oreilly.com/ch08.html#PartialFunctions
- * Currying: http://programming-scala.labs.oreilly.com/ch08.html#Currying
  */
-object BasicFunctionsExercise {
+object BasicFunctionsExercise2 {
 
   def plusOne(x: Int): Int = {
     //implement this using a partial function
@@ -24,7 +38,7 @@ object BasicFunctionsExercise {
     x + y
   }
 
-  def using[A <: {def close(): Unit}, B](closable: A)(f: A => B): B = {
+  def using[A <: { def close(): Unit }, B](closable: A)(f: A => B): B = {
     error("fix me")
   }
 }
