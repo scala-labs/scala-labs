@@ -93,6 +93,13 @@
 					<artifactId>scala-actors</artifactId>
 						<version>2.10.2</version>
 					</dependency>
+					<dependency>
+						   <groupId>org.specs2</groupId>
+						      <artifactId>specs2_2.10</artifactId>
+						         <version>2.3.7</version>
+							    <scope>test</scope>
+							     </dependency>
+
 		<dependency>
 		<groupId>junit</groupId>
 		<artifactId>junit</artifactId>
