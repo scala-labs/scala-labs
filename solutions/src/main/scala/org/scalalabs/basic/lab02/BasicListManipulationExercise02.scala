@@ -1,8 +1,10 @@
 package org.scalalabs.basic.lab02
 
-case class Person(age: Int, firstName: String, lastName: String)
+
 
 object BasicListManipulationExercise02 {
+  
+  
   def sumOfElementsInList(l: List[Int]): Int = {
     //different solutions:
     //** List API **
@@ -61,6 +63,8 @@ object BasicListManipulationExercise02 {
     sumOfManyNestedLists(l.toList)
   }
 
+
+  case class Person(age: Int, firstName: String, lastName: String)
 
   def separateTheMenFromTheBoys(persons: List[Person]): List[List[String]] = {
     def sortByAgeAndMapToName(persons: List[Person]) = persons.sortBy(_.age).map(_.firstName)

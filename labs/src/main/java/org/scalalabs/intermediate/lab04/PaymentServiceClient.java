@@ -9,7 +9,7 @@ import scala.runtime.AbstractFunction2;
 import scala.collection.immutable.$colon$colon;
 
 import java.util.Date;
-
+ 
 public class PaymentServiceClient {
 
     public void cachePayment(String userId, int value) {
@@ -18,8 +18,8 @@ public class PaymentServiceClient {
                 order
         }));
         PaymentService.pay(orders);
-
-    }
+ 
+    } 
 
     public void cardPayment(String userId, int value, Date date) {
         // you can use new $colon$colon() for adding to a list

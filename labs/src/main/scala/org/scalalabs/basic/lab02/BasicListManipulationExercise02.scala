@@ -3,7 +3,6 @@ package org.scalalabs.basic.lab02
 import scala.collection.mutable.ListBuffer
  import sys._
 
-case class Person(age: Int, firstName: String, lastName: String)
 
 object BasicListManipulationExercise02 {
 
@@ -30,6 +29,8 @@ object BasicListManipulationExercise02 {
   def sumOfMany(l: List[Int]*): List[Int] = {
     error("fix me")
   }
+
+  case class Person(age: Int, firstName: String, lastName: String)
 
   /**
    * The following method is implemented in the most in-elegant way we could think of.
