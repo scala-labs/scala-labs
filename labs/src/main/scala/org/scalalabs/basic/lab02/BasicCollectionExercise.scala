@@ -34,14 +34,6 @@ object BasicCollectionExercise {
     error("fix me")
   }
 
-  /*========================================================== */
-  /**
-   * Calculate the length of the longest word in a list of sentences.
-   * To keep it simple it's ok to use String.split to extract all words of a sentence.
-   */
-  def calcLengthLongestWord(lines: String*): Int = {
-     error("fix me")
-  }
 
   /*========================================================== */
   class Person(val age: Int, val name: String)
@@ -60,6 +52,16 @@ object BasicCollectionExercise {
   def groupAdultsPerAgeGroup(persons: Seq[Person]): Map[Int, Seq[Person]] = {
      error("fix me")
   }
+  
+   /*========================================================== */
+  /**
+   * Calculate the length of the longest word in a list of sentences.
+   * To keep it simple it's ok to use String.split to extract all words of a sentence.
+   */
+  def calcLengthLongestWord(lines: String*): Int = {
+     error("fix me")
+  }
+
 
 }
 

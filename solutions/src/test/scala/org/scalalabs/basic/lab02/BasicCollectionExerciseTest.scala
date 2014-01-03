@@ -28,17 +28,8 @@ class BasicCollectionExerciseTest extends Specification {
       Seq(out1, out2, out3) === result
     }
   }
-  
+
   "Exercise 2:" should {
-    "calculate the length of the longest word in a list of sentences" in {
-      val l1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pharetra lorem ut sem feugiat tristique. "
-      val l2 = "Etiam id magna ut libero ullamcorperano scelerisque. "
-      val result = BasicCollectionExercise.calcLengthLongestWord(l1, l2)
-      "ullamcorperano".length() === result
-    }
-  }
-  
-  "Exercise 3:" should {
     "group a list of adults by age group. Each group is sorted by name" in {
       val jack = new Person(14, "Jack")
       val duke = new Person(32, "Duke")
@@ -48,7 +39,15 @@ class BasicCollectionExerciseTest extends Specification {
       val result = BasicCollectionExercise.groupAdultsPerAgeGroup(Seq(jack, duke, jeniffer, erik, susy))
       Map(20 -> Seq(erik), 30 -> Seq(duke, jeniffer), 40 -> Seq(susy)) ==== result
     }
+  }
 
+  "Exercise 3:" should {
+    "calculate the length of the longest word in a list of sentences" in {
+      val l1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pharetra lorem ut sem feugiat tristique. "
+      val l2 = "Etiam id magna ut libero ullamcorperano scelerisque. "
+      val result = BasicCollectionExercise.calcLengthLongestWord(l1, l2)
+      "ullamcorperano".length() === result
+    }
   }
 
 }

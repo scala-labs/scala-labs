@@ -50,15 +50,6 @@ object BasicCollectionExercise {
     lines map (_ map mapper)
   }
 
-  /*========================================================== */
-  /**
-   * Calculate the length of the longest word in a list of sentences.
-   * To keep it simple it's ok to use String.split to extract all words of a sentence.
-   */
-  def calcLengthLongestWord(lines: String*): Int = {
-    println(lines flatMap (_ split " ") groupBy (_ length))
-    lines map (_ split " " map (_ length) max) max
-  }
 
   /*========================================================== */
   class Person(val age: Int, val name: String)
@@ -78,6 +69,17 @@ object BasicCollectionExercise {
     persons.filter(_.age >= 18)
     	   .sortBy(_.name)
     	   .groupBy(_.age / 10 * 10)
+  }
+
+  
+    /*========================================================== */
+  /**
+   * Calculate the length of the longest word in a list of sentences.
+   * To keep it simple it's ok to use String.split to extract all words of a sentence.
+   */
+  def calcLengthLongestWord(lines: String*): Int = {
+    println(lines flatMap (_ split " ") groupBy (_ length))
+    lines map (_ split " " map (_ length) max) max
   }
 
 }
