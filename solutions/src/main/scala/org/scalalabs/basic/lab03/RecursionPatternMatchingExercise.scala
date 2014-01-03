@@ -14,11 +14,12 @@ package org.scalalabs.basic.lab03
 
 object RecursionPatternMatchingExercise {
 
-
-  /*************************************************************************
+  /**
+   * ***********************************************************************
    * Recursive algorithms with pattern matching
    * For expected solution see unittest @RecursionPatternMatchingExerciseTest
-   *************************************************************************/
+   * ***********************************************************************
+   */
   def compress[T](in: List[T]): List[T] = {
     //built in:
     // in.distinct
@@ -32,16 +33,18 @@ object RecursionPatternMatchingExercise {
   def groupConsecutive[T](in: List[T]): List[List[T]] = {
     in match {
       case Nil => Nil
-      case (head :: _) => val (same, rest) = in.span(_ == head)
-      same :: groupConsecutive(rest)
+      case (head :: _) =>
+        val (same, rest) = in.span(_ == head)
+        same :: groupConsecutive(rest)
     }
   }
 
   def groupEquals[T](in: List[T]): List[List[T]] = {
     in match {
       case Nil => Nil
-      case (head :: _) => val (same, rest) = in.partition(_ == head)
-      same :: groupEquals(rest)
+      case (head :: _) =>
+        val (same, rest) = in.partition(_ == head)
+        same :: groupEquals(rest)
     }
   }
 

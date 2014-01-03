@@ -3,7 +3,7 @@ package org.scalalabs.basic.lab02
  * This Lab contains exercises where the usage of
  * higher order collection methods can be rehearsed.
  */
-object BasicCollectionExercise {
+object BasicCollectionExercise01 {
 
   /**
    * Taken from: <a href="http://code.google.com/codejam/contest/1460488/dashboard">Problem A. Speaking in Tongues</a>
@@ -33,9 +33,11 @@ object BasicCollectionExercise {
   def googleCodeJamGooglerese(lines: String*): Seq[String] = {
     error("fix me")
   }
+}
+/*========================================================== */
 
+object BasicCollectionExercise02 {
 
-  /*========================================================== */
   class Person(val age: Int, val name: String)
 
   /**
@@ -50,20 +52,22 @@ object BasicCollectionExercise {
    * 3. group each person by their age group, e.g. 30 -> Seq(duke, jeniffer)
    */
   def groupAdultsPerAgeGroup(persons: Seq[Person]): Map[Int, Seq[Person]] = {
-     error("fix me")
+    error("fix me")
   }
-  
-   /*========================================================== */
+}
+
+/*========================================================== */
+
+object BasicCollectionExercise03 {
   /**
    * Calculate the length of the longest word in a list of sentences.
    * To keep it simple it's ok to use String.split to extract all words of a sentence.
    */
   def calcLengthLongestWord(lines: String*): Int = {
-     error("fix me")
+    error("fix me")
   }
-
-
 }
+
 
 
 
