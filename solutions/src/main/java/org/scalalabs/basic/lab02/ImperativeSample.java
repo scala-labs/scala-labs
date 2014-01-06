@@ -7,7 +7,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-import static org.junit.Assert.*;
 
 /**
  * This piece of java code depicts an imperative approach
@@ -47,7 +46,7 @@ public class ImperativeSample {
 	public static Map<Integer, List<Person>> groupAdultsPerAgeGroup(List<Person> persons) {
 
 		// filter adults
-		List<Person> adults = new ArrayList<>();
+		List<Person> adults = new ArrayList<Person>();
 		for (Person p : persons) {
 			if (p.getAge() >= 18) {
 				adults.add(p);
@@ -62,7 +61,7 @@ public class ImperativeSample {
 		});
 
 		// group by age group
-		Map<Integer, List<Person>> adultsPerAgeGroup = new TreeMap<>();
+		Map<Integer, List<Person>> adultsPerAgeGroup = new TreeMap<Integer, List<Person>>();
 		for (Person person : adults) {
 			int ageGroup = person.getAge() / 10 * 10;
 			List<Person> ageGroupPersons = adultsPerAgeGroup.get(ageGroup);
