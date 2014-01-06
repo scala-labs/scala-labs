@@ -20,15 +20,6 @@ object RecursionPatternMatchingExercise {
    * For expected solution see unittest @RecursionPatternMatchingExerciseTest
    * ***********************************************************************
    */
-  def compress[T](in: List[T]): List[T] = {
-    //built in:
-    // in.distinct
-    in match {
-      case Nil => Nil
-      case a :: b :: rest if a == b => compress(a :: rest)
-      case a :: rest => a :: compress(rest)
-    }
-  }
 
   def groupConsecutive[T](in: List[T]): List[List[T]] = {
     in match {
@@ -45,6 +36,16 @@ object RecursionPatternMatchingExercise {
       case (head :: _) =>
         val (same, rest) = in.partition(_ == head)
         same :: groupEquals(rest)
+    }
+  }
+
+  def compress[T](in: List[T]): List[T] = {
+    //built in:
+    // in.distinct
+    in match {
+      case Nil => Nil
+      case a :: b :: rest if a == b => compress(a :: rest)
+      case a :: rest => a :: compress(rest)
     }
   }
 

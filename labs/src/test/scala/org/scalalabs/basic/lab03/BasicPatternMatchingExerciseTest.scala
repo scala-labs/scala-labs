@@ -1,55 +1,52 @@
 package org.scalalabs.basic.lab03
 
-import org.scalatest.junit.JUnitSuite
-import org.junit.Test
-import org.junit.Assert._
+import org.junit.runner.RunWith
+import org.specs2.mutable.Specification
+import org.specs2.runner.JUnitRunner
 
 /**
  * @see BasicPatternMatchingExercise
  */
-class BasicPatternMatchingExerciseTest extends JUnitSuite {
+@RunWith(classOf[JUnitRunner])
+class BasicPatternMatchingExerciseTest extends Specification {
 
-  @Test
-  def matchLanguageOnStrings() {
-    assert("OOP" === BasicPatternMatchingExercise.describeLanguage("Java"))
-    assert("OOP" === BasicPatternMatchingExercise.describeLanguage("Smalltalk"))
-    assert("Functional" === BasicPatternMatchingExercise.describeLanguage("Clojure"))
-    assert("Functional" === BasicPatternMatchingExercise.describeLanguage("Haskell"))
-    assert("Hybrid" === BasicPatternMatchingExercise.describeLanguage("Scala"))
-    assert("Procedural" === BasicPatternMatchingExercise.describeLanguage("C"))
-    assert("Unknown" === BasicPatternMatchingExercise.describeLanguage("Oz"))
-  }
+  "BasicPatternMatchingExercise" should {
+    "match language on strings" in {
+      "OOP" === BasicPatternMatchingExercise.describeLanguage("Java")
+      "OOP" === BasicPatternMatchingExercise.describeLanguage("Smalltalk")
+      "Functional" === BasicPatternMatchingExercise.describeLanguage("Clojure")
+      "Functional" === BasicPatternMatchingExercise.describeLanguage("Haskell")
+      "Hybrid" === BasicPatternMatchingExercise.describeLanguage("Scala")
+      "Procedural" === BasicPatternMatchingExercise.describeLanguage("C")
+      "Unknown" === BasicPatternMatchingExercise.describeLanguage("Oz")
+    }
+    "match on input type" in {
+      "A string with length 8" === BasicPatternMatchingExercise.matchOnInputType("A String")
+      "A positive integer" === BasicPatternMatchingExercise.matchOnInputType(10)
+      "A person with name: Jack" === BasicPatternMatchingExercise.matchOnInputType(Person("Jack", 39))
+      "Seq with more than 10 elements" === BasicPatternMatchingExercise.matchOnInputType(1 to 11 toSeq)
+      "first: first, second: second, rest: List(third, fourth)" === BasicPatternMatchingExercise.matchOnInputType(Seq("first", "second", "third", "fourth"))
+      "A Scala Option subtype" === BasicPatternMatchingExercise.matchOnInputType(Some(1))
+      "A Scala Option subtype" === BasicPatternMatchingExercise.matchOnInputType(None)
+      "Some Scala class" === BasicPatternMatchingExercise.matchOnInputType(10l)
+      "A null value" === BasicPatternMatchingExercise.matchOnInputType(null)
+    }
+    "check age" in {
+      Some("Jack") === BasicPatternMatchingExercise.older(new Person("Jack", 31))
+      None === BasicPatternMatchingExercise.older(new Person("Jack", 30))
+    }
+    "match partial functions" in {
+      //pf1 and pf2 are both partial functions.
+      //These inherit from Scala's Function class, with an extra method: isDefinedAt
+      //  pf3 should be defined in terms of pf1 and pf2
 
-  @Test
-  def shouldMatchInputType = {
-    assert("A string with length 8" === BasicPatternMatchingExercise.matchOnInputType("A String"))
-    assert("A positive integer" === BasicPatternMatchingExercise.matchOnInputType(10))
-    assert("A negative integer" === BasicPatternMatchingExercise.matchOnInputType(-1))
-    assert("A Scala Option subtype" === BasicPatternMatchingExercise.matchOnInputType(Some(1)))
-    assert("A Scala Option subtype" === BasicPatternMatchingExercise.matchOnInputType(None))
-    assert("Some Scala class" === BasicPatternMatchingExercise.matchOnInputType(List(1, 2, 3)))
-    assert("A null value" === BasicPatternMatchingExercise.matchOnInputType(null))
-  }
+      BasicPatternMatchingExercise.pf1.isDefinedAt("scala-labs") must beTrue
+      BasicPatternMatchingExercise.pf1.isDefinedAt("stuff") must beTrue
+      BasicPatternMatchingExercise.pf1.isDefinedAt("other stuff") must beFalse
+      BasicPatternMatchingExercise.pf2.isDefinedAt("other stuff") must beTrue
 
-  @Test
-  def checkAge = {
-    assert(Some("Jack") === BasicPatternMatchingExercise.older(new Person("Jack", 31)))
-    assert(None === BasicPatternMatchingExercise.older(new Person("Jack", 30)))
-  }
-
-  @Test
-  def matchPartialFunctions = {
-    //pf1 and pf2 are both partial functions.
-    //These inherit from Scala's Function class, with an extra method: isDefinedAt
-    //  pf3 should be defined in terms of pf1 and pf2
-
-    assertTrue(BasicPatternMatchingExercise.pf1.isDefinedAt("scala-labs"))
-    assertTrue(BasicPatternMatchingExercise.pf1.isDefinedAt("stuff"))
-    assertFalse(BasicPatternMatchingExercise.pf1.isDefinedAt("other stuff"))
-    assertTrue(BasicPatternMatchingExercise.pf2.isDefinedAt("other stuff"))
-
-
-    assertTrue(BasicPatternMatchingExercise.pf3.isDefinedAt("scala-labs"))
-    assertTrue(BasicPatternMatchingExercise.pf3.isDefinedAt("other stuff"))
+      BasicPatternMatchingExercise.pf3.isDefinedAt("scala-labs") must beTrue
+      BasicPatternMatchingExercise.pf3.isDefinedAt("other stuff") must beTrue
+    }
   }
 }

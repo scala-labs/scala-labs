@@ -15,20 +15,21 @@ import sys._
 
 object RecursionPatternMatchingExercise {
 
-  /*************************************************************************
+  /**
+   * ***********************************************************************
    * Recursive algorithms with pattern matching
    * For expected solution see unittest @RecursionPatternMatchingExerciseTest
-   *************************************************************************/
-
-  def compress[T](in: List[T]): List[T] = {
-    error("fix me")
-  }
-
+   * ***********************************************************************
+   */
   def groupConsecutive[T](in: List[T]): List[List[T]] = {
     error("fix me")
   }
 
   def groupEquals[T](in: List[T]): List[List[T]] = {
+    error("fix me")
+  }
+
+  def compress[T](in: List[T]): List[T] = {
     error("fix me")
   }
 

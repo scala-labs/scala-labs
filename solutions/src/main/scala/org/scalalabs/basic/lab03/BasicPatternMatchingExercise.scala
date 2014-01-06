@@ -17,10 +17,12 @@ package org.scalalabs.basic.lab03
 
 object BasicPatternMatchingExercise {
 
-  /*************************************************************************
+  /**
+   * ***********************************************************************
    * Basic pattern matching exercises
    * For expected solution see unittest @BasicPatternMatchingExerciseTest
-   *************************************************************************/
+   * ***********************************************************************
+   */
 
   def describeLanguage(s: String) = {
     s match {
@@ -33,25 +35,27 @@ object BasicPatternMatchingExercise {
   }
 
   def matchOnInputType(in: Any) = in match {
-    case s: String => "A string with length " + s.length
+    case s: String => s"A string with length ${s.length}"
     case i: Int if i > 0 => "A positive integer"
-    case i: Int if i < 0 => "A negative integer"
+    case Person(name, _) => s"A person with name: $name"
+    case s: Seq[_] if (s.size > 10) => "Seq with more than 10 elements"
+    case first :: second :: tail => s"first: $first, second: $second, rest: $tail"
     case o: Option[_] => "A Scala Option subtype"
     case a: AnyRef => "Some Scala class"
     case _ => "A null value"
   }
-
 
   def older(p: Person): Option[String] = p match {
     case Person(name, age) if age > 30 => Some(name)
     case _ => None
   }
 
-
-  /*************************************************************************
+  /**
+   * ***********************************************************************
    * Pattern matching with partial functions
    * For expected solution see @BasicPatternMatchingExerciseTest
-   *************************************************************************/
+   * ***********************************************************************
+   */
   val pf1: PartialFunction[String, String] = {
     case "scala-labs" => "Got scala-labs"
     case "stuff" => "Got stuff"
