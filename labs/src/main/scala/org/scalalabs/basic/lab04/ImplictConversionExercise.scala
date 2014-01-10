@@ -1,6 +1,6 @@
 package org.scalalabs.basic.lab04
 
-import org.joda.time.{Duration, DateTime}
+import org.joda.time.{ Duration, DateTime }
 import scala.math._
 
 /**
@@ -22,17 +22,8 @@ import scala.math._
  *
  */
 
-object ImplictConversionExercise {
+object ImplictConversionExercise01 {
 
-  implicit def myConf(i:Int) = new {
-     def *(s:String):String = s * i
-     }
-/*
-scala> 5 * "abc"
-res6: String = abcabcabcabcabc
-*/
-
-  /**============================================================================ */
   def stringToList(s: String): List[Char] = {
     //built in: our String will be converted to Scala's RichString, because this is defined a Scala
     //object called Predef. This is imported by the compiler by default.
@@ -40,7 +31,11 @@ res6: String = abcabcabcabcabc
     List[Char]()
   }
 
-  /**============================================================================ */
+}
+
+/**============================================================================ */
+
+object ImplictConversionExercise02 {
   class Celsius(val degree: Double)
   class Fahrenheit(val fahrenheit: Double)
 
@@ -68,44 +63,67 @@ res6: String = abcabcabcabcabc
       degreeCelsius * 1.8 + 32
     }
   }
+}
 
-  /**============================================================================ */
-  // Write here an implict conversion that adds a camelCase method to string.
+/**============================================================================ */
+// Write here an implict class that adds a camelCase method to string.
 
-
+object ImplictConversionExercise03 {
 
 }
 
 /**============================================================================ */
+object ImplictConversionExercise04 {
 
-object TimeUtils {
-  case class DurationBuilder(timeSpan: Long) {
-    def now = new DateTime().getMillis()
+  object TimeUtils {
+    case class DurationBuilder(timeSpan: Long) {
+      def now = new DateTime().getMillis()
 
-    //    def seconds = TODO your implementation here...
+      //    def seconds = TODO your implementation here...
 
-    //    def minutes = TODO your implementation here...
+      //    def minutes = TODO your implementation here...
 
-    //    def hours = TODO your implementation here...
+      //    def hours = TODO your implementation here...
 
-    //    def days = TODO your implementation here...
+      //    def days = TODO your implementation here...
+    }
+
+    //TODO define some implicits that convert integers and longs to durations and builders to make it all work
+
+    def seconds(in: Long) = in * 1000L
+
+    def minutes(in: Long) = seconds(in) * 60L
+
+    def hours(in: Long) = minutes(in) * 60L
+
+    def days(in: Long) = hours(in) * 24L
   }
 
-  //TODO define some implicits that convert integers and longs to durations and builders to make it all work
+  case class RichDuration(val duration: Duration) {
+    def millis = duration.getMillis()
 
-  def seconds(in: Long) = in * 1000L
+    def afterNow = new DateTime().plus(duration)
 
-  def minutes(in: Long) = seconds(in) * 60L
-
-  def hours(in: Long) = minutes(in) * 60L
-
-  def days(in: Long) = hours(in) * 24L
+    def +(that: RichDuration) = RichDuration(this.duration.plus(that.duration))
+  }
 }
+/**
+ * Create a money DSL which allows you to create Euro classes as follows:
+ * - 2 euros           => Euro(2, 0)
+ * - 40 cents          => Euro(0, 40)
+ * - 2 euros 45 cents  => Euro(2,45)
+ * The Euro case class is already provided.
+ * Hint: Use an intermediate class (e.g. EuroBuilder) to create the Euro object.
+ * E.g. 2 euros = 2 -> EuroBuilder
+ * Use an implicit conversion from EuroBuilder -> Euro to get the final result
+ * In the EuroBuilder you might need the apply() method to cover this case:
+ * 2 euros >45< cents
+ */
+object ImplictConversionExercise05 {
+  case class Euro(val euros: Int, val cents: Int) 
+  
+  object Euro {
+    def fromCents(cents: Int) = new Euro(cents / 100, cents % 100)
+  }
 
-case class RichDuration(val duration: Duration) {
-  def millis = duration.getMillis()
-
-  def afterNow = new DateTime().plus(duration)
-
-  def +(that: RichDuration) = RichDuration(this.duration.plus(that.duration))
 }

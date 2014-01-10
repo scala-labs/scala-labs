@@ -17,5 +17,16 @@ class Euro(val euro: Int, val cents: Int = 0) extends Currency("EUR") with Order
 
 object Euro {
   def fromCents(cents: Int) = new Euro(cents / 100, cents % 100)
+  
+  implicit class EuroInt(val i:Int) extends AnyVal {
+    def *(euro:Euro) = euro * i
+  }
+  
+  val conversionRate = 1.3598
+  implicit def fromDollar(dollar:Dollar):Euro = Euro.fromCents((dollar.inCents.toDouble * conversionRate).toInt)
 
+}
+
+class Dollar(val dollar: Int, val cents: Int = 0) extends Currency("USR") {
+   def inCents: Int = dollar * 100 + cents
 }

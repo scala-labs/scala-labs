@@ -32,8 +32,6 @@ class BasicOOExerciseTest extends Specification {
       //      e.euro ==== 2
       //      e.cents ==== 45
     }
-  }
-  "Exercise 2: Calculating with Euros" should {
     "add another euro correctly" in {
       skipped("Uncomment and fix me")
       //      val res = new Euro(1, 50) + new Euro(2, 70)
@@ -47,8 +45,13 @@ class BasicOOExerciseTest extends Specification {
       //      res.cents ==== 50
     }
   }
-  "Exercise 3: toString of Euro" should {
-    "have correct  representation" in {
+  "Exercise 2: an Euro" should {
+    "be a cubclass of Currency" in {
+      skipped("Uncomment and fix me")
+      //      val e: Currency = new Euro(2, 5)
+      //      e.symbol ==== "EUR"
+    }
+    "have correct toString representation" in {
       skipped("Uncomment and fix me")
       //      val e = new Euro(2, 5)
       //      e.toString ==== "EUR: 2,05"
@@ -56,7 +59,7 @@ class BasicOOExerciseTest extends Specification {
       //      e2.toString ==== "EUR: 2,--"
     }
   }
-  "Exercise 4: Euro with Order trait" should {
+  "Exercise 3: Euro with Order trait" should {
     "be correctly orderable" in {
       skipped("Uncomment and fix me")
       //      val e1 = new Euro(1, 5)
@@ -65,6 +68,22 @@ class BasicOOExerciseTest extends Specification {
       //      e3 > e1 must beTrue
       //      val list = List(e2, e1, e3)
       //      list.sorted ==== List(e1, e2, e3)
+    }
+  }
+  
+   "Exercise 4: Implicit class" should {
+    "add *(euro:Euro) (multiply) method to Int" in {
+      skipped("Uncomment and fix me")
+//      import Euro._
+//      val res = 3 * new Euro(2, 50)
+//      res.euro ==== 7
+//      res.cents ==== 50
+    }
+    "implicitly convert from euro to dollar" in {
+      skipped("Uncomment and fix me")
+//      val e: Euro = new Dollar(1, 5)
+//      e.euro ==== 1
+//      e.cents ==== 42
     }
   }
 }

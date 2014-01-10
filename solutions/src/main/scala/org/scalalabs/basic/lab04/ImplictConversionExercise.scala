@@ -1,6 +1,6 @@
 package org.scalalabs.basic.lab04
 
-import org.joda.time.{Duration, DateTime}
+import org.joda.time.{ Duration, DateTime }
 import scala.math._
 
 /**
@@ -20,17 +20,16 @@ import scala.math._
  *
  */
 
-object ImplictConversionExercise {
-
-  /**============================================================================ */
+object ImplictConversionExercise01 {
 
   def stringToList(s: String): List[Char] = {
     //build in: our String will be converted to Scala's RichString, because this is defined a Scala
     //object called Predef. This is imported by the compiler by default.
     s.toList
   }
-
-  /**============================================================================ */
+}
+/**============================================================================ */
+object ImplictConversionExercise02 {
 
   class Celsius(val degree: Double)
   class Fahrenheit(val fahrenheit: Double)
@@ -60,17 +59,19 @@ object ImplictConversionExercise {
     }
   }
 
-  implicit def celsiusToFahrenheit(f: Fahrenheit) = {new Celsius(ConversionHelper.fahrenheit2CelsiusConversion(f.fahrenheit))}
+  implicit def celsiusToFahrenheit(f: Fahrenheit) = { new Celsius(ConversionHelper.fahrenheit2CelsiusConversion(f.fahrenheit)) }
 
-  implicit def fahrenheitToCelsius(c: Celsius) = {new Fahrenheit(ConversionHelper.celsius2FahrenheitConversion(c.degree))}
+  implicit def fahrenheitToCelsius(c: Celsius) = { new Fahrenheit(ConversionHelper.celsius2FahrenheitConversion(c.degree)) }
+}
 
+/**============================================================================ */
+object ImplictConversionExercise03 {
 
-  /**============================================================================ */
-
-  /**Use an implict conversion from string to an anonymous object that contains a camelCase method.
+  /**
+   * Use an implict conversion from string to an anonymous object that contains a camelCase method.
    *  By doing so, the camelCase method is added to the string
    */
-  implicit def str2CamelCase(s: String) = new {
+  implicit class CamelCaseString(s: String) {
     def camelCase: String = {
       def camelCase(s: String): String = {
         val spaceLetterAndRestOfTextSeqRegExp = """\s(.?)(.*)""".r
@@ -85,37 +86,58 @@ object ImplictConversionExercise {
 }
 
 /**============================================================================ */
+object ImplictConversionExercise04 {
+  object TimeUtils {
+    case class DurationBuilder(timeSpan: Long) {
+      def now = new DateTime().getMillis()
 
-object TimeUtils {
-  case class DurationBuilder(timeSpan: Long) {
-    def now = new DateTime().getMillis()
+      def seconds = RichDuration(TimeUtils seconds (timeSpan))
 
-    def seconds = RichDuration(TimeUtils seconds (timeSpan))
+      def minutes = RichDuration(TimeUtils minutes (timeSpan))
 
-    def minutes = RichDuration(TimeUtils minutes (timeSpan))
+      def hours = RichDuration(TimeUtils hours (timeSpan))
 
-    def hours = RichDuration(TimeUtils hours (timeSpan))
+      def days = RichDuration(TimeUtils days (timeSpan))
 
-    def days = RichDuration(TimeUtils days (timeSpan))
+    }
+
+    implicit def longToDuration(l: Long): Duration = new Duration(l)
+
+    implicit def intToDurationBuilder(i: Int): DurationBuilder = new DurationBuilder(i)
+
+    def seconds(in: Long) = in * 1000L
+
+    def minutes(in: Long) = seconds(in) * 60L
+
+    def hours(in: Long) = minutes(in) * 60L
+
+    def days(in: Long) = hours(in) * 24L
   }
 
-  implicit def longToDuration(l: Long): Duration = new Duration(l)
+  case class RichDuration(val duration: Duration) {
+    def millis = duration.getMillis()
 
-  implicit def intToDurationBuilder(i: Int): DurationBuilder = new DurationBuilder(i)
+    def afterNow = new DateTime().plus(duration)
 
-  def seconds(in: Long) = in * 1000L
-
-  def minutes(in: Long) = seconds(in) * 60L
-
-  def hours(in: Long) = minutes(in) * 60L
-
-  def days(in: Long) = hours(in) * 24L
+    def +(that: RichDuration) = RichDuration(this.duration.plus(that.duration))
+  }
 }
 
-case class RichDuration(val duration: Duration) {
-  def millis = duration.getMillis()
+object ImplictConversionExercise05 {
+  case class Euro(val euros: Int, val cents: Int) 
+  
+  object Euro {
+    def fromCents(cents: Int) = new Euro(cents / 100, cents % 100)
+  }
 
-  def afterNow = new DateTime().plus(duration)
+  class EuroBuilder(val amount: Int, val inCents: Int) {
+    private val stateCents = "cents"
+    def euros = new EuroBuilder(0, inCents + amount * 100)
+    def cents = new EuroBuilder(0, inCents + amount)
+    def apply(amount: Int) = new EuroBuilder(amount, inCents)
+  }
 
-  def +(that: RichDuration) = RichDuration(this.duration.plus(that.duration))
+  implicit def fromEuroBuilder(eb: EuroBuilder):Euro = Euro.fromCents(eb.inCents)
+  implicit def fromInt(value: Int):EuroBuilder= new EuroBuilder(value, 0)
+
 }

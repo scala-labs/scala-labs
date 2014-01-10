@@ -7,7 +7,7 @@ import org.specs2.runner.JUnitRunner
 @RunWith(classOf[JUnitRunner])
 class BasicOOExerciseTest extends Specification {
 
-  "Exercise 1: Creating an Euro" should {
+  "Exercise 1: an Euro" should {
     "be initialized correctly" in {
       val e = new Euro(1, 5)
       e.euro ==== 1
@@ -28,28 +28,31 @@ class BasicOOExerciseTest extends Specification {
       e.cents ==== 45
     }
   }
-  "Exercise 2: Calculating with Euros" should {
-    "add another euro correctly" in {
-      val res = new Euro(1, 50) + new Euro(2, 70)
-      res.euro ==== 4
-      res.cents ==== 20
-    }
-    "multiply correctly by a factor" in {
-      val res = new Euro(1, 50) * 3
-      res.euro ==== 4
-      res.cents ==== 50
-    }
+  "add another euro correctly" in {
+    val res = new Euro(1, 50) + new Euro(2, 70)
+    res.euro ==== 4
+    res.cents ==== 20
   }
-  "Exercise 3: toString of Euro" should {
-    "have correct representation" in {
+  "multiply correctly by a factor" in {
+    val res = new Euro(1, 50) * 3
+    res.euro ==== 4
+    res.cents ==== 50
+  }
+
+  "Exercise 2: an Euro" should {
+    "be a cubclass of Currency" in {
+      val e: Currency = new Euro(2, 5)
+      e.symbol ==== "EUR"
+    }
+    "have correct toString representation" in {
       val e = new Euro(2, 5)
       e.toString ==== "EUR: 2,05"
       val e2 = new Euro(2)
       e2.toString ==== "EUR: 2,--"
     }
-
   }
-  "Exercise 4: Euro with Order trait" should {
+
+  "Exercise 3: Euro with Order trait" should {
     "be correctly orderable" in {
       val e1 = new Euro(1, 5)
       val e2 = new Euro(4, 53)
@@ -57,7 +60,22 @@ class BasicOOExerciseTest extends Specification {
       e3 > e1 must beTrue
       val list = List(e2, e1, e3)
       list.sorted ==== List(e1, e2, e3)
-      
+
+    }
+  }
+
+  "Exercise 4: Implicit class" should {
+    "add *(euro:Euro) (multiply) method to Int" in {
+      import Euro._
+      val res = 3 * new Euro(2, 50)
+      res.euro ==== 7
+      res.cents ==== 50
+    }
+
+    "implicitly convert from euro to dollar" in {
+      val e: Euro = new Dollar(1, 5)
+      e.euro ==== 1
+      e.cents ==== 42
     }
   }
 }
