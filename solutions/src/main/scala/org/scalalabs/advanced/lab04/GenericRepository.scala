@@ -4,7 +4,7 @@ import collection.mutable.Buffer
 import scala.reflect.ClassTag
 import scala.reflect.ClassTag._
 import scala.reflect._
-
+import scala.language.reflectiveCalls
 
 /**
  * Interface of a generic dao with basic persistency

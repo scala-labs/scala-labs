@@ -1,5 +1,5 @@
 package org.scalalabs.basic.lab01
-
+import scala.language.implicitConversions
 abstract class Currency(val symbol: String)
 
 class Euro(val euro: Int, val cents: Int = 0) extends Currency("EUR") with Ordered[Euro]{

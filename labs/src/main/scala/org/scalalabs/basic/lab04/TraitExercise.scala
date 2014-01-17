@@ -1,5 +1,5 @@
 package org.scalalabs.basic.lab04
-import Level._
+
 /**
  * In this exercise you learn to isolate common behavior in traits.
  * 
@@ -17,7 +17,7 @@ object Level extends Enumeration {
   type Level = Value
   val Debug, Info = Value
 } 
-
+import Level._
 class SimpleLogger(clazz: String) {
   import SimpleLogger._
   /**

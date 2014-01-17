@@ -1,4 +1,5 @@
 package org.scalalabs.basic.lab01
+import scala.language.implicitConversions
 /**
  * The goal of this exercise is to get familiar basic OO constructs in scala
  *

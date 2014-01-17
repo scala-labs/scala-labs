@@ -1,4 +1,5 @@
 package org.scalalabs.basic.lab03
+import scala.language.reflectiveCalls
 import sys._
 /**
  * This exercise introduces you to Scala functions.

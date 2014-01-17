@@ -40,14 +40,14 @@ object CollectionExercise01 {
     //visualize missing chars in alphabet
     val existingCharsSorted = input.toSet.toList.sorted.mkString
     val alphabet = 'a' to 'z'
-    val visualMissingChars = alphabet map (c => if (existingCharsSorted.contains(c)) c else ' ') mkString
+    val visualMissingChars = alphabet.map (c => if (existingCharsSorted.contains(c)) c else ' ').mkString
 
     //compute mapping
     val output = "our language is impossible to understand there are twenty six factorial possibilities so it is okay if you want to just give up" filterNot (_ == ' ')
-    val initialMapping = input zip output toSet
+    val initialMapping = (input zip output).toSet
     val mapper = Map('z' -> 'q', 'q' -> 'z', ' ' -> ' ').withDefaultValue('?') ++ initialMapping
 
-    lines map (_ map mapper)
+    lines.map(_ map mapper)
   }
 }
 /*========================================================== */
@@ -83,7 +83,7 @@ object CollectionExercise03 {
    * To keep it simple it's ok to use String.split to extract all words of a sentence.
    */
   def calcLengthLongestWord(lines: String*): Int = {
-    lines map (_ split " " map (_ length) max) max
+    lines.map(_.split(" ").map(_.length).max).max
   }
 
 }

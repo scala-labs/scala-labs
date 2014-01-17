@@ -3,6 +3,8 @@ package org.scalalabs.basic.lab02
  * This Lab contains exercises where the usage of
  * higher order collection methods can be rehearsed.
  */
+import sys._
+
 object CollectionExercise01 {
 
   /**

@@ -2,6 +2,8 @@ package org.scalalabs.basic.lab04
 
 import org.joda.time.{ Duration, DateTime }
 import scala.math._
+import language.implicitConversions
+import language.higherKinds
 
 /**
  * This excersice introduces you to Scala implicit conversion features.

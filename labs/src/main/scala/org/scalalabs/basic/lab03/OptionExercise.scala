@@ -1,5 +1,6 @@
 package org.scalalabs.basic.lab03
 import scala.util.control._
+import sys._
 
 package object lab03 {
 

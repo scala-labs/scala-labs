@@ -118,7 +118,7 @@ trait AddableList[A] {
    * If such a required conversion is not in scope, the client calling our little API would not compile. 
    *
    */
-  def add(implicit m: Monoid[A]): A = value.foldLeft(m empty)(m append)
+  def add(implicit m: Monoid[A]): A = value.foldLeft(m.empty)(m.append)
 }
 /**
  * @see http://en.wikipedia.org/wiki/Monoid
@@ -194,7 +194,7 @@ object ImplicitExercise {
    *
    * If no such variable is in scope, compilation will fail.
    */
-  def add[T](xs: List[T])(implicit m: Monoid[T]): T = if(xs.isEmpty) m empty else m append(xs.head, add(xs.tail))
+  def add[T](xs: List[T])(implicit m: Monoid[T]): T = if(xs.isEmpty) m.empty else m.append(xs.head, add(xs.tail))
 
 }
 

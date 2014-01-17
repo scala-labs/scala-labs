@@ -1,6 +1,6 @@
 package org.scalalabs.intermediate.lab02
 
-
+import scala.language.implicitConversions
 object TwitterUsers {
 
     def thatArePopular(input: List[TwitterUser]): List[TwitterUser] = {

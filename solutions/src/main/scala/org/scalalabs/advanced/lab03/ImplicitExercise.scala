@@ -1,5 +1,7 @@
 package org.scalalabs.advanced.lab03
 import sys._
+import scala.language.higherKinds
+import scala.language.implicitConversions
 /**
  * An very simple implementation of trait representing anything that can be compared.
  * In Java this is similar to the Comparator interface.
@@ -51,13 +53,13 @@ trait PimpedList[A] {
 
 
   def mymax[B >: A](implicit o: Ord[B]): A = {
-    if (l isEmpty) error ("bzzt.. max on empty list")
+    if (l.isEmpty) error ("bzzt.. max on empty list")
 
     l.reduceLeft((x, y) => if (o.compare(x, y) > 0) x else y)
   }
 
   def mymin[B >: A](implicit o: Ord[B]): A = {
-    if (l isEmpty) error ("bzzt.. min on empty list")
+    if (l.isEmpty) error ("bzzt.. min on empty list")
 
     l.reduceLeft((x, y) => if (o.compare(x, y) > 0) y else x)
   }
@@ -65,7 +67,7 @@ trait PimpedList[A] {
 
 trait AddableList[A] {
   val value: List[A]
-  def add(implicit m: Monoid[A]): A = value.foldLeft(m empty)(m append)
+  def add(implicit m: Monoid[A]): A = value.foldLeft(m.empty)(m.append)
 }
 
 trait Monoid[T] {
@@ -100,7 +102,7 @@ object ImplicitExercise {
 
   implicit def toPimpedList[A](xs: List[A]) = new PimpedList[A]{val l = xs}
 
-  def add[T](xs: List[T])(implicit m: Monoid[T]): T = if(xs.isEmpty) m empty else m append(xs.head, add(xs.tail))
+  def add[T](xs: List[T])(implicit m: Monoid[T]): T = if(xs.isEmpty) m.empty else m.append(xs.head, add(xs.tail))
 
   def add[A](ns: A*)(implicit n: Numeric[A]) = {
     ns reduceLeft(n plus(_,_))    

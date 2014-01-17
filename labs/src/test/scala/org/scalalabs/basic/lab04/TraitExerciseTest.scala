@@ -1,18 +1,17 @@
 package org.scalalabs.basic.lab04
 import org.junit.runner.RunWith
+import org.specs2.runner.JUnitRunner
 import org.specs2.mutable.Specification
 import org.specs2.specification._
 import Level._
-import org.scalalabs.basic.lab04.SimpleLogger
-import org.scalalabs.basic.lab04.DummyService
 @RunWith(classOf[JUnitRunner])
 class TraitExerciseTest extends Specification {
   sequential
   val enableAllLevels = Map(Debug -> true, Info -> true)
   val disableAllLevels = Map(Debug -> false, Info -> false)
-  val firstDebugStatement = "Debug   org.scalalabs.basic.lab01.DummyService Prepare sending"
-  val infoStatement = (msg: String) => s"Info    org.scalalabs.basic.lab01.DummyService $msg successfully sent"
-  val lastDebugStatement = "Debug   org.scalalabs.basic.lab01.DummyService Done"
+  val firstDebugStatement = "Debug   org.scalalabs.basic.lab04.DummyService Prepare sending"
+  val infoStatement = (msg: String) => s"Info    org.scalalabs.basic.lab04.DummyService $msg successfully sent"
+  val lastDebugStatement = "Debug   org.scalalabs.basic.lab04.DummyService Done"
 
   "Exercise 1: Logger Trait" should {
     "log all events" in new cleanLogger {

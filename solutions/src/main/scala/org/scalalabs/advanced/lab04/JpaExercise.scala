@@ -5,6 +5,7 @@ import javax.persistence._
 import java.util.Date
 import org.joda.time.DateTime
 import collection.mutable.Buffer
+import scala.language.implicitConversions
 
 /**
  * The JPA exercises let experiment with Scala and JPA,

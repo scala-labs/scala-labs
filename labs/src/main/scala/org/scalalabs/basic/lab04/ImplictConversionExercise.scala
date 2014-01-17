@@ -2,7 +2,8 @@ package org.scalalabs.basic.lab04
 
 import org.joda.time.{ Duration, DateTime }
 import scala.math._
-
+import language.implicitConversions
+import language.higherKinds
 /**
  * @author arjan
  *
