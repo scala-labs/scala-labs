@@ -1,4 +1,4 @@
-name := "ScalaLabs-solutions"
+name := "ScalaLabs"
 
 organization := "Xebia B.V."
 
@@ -8,10 +8,6 @@ scalaVersion := "2.10.2"
 
 resolvers ++= Seq("Local Maven Repository" at "file://"+Path.userHome+"/.m2/repository",
 	"Signpost releases" at "https://oss.sonatype.org/content/repositories/signpost-releases/")
-
-// You should be able to use the following to read all dependencies from the pom.xml file, but somehow those aren't picked up.
-// see: https://github.com/harrah/xsbt/wiki/Library-Management
-// externalPom()
 
 libraryDependencies ++= Seq("joda-time" % "joda-time" % "1.6",
 	"org.apache.httpcomponents" % "httpclient" % "4.1.1",
