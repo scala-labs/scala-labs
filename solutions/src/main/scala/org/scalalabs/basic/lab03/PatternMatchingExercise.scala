@@ -15,12 +15,12 @@ package org.scalalabs.basic.lab03
  * Pattern matching in combination with partial functions: http://programming-scala.labs.oreilly.com/ch08.html#PartialFunctions
  */
 
-object BasicPatternMatchingExercise {
+object PatternMatchingExercise {
 
   /**
    * ***********************************************************************
-   * Basic pattern matching exercises
-   * For expected solution see unittest @BasicPatternMatchingExerciseTest
+   *  pattern matching exercises
+   * For expected solution see unittest @PatternMatchingExerciseTest
    * ***********************************************************************
    */
 
@@ -53,7 +53,7 @@ object BasicPatternMatchingExercise {
   /**
    * ***********************************************************************
    * Pattern matching with partial functions
-   * For expected solution see @BasicPatternMatchingExerciseTest
+   * For expected solution see @PatternMatchingExerciseTest
    * ***********************************************************************
    */
   val pf1: PartialFunction[String, String] = {
