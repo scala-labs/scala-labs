@@ -20,7 +20,7 @@ import sys._
  * <a href="http://projecteuler.net/problem=4">Project Euler - Problem 4</a>
  *
  */
-object BasicForExpressionExercise01 {
+object ForExpressionExercise01 {
 
   private def getFromAndTo(amountOfDigits: Int) = {
     require(amountOfDigits > 1, "amount of digits must be at least 2")
