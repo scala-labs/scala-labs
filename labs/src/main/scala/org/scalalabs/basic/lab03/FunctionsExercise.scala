@@ -10,7 +10,7 @@ import sys._
  * Use the logPerf method provided.
  * Provide a suitable implementation in order to make the corresponding unittest work.
  */
-object BasicFunctionsExercise1 {
+object FunctionsExercise01 {
 
   var printed = "" 
   private def logPerf(elapsed: Long) = printed = s"The execution took: $elapsed ms"
@@ -27,7 +27,7 @@ object BasicFunctionsExercise1 {
  *
  * Provide a suitable implementation in order to make the corresponding unittest work.
  */
-object BasicFunctionsExercise2 {
+object FunctionsExercise02 {
 
   def plusOne(x: Int): Int = {
     //implement this using a partial function

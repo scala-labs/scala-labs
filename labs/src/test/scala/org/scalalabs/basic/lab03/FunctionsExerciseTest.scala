@@ -5,26 +5,26 @@ import org.specs2.mutable.Specification
 import org.specs2.runner.JUnitRunner
 
 /**
- * @see BasicFunctionsExercise1/2
+ * @see FunctionsExercise1/2
  */
 @RunWith(classOf[JUnitRunner])
-class BasicFunctionsExerciseTest extends Specification {
+class FunctionsExerciseTest extends Specification {
 
-  "BasicFunctionsExercise1" should {
+  "FunctionsExercise01" should {
     "measure execution time" in {
       def block: Int = {
         Thread.sleep(3)
         4
       }
       //uncomment next line
-      //4 ==== BasicFunctionsExercise1.measure(block)
-      BasicFunctionsExercise1.printed startsWith ("The execution took: ")
+      //4 ==== FunctionsExercise1.measure(block)
+      FunctionsExercise01.printed startsWith ("The execution took: ")
     }
   }
-  "BasicFunctionsExercise2" should {
+  "FunctionsExercise02" should {
     "increment value with plusOne method" in {
-      3 == BasicFunctionsExercise2.plusOne(2)
-      6 == BasicFunctionsExercise2.plusOne(5)
+      3 == FunctionsExercise02.plusOne(2)
+      6 == FunctionsExercise02.plusOne(5)
     }
 
     "control structure that closes closable with using method" in {
@@ -37,10 +37,10 @@ class BasicFunctionsExerciseTest extends Specification {
       closable.closed must beFalse
       anotherClosable.closed must beFalse
 
-      val greeting = BasicFunctionsExercise2.using(closable) {
+      val greeting = FunctionsExercise02.using(closable) {
         c => c sayHello ("John")
       }
-      val anotherGreeting = BasicFunctionsExercise2.using(anotherClosable) {
+      val anotherGreeting = FunctionsExercise02.using(anotherClosable) {
         c => c sayHello ("John")
       }
 
