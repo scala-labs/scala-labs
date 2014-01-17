@@ -13,7 +13,7 @@ import java.util.TreeMap;
  * of grouping a list of Person objects based on their age group.
  * 
  * Rewrite the groupAdultsPerAgeGroup method in Scala using higher order functions
- * in @see {@link BasicCollectionExercise.groupAdultsPerAgeGroup}
+ * in @see {@link CollectionExercise.groupAdultsPerAgeGroup}
  * 
  */
 public class ImperativeSample {
