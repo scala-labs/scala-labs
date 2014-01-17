@@ -8,7 +8,7 @@ import sys._
  * An overview of some functional programming techniques can be found here in the O'reilly book:
  * http://programming-scala.labs.oreilly.com/ch08.html#FunctionalDataStructures 
  */
-object BasicListManipulationExercise01 {
+object ListManipulationExercise01 {
 
   /**
    * Get the first element in the list. Hint: there is a built-in function for this you can use.

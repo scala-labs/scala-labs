@@ -13,7 +13,7 @@ import org.specs2.runner.JUnitRunner
 @RunWith(classOf[JUnitRunner])
 class HelloWorldExerciseTest extends Specification {
 
-  /*
+  /* 
   * Scala Objects
   *
   * Your job is to implement the objects and classes in

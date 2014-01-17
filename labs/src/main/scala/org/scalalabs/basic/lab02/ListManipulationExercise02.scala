@@ -4,7 +4,7 @@ import scala.collection.mutable.ListBuffer
  import sys._
 
 
-object BasicListManipulationExercise02 {
+object ListManipulationExercise02 {
 
   /**
    * Find the maximum element in a list, e.g. maxElementInList(List(1,9,3,5)) == 9

@@ -1,13 +1,10 @@
-package org.scalalabs.basic.lab01
-
-import java.lang.{ IllegalArgumentException => IAE }
+package org.scalalabs.basic.lab04
 import org.junit.runner.RunWith
 import org.specs2.mutable.Specification
-import org.specs2.runner.JUnitRunner
 import org.specs2.specification._
-import org.specs2.specification.BeforeExample
-import org.specs2.specification.AfterExample
 import Level._
+import org.scalalabs.basic.lab01.DummyService
+import org.scalalabs.basic.lab01.Loggable
 @RunWith(classOf[JUnitRunner])
 class TraitExerciseTest extends Specification {
   sequential

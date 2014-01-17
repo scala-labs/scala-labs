@@ -2,7 +2,7 @@ package org.scalalabs.basic.lab02
 
 
 
-object BasicListManipulationExercise02 {
+object ListManipulationExercise02 {
   
   
   def sumOfElementsInList(l: List[Int]): Int = {

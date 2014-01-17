@@ -1,4 +1,5 @@
-package org.scalalabs.basic.lab01
+package org.scalalabs.basic.lab04
+import Level._
 /**
  * In this exercise you learn to isolate common behavior in traits.
  * 
@@ -11,13 +12,11 @@ package org.scalalabs.basic.lab01
  * implementation of SimpleLogger in the DummyService with this Loggable trait
  * so that the DummyService directly can use the the logging methods without
  * the need to create its own logger.
- *
  */
 object Level extends Enumeration {
   type Level = Value
   val Debug, Info = Value
-}
-import Level._
+} 
 
 class SimpleLogger(clazz: String) {
   import SimpleLogger._
@@ -49,19 +48,22 @@ object SimpleLogger {
   def apply(clazz: String) = new SimpleLogger(clazz)
 }
 
-class DummyService extends Loggable {
-
+class DummyService  {
+  
+  /**the logger must be removed. 
+   * Move it to a Loggable trait that can be mix-in in any class that needs logging.
+   * Finally, mix-in the Loggable trait in this class in order to log the statments
+   * in the sendSomething method*/
+  val logger = SimpleLogger(getClass().getName())
+  
   def sendSomething(msg: Any) = {
-    debug("Prepare sending")
-    info(s"$msg successfully sent")
-    debug("Done")
+    logger.debug("Prepare sending")
+    logger.info(s"$msg successfully sent")
+    logger.debug("Done")
   }
 }
 
-trait Loggable {
-  self =>
-  val logger = SimpleLogger(self.getClass().getName())
-  def debug(msg: => Any) = logger.debug(msg)
-  def info(msg: => Any) = logger.info(msg)
-}
+
+
+
 

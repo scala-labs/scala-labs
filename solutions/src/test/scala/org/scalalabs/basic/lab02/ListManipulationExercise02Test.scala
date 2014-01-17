@@ -6,7 +6,7 @@ import java.lang.{ IllegalArgumentException => IAE }
 import org.junit.runner.RunWith
 import org.specs2.mutable.Specification
 import org.specs2.runner.JUnitRunner
-import BasicListManipulationExercise02.Person
+import ListManipulationExercise02._
 
 /*
  * Lab 02: more Scala collection operations
@@ -20,23 +20,23 @@ import BasicListManipulationExercise02.Person
  */
 
 @RunWith(classOf[JUnitRunner])
-class BasicListManipulationExercise02Test extends Specification {
+class ListManipulationExercise02Test extends Specification {
   
  "A Scala List" should {
    "find max int in list" in {
-    9 === BasicListManipulationExercise02.maxElementInList(List(1, 9, 4, 9, 8))
-    25 === BasicListManipulationExercise02.maxElementInList(List(1, 7, 5, 17, 25, 24, 22, 19))
+    9 === maxElementInList(List(1, 9, 4, 9, 8))
+    25 === maxElementInList(List(1, 7, 5, 17, 25, 24, 22, 19))
   }
 
    "calc sum of same positioned elements in two lists" in {
-    List(2, 8, 14) === BasicListManipulationExercise02.sumOfTwo(List(1, 5, 9), List(1, 3, 5))
+    List(2, 8, 14) === sumOfTwo(List(1, 5, 9), List(1, 3, 5))
     //if one of the lists is empty return the ones with values
-    List(1, 2, 3) === BasicListManipulationExercise02.sumOfTwo(List(1, 2, 3), List())
-    List(1, 2, 3) === BasicListManipulationExercise02.sumOfTwo(List(), List(1, 2, 3))
+    List(1, 2, 3) === sumOfTwo(List(1, 2, 3), List())
+    List(1, 2, 3) === sumOfTwo(List(), List(1, 2, 3))
   }
 
    "calc sum of same positioned elements in many lists" in {
-    List(12, 15, 18) === BasicListManipulationExercise02.sumOfMany(List(1, 2, 3), List(4, 5, 6), List(7, 8, 9))
+    List(12, 15, 18) === sumOfMany(List(1, 2, 3), List(4, 5, 6), List(7, 8, 9))
   }
   
    "rewrite imperative to functional" in {
@@ -50,7 +50,7 @@ class BasicListManipulationExercise02Test extends Specification {
     val peter2 = Person(19, "Peter2", "Petersson")
     val jason = Person(21, "Jason", "Jasonsson")
     
-    val result = BasicListManipulationExercise02.separateTheMenFromTheBoys(List(jason, anton1, anton2, anton3, peter1, peter2))
+    val result = separateTheMenFromTheBoys(List(jason, anton1, anton2, anton3, peter1, peter2))
     
     List(List("Anton1", "Anton2", "Peter1"), List("Anton3", "Peter2", "Jason")) === result
   }

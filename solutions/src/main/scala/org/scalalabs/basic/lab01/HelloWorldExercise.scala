@@ -8,7 +8,7 @@ package org.scalalabs.basic.lab01
  */
 object HelloWorld {
 
-  /*
+  /**
    * This defines the 'sayHello' field of the HelloWorld object.
    *
    * Field declarations in Scala are public by default. There is no need to create a getter to access this value, as is
@@ -25,10 +25,10 @@ object HelloWorld {
    * More on variable declarations can be found here:
    * http://programming-scala.labs.oreilly.com/ch02.html#VariableDeclarationsAndDefinitions
    */
-	val sayHello: String = "FixMe"
+	val sayHello:String = "Hello from Scala"
+ 
 
-
-  /*
+  /**
    * This defines the 'echo' method of the HelloWorld object.
    *
    * Like in Java, the method arguments (text:String) are between round brackets. Unlike Java, the return type of
@@ -45,5 +45,63 @@ object HelloWorld {
    * More on method declarations can be found here:
    * http://programming-scala.labs.oreilly.com/ch02.html#MethodDeclarationsAndDefinitions
    */
-	def echo(text: String): String = "FixMe"
+	 def echo(text:String):String = text
 }
+
+
+/*================================= Objects =====================================*/
+/**
+ * The goal of this exercise is to get familiar with the idea behind Companion Objects
+ *
+ * Fix the code so that the unit test 'HelloWorldExerciseTest' passes.
+ *
+ * More information on Companion Objects can be found here:
+ * http://programming-scala.labs.oreilly.com/ch06.html#CompanionObjects
+ *
+ * Hints:
+ * - A Class may have a Companion Object by the same name, which must be defined in the same source file
+ * - The 'apply' method of an object is conventionally used as a factory method to create new instances of its
+ *   companion class. This allows you to leave off the "new" keyword when constructing instances, as you can
+ *   see in the unit test.
+ *
+ * The factory method below creates an anonymous subclass of the HelloWorldClassAndObject class and overrides
+ * the "text" field. A more traditional solution would be to pass the initial text as a parameter to a
+ * constructor. The class would then look like this:
+ *
+ * class HelloWorldClassAndObject(val text:String) {
+ *   def echo:String = text
+ * }
+ *
+ * and the apply method in the companion object could then just call that constructor.
+ */
+object HelloWorldClassAndObject {
+	def apply(initialText:String):HelloWorldClassAndObject = {
+		new HelloWorldClassAndObject {
+			val text=initialText
+		}
+	}
+}
+
+abstract class HelloWorldClassAndObject {
+	val text:String
+	def echo:String = text
+}
+
+/*================================= Traits =====================================*/
+
+object HelloWorldWithTraits extends HelloTrait with WorldTrait {
+	def hello:String = helloMethod + " " + worldMethod
+} 
+
+
+trait HelloTrait {
+	def helloMethod:String = "Hello"
+}
+
+
+trait WorldTrait {
+	def worldMethod:String = "World"
+}
+
+
+
