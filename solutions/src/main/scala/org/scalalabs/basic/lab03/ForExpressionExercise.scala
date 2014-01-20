@@ -22,11 +22,17 @@ import sys._
  */
 object ForExpressionExercise01 {
 
-  private def getFromAndTo(amountOfDigits: Int) = {
+  /**
+   * Helper method to calculate lowest and highest number based on
+   * the amount of digits provided. The lowest and highest number (from and to)
+   * is returned as a Tuple.
+   * E.g. amountOfDigits = 2 -> from = 10, to = 99
+   */
+  private def getFromAndTo(amountOfDigits: Int):(Int, Int) = {
     require(amountOfDigits > 1, "amount of digits must be at least 2")
     import Math.pow
     val fromNumber = pow(10, amountOfDigits - 1).toInt
-    val toNumber = pow(10, amountOfDigits).toInt
+    val toNumber = pow(10, amountOfDigits).toInt - 1
     (fromNumber, toNumber )
   }
   
@@ -41,8 +47,8 @@ object ForExpressionExercise01 {
   def largestPalindromWithForExpression(amountOfDigits: Int): Int = {
     val (fromNumber, toNumber) = getFromAndTo(amountOfDigits)
     val res = for {
-      i <- fromNumber until toNumber
-      j <- i until toNumber
+      i <- fromNumber to toNumber
+      j <- i to toNumber
       prod = i * j
       if prod.toString == prod.toString.reverse
     } yield prod
@@ -59,7 +65,7 @@ object ForExpressionExercise01 {
    */
   def largestPalindromWithHigherOrderFunctions(amountOfDigits: Int): Int = {
     val (fromNumber, toNumber) = getFromAndTo(amountOfDigits)
-    (fromNumber until toNumber).flatMap(i => i until toNumber map (j => i * j))
+    (fromNumber to toNumber).flatMap(i => i to toNumber map (j => i * j))
     						   .filter(prod => prod.toString == prod.toString.reverse)
     						   .max
   }

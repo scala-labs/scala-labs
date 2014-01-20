@@ -9,7 +9,7 @@ import sys._
  * In this exercise we will solve problem number 4 of the Euler project preferably using
  * a for expression. In order to see how higher order functions are related to a for expression
  * you will also provide a solution with higher order functions.
- * 
+ *
  * The problem definition is as follows:
  *
  * A palindromic number reads the same both ways.
@@ -22,44 +22,41 @@ import sys._
  */
 object ForExpressionExercise01 {
 
-  private def getFromAndTo(amountOfDigits: Int) = {
+   /**
+   * Helper method to calculate lowest and highest number based on
+   * the amount of digits provided. The lowest and highest number (from and to)
+   * is returned as a Tuple.
+   * E.g. amountOfDigits = 2 -> from = 10, to = 99
+   */
+  private def getFromAndTo(amountOfDigits: Int):(Int, Int) = {
     require(amountOfDigits > 1, "amount of digits must be at least 2")
     import Math.pow
     val fromNumber = pow(10, amountOfDigits - 1).toInt
-    (fromNumber, fromNumber + 1)
+    val toNumber = pow(10, amountOfDigits).toInt - 1
+    (fromNumber, toNumber )
   }
-  
+
   /**
    * Calculate the largest palindrome from a n-digit number using a for expression.
-   * 
+   *
    * E.g. the largest palindrome of a 2-digit number is:
    * 91 * 99 == 9009, where 9009 is a palindrome
    * @param amountOfDigits amount of digits from which to calculate the largest palindrome
    * @return largest palindrome.
    */
   def largestPalindromWithForExpression(amountOfDigits: Int): Int = {
-    val (fromNumber, toNumber) = getFromAndTo(amountOfDigits)
-    val res = for {
-      i <- fromNumber until toNumber
-      j <- i until toNumber
-      prod = i * j
-      if prod.toString == prod.toString.reverse
-    } yield prod
-    res.max
+    error("Fix me")
   }
-  
- /**
+
+  /**
    * Calculate the largest palindrome from a n-digit number using higher order functions.
-   * 
+   *
    * E.g. the largest palindrome of a 2-digit number is:
    * 91 * 99 == 9009, where 9009 is a palindrome
    * @param amountOfDigits amount of digits from which to calculate the largest palindrome
    * @return largest palindrome.
    */
   def largestPalindromWithHigherOrderFunctions(amountOfDigits: Int): Int = {
-    val (fromNumber, toNumber) = getFromAndTo(amountOfDigits)
-    (fromNumber until toNumber).flatMap(i => i until toNumber map (j => i * j))
-    						   .filter(prod => prod.toString == prod.toString.reverse)
-    						   .max
+    error("Fix me")
   }
 }

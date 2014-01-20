@@ -27,7 +27,7 @@ object HelloWorld {
    */
 	val sayHello:String = "Hello from Scala"
  
-
+ 
   /**
    * This defines the 'echo' method of the HelloWorld object.
    *
