@@ -12,9 +12,9 @@ import scala.language.implicitConversions
  * - Provide it with two constructor parameters: euro:Int, cents:Int
  * - Provide the cents field with default value: 0
  * - Provide an immutable field named: inCents that converts euro + cents into cents.
- * - Create a method named: + that adds another Euro
- * - Create a method named: * that multiplies an Euro
  * - Create an object Euro with a factory method named: fromCents that creates an Euro based on cents.
+ * - Create a method named: + to the Euro class that adds another Euro
+ * - Create a method named: * to the Euro class that multiplies an Euro
  * 
  * Exercise 2:
  * - Create an abstract class Currency
