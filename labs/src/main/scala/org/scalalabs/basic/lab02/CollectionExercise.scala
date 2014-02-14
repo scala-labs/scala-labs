@@ -46,12 +46,8 @@ object CollectionExercise02 {
    * Take a look at the java class: {@link ImperativeSample}. The
    * groupAdultsPerAgeGroup is implemented using an imperative programming
    * style.
-   * In this exercise you will rewrite the groupAdultsPerAgeGroup method
+   * Rewrite the method groupAdultsPerAgeGroup in the ImperativeSample java class
    * using a functional approach.
-   * The method does the following:
-   * 1. filter out all adults (>= 18) of the list of persons
-   * 2. sort the list by name
-   * 3. group each person by their age group, e.g. 30 -> Seq(duke, jeniffer)
    */
   def groupAdultsPerAgeGroup(persons: Seq[Person]): Map[Int, Seq[Person]] = {
     error("fix me")
