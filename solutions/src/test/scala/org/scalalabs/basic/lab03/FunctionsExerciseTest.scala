@@ -12,10 +12,11 @@ class FunctionsExerciseTest extends Specification {
 
   "FunctionsExercise01" should {
     "measure execution time" in {
-      4 ==== FunctionsExercise01.measure{
+      def block = {
         Thread.sleep(3)
         4
       }
+      4 ==== FunctionsExercise01.measure(block)
       FunctionsExercise01.printed startsWith ("The execution took: ")
     }
   }

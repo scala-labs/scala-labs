@@ -34,24 +34,31 @@ object CollectionExercise01 {
 
     //figure out missing chracter mapping
     val input = "ejp mysljylc kd kxveddknmc re jsicpdrysi rbcpc ypc rtcsra dkh wyfrepkym veddknkmkrkcd de kr kd eoya kw aej tysr re ujdr lkgc jv " filterNot (_ == ' ')
-    val missing = 'a' to 'z' filterNot (input contains _)
+    val output = "our language is impossible to understand there are twenty six factorial possibilities so it is okay if you want to just give up" filterNot (_ == ' ')
+
+    val alphabet = 'a' to 'z'
+    val missingIn = alphabet filterNot (input contains _)
+    alphabet diff input
+    
+    val missingOut = alphabet filterNot (output contains _)
+     alphabet diff output
     //z and q, hint says z -> q, so remaining is: q -> z
 
     //visualize missing chars in alphabet
     val existingCharsSorted = input.toSet.toList.sorted.mkString
-    val alphabet = 'a' to 'z'
-    val visualMissingChars = alphabet.map (c => if (existingCharsSorted.contains(c)) c else ' ').mkString
+    val visualMissingChars = alphabet.map(c => if (existingCharsSorted.contains(c)) c else ' ').mkString
 
     //compute mapping
-    val output = "our language is impossible to understand there are twenty six factorial possibilities so it is okay if you want to just give up" filterNot (_ == ' ')
     val initialMapping = (input zip output).toSet
+    //ensure 1 to 1 mapping
+    initialMapping.groupBy(_._1).values.forall(_.size == 1 )
+    
     val mapper = Map('z' -> 'q', 'q' -> 'z', ' ' -> ' ').withDefaultValue('?') ++ initialMapping
 
     lines.map(_ map mapper)
   }
 }
 /*========================================================== */
-
 
 object CollectionExercise02 {
 
@@ -70,14 +77,28 @@ object CollectionExercise02 {
    */
   def groupAdultsPerAgeGroup(persons: Seq[Person]): Map[Int, Seq[Person]] = {
     persons.filter(_.age >= 18)
-      	   .sortBy(_.name)
-           .groupBy(_.age / 10 * 10)
+      .sortBy(_.name)
+      .groupBy(_.age / 10 * 10)
   }
 }
 
 /*========================================================== */
 
 object CollectionExercise03 {
+  /**
+   * Create a method that checks that each subsequent value is greater than
+   * the previous one.
+   * E.g.:
+   * checkValuesIncrease(Seq(1,2,3)) == true
+   * checkValuesIncrease(Seq(1,2,2)) == false
+   */
+  def checkValuesIncrease[T <% Ordered[T]](seq: Seq[T]): Boolean =
+    if (seq.size > 1) seq.sliding(2).forall(l => l(0) < l(1)) else true
+
+}
+/*========================================================== */
+
+object CollectionExercise04 {
   /**
    * Calculate the length of the longest word in a list of sentences.
    * To keep it simple it's ok to use String.split to extract all words of a sentence.

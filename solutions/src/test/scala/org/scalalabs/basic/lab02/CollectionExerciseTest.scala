@@ -42,10 +42,19 @@ class CollectionExerciseTest extends Specification {
   }
 
   "CollectionExercise03" should {
+    "check that each subsequent value in the sequence increases" in {
+      CollectionExercise03.checkValuesIncrease(Seq(1, 2, 3)) ==== true
+      CollectionExercise03.checkValuesIncrease(Seq(1)) ==== true
+      CollectionExercise03.checkValuesIncrease(Seq(1, 2, 100)) ==== true
+      CollectionExercise03.checkValuesIncrease(Seq(1, 2, 1)) ==== false
+    }
+  }
+
+  "CollectionExercise04" should {
     "calculate the length of the longest word in a list of sentences" in {
       val l1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pharetra lorem ut sem feugiat tristique. "
       val l2 = "Etiam id magna ut libero ullamcorperano scelerisque. "
-      val result = CollectionExercise03.calcLengthLongestWord(l1, l2)
+      val result = CollectionExercise04.calcLengthLongestWord(l1, l2)
       "ullamcorperano".length() === result
     }
   }

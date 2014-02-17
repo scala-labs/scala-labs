@@ -21,6 +21,28 @@ object RecursionPatternMatchingExercise {
    * ***********************************************************************
    */
 
+  /**
+   * Create a method that checks that each subsequent value is greater than
+   * the previous one.
+   * E.g.:
+   * checkValuesIncreaseRecursive(Seq(1,2,3)) == true
+   * checkValuesIncreaseRecursive(Seq(1,2,2)) == false
+   */
+  def checkValuesIncrease[T <% Ordered[T]](seq: Seq[T]): Boolean = {
+    def checkValuesIncreaseRecursiveInner(seq: Seq[T], increase: Boolean): Boolean = {
+      if (increase) seq match {
+        case a :: b :: tail => checkValuesIncreaseRecursiveInner(b :: tail, a < b)
+        case _ => true
+      }
+      else false
+    }
+    checkValuesIncreaseRecursiveInner(seq, true)
+  }
+
+  /**
+   * Group Consecutive values
+   * List(1,1,2,3,1,1) -> List(1,1), List(2), List(3), List(1,1)
+   */
   def groupConsecutive[T](in: List[T]): List[List[T]] = {
     in match {
       case Nil => Nil
@@ -30,6 +52,10 @@ object RecursionPatternMatchingExercise {
     }
   }
 
+  /**
+   * Group Equal values
+   * List(1,1,2,3,1,1) -> List(1,1,1,1), List(2), List(3)
+   */
   def groupEquals[T](in: List[T]): List[List[T]] = {
     in match {
       case Nil => Nil
@@ -39,6 +65,10 @@ object RecursionPatternMatchingExercise {
     }
   }
 
+  /**
+   * Compress values
+   * List(1,1,2,3,1,1) -> List(1,2,3)
+   */
   def compress[T](in: List[T]): List[T] = {
     //built in:
     // in.distinct
@@ -49,10 +79,18 @@ object RecursionPatternMatchingExercise {
     }
   }
 
+  /**
+   * Define the amount of all equal members
+   * List(1,1,2,3,1,1) -> List((4,1),(1,2),(1,3))
+   */
   def amountEqualMembers[T](in: List[T]): List[(Int, T)] = {
     groupEquals(in).map((l: List[T]) => (l.size, l.head))
   }
 
+  /**
+   * Zip multiple lists
+   * List(List(1,2,3), List('A, 'B, 'C), List('a, 'b, 'c)) -> List(List(1, 'A, 'a), List(2, 'B, 'b), List(3, 'C, 'c))
+   */
   def zipMultiple(in: List[List[_]]): List[List[_]] = {
 
     def flipAll(as: List[List[_]]): List[List[_]] = {
@@ -77,7 +115,11 @@ object RecursionPatternMatchingExercise {
     }
     flipAll(in)
   }
-
+  
+  /**
+   * Zip multiple lists with different sizes
+   * List(List(1), List('A, 'B, 'C), List('a, 'b)) -> List(List(1, 'A, 'a))
+   */
   def zipMultipleWithDifferentSize(in: List[List[_]]): List[List[_]] = {
     val minLength = in.sortBy(_.size).head.size
     def dropAllListElementsLongerThan(in: List[List[_]], maxLength: Int) = {
