@@ -58,6 +58,20 @@ object CollectionExercise02 {
 
 object CollectionExercise03 {
   /**
+   * Create a method that checks that each subsequent value is greater than
+   * the previous one.
+   * E.g.:
+   * checkValuesIncrease(Seq(1,2,3)) == true
+   * checkValuesIncrease(Seq(1,2,2)) == false
+   */
+  def checkValuesIncrease[T <% Ordered[T]](seq: Seq[T]): Boolean =
+     error("fix me")
+
+}
+/*========================================================== */
+
+object CollectionExercise04 {
+  /**
    * Calculate the length of the longest word in a list of sentences.
    * To keep it simple it's ok to use String.split to extract all words of a sentence.
    */

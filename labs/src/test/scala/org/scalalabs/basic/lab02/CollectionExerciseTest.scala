@@ -23,7 +23,7 @@ class CollectionExerciseTest extends Specification {
       val out1 = "our language is impossible to understand"
       val out2 = "there are twenty six factorial possibilities"
       val out3 = "so it is okay if you want to just give up"
-        
+
       val result = CollectionExercise01.googleCodeJamGooglerese(in1, in2, in3)
       Seq(out1, out2, out3) === result
     }
@@ -36,18 +36,27 @@ class CollectionExerciseTest extends Specification {
       val jeniffer = new Person(34, "Jeniffer")
       val erik = new Person(24, "Erik")
       val susy = new Person(40, "Susy")
-      
+
       val result = CollectionExercise02.groupAdultsPerAgeGroup(Seq(jack, duke, jeniffer, erik, susy))
       Map(20 -> Seq(erik), 30 -> Seq(duke, jeniffer), 40 -> Seq(susy)) ==== result
     }
   }
 
-  "CollectionExercise03:" should {
+  "CollectionExercise03" should {
+    "check that each subsequent value in the sequence increases" in {
+      CollectionExercise03.checkValuesIncrease(Seq(1, 2, 3)) ==== true
+      CollectionExercise03.checkValuesIncrease(Seq(1)) ==== true
+      CollectionExercise03.checkValuesIncrease(Seq(1, 2, 100)) ==== true
+      CollectionExercise03.checkValuesIncrease(Seq(1, 2, 1)) ==== false
+    }
+  }
+
+  "CollectionExercise04:" should {
     "calculate the length of the longest word in a list of sentences" in {
       val l1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pharetra lorem ut sem feugiat tristique. "
       val l2 = "Etiam id magna ut libero ullamcorperano scelerisque. "
-        
-      val result = CollectionExercise03.calcLengthLongestWord(l1, l2)
+
+      val result = CollectionExercise04.calcLengthLongestWord(l1, l2)
       "ullamcorperano".length() === result
     }
   }
