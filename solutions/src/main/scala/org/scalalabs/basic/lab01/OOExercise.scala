@@ -3,7 +3,7 @@ import scala.language.implicitConversions
 abstract class Currency(val symbol: String)
 
 class Euro(val euro: Int, val cents: Int = 0) extends Currency("EUR") with Ordered[Euro]{
-  val inCents: Int = euro * 100 + cents
+  lazy val inCents: Int = euro * 100 + cents
 
   def +(other: Euro) = Euro.fromCents(inCents + other.inCents)
 
