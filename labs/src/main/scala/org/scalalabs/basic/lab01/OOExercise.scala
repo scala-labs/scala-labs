@@ -30,9 +30,15 @@ import scala.language.implicitConversions
  * - Implement the compare method  
  * 
  * Exercise 4:
- * - Provide an implicit class that adds a *(euro:Euro) method to Euro
+ * - Provide an implicit class that adds a *(euro:Euro) method to Int
  * - Create a new currency Dollar
- * - Provide a conversion method that converts from Euro to Dollar
+ * - Provide a implicit conversion method that converts from Euro to Dollar using the 
+ *   [[org.scalalabs.basic.lab01.DefaultCurrencyConverter]]
+ * 
+ * Exercise 5:
+ * - Extend the conversion method from Euro to Dollar with an implicit parameter 
+ *   of type [[org.scalalabs.basic.lab01.CurrencyConverter]]
+ * - Use the implicit CurrencyConverter to do the conversion. 
  */
 class Euro {
 
