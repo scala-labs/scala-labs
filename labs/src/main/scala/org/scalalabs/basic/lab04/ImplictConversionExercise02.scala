@@ -24,7 +24,7 @@ object Euro {
  * In the EuroBuilder you might need the apply() method to cover this case:
  * 2 euros >45< cents
  */
-object Exercise02 {
+object Exercise01 {
 
 }
 

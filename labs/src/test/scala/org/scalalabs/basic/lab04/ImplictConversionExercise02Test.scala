@@ -11,9 +11,7 @@ import org.joda.time._
 @RunWith(classOf[JUnitRunner])
 class ImplictConversionExercise02Test extends Specification with DeactivatedTimeConversions {
 
-
-
-  "Exercise02" should {
+  "Exercise01" should {
     "have a working money DSL" in {
       skipped("Uncomment and fix me")
       //      Euro(2, 0) must be_==~(2 euros)
