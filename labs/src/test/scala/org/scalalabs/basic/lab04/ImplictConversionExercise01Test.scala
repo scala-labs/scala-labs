@@ -1,8 +1,9 @@
 package org.scalalabs.basic.lab04
-import ImplictConversionExercise02._
-import ImplictConversionExercise03._
-import ImplictConversionExercise04._
-import ImplictConversionExercise05._
+import ImplictConversionExercise01._
+import ImplictConversionExercise01.Exercise01._
+import ImplictConversionExercise01.Exercise02._
+import ImplictConversionExercise01.Exercise03._
+import ImplictConversionExercise01.Exercise04._
 import org.joda.time.Duration
 
 import org.junit.runner.RunWith
@@ -10,18 +11,18 @@ import org.specs2.mutable.Specification
 import org.specs2.runner.JUnitRunner
 import org.joda.time._
 /**
- * @see ImplictConversionExercise
+ * @see ImplictConversionExercise01
  */
 @RunWith(classOf[JUnitRunner])
-class ImplictConversionExerciseTest extends Specification with DeactivatedTimeConversions {
+class ImplictConversionExercise01Test extends Specification with DeactivatedTimeConversions {
 
-  "ImplictConversionExercise01" should {
+  "Exercise01" should {
     "convert string to list" in {
-      List('H', 'e', 'l', 'l', 'o') ==== ImplictConversionExercise01.stringToList("Hello")
+      List('H', 'e', 'l', 'l', 'o') ==== stringToList("Hello")
     }
   }
   
-  "ImplictConversionExercise02" should {
+  "Exercise02" should {
     "convert celsius to fahrenheit" in {
          skipped("Uncomment and fix me")
 //      val c = new Celsius(10)
@@ -33,14 +34,14 @@ class ImplictConversionExerciseTest extends Specification with DeactivatedTimeCo
     }
   }
   
- "ImplictConversionExercise03" should {
+ "Exercise03" should {
     "add camelCase method to String" in {
          skipped("Uncomment and fix me")
 //      "camelCaseMe" ==== "camel case me".camelCase
     }
  }
  
- "ImplictConversionExercise04" should {
+ "Exercise04" should {
     "have a working time DSL" in {
          skipped("Uncomment and fix me")
 //      import TimeUtils._
@@ -50,15 +51,6 @@ class ImplictConversionExerciseTest extends Specification with DeactivatedTimeCo
 //      (1.days + 2.hours).millis ==== new Duration(26L * 60L * 60L * 1000L).getMillis()
     }
  }
-  
- "ImplictConversionExercise05" should {
-    "have a working money DSL" in {
-       skipped("Uncomment and fix me")
-//      Euro(2, 0) must be_==~(2 euros)
-//      Euro(0, 25) must be_==~(25 cents)
-//      Euro(2, 25) must be_==~(2 euros 25 cents)
-    }
-  }
 }
 
 trait DeactivatedTimeConversions extends org.specs2.time.TimeConversions {

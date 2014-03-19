@@ -13,3 +13,4 @@ trait DefaultCurrencyConverter extends CurrencyConverter {
 }
 
 object DefaultCurrencyConverter extends DefaultCurrencyConverter
+ 
