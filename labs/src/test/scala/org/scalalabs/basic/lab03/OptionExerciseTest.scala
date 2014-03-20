@@ -24,11 +24,10 @@ class OptionExerciseTest extends Specification {
     "correctly show the state of a room that does not exist (no entry in Map)" in {
       roomState(rooms, 100) === "not existing"
     }
-    "OptionExercise02" should {
-      "calculate total amount of people in rooms" in {
-        OptionExercise02.totalPeopleInRooms(rooms) === 34
-      }
+  }
+  "OptionExercise02" should {
+    "calculate total amount of people in rooms" in {
+      OptionExercise02.totalPeopleInRooms(rooms) === 34
     }
   }
-
 }
