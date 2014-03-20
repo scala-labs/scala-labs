@@ -37,6 +37,7 @@ object OptionExercise01 {
 }
 
 object OptionExercise02 {
+
   /**
    * Calculate the total amount of people in all rooms
    * Hint: make use of a for expression and scala.util.control.Exception.allCatch opt (...)
@@ -44,10 +45,18 @@ object OptionExercise02 {
    */
   def totalPeopleInRooms(rooms:Map[Int,Option[String]]): Int = {
     val res = for {
-      keyValuePair <- rooms
-      rawState <- keyValuePair._2
-      occupationNo <- Exception.allCatch opt rawState.toInt
+      occupationOpt <- rooms.values
+      occupation <- occupationOpt
+      occupationNo <- Exception.allCatch opt occupation.toInt
     } yield occupationNo
-    res.sum
+    res.reduce(_ + _)
   }
+  
+  
+  
+  
+  
+  
+  
+  
 }
