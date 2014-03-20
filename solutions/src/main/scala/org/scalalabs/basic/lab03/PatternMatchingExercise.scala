@@ -37,12 +37,13 @@ object PatternMatchingExercise {
   def matchOnInputType(in: Any) = in match {
     case s: String => s"A string with length ${s.length}"
     case i: Int if i > 0 => "A positive integer"
-    case Person(name, _) => s"A person with name: $name"
+    case p @ Person(_,_) => s"A person with name: ${p.name}"
     case s: Seq[_] if (s.size > 10) => "Seq with more than 10 elements"
     case first :: second :: tail => s"first: $first, second: $second, rest: $tail"
     case o: Option[_] => "A Scala Option subtype"
     case a: AnyRef => "Some Scala class"
-    case _ => "A null value"
+    case null => "A null value"
+    case _ => "The default"
   }
 
   def older(p: Person): Option[String] = p match {
