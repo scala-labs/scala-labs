@@ -67,7 +67,6 @@ class OOExerciseTest extends Specification {
   "Exercise 4: Implicit class" should {
     implicit val defaultConverter = DefaultCurrencyConverter
     "add *(euro:Euro) (multiply) method to Int" in {
-      import Euro._
       val res = 3 * new Euro(2, 50)
       res.euro ==== 7
       res.cents ==== 50
