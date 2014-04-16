@@ -6,7 +6,9 @@ import language.implicitConversions
 import language.higherKinds
 import scala.util.parsing.json.JSONObject
 
-case class Euro(val euros: Int, val cents: Int)
+case class Euro(val euros: Int, val cents: Int) {
+  lazy val inCents: Int = euros * 100 + cents
+}
 
 object Euro {
   def fromCents(cents: Int) = new Euro(cents / 100, cents % 100)
@@ -35,20 +37,30 @@ trait JsonConverter[T] {
 object Exercise01 {
 
 }
+
 /**
  * Exercise 2:
- * Implement a type class pattern to convert domain objects to and from json. 
+ * Implement Scala's built in Ordering type class for Euro, 
+ * so that the call to Seq(Euro(1,5), Euro(3,2)).sorted compiles.
+ */
+object Exercise03 {
+
+}
+
+/**
+ * Exercise 3:
+ * Implement a type class pattern to convert domain objects to and from json.
  * Take a look at the already defined type class trait @see JsonConverter.
  * 1. Implement the methods of the JsonCoverter object below that converts domain objects to and from json making use of the JsonConverter type class trait.
- * 2. Provide an implementation of the JsonConverter type class trait for the Euro class. 
+ * 2. Provide an implementation of the JsonConverter type class trait for the Euro class.
  * Place the implementation in the Euro's companion object so that the implicit resolution requires no import.
  */
 object Exercise02 {
   object JsonConverter {
-    def convertToJson[T/**provide context bound*/](t: T): JSONObject = {
+    def convertToJson[T /**provide context bound*/ ](t: T): JSONObject = {
       ???
     }
-    def parseFromJson[T/**provide context bound*/](json: JSONObject): T = {
+    def parseFromJson[T /**provide context bound*/ ](json: JSONObject): T = {
       ???
     }
   }

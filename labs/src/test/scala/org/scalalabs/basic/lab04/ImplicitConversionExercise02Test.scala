@@ -4,7 +4,9 @@ import org.junit.runner.RunWith
 import org.specs2.mutable.Specification
 import org.specs2.runner.JUnitRunner
 import org.joda.time._
+import Exercise01._
 import Exercise02._
+import Exercise03._
 import scala.util.parsing.json.JSONObject
 /**
  * @see ImplictConversionExercise02
@@ -20,8 +22,14 @@ class ImplicitConversionExercise02Test extends Specification with DeactivatedTim
 //            Euro(2, 25) must be_==~(2 euros 25 cents)
     }
   }  
-  
-  "Exercise02" should {
+   "Exercise02" should {
+    "make Euro orderable without implementing the Ordered trait" in {
+      skipped("Uncomment and fix me")
+//      val raw = Seq(Euro(2, 0), Euro(1, 1), Euro(1, 5))
+//      raw.sorted ==== Seq(Euro(1, 1), Euro(1, 5), Euro(2, 0))
+    }
+  }
+  "Exercise03" should {
     import JsonConverter._
     val euro = Euro(1, 2)
     val json = JSONObject(Map("symbol" -> "EUR", "amount" -> s"${euro.euros},${euro.cents}"))

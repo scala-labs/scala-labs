@@ -2,6 +2,7 @@ package org.scalalabs.basic.lab04
 import ImplicitConversionExercises02._
 import ImplicitConversionExercises02.Exercise01._
 import ImplicitConversionExercises02.Exercise02._
+import ImplicitConversionExercises02.Exercise03._
 import org.joda.time.Duration
 import org.junit.runner.RunWith
 import org.specs2.mutable.Specification
@@ -24,6 +25,12 @@ class ImplictConversionExercise02Test extends Specification with DeactivatedTime
     }
   }
   "Exercise02" should {
+    "make Euro orderable without implementing the Ordered trait" in {
+      val raw = Seq(Euro(2, 0), Euro(1, 1), Euro(1, 5))
+      raw.sorted ==== Seq(Euro(1, 1), Euro(1, 5), Euro(2, 0))
+    }
+  }
+  "Exercise03" should {
     import JsonConverter._
     val euro = Euro(1, 2)
     val json = JSONObject(Map("symbol" -> "EUR", "amount" -> s"${euro.euros},${euro.cents}"))

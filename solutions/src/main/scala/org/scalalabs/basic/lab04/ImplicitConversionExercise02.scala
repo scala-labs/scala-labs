@@ -9,7 +9,9 @@ import scala.util.control._
 
 object ImplicitConversionExercises02 {
 
-  case class Euro(val euros: Int, val cents: Int)
+  case class Euro(val euros: Int, val cents: Int) {
+    lazy val inCents: Int = euros * 100 + cents
+  }
 
   object Euro {
     def fromCents(cents: Int) = new Euro(cents / 100, cents % 100)
@@ -53,6 +55,15 @@ object ImplicitConversionExercises02 {
    * =======================================================
    */
   object Exercise02 {
+    implicit object OrderedEuro extends Ordering[Euro] {
+      def compare(x: Euro, y: Euro): Int = x.inCents - y.inCents
+    }
+  }
+
+  /**
+   * =======================================================
+   */
+  object Exercise03 {
 
     object JsonConverter {
       def convertToJson[T: JsonConverter](t: T): JSONObject = {
@@ -62,6 +73,5 @@ object ImplicitConversionExercises02 {
         implicitly[JsonConverter[T]].fromJson(json)
       }
     }
-
   }
 }
