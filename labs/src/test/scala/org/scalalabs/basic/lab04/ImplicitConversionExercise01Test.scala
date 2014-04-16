@@ -1,9 +1,9 @@
 package org.scalalabs.basic.lab04
-import ImplictConversionExercise01._
-import ImplictConversionExercise01.Exercise01._
-import ImplictConversionExercise01.Exercise02._
-import ImplictConversionExercise01.Exercise03._
-import ImplictConversionExercise01.Exercise04._
+import ImplicitConversionExercise01._
+import ImplicitConversionExercise01.Exercise01._
+import ImplicitConversionExercise01.Exercise02._
+import ImplicitConversionExercise01.Exercise03._
+import ImplicitConversionExercise01.Exercise04._
 import org.joda.time.Duration
 
 import org.junit.runner.RunWith
@@ -11,10 +11,10 @@ import org.specs2.mutable.Specification
 import org.specs2.runner.JUnitRunner
 import org.joda.time._
 /**
- * @see ImplictConversionExercise01
+ * @see ImplicitConversionExercise01
  */
 @RunWith(classOf[JUnitRunner])
-class ImplictConversionExercise01Test extends Specification with DeactivatedTimeConversions {
+class ImplicitConversionExercise01Test extends Specification with DeactivatedTimeConversions {
 
   "Exercise01" should {
     "convert string to list" in {

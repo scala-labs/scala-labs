@@ -4,9 +4,10 @@ import org.joda.time.{ Duration, DateTime }
 import scala.math._
 import language.implicitConversions
 import language.higherKinds
-
 /**
- * This excersice introduces you to Scala implicit conversion features.
+ * @author arjan
+ *
+ * This excercise introduces you to Scala implicit conversion features.
  *
  * Scala has a nice feature that automatically lets you convert types and add methods to an existing class.
  * For instance, it is possible to write "Hello".toList, which yields List(H, e, l, l, o) even though
@@ -22,18 +23,22 @@ import language.higherKinds
  *
  */
 
-object ImplictConversionExercise01 {
+object ImplicitConversionExercise01 {
 
   object Exercise01 {
-    def stringToList(s: String): List[Char] = {
-      //build in: our String will be converted to Scala's RichString, because this is defined a Scala
-      //object called Predef. This is imported by the compiler by default.
-      s.toList
-    }
-  }
-  /**============================================================================ */
-  object Exercise02 {
 
+    def stringToList(s: String): List[Char] = {
+      //built in: our String will be converted to Scala's RichString, because this is defined a Scala
+      //object called Predef. This is imported by the compiler by default.
+      //
+      List[Char]()
+    }
+
+  }
+
+  /**============================================================================ */
+
+  object Exercise02 {
     class Celsius(val degree: Double)
     class Fahrenheit(val fahrenheit: Double)
 
@@ -48,8 +53,8 @@ object ImplictConversionExercise01 {
     }
 
     /**
-     * Use this conversion helper to convert fahrenheit to degree celsius and vice versa in
-     * the implicit function you will define.
+     * Use this conversion helper to convert fahrenheit values to degree celsius values
+     * and vice versa in the implicit function you will define.
      */
     object ConversionHelper {
       def fahrenheit2CelsiusConversion(fahrenheit: Double) = {
@@ -61,52 +66,32 @@ object ImplictConversionExercise01 {
         degreeCelsius * 1.8 + 32
       }
     }
-
-    implicit def celsiusToFahrenheit(f: Fahrenheit) = { new Celsius(ConversionHelper.fahrenheit2CelsiusConversion(f.fahrenheit)) }
-
-    implicit def fahrenheitToCelsius(c: Celsius) = { new Fahrenheit(ConversionHelper.celsius2FahrenheitConversion(c.degree)) }
   }
 
   /**============================================================================ */
+  // Write here an implict class that adds a camelCase method to string.
+
   object Exercise03 {
 
-    /**
-     * Use an implict conversion from string to an anonymous object that contains a camelCase method.
-     *  By doing so, the camelCase method is added to the string
-     */
-    implicit class CamelCaseString(s: String) {
-      def camelCase: String = {
-        def camelCase(s: String): String = {
-          val spaceLetterAndRestOfTextSeqRegExp = """\s(.?)(.*)""".r
-          s.span(!_.isSpaceChar) match {
-            case (all, "") => all
-            case (head, spaceLetterAndRestOfTextSeqRegExp(firstLetter, restOfText)) => head + camelCase(firstLetter.toUpperCase + restOfText)
-          }
-        }
-        camelCase(s)
-      }
-    }
   }
 
   /**============================================================================ */
   object Exercise04 {
+
     object TimeUtils {
       case class DurationBuilder(timeSpan: Long) {
         def now = new DateTime().getMillis()
 
-        def seconds = RichDuration(TimeUtils seconds (timeSpan))
+        //    def seconds = TODO your implementation here...
 
-        def minutes = RichDuration(TimeUtils minutes (timeSpan))
+        //    def minutes = TODO your implementation here...
 
-        def hours = RichDuration(TimeUtils hours (timeSpan))
+        //    def hours = TODO your implementation here...
 
-        def days = RichDuration(TimeUtils days (timeSpan))
-
+        //    def days = TODO your implementation here...
       }
 
-      implicit def longToDuration(l: Long): Duration = new Duration(l)
-
-      implicit def intToDurationBuilder(i: Int): DurationBuilder = new DurationBuilder(i)
+      //TODO define some implicits that convert integers and longs to durations and builders to make it all work
 
       def seconds(in: Long) = in * 1000L
 
@@ -125,5 +110,5 @@ object ImplictConversionExercise01 {
       def +(that: RichDuration) = RichDuration(this.duration.plus(that.duration))
     }
   }
-
 }
+
