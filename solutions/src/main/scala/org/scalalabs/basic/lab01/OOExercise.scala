@@ -1,7 +1,6 @@
 package org.scalalabs.basic.lab01
 
 import scala.language.implicitConversions
-import org.scalalabs.basic.lab01.DefaultCurrencyConverter
 abstract class Currency(val symbol: String)
 
 class Euro(val euro: Int, val cents: Int = 0) extends Currency("EUR") with Ordered[Euro] {
@@ -27,8 +26,6 @@ object Euro {
   //implicit def fromDollar(dollar: Dollar): Euro = Euro.fromCents((DefaultCurrencyConverter.toEuroCents(dollar.inCents)).toInt)
 
   implicit def fromDollar(dollar: Dollar)(implicit converter:CurrencyConverter): Euro = Euro.fromCents(converter.toEuroCents(dollar.inCents))
-  
-
 }
 
 class Dollar(val dollar: Int, val cents: Int = 0) extends Currency("USD") {
