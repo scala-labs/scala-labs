@@ -44,6 +44,9 @@ object OptionExercise02 {
    * to convert a possible numeric String (e.g. Some("12")) to an integer
    */
   def totalPeopleInRooms(rooms:Map[Int,Option[String]]): Int = {
+    //functional solution
+    rooms.values.map(i => Exception.allCatch.opt(i.get.toInt)).flatten.sum
+    
     val res = for {
       occupationOpt <- rooms.values
       occupation <- occupationOpt
