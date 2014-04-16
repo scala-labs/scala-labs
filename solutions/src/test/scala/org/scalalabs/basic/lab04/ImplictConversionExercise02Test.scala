@@ -1,6 +1,7 @@
 package org.scalalabs.basic.lab04
 import ImplicitConversionExercises02._
 import ImplicitConversionExercises02.Exercise01._
+import ImplicitConversionExercises02.Exercise02._
 import org.joda.time.Duration
 import org.junit.runner.RunWith
 import org.specs2.mutable.Specification
@@ -22,5 +23,17 @@ class ImplictConversionExercise02Test extends Specification with DeactivatedTime
       Euro(2, 25) must be_==~(2 euros 25 cents)
     }
   }
-
+  "Exercise02" should {
+    import JsonConverter._
+    val euro = Euro(1, 2)
+    val json = JSONObject(Map("symbol" -> "EUR", "amount" -> s"${euro.euros},${euro.cents}"))
+    "convert Euro to json" in {
+      val out = convertToJson(euro)
+      out ==== json
+    }
+    "convert json to Euro" in {
+      val in = parseFromJson[Euro](json)
+      euro === in
+    }
+  }
 } 

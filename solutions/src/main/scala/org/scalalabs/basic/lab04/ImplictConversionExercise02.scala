@@ -8,10 +8,30 @@ import scala.util.parsing.json.JSONObject
 import scala.util.control._
 
 object ImplicitConversionExercises02 {
+
   case class Euro(val euros: Int, val cents: Int)
 
   object Euro {
     def fromCents(cents: Int) = new Euro(cents / 100, cents % 100)
+
+    implicit object EuroAsJsonConverter extends JsonConverter[Euro] {
+      override def toJSON(e: Euro): JSONObject = JSONObject(Map("symbol" -> "EUR", "amount" -> s"${e.euros},${e.cents}"))
+      override def fromJson(json: JSONObject): Euro = {
+        val opt = for {
+          eurosOpt <- json.obj.get("amount")
+          amount = eurosOpt.toString.split(",")
+          (euros, cents) <- Exception.allCatch.opt(amount(0).toInt -> amount(1).toInt)
+        } yield Euro(euros, cents)
+        opt.getOrElse(Euro(0, 0))
+      }
+    }
+  }
+
+  import annotation.implicitNotFound
+  @implicitNotFound(msg = "Cannot find JsonParser type class for ${T}")
+  trait JsonConverter[T] {
+    def toJSON(t: T): JSONObject
+    def fromJson(json: JSONObject): T
   }
 
   /**
@@ -29,4 +49,19 @@ object ImplicitConversionExercises02 {
     implicit def fromInt(value: Int): EuroBuilder = new EuroBuilder(value, 0)
   }
 
+  /**
+   * =======================================================
+   */
+  object Exercise02 {
+
+    object JsonConverter {
+      def convertToJson[T: JsonConverter](t: T): JSONObject = {
+        implicitly[JsonConverter[T]].toJSON(t)
+      }
+      def parseFromJson[T: JsonConverter](json: JSONObject): T = {
+        implicitly[JsonConverter[T]].fromJson(json)
+      }
+    }
+
+  }
 }
