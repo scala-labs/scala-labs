@@ -65,7 +65,7 @@ object CollectionExercise03 {
    * checkValuesIncrease(Seq(1,2,2)) == false
    */
   def checkValuesIncrease[T <% Ordered[T]](seq: Seq[T]): Boolean =
-     error("fix me")
+    error("fix me")
 
 }
 /*========================================================== */
@@ -76,6 +76,27 @@ object CollectionExercise04 {
    * To keep it simple it's ok to use String.split to extract all words of a sentence.
    */
   def calcLengthLongestWord(lines: String*): Int = {
+    error("fix me")
+  }
+}
+
+/*========================================================== */
+
+object CollectionExercise05 {
+  /**
+   * Filter all even numbers of the given sequence using foldLeft.
+   * E.g. Seq(1,2,3) is Seq(2)
+   */
+  def filterWithFoldLeft(seq: Seq[Int]): Seq[Int] = {
+    error("fix me")
+  }
+
+  /**
+   * Group all numbers based on whether they are even or odd using foldLeft.
+   * For even use 'true' for odd use 'false'.
+   * E.g: Seq(1,2,3) is Map(0 -> Seq(2), 1 -> Seq(1,3))
+   */
+  def groupByWithFoldLeft(seq: Seq[Int]): Map[Boolean, Seq[Int]] = {
     error("fix me")
   }
 }

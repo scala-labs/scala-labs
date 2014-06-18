@@ -39,9 +39,9 @@ object CollectionExercise01 {
     val alphabet = 'a' to 'z'
     val missingIn = alphabet filterNot (input contains _)
     alphabet diff input
-    
+
     val missingOut = alphabet filterNot (output contains _)
-     alphabet diff output
+    alphabet diff output
     //z and q, hint says z -> q, so remaining is: q -> z
 
     //visualize missing chars in alphabet
@@ -51,8 +51,8 @@ object CollectionExercise01 {
     //compute mapping
     val initialMapping = (input zip output).toSet
     //ensure 1 to 1 mapping
-    initialMapping.groupBy(_._1).values.forall(_.size == 1 )
-    
+    initialMapping.groupBy(_._1).values.forall(_.size == 1)
+
     val mapper = Map('z' -> 'q', 'q' -> 'z', ' ' -> ' ').withDefaultValue('?') ++ initialMapping
 
     lines.map(_ map mapper)
@@ -105,9 +105,38 @@ object CollectionExercise04 {
    */
   def calcLengthLongestWord(lines: String*): Int = {
     lines.map(_.split(" ").map(_.length).max).max
+    //or: 
+    //lines.flatMap(_.split(" ").map(_.length)).max
   }
-
 }
+
+object CollectionExercise05 {
+  /**
+   * Filter all even numbers of the given sequence using foldLeft.
+   * E.g. Seq(1,2,3) is Seq(2)
+   */
+  def filterWithFoldLeft(seq: Seq[Int]): Seq[Int] = {
+    seq.foldLeft(Seq.empty[Int])((cum, i) => if (i % 2 == 0) cum :+ i else cum)
+  }
+  /**
+   * Group all numbers based on whether they are even or odd using foldLeft.
+   * For even use 'true' for odd use 'false'.
+   * E.g: Seq(1,2,3) is Map(0 -> Seq(2), 1 -> Seq(1,3)) 
+   */
+  def groupByWithFoldLeft(seq: Seq[Int]): Map[Boolean, Seq[Int]] = {
+    seq.foldLeft(Map[Boolean, Seq[Int]]()) { (map, next) =>
+      val key = next % 2 == 0
+      map + (key -> (map.getOrElse(key, Seq()) :+ next))
+    }
+    //simpler
+    seq.foldLeft(Map[Boolean, Seq[Int]]().withDefaultValue(Seq[Int]())) { (map, next) =>
+      val key = next % 2 == 0
+      map + (key -> (map(key) :+ next))
+    }
+    
+  }
+}
+
 
 
 
