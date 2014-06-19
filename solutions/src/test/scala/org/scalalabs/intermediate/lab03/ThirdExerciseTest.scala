@@ -53,8 +53,8 @@ class ThirdExerciseTest extends JUnitSuite {
     val twitter: UnauthenticatedSession = TwitterSession()
     val publicTimeline: TwitterTimeline = twitter.publicTimeline
 
-    expect(20) { publicTimeline.toList.size }
-    expect(true) { publicTimeline.forall(_.user != null) }
+    assertResult(20) { publicTimeline.toList.size }
+    assertResult(true) { publicTimeline.forall(_.user != null) }
   }
 
   @Test
@@ -63,7 +63,7 @@ class ThirdExerciseTest extends JUnitSuite {
     val twitter: AuthenticatedSession = TwitterSession(testAuthInfo)
     val friendsTimeline = twitter.friendsTimeline
 
-    expect(true) { friendsTimeline.forall(_.user != null) }
+    assertResult(true) { friendsTimeline.forall(_.user != null) }
   }
 
   @Test
@@ -74,7 +74,7 @@ class ThirdExerciseTest extends JUnitSuite {
     val friendsTimeline = twitter.friendsTimeline
     val friends: TwitterUsers = twitter.friends
 
-    expect(true) { friendsTimeline.forall(tweet => friends.exists(_ == tweet.user) || testAccountUsername == tweet.user.screenName) }
+    assertResult(true) { friendsTimeline.forall(tweet => friends.exists(_ == tweet.user) || testAccountUsername == tweet.user.screenName) }
   }
 
   @Test
@@ -83,7 +83,7 @@ class ThirdExerciseTest extends JUnitSuite {
     val twitter: UnauthenticatedSession = TwitterSession()
     val userTimeline: TwitterTimeline = twitter.userTimeline("sgrijpink")
 
-    expect(true) { userTimeline.forall(_.user.screenName == "sgrijpink") }
+    assertResult(true) { userTimeline.forall(_.user.screenName == "sgrijpink") }
   }
 
   @Test
@@ -92,7 +92,7 @@ class ThirdExerciseTest extends JUnitSuite {
     val twitter: AuthenticatedSession = TwitterSession(testAuthInfo)
     val userTimeline: TwitterTimeline = twitter.userTimeline(testAccountUsername)
 
-    expect(true) { userTimeline.forall(_.user.screenName == testAccountUsername) }
+    assertResult(true) { userTimeline.forall(_.user.screenName == testAccountUsername) }
   }
 
   // Bonus exercise !!!
@@ -108,8 +108,8 @@ class ThirdExerciseTest extends JUnitSuite {
     // sensitive are more than welcome.
 
     val tweet = twitter.tweet(baseText + System.getProperty("user.name") + " on " + System.currentTimeMillis())
-    expect(testAccountUsername) { tweet.user.screenName }
-    expect(true) { tweet.text.startsWith(baseText) }
+    assertResult(testAccountUsername) { tweet.user.screenName }
+    assertResult(true) { tweet.text.startsWith(baseText) }
   }
 
 }

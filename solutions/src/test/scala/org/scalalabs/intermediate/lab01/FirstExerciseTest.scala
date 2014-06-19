@@ -50,7 +50,7 @@ class FirstExerciseTest extends JUnitSuite {
         assertResult(None) {firstTweet.inReplyToStatusId}
         assertResult(None) {firstTweet.inReplyToUserId}
         assertResult(false) {firstTweet.truncated}
-        expect (false) {firstTweet.favorited}
+        assertResult(false) {firstTweet.favorited}
 
         assertResult("Having much more fun working on #jaoo talks than  yesterday's hard drive crash recovery.") {
             firstTweet.text

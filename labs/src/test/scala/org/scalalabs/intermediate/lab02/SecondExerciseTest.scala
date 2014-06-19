@@ -37,7 +37,7 @@ class SecondExerciseTest extends JUnitSuite {
 	def testFindPopularFriends() {
         // TwitterUsers are popular if they have at least 2000 followers
     fail("TODO uncomment and fix")
-//        expect(10) {
+//        assertResult(10) {
 //            TwitterUsers.thatArePopular(getFriends()).size
 //        }
     }
@@ -50,7 +50,7 @@ class SecondExerciseTest extends JUnitSuite {
       fail("TODO uncomment and fix")
 //       import scala.{TwitterUsers => Friends}
 //
-//        expect(List("headius", "twitterapi", "stephenfry", "macrumors", "spolsky", "martinfowler", "WardCunningham", "unclebobmartin", "pragdave", "KentBeck")) {
+//        assertResult(List("headius", "twitterapi", "stephenfry", "macrumors", "spolsky", "martinfowler", "WardCunningham", "unclebobmartin", "pragdave", "KentBeck")) {
 //            Friends.thatArePopularByScreenName(getFriends)
 //        }
     }
@@ -59,16 +59,16 @@ class SecondExerciseTest extends JUnitSuite {
     @Test
 	def testFindScreenNamesOfPupularFriendsSortedByPopularity() {
       fail("TODO uncomment and fix")
-//        expect(List("stephenfry", "macrumors", "twitterapi", "spolsky", "martinfowler", "KentBeck", "unclebobmartin", "pragdave", "WardCunningham", "headius")) {
+//        assertResult(List("stephenfry", "macrumors", "twitterapi", "spolsky", "martinfowler", "KentBeck", "unclebobmartin", "pragdave", "WardCunningham", "headius")) {
 //            TwitterUsers.thatArePopularByScreenNameSortedbyPopularity(getFriends)
 //        }
     }
 
-    // We expect a List[(String, Int)], i.e. a List of tuples, each with a screen name and a number of followers
+    // We assertResult a List[(String, Int)], i.e. a List of tuples, each with a screen name and a number of followers
     @Test
 	def testFindPopularFriendsAndTheirRankings() {
       fail("TODO: uncomment and fix")
-//        expect(
+//        assertResult(
 //            List(("stephenfry",    714779),
 //                 ("macrumors",     74132),
 //                 ("twitterapi",    18817),
@@ -88,7 +88,7 @@ class SecondExerciseTest extends JUnitSuite {
     @Test
 	def testFindFriendsThatAreAlsoFollowers() {
       fail("TODO: uncomment and fix")
-//        expect(10) {
+//        assertResult(10) {
 //            TwitterUsers.thatAreInBothLists(getFriends, getFollowers).size
 //        }
     }
