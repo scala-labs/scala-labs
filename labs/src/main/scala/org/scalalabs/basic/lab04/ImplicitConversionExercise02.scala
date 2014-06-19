@@ -4,7 +4,10 @@ import org.joda.time.{ Duration, DateTime }
 import scala.math._
 import language.implicitConversions
 import language.higherKinds
-import scala.util.parsing.json.JSONObject
+import org.json4s._
+import org.json4s.JsonDSL._
+import org.json4s.native.JsonMethods._
+import scala.util.control._
 
 case class Euro(val euros: Int, val cents: Int) {
   lazy val inCents: Int = euros * 100 + cents
@@ -14,13 +17,6 @@ object Euro {
   def fromCents(cents: Int) = new Euro(cents / 100, cents % 100)
 }
 
-/**
- * Only used for exercise2!
- */
-trait JsonConverter[T] {
-  def toJSON(t: T): JSONObject
-  def fromJson(json: JSONObject): T
-}
 /**
  * Exercise 1:
  * Create a money DSL which allows you to create Euro classes as follows:
@@ -40,7 +36,7 @@ object Exercise01 {
 
 /**
  * Exercise 2:
- * Implement Scala's built in Ordering type class for Euro, 
+ * Implement Scala's built in Ordering type class for Euro,
  * so that the call to Seq(Euro(1,5), Euro(3,2)).sorted compiles.
  */
 object Exercise03 {
@@ -52,19 +48,40 @@ object Exercise03 {
  * Implement a type class pattern to convert domain objects to and from json.
  * Take a look at the already defined type class trait @see JsonConverter.
  * 1. Implement the methods of the JsonCoverter object below that converts domain objects to and from json making use of the JsonConverter type class trait.
- * 2. Provide an implementation of the JsonConverter type class trait for the Euro class.
- * Place the implementation in the Euro's companion object so that the implicit resolution requires no import.
+ * 2. Provide an implementation of the JsonConverter type class trait for the Euro class. 
+ * Place the implementation in the Euro's companion object so that the implicit resolution requires no import. 
+ * For marshalling and unmarshalling json make use of the @see EuroJsonMarshallerHelper
  */
 object Exercise02 {
   object JsonConverter {
-    def convertToJson[T /**provide context bound*/ ](t: T): JSONObject = {
+    def convertToJson[T /**provide context bound*/ ](t: T): JValue = {
       ???
     }
-    def parseFromJson[T /**provide context bound*/ ](json: JSONObject): T = {
+    def parseFromJson[T /**provide context bound*/ ](json: JValue): T = {
       ???
     }
   }
 
+/**
+ * Only used for exercise2!
+ */
+trait JsonConverter[T] {
+  def toJSON(t: T): JValue
+  def fromJson(json: JValue): T
+}
+/**
+ * Only used for exercise2!
+ */
+object EuroJsonMarshallerHelper {
+  implicit val formats = DefaultFormats
+  def marshal(e: Euro): JValue = ("symbol" -> "EUR") ~ ("amount" -> s"${e.euros},${e.cents}")
+  def unmarshal(json: JValue): Euro = {
+    Exception.allCatch.opt {
+      val amount = (json \ "amount").extract[String].split(",")
+      Euro(amount(0).toInt, amount(1).toInt)
+    } getOrElse (Euro(0, 0))
+  }
+}  
 }
 
 

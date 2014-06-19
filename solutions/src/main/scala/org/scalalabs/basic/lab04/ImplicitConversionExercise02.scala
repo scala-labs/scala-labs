@@ -4,7 +4,8 @@ import org.joda.time.{ Duration, DateTime }
 import scala.math._
 import language.implicitConversions
 import language.higherKinds
-import scala.util.parsing.json.JSONObject
+import org.json4s._
+import org.json4s.JsonDSL._
 import scala.util.control._
 
 object ImplicitConversionExercises02 {
@@ -17,23 +18,27 @@ object ImplicitConversionExercises02 {
     def fromCents(cents: Int) = new Euro(cents / 100, cents % 100)
 
     implicit object EuroAsJsonConverter extends JsonConverter[Euro] {
-      override def toJSON(e: Euro): JSONObject = JSONObject(Map("symbol" -> "EUR", "amount" -> s"${e.euros},${e.cents}"))
-      override def fromJson(json: JSONObject): Euro = {
-        val opt = for {
-          eurosOpt <- json.obj.get("amount")
-          amount = eurosOpt.toString.split(",")
-          (euros, cents) <- Exception.allCatch.opt(amount(0).toInt -> amount(1).toInt)
-        } yield Euro(euros, cents)
-        opt.getOrElse(Euro(0, 0))
-      }
+      override def toJSON(e: Euro): JValue = EuroJsonMarshallerHelper.marshal(e)
+      override def fromJson(json: JValue): Euro = EuroJsonMarshallerHelper.unmarshal(json)
+    }
+  }
+
+  object EuroJsonMarshallerHelper {
+    implicit val formats = DefaultFormats
+    def marshal(e: Euro): JValue = ("symbol" -> "EUR") ~ ("amount" -> s"${e.euros},${e.cents}")
+    def unmarshal(json: JValue): Euro = {
+      Exception.allCatch.opt {
+        val amount = (json \ "amount").extract[String].split(",")
+        Euro(amount(0).toInt, amount(1).toInt)
+      } getOrElse (Euro(0, 0))
     }
   }
 
   import annotation.implicitNotFound
   @implicitNotFound(msg = "Cannot find JsonParser type class for ${T}")
   trait JsonConverter[T] {
-    def toJSON(t: T): JSONObject
-    def fromJson(json: JSONObject): T
+    def toJSON(t: T): JValue
+    def fromJson(json: JValue): T
   }
 
   /**
@@ -66,10 +71,10 @@ object ImplicitConversionExercises02 {
   object Exercise03 {
 
     object JsonConverter {
-      def convertToJson[T: JsonConverter](t: T): JSONObject = {
+      def convertToJson[T: JsonConverter](t: T): JValue = {
         implicitly[JsonConverter[T]].toJSON(t)
       }
-      def parseFromJson[T: JsonConverter](json: JSONObject): T = {
+      def parseFromJson[T: JsonConverter](json: JValue): T = {
         implicitly[JsonConverter[T]].fromJson(json)
       }
     }

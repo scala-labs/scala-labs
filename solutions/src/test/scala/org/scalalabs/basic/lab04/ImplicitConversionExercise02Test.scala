@@ -8,7 +8,8 @@ import org.junit.runner.RunWith
 import org.specs2.mutable.Specification
 import org.specs2.runner.JUnitRunner
 import org.joda.time._
-import scala.util.parsing.json.JSONObject
+import org.json4s._
+import org.json4s.JsonDSL._
 import scala.util.control._
 
 /**
@@ -33,7 +34,7 @@ class ImplictConversionExercise02Test extends Specification with DeactivatedTime
   "Exercise03" should {
     import JsonConverter._
     val euro = Euro(1, 2)
-    val json = JSONObject(Map("symbol" -> "EUR", "amount" -> s"${euro.euros},${euro.cents}"))
+    val json = ("symbol" -> "EUR") ~ ("amount" -> s"${euro.euros},${euro.cents}")
     "convert Euro to json" in {
       val out = convertToJson(euro)
       out ==== json
