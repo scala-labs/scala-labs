@@ -39,7 +39,7 @@ object Exercise01 {
  * Implement Scala's built in Ordering type class for Euro,
  * so that the call to Seq(Euro(1,5), Euro(3,2)).sorted compiles.
  */
-object Exercise03 {
+object Exercise02 {
 
 }
 
@@ -52,7 +52,7 @@ object Exercise03 {
  * Place the implementation in the Euro's companion object so that the implicit resolution requires no import. 
  * For marshalling and unmarshalling json make use of the @see EuroJsonMarshallerHelper
  */
-object Exercise02 {
+object Exercise03 {
   object JsonConverter {
     def convertToJson[T /**provide context bound*/ ](t: T): JValue = {
       ???
@@ -63,14 +63,14 @@ object Exercise02 {
   }
 
 /**
- * Only used for exercise2!
+ * Only used for Exercise03!
  */
 trait JsonConverter[T] {
   def toJSON(t: T): JValue
   def fromJson(json: JValue): T
 }
 /**
- * Only used for exercise2!
+ * Only used for Exercise03!
  */
 object EuroJsonMarshallerHelper {
   implicit val formats = DefaultFormats
