@@ -13,11 +13,11 @@ class FunctionsExerciseTest extends Specification {
   "FunctionsExercise01" should {
     "measure execution time" in {
       def block = {
-        Thread.sleep(3)
+        Thread.sleep(10)
         4
       }
       4 ==== FunctionsExercise01.measure(block)
-      FunctionsExercise01.printed startsWith ("The execution took: ")
+      FunctionsExercise01.printed must beMatching ("""The execution took: ([1-9][0-9]) ms""")
     }
   }
   "FunctionsExercise2" should {
