@@ -168,7 +168,7 @@ object JpaExercise {
   /**
    * Helper method
    */
-  def doWithEM[T](perform: => T): T = {
+  def doWithEM[T](perform: ⇒ T): T = {
     //adds the ScalaEntityManger to ThreadLocal if needed
     Repository.sem
     try {

@@ -11,7 +11,7 @@ object PaymentService {
     new Response(true, "Accepted")
   }
 
-  def getSortedHistory(sort: (Order, Order) => Boolean): List[Order] = {
+  def getSortedHistory(sort: (Order, Order) ⇒ Boolean): List[Order] = {
     history.sortWith(sort)
   }
 

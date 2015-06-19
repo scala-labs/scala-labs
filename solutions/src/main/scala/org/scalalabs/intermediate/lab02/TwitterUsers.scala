@@ -20,7 +20,7 @@ object TwitterUsers {
   }
 
   def thatArePopularByScreenNameAndPopularitySortedbyPopularity(input: List[TwitterUser]): List[(String, Int)] = {
-    thatArePopular(input.sortWith(compareByFollowersCount(_, _))).map(friend => (friend.screen_name, friend.followersCount))
+    thatArePopular(input.sortWith(compareByFollowersCount(_, _))).map(friend ⇒ (friend.screen_name, friend.followersCount))
   }
 
   def thatAreInBothLists(firstList: List[TwitterUser], secondList: List[TwitterUser]): List[TwitterUser] = {

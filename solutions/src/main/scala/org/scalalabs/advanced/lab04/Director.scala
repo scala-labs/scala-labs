@@ -2,9 +2,9 @@ package org.scalalabs.advanced.lab04
 
 import javax.persistence._
 import java.util.Date
-import java.util.{ Set => JSet }
-import scala.collection.mutable.{ Set => MSet }
-import java.util.{ HashSet => JHashSet }
+import java.util.{ Set ⇒ JSet }
+import scala.collection.mutable.{ Set ⇒ MSet }
+import java.util.{ HashSet ⇒ JHashSet }
 import scala.collection.JavaConversions._
 
 @Entity

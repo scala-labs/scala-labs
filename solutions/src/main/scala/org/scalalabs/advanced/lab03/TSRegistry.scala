@@ -26,9 +26,9 @@ object ManifestSample {
     def safeGet[T](key: A)(implicit m: Manifest[T]): Option[T] = {
       val ov = map.get(key)
       ov match {
-        case Some((ovm: Manifest[_], v: Any)) =>
+        case Some((ovm: Manifest[_], v: Any)) ⇒
           if (ovm <:< m) Some(v.asInstanceOf[T]) else None
-        case _ => None
+        case _ ⇒ None
       }
     }
   }

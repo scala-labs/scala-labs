@@ -46,7 +46,7 @@ object CollectionExercise01 {
 
     //visualize missing chars in alphabet
     val existingCharsSorted = input.toSet.toList.sorted.mkString
-    val visualMissingChars = alphabet.map(c => if (existingCharsSorted.contains(c)) c else ' ').mkString
+    val visualMissingChars = alphabet.map(c ⇒ if (existingCharsSorted.contains(c)) c else ' ').mkString
 
     //compute mapping
     val initialMapping = (input zip output).toSet
@@ -85,7 +85,7 @@ object CollectionExercise02 {
     persons.filter(_.age >= 18)
       .sortBy(_.name)
       .groupBy(_.age / 10 * 10)
-      .map { case (ageGroup, persons) => ageGroup -> persons.size }
+      .map { case (ageGroup, persons) ⇒ ageGroup -> persons.size }
   }
 
 }
@@ -101,7 +101,7 @@ object CollectionExercise03 {
    * checkValuesIncrease(Seq(1,2,2)) == false
    */
   def checkValuesIncrease[T <% Ordered[T]](seq: Seq[T]): Boolean =
-    if (seq.size > 1) seq.sliding(2).forall(l => l(0) < l(1)) else true
+    if (seq.size > 1) seq.sliding(2).forall(l ⇒ l(0) < l(1)) else true
 
 }
 /*========================================================== */
@@ -124,7 +124,7 @@ object CollectionExercise05 {
    * E.g. Seq(1,2,3) is Seq(2)
    */
   def filterWithFoldLeft(seq: Seq[Int]): Seq[Int] = {
-    seq.foldLeft(Seq.empty[Int])((cum, i) => if (i % 2 == 0) cum :+ i else cum)
+    seq.foldLeft(Seq.empty[Int])((cum, i) ⇒ if (i % 2 == 0) cum :+ i else cum)
   }
   /**
    * Group all numbers based on whether they are even or odd using foldLeft.
@@ -132,12 +132,12 @@ object CollectionExercise05 {
    * E.g: Seq(1,2,3) is Map(0 -> Seq(2), 1 -> Seq(1,3))
    */
   def groupByWithFoldLeft(seq: Seq[Int]): Map[Boolean, Seq[Int]] = {
-    seq.foldLeft(Map[Boolean, Seq[Int]]()) { (map, next) =>
+    seq.foldLeft(Map[Boolean, Seq[Int]]()) { (map, next) ⇒
       val key = next % 2 == 0
       map + (key -> (map.getOrElse(key, Seq()) :+ next))
     }
     //simpler
-    seq.foldLeft(Map[Boolean, Seq[Int]]().withDefaultValue(Seq[Int]())) { (map, next) =>
+    seq.foldLeft(Map[Boolean, Seq[Int]]().withDefaultValue(Seq[Int]())) { (map, next) ⇒
       val key = next % 2 == 0
       map + (key -> (map(key) :+ next))
     }

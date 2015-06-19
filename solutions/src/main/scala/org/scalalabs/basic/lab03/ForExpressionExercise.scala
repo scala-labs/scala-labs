@@ -47,8 +47,8 @@ object ForExpressionExercise01 {
   def largestPalindromWithForExpression(amountOfDigits: Int): Int = {
     val (fromNumber, toNumber) = getFromAndTo(amountOfDigits)
     val res = for {
-      i <- fromNumber to toNumber
-      j <- i to toNumber
+      i ← fromNumber to toNumber
+      j ← i to toNumber
       prod = i * j
       if prod.toString == prod.toString.reverse
     } yield prod
@@ -65,8 +65,8 @@ object ForExpressionExercise01 {
    */
   def largestPalindromWithHigherOrderFunctions(amountOfDigits: Int): Int = {
     val (fromNumber, toNumber) = getFromAndTo(amountOfDigits)
-    (fromNumber to toNumber).flatMap(i => i to toNumber map (j => i * j))
-      .filter(prod => prod.toString == prod.toString.reverse)
+    (fromNumber to toNumber).flatMap(i ⇒ i to toNumber map (j ⇒ i * j))
+      .filter(prod ⇒ prod.toString == prod.toString.reverse)
       .max
   }
 }

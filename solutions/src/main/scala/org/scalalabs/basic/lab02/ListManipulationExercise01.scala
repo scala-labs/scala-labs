@@ -13,8 +13,8 @@ object ListManipulationExercise01 {
     //pattern match solution:
     def mySum(acc: Int, curList: List[Int]): Int = {
       curList match {
-        case Nil => acc
-        case x :: xs => mySum((acc + x), xs)
+        case Nil ⇒ acc
+        case x :: xs ⇒ mySum((acc + x), xs)
       }
     }
 
@@ -30,15 +30,15 @@ object ListManipulationExercise01 {
     //custom version: pattern match
     def myLast1[T](l: List[T]): T = {
       l match {
-        case head :: Nil => head
-        case _ :: tail => myLast1(tail)
-        case _ => error("last on empty list")
+        case head :: Nil ⇒ head
+        case _ :: tail ⇒ myLast1(tail)
+        case _ ⇒ error("last on empty list")
       }
     }
 
     //custom version2: using fold
     def myLast2[T](l: List[T]): T = {
-      l.foldLeft(l.headOption) { (a, b) => Some(b) }.getOrElse(error("last on empty list"))
+      l.foldLeft(l.headOption) { (a, b) ⇒ Some(b) }.getOrElse(error("last on empty list"))
     }
     myLast1(l)
   }
@@ -46,7 +46,7 @@ object ListManipulationExercise01 {
   def nthElementInList[T](n: Int, l: List[T]): T = {
     //solution using zipWithIndex
     def myNth1(n: Int, l: List[T]): T = {
-      l.zipWithIndex.filter(p => p._2 == n).headOption.getOrElse(error("index out of bounds"))._1
+      l.zipWithIndex.filter(p ⇒ p._2 == n).headOption.getOrElse(error("index out of bounds"))._1
     }
     myNth1(n, l)
   }
@@ -55,8 +55,8 @@ object ListManipulationExercise01 {
     //built in: l1 ::: l2
     def myConcat(l1: List[T], l2: List[T]): List[T] = {
       l1 match {
-        case Nil => l2
-        case x :: xs => x :: myConcat(xs, l2)
+        case Nil ⇒ l2
+        case x :: xs ⇒ x :: myConcat(xs, l2)
       }
     }
     myConcat(l1, l2)
@@ -65,7 +65,7 @@ object ListManipulationExercise01 {
   def sortList[T <% Ordered[T]](list: List[T]): List[T] = {
     //not efficient, but fun
     list.foldLeft(List[T]()) {
-      (x, y) =>
+      (x, y) ⇒
         val (sorted, xs) = x.span(_ < y)
         sorted ::: y :: xs
     }
@@ -77,7 +77,7 @@ object ListManipulationExercise01 {
   }
 
   def oddElements(iList: List[Int]): List[Int] = {
-    iList.filter(e => e % 2 == 1)
+    iList.filter(e ⇒ e % 2 == 1)
   }
 
   def tails[T](l: List[T]): List[List[T]] = {

@@ -19,8 +19,8 @@ class PatternMatchingExcerciseTest extends JUnitSuite {
   @Test
   def matchFileNameTest() {
     val matchResult = "HelloAdvancedWorldOf.scala" match {
-      case FileName(name, extension) => "I match " + name + " of filetype " + extension
-      case _ => "No match"
+      case FileName(name, extension) ⇒ "I match " + name + " of filetype " + extension
+      case _ ⇒ "No match"
     }
     assert(matchResult == "I match HelloAdvancedWorldOf of filetype scala")
   }
@@ -28,8 +28,8 @@ class PatternMatchingExcerciseTest extends JUnitSuite {
   @Test
   def matchElementsInPathTest() {
     val matchResult = "/home/anyuser/development/scala/" match {
-      case Path(first, _, _, last) => "The path starts with " + first + " and ends with " + last
-      case _ => "No match"
+      case Path(first, _, _, last) ⇒ "The path starts with " + first + " and ends with " + last
+      case _ ⇒ "No match"
     }
     assert(matchResult == "The path starts with scala and ends with home")
   }
@@ -49,8 +49,8 @@ class PatternMatchingExcerciseTest extends JUnitSuite {
   @Test
   def regexLogLineMatchTest() {
     val matchResult = "2010-04-08T04:08:05.889Z;PRF;server1;1004080608005100002;Processing took 200 ms" match {
-      case PerfLogLineRE(date, server, threadId, ms) => (date :: server :: threadId :: ms :: Nil).mkString("|")
-      case _ => "No match"
+      case PerfLogLineRE(date, server, threadId, ms) ⇒ (date :: server :: threadId :: ms :: Nil).mkString("|")
+      case _ ⇒ "No match"
     }
     assert(matchResult == "2010-04-08T04:08:05.889Z|1|1004080608005100002|200")
   }

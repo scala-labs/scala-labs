@@ -26,29 +26,29 @@ object PatternMatchingExercise {
 
   def describeLanguage(s: String) = {
     s match {
-      case "Clojure" | "Haskell" | "Erlang" => "Functional"
-      case "Scala" => "Hybrid"
-      case "Java" | "Smalltalk" => "OOP"
-      case "C" => "Procedural"
-      case _ => "Unknown"
+      case "Clojure" | "Haskell" | "Erlang" ⇒ "Functional"
+      case "Scala" ⇒ "Hybrid"
+      case "Java" | "Smalltalk" ⇒ "OOP"
+      case "C" ⇒ "Procedural"
+      case _ ⇒ "Unknown"
     }
   }
 
   def matchOnInputType(in: Any) = in match {
-    case s: String => s"A string with length ${s.length}"
-    case i: Int if i > 0 => "A positive integer"
-    case Person(name, _) => s"A person with name: $name"
-    case s: Seq[_] if (s.size > 10) => "Seq with more than 10 elements"
-    case first :: second :: tail => s"first: $first, second: $second, rest: $tail"
-    case o: Option[_] => "A Scala Option subtype"
-    case a: AnyRef => "Some Scala class"
-    case null => "A null value"
-    case _ => "The default"
+    case s: String ⇒ s"A string with length ${s.length}"
+    case i: Int if i > 0 ⇒ "A positive integer"
+    case Person(name, _) ⇒ s"A person with name: $name"
+    case s: Seq[_] if (s.size > 10) ⇒ "Seq with more than 10 elements"
+    case first :: second :: tail ⇒ s"first: $first, second: $second, rest: $tail"
+    case o: Option[_] ⇒ "A Scala Option subtype"
+    case a: AnyRef ⇒ "Some Scala class"
+    case null ⇒ "A null value"
+    case _ ⇒ "The default"
   }
 
   def older(p: Person): Option[String] = p match {
-    case Person(name, age) if age > 30 => Some(name)
-    case _ => None
+    case Person(name, age) if age > 30 ⇒ Some(name)
+    case _ ⇒ None
   }
 
   /**
@@ -58,12 +58,12 @@ object PatternMatchingExercise {
    * ***********************************************************************
    */
   val pf1: PartialFunction[String, String] = {
-    case "scala-labs" => "Got scala-labs"
-    case "stuff" => "Got stuff"
+    case "scala-labs" ⇒ "Got scala-labs"
+    case "stuff" ⇒ "Got stuff"
   }
 
   val pf2: PartialFunction[String, String] = {
-    case "other stuff" => "Got stuff"
+    case "other stuff" ⇒ "Got stuff"
   }
 
   val pf3 = {

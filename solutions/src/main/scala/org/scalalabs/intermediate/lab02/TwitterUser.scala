@@ -28,8 +28,8 @@ abstract class TwitterUser {
 
     // But doesn't this look a lot better ?
     other match {
-      case otherUser: TwitterUser => id == otherUser.id
-      case _ => false
+      case otherUser: TwitterUser ⇒ id == otherUser.id
+      case _ ⇒ false
     }
   }
 

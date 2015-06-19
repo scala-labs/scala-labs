@@ -79,8 +79,8 @@ object ImplicitConversionExercise01 {
         def camelCase(s: String): String = {
           val spaceLetterAndRestOfTextSeqRegExp = """\s(.?)(.*)""".r
           s.span(!_.isSpaceChar) match {
-            case (all, "") => all
-            case (head, spaceLetterAndRestOfTextSeqRegExp(firstLetter, restOfText)) => head + camelCase(firstLetter.toUpperCase + restOfText)
+            case (all, "") ⇒ all
+            case (head, spaceLetterAndRestOfTextSeqRegExp(firstLetter, restOfText)) ⇒ head + camelCase(firstLetter.toUpperCase + restOfText)
           }
         }
         camelCase(s)

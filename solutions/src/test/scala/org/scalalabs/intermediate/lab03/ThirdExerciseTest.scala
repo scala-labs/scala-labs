@@ -74,7 +74,7 @@ class ThirdExerciseTest extends JUnitSuite {
     val friendsTimeline = twitter.friendsTimeline
     val friends: TwitterUsers = twitter.friends
 
-    assertResult(true) { friendsTimeline.forall(tweet => friends.exists(_ == tweet.user) || testAccountUsername == tweet.user.screenName) }
+    assertResult(true) { friendsTimeline.forall(tweet ⇒ friends.exists(_ == tweet.user) || testAccountUsername == tweet.user.screenName) }
   }
 
   @Test

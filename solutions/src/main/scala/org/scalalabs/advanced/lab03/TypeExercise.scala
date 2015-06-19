@@ -26,7 +26,7 @@ object ComboMeal {
   case class ComboMealProduct(val burger: String, val bev: Size, val sideOrder: String)
 
   case class Builder[HAS_BURGER <: Option[String], HAS_BEVERAGE <: Option[Size], HAS_SIDEORDER <: Option[String]] private[ComboMeal] (burger: HAS_BURGER, bev: HAS_BEVERAGE, sideOrder: HAS_SIDEORDER) {
-    def ~[X](f: Builder[HAS_BURGER, HAS_BEVERAGE, HAS_SIDEORDER] => X): X = f(this)
+    def ~[X](f: Builder[HAS_BURGER, HAS_BEVERAGE, HAS_SIDEORDER] ⇒ X): X = f(this)
   }
 
   def withBurger[M <: Option[Size], D <: Option[String]](burger: String)(b: Builder[None, M, D]): Builder[Some[String], M, D] =
@@ -93,7 +93,7 @@ object Combo {
   case object None extends None
 
   case class Builder[HAS_BUR <: Option[String], HAS_BEV <: Option[String], HAS_SIDE <: Option[String]] private[Combo] (burger: HAS_BUR, bev: HAS_BEV, side: HAS_SIDE) {
-    def ~[X](f: Builder[HAS_BUR, HAS_BEV, HAS_SIDE] => X): X = f(this)
+    def ~[X](f: Builder[HAS_BUR, HAS_BEV, HAS_SIDE] ⇒ X): X = f(this)
   }
 }
 
@@ -105,7 +105,7 @@ object FoodExercise {
   object Fish extends Food { def name = "Fish" }
   object Pizza extends Food { def name = "Beef" }
 
-  trait Mamal { self =>
+  trait Mamal { self ⇒
     val eats: Food
     def joinDinnerWith[T <: Mamal](other: T)(implicit sameFood: other.eats.type =:= self.eats.type) {}
     def prefers = "Eating " + eats.name

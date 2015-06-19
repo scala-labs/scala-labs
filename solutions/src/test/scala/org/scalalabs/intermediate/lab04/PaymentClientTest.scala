@@ -24,7 +24,7 @@ class PaymentClientTest {
     paymentClient.resetState
   }
 
-  def testIfOrderAccepted(madePayment: => Unit) {
+  def testIfOrderAccepted(madePayment: ⇒ Unit) {
     madePayment
     assertEquals(paymentClient.findAllOrders.size, 1)
   }
@@ -57,8 +57,8 @@ class PaymentClientTest {
     }
 
     paymentClient.findAllOrders.head.paymentMethod match {
-      case h: Belongs => assertEquals("John", h.firstName)
-      case _ => fail
+      case h: Belongs ⇒ assertEquals("John", h.firstName)
+      case _ ⇒ fail
     }
   }
 

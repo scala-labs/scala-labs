@@ -84,7 +84,7 @@ class UnauthenticatedSession extends TwitterSession {
   }
 
   protected def mapToTimeline(xml: Node): TwitterTimeline = {
-    new TwitterTimeline((xml \\ "status").toList.map(s => TwitterStatus(s)))
+    new TwitterTimeline((xml \\ "status").toList.map(s ⇒ TwitterStatus(s)))
   }
 }
 
@@ -148,7 +148,7 @@ class AuthenticatedSession(val authInfo: TwitterAuthInfo) extends Unauthenticate
     val post = new HttpPost(url)
 
     val postParams: List[BasicNameValuePair] =
-      for ((key, value) <- parameters.toList) yield new BasicNameValuePair(key, value)
+      for ((key, value) ← parameters.toList) yield new BasicNameValuePair(key, value)
     post.setEntity(new UrlEncodedFormEntity(seqAsJavaList(postParams), "UTF-8"))
 
     post.getParams().setBooleanParameter(CoreProtocolPNames.USE_EXPECT_CONTINUE, false);
@@ -160,6 +160,6 @@ class AuthenticatedSession(val authInfo: TwitterAuthInfo) extends Unauthenticate
   }
 
   protected def mapToUsers(xml: Node): TwitterUsers = {
-    new TwitterUsers((xml \\ "user").toList.map(s => TwitterUser(s)))
+    new TwitterUsers((xml \\ "user").toList.map(s ⇒ TwitterUser(s)))
   }
 }

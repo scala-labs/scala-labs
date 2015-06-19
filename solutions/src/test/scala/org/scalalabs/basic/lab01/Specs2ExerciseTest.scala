@@ -1,6 +1,6 @@
 package org.scalalabs.basic.lab01
 
-import java.lang.{ IllegalArgumentException => IAE }
+import java.lang.{ IllegalArgumentException ⇒ IAE }
 import org.junit.runner.RunWith
 import org.specs2.mutable.Specification
 import org.specs2.runner.JUnitRunner

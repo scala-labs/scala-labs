@@ -24,8 +24,8 @@ object OptionExercise01 {
    * - does not exist: "not existing"
    */
   def roomState(rooms: Map[Int, Option[String]], room: Int): String = {
-    rooms.get(room).map { roomState =>
-      roomState.map { value =>
+    rooms.get(room).map { roomState ⇒
+      roomState.map { value ⇒
         if (value == "locked") "not available"
         else value
       }
@@ -45,12 +45,12 @@ object OptionExercise02 {
    */
   def totalPeopleInRooms(rooms: Map[Int, Option[String]]): Int = {
     //functional solution
-    rooms.values.map(i => Exception.allCatch.opt(i.get.toInt)).flatten.sum
+    rooms.values.map(i ⇒ Exception.allCatch.opt(i.get.toInt)).flatten.sum
 
     val res = for {
-      occupationOpt <- rooms.values
-      occupation <- occupationOpt
-      occupationNo <- Exception.allCatch opt occupation.toInt
+      occupationOpt ← rooms.values
+      occupation ← occupationOpt
+      occupationNo ← Exception.allCatch opt occupation.toInt
     } yield occupationNo
     res.reduce(_ + _)
   }

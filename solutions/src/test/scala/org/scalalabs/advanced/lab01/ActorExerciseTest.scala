@@ -50,8 +50,8 @@ class ActorExerciseTest extends JUnitSuite {
     chatClient ! Message("testuser", "message2")
 
     val msg: Option[List[String]] = chatClient !? ChatLog match {
-      case Messages(msg) => Some(msg)
-      case _ => None
+      case Messages(msg) ⇒ Some(msg)
+      case _ ⇒ None
     }
     assertEquals(List("message2", "message1"), msg.getOrElse(Nil))
   }
@@ -64,8 +64,8 @@ class ActorExerciseTest extends JUnitSuite {
     chatServer ! AnonymousMessage("message2")
 
     val msg: Option[List[String]] = chatServer !? ChatLog match {
-      case Messages(msg) => Some(msg)
-      case _ => None
+      case Messages(msg) ⇒ Some(msg)
+      case _ ⇒ None
     }
     assertEquals(List("message2", "message1"), msg.getOrElse(Nil))
   }
@@ -85,21 +85,21 @@ class ActorExerciseTest extends JUnitSuite {
     Thread.sleep(500)
 
     val msg1: Option[List[String]] = client1 !? ChatLog match {
-      case Messages(msg) => Some(msg)
-      case _ => None
+      case Messages(msg) ⇒ Some(msg)
+      case _ ⇒ None
     }
     assertEquals(List("client1: first message"), msg1.getOrElse(Nil))
 
     val msg2: Option[List[String]] = client2 !? ChatLog match {
-      case Messages(msg) => Some(msg)
-      case _ => None
+      case Messages(msg) ⇒ Some(msg)
+      case _ ⇒ None
     }
 
     assertEquals(List("client2: second message"), msg2.getOrElse(Nil))
 
     val msg: Option[List[String]] = chatServer !? ChatLog match {
-      case Messages(msg) => Some(msg)
-      case _ => None
+      case Messages(msg) ⇒ Some(msg)
+      case _ ⇒ None
     }
     assertEquals(List("client2: second message", "client1: first message"), msg.getOrElse(Nil))
 
@@ -109,8 +109,8 @@ class ActorExerciseTest extends JUnitSuite {
     Thread.sleep(500)
 
     val msg3: Option[List[String]] = client2 !? ChatLog match {
-      case Messages(msg) => Some(msg)
-      case _ => None
+      case Messages(msg) ⇒ Some(msg)
+      case _ ⇒ None
     }
 
     assertEquals(List("client1: a broadcast message", "client2: second message"), msg3.getOrElse(Nil))

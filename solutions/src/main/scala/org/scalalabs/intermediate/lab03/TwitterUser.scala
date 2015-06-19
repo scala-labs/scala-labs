@@ -19,8 +19,8 @@ abstract class TwitterUser {
 
   override def equals(other: Any) = {
     other match {
-      case otherUser: TwitterUser => id == otherUser.id
-      case _ => false
+      case otherUser: TwitterUser ⇒ id == otherUser.id
+      case _ ⇒ false
     }
   }
 

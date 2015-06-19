@@ -17,7 +17,7 @@ import org.joda.time.DateTime
 class EchoActor extends Actor {
   def act = loop {
     react {
-      case s => reply("Got message: " + s)
+      case s ⇒ reply("Got message: " + s)
     }
   }
 }
@@ -32,9 +32,9 @@ class Counter extends Actor {
 
   def act = loop {
     react {
-      case Inc => value += 1
-      case Dec => value -= 1
-      case Curr => reply(value)
+      case Inc ⇒ value += 1
+      case Dec ⇒ value -= 1
+      case Curr ⇒ reply(value)
     }
   }
 }
@@ -53,8 +53,8 @@ class SimpleChatClient extends Actor {
   private var messages: List[String] = Nil
 
   protected def messageMgt: PartialFunction[Any, Unit] = {
-    case Message(from, msg) => messages = msg :: messages
-    case ChatLog => reply(Messages(messages))
+    case Message(from, msg) ⇒ messages = msg :: messages
+    case ChatLog ⇒ reply(Messages(messages))
   }
 
   def act = loop {
@@ -63,7 +63,7 @@ class SimpleChatClient extends Actor {
 }
 
 trait ChatServer extends Actor {
-  self: ChatMgt with MessageMgt =>
+  self: ChatMgt with MessageMgt ⇒
 
   protected def messageMgt: PartialFunction[Any, Unit]
 
@@ -76,7 +76,7 @@ trait ChatServer extends Actor {
   }
 
   def handleMsg: PartialFunction[Any, Unit] = {
-    case m @ Message(from, msg) => {
+    case m @ Message(from, msg) ⇒ {
       messages = msg :: messages
       //       chats.valuesIterator.foreach(c => c ! m)
     }
@@ -84,7 +84,7 @@ trait ChatServer extends Actor {
 }
 
 trait ChatClientOps extends Actor {
-  self: ChatClient =>
+  self: ChatClient ⇒
 
   private val loggedInAt = new DateTime
   private var chatLog: List[String] = Nil
@@ -106,11 +106,11 @@ trait ChatClientOps extends Actor {
 
   def act = loop {
     react {
-      case m @ AnonymousMessage(msg) => {
+      case m @ AnonymousMessage(msg) ⇒ {
         println("Client " + self.name + " got message " + msg);
         chatLog = msg :: chatLog
       }
-      case ChatLog => reply(Messages(chatLog))
+      case ChatLog ⇒ reply(Messages(chatLog))
     }
   }
 }
@@ -123,25 +123,25 @@ case class ChatClient(val name: String, val server: Actor) extends ChatClientOps
  * The self-type annotation (self: Actor =>) means that this trait can only be used when mixed in with an Actor.
  */
 trait MessageMgt {
-  self: Actor with ChatMgt =>
+  self: Actor with ChatMgt ⇒
   protected var messages: List[String] = Nil
 
   protected def messageMgt: PartialFunction[Any, Unit] = {
-    case m @ Message(from, msg) => {
+    case m @ Message(from, msg) ⇒ {
       println("Got message from " + from + " message: " + msg)
       sessions(from) ! AnonymousMessage(msg)
       messages = msg :: messages
     }
-    case m @ BroadcastMessage(from, msg) => {
+    case m @ BroadcastMessage(from, msg) ⇒ {
       println("Got broadcast message from " + from + " message: " + msg)
       sessions.valuesIterator.foreach(_ ! AnonymousMessage(msg))
       messages = msg :: messages
     }
-    case m @ AnonymousMessage(msg) => {
+    case m @ AnonymousMessage(msg) ⇒ {
       messages = msg :: messages
     }
 
-    case ChatLog => reply(Messages(messages))
+    case ChatLog ⇒ reply(Messages(messages))
   }
 }
 
@@ -151,17 +151,17 @@ trait MessageMgt {
  * The self-type annotation (self: Actor =>) means that this trait can only be used when mixed in with an Actor.
  */
 trait ChatMgt {
-  self: Actor =>
+  self: Actor ⇒
 
   protected var sessions = new HashMap[String, Actor]
 
   protected def chatMgt: PartialFunction[Any, Unit] = {
-    case Add(user) => {
+    case Add(user) ⇒ {
       println(String.format("User %s has been added", user.name))
       sessions += (user.name -> user)
     }
 
-    case Remove(user) => {
+    case Remove(user) ⇒ {
       //      log.info("User [%s] has logged out", username)
       println(String.format("User %s has logged out", user))
       val chat = sessions(user)
