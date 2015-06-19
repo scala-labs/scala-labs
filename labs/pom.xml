@@ -221,8 +221,16 @@
 					<args>
 						<arg>-unchecked</arg>
 						<arg>-deprecation</arg>
+						<arg>-P:scapegoat:dataDir:target/scapegoat</arg>
 					</args>
 					<scalaVersion>${scala.version}</scalaVersion>
+					<compilerPlugins>
+						<compilerPlugin>
+							<groupId>com.sksamuel.scapegoat</groupId>
+							<artifactId>scalac-scapegoat-plugin_2.11</artifactId>
+							<version>0.3.0</version>
+						</compilerPlugin>
+					</compilerPlugins>
 				</configuration>
 			</plugin>
 
