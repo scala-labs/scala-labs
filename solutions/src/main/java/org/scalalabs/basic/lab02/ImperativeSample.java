@@ -7,6 +7,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+//import java.util.stream.Collectors;
 
 /**
  * This piece of java code depicts an imperative approach
@@ -74,6 +75,27 @@ public class ImperativeSample {
 		return adultsPerAgeGroup;
 	}
 
+	/*
+	 * Java 8 counterparts with lambda's
+	 */
+	/*
+	public static Map<Integer, List<Person>> groupAdultsPerAgeGroupLambda(List<Person> persons) {
+		return persons.stream().filter(p -> p.getAge() >= 18)
+				.sorted(Comparator.comparing(Person::getName))
+				.collect(Collectors.groupingBy(p -> p.getAge() / 10 * 10));
+	}
+
+	public static Map<Integer, Integer> groupAdultsCountsPerAgeGroupLambda(List<Person> persons) {
+		return persons.stream()
+				.filter(p -> p.getAge() >= 18)
+				.sorted(Comparator.comparing(Person::getName))
+				.collect(Collectors.groupingBy(p -> p.getAge() / 10 * 10))
+				.entrySet()
+				.stream()
+				.collect(Collectors.toMap(k -> k.getKey(), p -> p.getValue().size()));
+	}
+*/
+
 	public static void main(String[] args) {
 		Map<Integer, List<Person>> adultsPerAgeGroup = groupAdultsPerAgeGroup(persons);
 		assert(expected.equals(adultsPerAgeGroup));
@@ -104,3 +126,6 @@ public class ImperativeSample {
 	}
 
 }
+
+
+

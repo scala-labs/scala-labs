@@ -80,6 +80,14 @@ object CollectionExercise02 {
       .sortBy(_.name)
       .groupBy(_.age / 10 * 10)
   }
+
+  def groupAdultsCountPerAgeGroup(persons: Seq[Person]): Map[Int, Int] = {
+    persons.filter(_.age >= 18)
+      .sortBy(_.name)
+      .groupBy(_.age / 10 * 10)
+      .map{case (ageGroup, persons) => ageGroup -> persons.size}
+  }
+
 }
 
 /*========================================================== */
