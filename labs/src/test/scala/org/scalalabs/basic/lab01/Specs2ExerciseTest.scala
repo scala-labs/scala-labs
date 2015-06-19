@@ -13,7 +13,7 @@ import org.specs2.runner.JUnitRunner
  * - Happy flow (divider is > 0)
  * - Alternative flow (divider is <= 0)
  */
-@RunWith(classOf[JUnitRunner])
+//@RunWith(classOf[JUnitRunner])
 class Specs2ExerciseTest {
 
 }

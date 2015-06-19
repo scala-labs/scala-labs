@@ -14,7 +14,7 @@ import org.scalatest.junit._
  * - Happy flow (divider is > 0)
  * - Alternative flow (divider is <= 0)
  */
-@RunWith(classOf[JUnitRunner])
+//@RunWith(classOf[JUnitRunner])
 class ScalaTestExerciseTest {
 
 }
