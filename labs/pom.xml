@@ -254,6 +254,22 @@
 					</buildcommands>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.scalariform</groupId>
+				<artifactId>scalariform-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>process-sources</phase>
+						<goals>
+							<goal>format</goal>
+						</goals>
+						<configuration>
+							<rewriteArrowSymbols>true</rewriteArrowSymbols>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
 
