@@ -6,9 +6,14 @@ abstract class Currency(val symbol: String)
 class Euro(val euro: Int, val cents: Int = 0) extends Currency("EUR") with Ordered[Euro] {
   lazy val inCents: Int = euro * 100 + cents
 
-  def +(other: Euro) = Euro.fromCents(inCents + other.inCents)
+  def +(other: Euro):Euro = Euro.fromCents(inCents + other.inCents)
 
-  def *(n: Int) = Euro.fromCents(n * inCents)
+  def *(n: Int):Euro = Euro.fromCents(n * inCents)
+  
+  def /(n:Int):Euro = {
+    if(n <= 0) throw new IllegalArgumentException("Divider must be greater than 0")
+    Euro.fromCents(inCents / n)    
+  }
 
   override lazy val toString = s"$symbol: $euro,${if (cents > 0) f"$cents%02d" else "--"}"
 
