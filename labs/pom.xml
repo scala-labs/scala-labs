@@ -277,7 +277,14 @@
 					</execution>
 				</executions>
 			</plugin>
-
+			<plugin>
+				<groupId>org.scoverage</groupId>
+					<artifactId>scoverage-maven-plugin</artifactId>
+					<version>1.1.0</version>
+					<configuration>
+						<scalaVersion>2.11.6</scalaVersion>
+					</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
