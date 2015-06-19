@@ -253,6 +253,14 @@
 					</buildcommands>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.scoverage</groupId>
+					<artifactId>scoverage-maven-plugin</artifactId>
+					<version>1.1.0</version>
+					<configuration>
+						<scalaVersion>${scala.version}</scalaVersion>
+					</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
