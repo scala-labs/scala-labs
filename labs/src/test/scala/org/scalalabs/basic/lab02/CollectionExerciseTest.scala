@@ -60,8 +60,8 @@ class CollectionExerciseTest extends Specification {
       "ullamcorperano".length() === result
     }
   }
-  
-    "CollectionExercise05" should {
+
+  "CollectionExercise05" should {
     "use foldLeft for common higher order functions" in {
       val input = Seq(1, 2, 3)
       input.filter(_ % 2 == 0) ==== CollectionExercise05.filterWithFoldLeft(input)

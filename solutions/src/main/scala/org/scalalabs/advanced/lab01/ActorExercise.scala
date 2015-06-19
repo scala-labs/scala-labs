@@ -7,7 +7,7 @@ package org.scalalabs.advanced.lab01
  * Messages are processed asynchronously and  Actor's process only one message at a time.
  * Because the actor's state can only be modified by sending a message, and messages are processed serially
  * they are thread-safe by default.
- * It is therefore an interesting alternative to the normal concurrency model of taking locks. 
+ * It is therefore an interesting alternative to the normal concurrency model of taking locks.
  */
 
 import scala.actors.Actor
@@ -48,8 +48,6 @@ case class Messages(msg: List[String]) extends ChatEvent
 case class Remove(who: String) extends ChatEvent
 case class Add(who: ChatClient) extends ChatEvent
 
-
-
 class SimpleChatClient extends Actor {
   private val loggedInAt = new DateTime
   private var messages: List[String] = Nil
@@ -64,7 +62,7 @@ class SimpleChatClient extends Actor {
   }
 }
 
-trait ChatServer extends Actor  {
+trait ChatServer extends Actor {
   self: ChatMgt with MessageMgt =>
 
   protected def messageMgt: PartialFunction[Any, Unit]
@@ -78,13 +76,12 @@ trait ChatServer extends Actor  {
   }
 
   def handleMsg: PartialFunction[Any, Unit] = {
-     case m @ Message(from, msg) => {
-       messages = msg :: messages
-//       chats.valuesIterator.foreach(c => c ! m)
-     }
+    case m @ Message(from, msg) => {
+      messages = msg :: messages
+      //       chats.valuesIterator.foreach(c => c ! m)
+    }
   }
 }
-
 
 trait ChatClientOps extends Actor {
   self: ChatClient =>
@@ -98,14 +95,13 @@ trait ChatClientOps extends Actor {
   }
 
   def broadCast(message: String) = {
-      println("Client " + name + " posts broadcast message " + message + " to server")
-      server ! BroadcastMessage(name, name + ": " + message)
+    println("Client " + name + " posts broadcast message " + message + " to server")
+    server ! BroadcastMessage(name, name + ": " + message)
   }
 
-
   def login = {
-     this.start
-     server ! Add(self)
+    this.start
+    server ! Add(self)
   }
 
   def act = loop {
@@ -128,7 +124,7 @@ case class ChatClient(val name: String, val server: Actor) extends ChatClientOps
  */
 trait MessageMgt {
   self: Actor with ChatMgt =>
-  protected var messages : List[String] = Nil
+  protected var messages: List[String] = Nil
 
   protected def messageMgt: PartialFunction[Any, Unit] = {
     case m @ Message(from, msg) => {

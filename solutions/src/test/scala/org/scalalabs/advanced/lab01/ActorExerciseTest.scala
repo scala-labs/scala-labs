@@ -3,7 +3,7 @@ package org.scalalabs.advanced.lab01
 import org.scalatest._
 import org.scalatest.junit.JUnitSuite
 import org.junit.Assert._
-import org.junit.{Before, Test}
+import org.junit.{ Before, Test }
 
 /**
  * User: arjan
@@ -13,19 +13,19 @@ import org.junit.{Before, Test}
 
 class ActorExerciseTest extends JUnitSuite {
 
-//  @Before
-//  override def initialize() {
-//    import ScalaLabsConfig._
-//    config.getString("scalalabs", "0")
-//  }
-//
- @Test
- def shouldEcho = {
-   val echo = new EchoActor
-   echo.start
-   assertEquals("Got message: Hello EchoActor", (echo !? "Hello EchoActor"))
+  //  @Before
+  //  override def initialize() {
+  //    import ScalaLabsConfig._
+  //    config.getString("scalalabs", "0")
+  //  }
+  //
+  @Test
+  def shouldEcho = {
+    val echo = new EchoActor
+    echo.start
+    assertEquals("Got message: Hello EchoActor", (echo !? "Hello EchoActor"))
 
- }
+  }
 
   @Test
   def shouldIncrementAndDecrement = {
@@ -41,22 +41,20 @@ class ActorExerciseTest extends JUnitSuite {
     assertEquals(1, (ctr !? Curr))
   }
 
+  @Test
+  def clientShouldAddMessageToPrivateLog = {
+    val chatClient = new SimpleChatClient
+    chatClient.start
 
-   @Test
-   def clientShouldAddMessageToPrivateLog = {
-      val chatClient = new SimpleChatClient
-      chatClient.start
+    chatClient ! Message("testuser", "message1")
+    chatClient ! Message("testuser", "message2")
 
-     chatClient ! Message("testuser", "message1")
-     chatClient ! Message("testuser", "message2")
-
-     val msg: Option[List[String]] = chatClient !? ChatLog match {
-       case Messages(msg) => Some(msg)
-       case _ => None
-     }
-     assertEquals(List("message2", "message1"), msg.getOrElse(Nil))
+    val msg: Option[List[String]] = chatClient !? ChatLog match {
+      case Messages(msg) => Some(msg)
+      case _ => None
     }
-
+    assertEquals(List("message2", "message1"), msg.getOrElse(Nil))
+  }
 
   @Test
   def shouldAddMessageToChatLog = {
@@ -109,7 +107,7 @@ class ActorExerciseTest extends JUnitSuite {
     client1.broadCast("a broadcast message")
 
     Thread.sleep(500)
-    
+
     val msg3: Option[List[String]] = client2 !? ChatLog match {
       case Messages(msg) => Some(msg)
       case _ => None

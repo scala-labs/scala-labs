@@ -115,7 +115,7 @@ object RecursionPatternMatchingExercise {
     }
     flipAll(in)
   }
-  
+
   /**
    * Zip multiple lists with different sizes
    * List(List(1), List('A, 'B, 'C), List('a, 'b)) -> List(List(1, 'A, 'a))
@@ -129,6 +129,4 @@ object RecursionPatternMatchingExercise {
   }
 
 }
-
-
 

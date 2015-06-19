@@ -44,4 +44,4 @@ class ImplictConversionExercise02Test extends Specification with DeactivatedTime
       euro === in
     }
   }
-} 
+}

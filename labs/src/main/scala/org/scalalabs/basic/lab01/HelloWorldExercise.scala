@@ -25,8 +25,7 @@ object HelloWorld {
    * More on variable declarations can be found here:
    * http://programming-scala.labs.oreilly.com/ch02.html#VariableDeclarationsAndDefinitions
    */
-	val sayHello: String = "FixMe"
-
+  val sayHello: String = "FixMe"
 
   /**
    * This defines the 'echo' method of the HelloWorld object.
@@ -40,14 +39,13 @@ object HelloWorld {
    *
    * Example of a void method:
    * def print(text) { println(text) }               -> note the absence of '=' before the method body
-   * def print(text): Unit = { println(text) }       -> a void method can also have as a return value Unit 
+   * def print(text): Unit = { println(text) }       -> a void method can also have as a return value Unit
    *
    * More on method declarations can be found here:
    * http://programming-scala.labs.oreilly.com/ch02.html#MethodDeclarationsAndDefinitions
    */
-	def echo(text: String): String = "FixMe"
+  def echo(text: String): String = "FixMe"
 }
-
 
 /*================================= Objects =====================================*/
 /**
@@ -75,37 +73,35 @@ object HelloWorld {
  * and the apply method in the companion object could then just call that constructor.
  */
 object HelloWorldClassAndObject {
-	def apply(initialText:String):HelloWorldClassAndObject = {
-		new HelloWorldClassAndObject {
-			val text="FixMe"
-		}
-	}
+  def apply(initialText: String): HelloWorldClassAndObject = {
+    new HelloWorldClassAndObject {
+      val text = "FixMe"
+    }
+  }
 }
 
 abstract class HelloWorldClassAndObject {
-	val text:String
-	def echo:String = text
+  val text: String
+  def echo: String = text
 }
 
 /*================================= Traits =====================================*/
 
 object HelloWorldWithTraits extends HelloTrait with WorldTrait {
 
- /**
- * Hint:
- * - combine the 'helloMethod' of HelloTrait and the 'worldMethod' of WorldTrait to create a new message
- * - just replacing the FixMe string would of course be cheating :)
- */
-	def hello:String = "FixMe"
+  /**
+   * Hint:
+   * - combine the 'helloMethod' of HelloTrait and the 'worldMethod' of WorldTrait to create a new message
+   * - just replacing the FixMe string would of course be cheating :)
+   */
+  def hello: String = "FixMe"
 }
 
 trait HelloTrait {
-	def helloMethod:String = "FixMe"
+  def helloMethod: String = "FixMe"
 }
 
 trait WorldTrait {
-	def worldMethod:String = "World"
+  def worldMethod: String = "World"
 }
-
-
 

@@ -16,74 +16,73 @@ import org.junit.Test
  * point.
  */
 class SecondExerciseTest extends JUnitSuite {
-    private def getFriends(): List[TwitterUser] = loadUsersFromXml("/friends.xml")
-    private def getFollowers(): List[TwitterUser] = loadUsersFromXml("/followers.xml")
+  private def getFriends(): List[TwitterUser] = loadUsersFromXml("/friends.xml")
+  private def getFollowers(): List[TwitterUser] = loadUsersFromXml("/followers.xml")
 
-    private def loadUsersFromXml(xmlFileName: String): List[TwitterUser] = {
-        val xml = XML.load(this.getClass.getResourceAsStream(xmlFileName))
-        val friends = xml \\ "user"
+  private def loadUsersFromXml(xmlFileName: String): List[TwitterUser] = {
+    val xml = XML.load(this.getClass.getResourceAsStream(xmlFileName))
+    val friends = xml \\ "user"
 
-        friends.toList.map(s => TwitterUser(s))
+    friends.toList.map(s => TwitterUser(s))
+  }
+
+  // ========================================================================
+  // The tests
+  // ========================================================================
+
+  @Test
+  def testFindPopularFriends() {
+    // TwitterUsers are popular if they have at least 2000 followers
+    assertResult(10) {
+      TwitterUsers.thatArePopular(getFriends()).size
     }
+  }
 
+  @Test
+  def testFindScreenNamesOfPopularFriends() {
+    // Imports can appear all over your code. This is a local import that also
+    // includes an alias (sometimes handy to prevent name-clashes but used here
+    // simply because we can).
+    import org.scalalabs.intermediate.lab02.{ TwitterUsers => Friends }
 
-    // ========================================================================
-    // The tests
-    // ========================================================================
-
-	@Test
-	def testFindPopularFriends() {
-        // TwitterUsers are popular if they have at least 2000 followers
-        assertResult(10) {
-            TwitterUsers.thatArePopular(getFriends()).size
-        }
+    assertResult(List("headius", "twitterapi", "stephenfry", "macrumors", "spolsky", "martinfowler", "WardCunningham", "unclebobmartin", "pragdave", "KentBeck")) {
+      Friends.thatArePopularByScreenName(getFriends)
     }
+  }
 
-    @Test
-	def testFindScreenNamesOfPopularFriends() {
-        // Imports can appear all over your code. This is a local import that also
-        // includes an alias (sometimes handy to prevent name-clashes but used here
-        // simply because we can).
-        import org.scalalabs.intermediate.lab02.{TwitterUsers => Friends}
-
-        assertResult(List("headius", "twitterapi", "stephenfry", "macrumors", "spolsky", "martinfowler", "WardCunningham", "unclebobmartin", "pragdave", "KentBeck")) {
-            Friends.thatArePopularByScreenName(getFriends)
-        }
+  // the same List[String] as last time but now sorted by followersCount (highest first)
+  @Test
+  def testFindScreenNamesOfPupularFriendsSortedByPopularity() {
+    assertResult(List("stephenfry", "macrumors", "twitterapi", "spolsky", "martinfowler", "KentBeck", "unclebobmartin", "pragdave", "WardCunningham", "headius")) {
+      TwitterUsers.thatArePopularByScreenNameSortedbyPopularity(getFriends)
     }
+  }
 
-    // the same List[String] as last time but now sorted by followersCount (highest first)
-    @Test
-	def testFindScreenNamesOfPupularFriendsSortedByPopularity() {
-        assertResult(List("stephenfry", "macrumors", "twitterapi", "spolsky", "martinfowler", "KentBeck", "unclebobmartin", "pragdave", "WardCunningham", "headius")) {
-            TwitterUsers.thatArePopularByScreenNameSortedbyPopularity(getFriends)
-        }
-    }
+  // We expect a List[(String, Int)], i.e. a List of tuples, each with a screen name and a number of followers
+  @Test
+  def testFindPopularFriendsAndTheirRankings() {
+    assertResult(
+      List(("stephenfry", 714779),
+        ("macrumors", 74132),
+        ("twitterapi", 18817),
+        ("spolsky", 12607),
+        ("martinfowler", 8759),
+        ("KentBeck", 6440),
+        ("unclebobmartin", 5175),
+        ("pragdave", 4462),
+        ("WardCunningham", 4423),
+        ("headius", 2378))
+    ) {
+        TwitterUsers.thatArePopularByScreenNameAndPopularitySortedbyPopularity(getFriends)
+      }
+  }
 
-    // We expect a List[(String, Int)], i.e. a List of tuples, each with a screen name and a number of followers
-    @Test
-	def testFindPopularFriendsAndTheirRankings() {
-        assertResult(
-            List(("stephenfry",    714779),
-                 ("macrumors",     74132),
-                 ("twitterapi",    18817),
-                 ("spolsky",       12607),
-                 ("martinfowler",  8759),
-                 ("KentBeck",      6440),
-                 ("unclebobmartin",5175),
-                 ("pragdave",      4462),
-                 ("WardCunningham",4423),
-                 ("headius",       2378))
-        ) {
-            TwitterUsers.thatArePopularByScreenNameAndPopularitySortedbyPopularity(getFriends)
-        }
+  // Hint: you might want to implement equals and hashcode for this one
+  @Test
+  def testFindFriendsThatAreAlsoFollowers() {
+    assertResult(10) {
+      TwitterUsers.thatAreInBothLists(getFriends, getFollowers).size
     }
-
-    // Hint: you might want to implement equals and hashcode for this one
-    @Test
-	def testFindFriendsThatAreAlsoFollowers() {
-        assertResult(10) {
-            TwitterUsers.thatAreInBothLists(getFriends, getFollowers).size
-        }
-    }
+  }
 
 }

@@ -45,4 +45,3 @@ class ImplicitConversionExercise02Test extends Specification with DeactivatedTim
   }
 }
 
- 

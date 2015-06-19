@@ -6,7 +6,6 @@ import org.scalatest.junit.JUnitSuite
 
 import org.junit.Test
 
-
 /*
  * Exercise 2: Collect your bonus !
  *
@@ -15,72 +14,71 @@ import org.junit.Test
  * if they were methods on the List class itself...
  */
 class SecondExerciseBonusTest extends JUnitSuite {
-    private def getFriends(): List[TwitterUser] = loadUsersFromXml("/friends.xml")
-    private def getFollowers(): List[TwitterUser] = loadUsersFromXml("/followers.xml")
+  private def getFriends(): List[TwitterUser] = loadUsersFromXml("/friends.xml")
+  private def getFollowers(): List[TwitterUser] = loadUsersFromXml("/followers.xml")
 
-    private def loadUsersFromXml(xmlFileName: String): List[TwitterUser] = {
-        val xml = XML.load(this.getClass.getResourceAsStream(xmlFileName))
-        val friends = xml \\ "user"
+  private def loadUsersFromXml(xmlFileName: String): List[TwitterUser] = {
+    val xml = XML.load(this.getClass.getResourceAsStream(xmlFileName))
+    val friends = xml \\ "user"
 
-        friends.toList.map(s => TwitterUser(s))
+    friends.toList.map(s => TwitterUser(s))
+  }
+
+  // ========================================================================
+  // The tests
+  // ========================================================================
+
+  // the implicit conversion
+  import TwitterUsersBonus._
+
+  @Test
+  def testFindPopularFriends() {
+    // TwitterUsers are popular if they have at least 2000 followers
+    assertResult(10) {
+      getFriends.thatArePopular.size
     }
+  }
 
-
-    // ========================================================================
-    // The tests
-    // ========================================================================
-
-    // the implicit conversion
-    import TwitterUsersBonus._
-
-	@Test
-	def testFindPopularFriends() {
-        // TwitterUsers are popular if they have at least 2000 followers
-        assertResult(10) {
-            getFriends.thatArePopular.size
-        }
+  @Test
+  def testFindScreenNamesOfPopularFriends() {
+    assertResult(List("headius", "twitterapi", "stephenfry", "macrumors", "spolsky", "martinfowler", "WardCunningham", "unclebobmartin", "pragdave", "KentBeck")) {
+      getFriends thatArePopularByScreenName
     }
+  }
 
-    @Test
-	def testFindScreenNamesOfPopularFriends() {
-        assertResult(List("headius", "twitterapi", "stephenfry", "macrumors", "spolsky", "martinfowler", "WardCunningham", "unclebobmartin", "pragdave", "KentBeck")) {
-            getFriends thatArePopularByScreenName
-        }
+  // the same List[String] as last time but now sorted by followersCount (highest first)
+  @Test
+  def testFindScreenNamesOfPupularFriendsSortedByPopularity() {
+    assertResult(List("stephenfry", "macrumors", "twitterapi", "spolsky", "martinfowler", "KentBeck", "unclebobmartin", "pragdave", "WardCunningham", "headius")) {
+      getFriends thatArePopularByScreenNameSortedbyPopularity
     }
+  }
 
-    // the same List[String] as last time but now sorted by followersCount (highest first)
-    @Test
-	def testFindScreenNamesOfPupularFriendsSortedByPopularity() {
-        assertResult(List("stephenfry", "macrumors", "twitterapi", "spolsky", "martinfowler", "KentBeck", "unclebobmartin", "pragdave", "WardCunningham", "headius")) {
-            getFriends thatArePopularByScreenNameSortedbyPopularity
-        }
-    }
+  // We expect a List[(String, Int)], i.e. a List of tuples, each with a screen name and a number of followers
+  @Test
+  def testFindPopularFriendsAndTheirRankings() {
+    assertResult(
+      List(("stephenfry", 714779),
+        ("macrumors", 74132),
+        ("twitterapi", 18817),
+        ("spolsky", 12607),
+        ("martinfowler", 8759),
+        ("KentBeck", 6440),
+        ("unclebobmartin", 5175),
+        ("pragdave", 4462),
+        ("WardCunningham", 4423),
+        ("headius", 2378))
+    ) {
+        getFriends thatArePopularByScreenNameAndPopularitySortedbyPopularity
+      }
+  }
 
-    // We expect a List[(String, Int)], i.e. a List of tuples, each with a screen name and a number of followers
-    @Test
-	def testFindPopularFriendsAndTheirRankings() {
-        assertResult(
-            List(("stephenfry",    714779),
-                 ("macrumors",     74132),
-                 ("twitterapi",    18817),
-                 ("spolsky",       12607),
-                 ("martinfowler",  8759),
-                 ("KentBeck",      6440),
-                 ("unclebobmartin",5175),
-                 ("pragdave",      4462),
-                 ("WardCunningham",4423),
-                 ("headius",       2378))
-        ) {
-            getFriends thatArePopularByScreenNameAndPopularitySortedbyPopularity
-        }
+  // Hint: you might want to implement equals and hashcode for this one
+  @Test
+  def testFindFriendsThatAreAlsoFollowers() {
+    assertResult(10) {
+      getFriends.thatAreAlsoIn(getFollowers).size
     }
-
-    // Hint: you might want to implement equals and hashcode for this one
-    @Test
-	def testFindFriendsThatAreAlsoFollowers() {
-        assertResult(10) {
-            getFriends.thatAreAlsoIn(getFollowers).size
-        }
-    }
+  }
 
 }

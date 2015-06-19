@@ -70,32 +70,32 @@ class OOExerciseTest extends Specification {
       //      list.sorted ==== List(e1, e2, e3)
     }
   }
-  
-   "Exercise 4: Implicit class" should {
+
+  "Exercise 4: Implicit class" should {
     //implicit val defaultConverter = DefaultCurrencyConverter
-     "add *(euro:Euro) (multiply) method to Int" in {
+    "add *(euro:Euro) (multiply) method to Int" in {
       skipped("Uncomment and fix me")
-//      import Euro._
-//      val res = 3 * new Euro(2, 50)
-//      res.euro ==== 7
-//      res.cents ==== 50
+      //      import Euro._
+      //      val res = 3 * new Euro(2, 50)
+      //      res.euro ==== 7
+      //      res.cents ==== 50
     }
     "implicitly convert from euro to dollar" in {
       skipped("Uncomment and fix me")
-//      val e: Euro = new Dollar(1, 5)
-//      e.euro ==== 1
-//      e.cents ==== 42
+      //      val e: Euro = new Dollar(1, 5)
+      //      e.euro ==== 1
+      //      e.cents ==== 42
     }
   }
   "Exercise 5: Implicit parameter" should {
     "make currency converter plugable" in {
-       skipped("Uncomment and fix me")
-//      implicit object anotherConverter extends DefaultCurrencyConverter {
-//        override val conversionRate = 1.2
-//      }
-//      val e: Euro = new Dollar(1, 5)
-//      e.euro ==== 1
-//      e.cents ==== 26
+      skipped("Uncomment and fix me")
+      //      implicit object anotherConverter extends DefaultCurrencyConverter {
+      //        override val conversionRate = 1.2
+      //      }
+      //      val e: Euro = new Dollar(1, 5)
+      //      e.euro ==== 1
+      //      e.cents ==== 26
     }
   }
 }

@@ -8,10 +8,10 @@ object ListManipulationExercise01 {
 
   def sumOfList(l: List[Int]): Int = {
     //almost built in
-//    l.foldLeft(0)((a,b) => a+b)
+    //    l.foldLeft(0)((a,b) => a+b)
 
     //pattern match solution:
-    def mySum(acc:Int, curList: List[Int]): Int = {
+    def mySum(acc: Int, curList: List[Int]): Int = {
       curList match {
         case Nil => acc
         case x :: xs => mySum((acc + x), xs)
@@ -38,7 +38,7 @@ object ListManipulationExercise01 {
 
     //custom version2: using fold
     def myLast2[T](l: List[T]): T = {
-      l.foldLeft(l.headOption) {(a, b) => Some(b)}.getOrElse(error("last on empty list"))
+      l.foldLeft(l.headOption) { (a, b) => Some(b) }.getOrElse(error("last on empty list"))
     }
     myLast1(l)
   }
@@ -62,11 +62,12 @@ object ListManipulationExercise01 {
     myConcat(l1, l2)
   }
 
-  def sortList[T <% Ordered[T]] (list: List[T]): List[T] = {
+  def sortList[T <% Ordered[T]](list: List[T]): List[T] = {
     //not efficient, but fun
     list.foldLeft(List[T]()) {
-      (x, y) => val (sorted, xs) = x.span(_ < y)
-      sorted ::: y :: xs
+      (x, y) =>
+        val (sorted, xs) = x.span(_ < y)
+        sorted ::: y :: xs
     }
   }
 
@@ -84,5 +85,4 @@ object ListManipulationExercise01 {
     else l :: tails(l.tail)
   }
 }
-
 

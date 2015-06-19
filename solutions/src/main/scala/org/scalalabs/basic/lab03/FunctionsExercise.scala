@@ -48,4 +48,3 @@ object FunctionsExercise02 {
     }
 }
 
-

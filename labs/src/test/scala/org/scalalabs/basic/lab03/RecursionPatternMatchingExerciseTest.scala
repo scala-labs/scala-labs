@@ -11,13 +11,13 @@ import org.specs2.runner.JUnitRunner
 class RecursionPatternMatchingExerciseTest extends Specification {
 
   "RecursionPatternMatchingExercise" should {
-   "check subsequent values increase" in {
+    "check subsequent values increase" in {
       true === RecursionPatternMatchingExercise.checkValuesIncrease(List(1, 2, 3, 5, 10))
       true === RecursionPatternMatchingExercise.checkValuesIncrease(List(1))
       false === RecursionPatternMatchingExercise.checkValuesIncrease(List(1, 2, 2, 5, 10))
       false === RecursionPatternMatchingExercise.checkValuesIncrease(List(1, 2, 2, 5, 1))
     }
-   "group consecutive members" in {
+    "group consecutive members" in {
       List(List(1, 1, 1), List(5), List(4, 4), List(1, 1)) === RecursionPatternMatchingExercise.groupConsecutive(List(1, 1, 1, 5, 4, 4, 1, 1))
     }
     "group equal members" in {

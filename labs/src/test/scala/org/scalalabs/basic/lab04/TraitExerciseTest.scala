@@ -15,12 +15,12 @@ class TraitExerciseTest extends Specification {
 
   "Exercise 1: Logger Trait" should {
     "log all events" in new cleanLogger {
-       skipped("Create implementation then remove skipped")
-      
+      skipped("Create implementation then remove skipped")
+
       SimpleLogger.logConfig = enableAllLevels
       val msg = "message"
       val service = new DummyService().sendSomething(msg)
-     
+
       SimpleLogger.logHistory.size === 3
       val first :: second :: third :: Nil = SimpleLogger.logHistory
       first === firstDebugStatement
@@ -34,10 +34,10 @@ class TraitExerciseTest extends Specification {
         longStringCreated = "Scala " * 1000000
         longStringCreated
       }
-       skipped("Uncomment and fix me")
+      skipped("Uncomment and fix me")
       //val impl = new AnyRef with Loggable
       //impl.debug(createLongString)
-      
+
       SimpleLogger.logHistory must beEmpty
       longStringCreated ==== ""
     }

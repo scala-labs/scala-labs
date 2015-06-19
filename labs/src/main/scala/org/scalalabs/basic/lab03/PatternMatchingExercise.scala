@@ -21,10 +21,12 @@ import sys._
 
 object PatternMatchingExercise {
 
-  /*************************************************************************
+  /**
+   * ***********************************************************************
    *  pattern matching exercises
    * For expected solution see unittest @PatternMatchingExerciseTest
-   *************************************************************************/
+   * ***********************************************************************
+   */
 
   def describeLanguage(s: String) = {
     error("fix me")
@@ -38,10 +40,12 @@ object PatternMatchingExercise {
     error("fix me")
   }
 
-  /*************************************************************************
+  /**
+   * ***********************************************************************
    * Pattern matching with partial functions
    * For expected solution see @PatternMatchingExerciseTest
-   *************************************************************************/
+   * ***********************************************************************
+   */
 
   val pf1: PartialFunction[String, String] = {
     case _ => error("fix me")
@@ -51,7 +55,7 @@ object PatternMatchingExercise {
     case _ => error("fix me")
   }
 
-  val pf3:PartialFunction[String, String] = {
+  val pf3: PartialFunction[String, String] = {
     case _ => error("fix me")
   }
 

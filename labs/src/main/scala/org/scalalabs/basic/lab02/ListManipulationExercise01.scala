@@ -6,13 +6,13 @@ import sys._
  * In Scala the way to deal with collections is to use higher order functions instead of a for-loop.
  *
  * An overview of some functional programming techniques can be found here in the O'reilly book:
- * http://programming-scala.labs.oreilly.com/ch08.html#FunctionalDataStructures 
+ * http://programming-scala.labs.oreilly.com/ch08.html#FunctionalDataStructures
  */
 object ListManipulationExercise01 {
 
   /**
    * Get the first element in the list. Hint: there is a built-in function for this you can use.
-   * 
+   *
    */
   def firstElementInList[T](l: List[T]): T = {
     //buildin
@@ -40,7 +40,7 @@ object ListManipulationExercise01 {
     error("fix me")
   }
 
-   /**
+  /**
    * Get the nth element in the list, e.g. nthElementInList(3, List(1,2,3,4)) = 3.
    * Hint: this can be achieved in multiple ways:
    *  - built in
@@ -58,7 +58,7 @@ object ListManipulationExercise01 {
    *  - built in
    *  - via a pattern match
    *  - custom made
-   *  - ... etc 
+   *  - ... etc
    */
   def concatLists[T](l1: List[T], l2: List[T]): List[T] = {
     error("fix me")
@@ -69,8 +69,8 @@ object ListManipulationExercise01 {
    * Hint: this can be achieved in multiple ways:
    * - built in using the sort method
    * - via a foldLeft method (a bit complex, but fun)
-   * - ... whichever way you like 
-   * 
+   * - ... whichever way you like
+   *
    */
   def sortList[T <% Ordered[T]](list: List[T]): List[T] = {
     error("fix me")
@@ -98,11 +98,10 @@ object ListManipulationExercise01 {
    * This method should return a list of lists, containing all final segments of the argument list, longest first.
    * For example: tails(List(1,2,3,4)) = List(List(1,2,3,4), List(2,3,4), List(3,4), List(4), List())
    *
-   * Implement it whatever way suites you best. Hint: it can be done in a neat way using recursion. 
+   * Implement it whatever way suites you best. Hint: it can be done in a neat way using recursion.
    */
   def tails[T](l: List[T]): List[List[T]] = {
     error("fix me")
   }
 }
-
 

@@ -2,7 +2,7 @@ package org.scalalabs.intermediate.lab04
 
 import java.util.Date
 import org.junit.Assert._
-import org.junit.{After, Test}
+import org.junit.{ After, Test }
 
 /**
  *  Lab 04 Interoperability Between Java and Scala
@@ -20,40 +20,40 @@ import org.junit.{After, Test}
 class PaymentClientTest {
   val paymentClient = new PaymentServiceClient()
 
-  @After def resetServiceState(){
+  @After def resetServiceState() {
     paymentClient.resetState
   }
 
-  def testIfOrderAccepted(madePayment: =>Unit){
-     madePayment
-     assertEquals(paymentClient.findAllOrders.size, 1)
+  def testIfOrderAccepted(madePayment: => Unit) {
+    madePayment
+    assertEquals(paymentClient.findAllOrders.size, 1)
   }
 
   @Test
   def testLogVerboseMode = {
-     val verbosityFlag = paymentClient.isVerboseLogMode
-     paymentClient.setVerboseLogMode(!verbosityFlag)
-     assertEquals(!verbosityFlag, paymentClient.isVerboseLogMode);
+    val verbosityFlag = paymentClient.isVerboseLogMode
+    paymentClient.setVerboseLogMode(!verbosityFlag)
+    assertEquals(!verbosityFlag, paymentClient.isVerboseLogMode);
   }
 
   @Test
   def testCachePayment = {
-    testIfOrderAccepted{
+    testIfOrderAccepted {
       paymentClient.cachePayment("John Doe", 124)
     }
   }
 
   @Test
   def testCardPayment = {
-    testIfOrderAccepted{
-       paymentClient.cardPayment("John Smith", 12, new Date())
+    testIfOrderAccepted {
+      paymentClient.cardPayment("John Smith", 12, new Date())
     }
   }
 
   @Test
   def testVoucherPayment = {
-    testIfOrderAccepted{
-        paymentClient.voucherPayment("John Stiles", 14)
+    testIfOrderAccepted {
+      paymentClient.voucherPayment("John Stiles", 14)
     }
 
     paymentClient.findAllOrders.head.paymentMethod match {

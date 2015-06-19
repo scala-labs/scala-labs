@@ -1,10 +1,7 @@
 package org.scalalabs.basic.lab02
 
-
-
 object ListManipulationExercise02 {
-  
-  
+
   def sumOfElementsInList(l: List[Int]): Int = {
     //different solutions:
     //** List API **
@@ -27,11 +24,9 @@ object ListManipulationExercise02 {
     //    l.foldRight(0)(_ + _)
   }
 
-
   def maxElementInList(l: List[Int]): Int = {
-    l.foldLeft(0) {(a, b) => if (a < b) b else a}
+    l.foldLeft(0) { (a, b) => if (a < b) b else a }
   }
-
 
   def sumOfTwo(l1: List[Int], l2: List[Int]): List[Int] = {
     //use a touple to see wheater one of the element is Nil
@@ -41,7 +36,7 @@ object ListManipulationExercise02 {
       //another way to express the addition of the elements could be
       //with an anonymous function instead of a partial function expressed with case(a, b) etc.
       //case (xs, ys) => xs zip ys map((t:(Int, Int)) => t._1 + t._2)
-      case (xs, ys) => xs zip ys map {case (a, b) => a + b}
+      case (xs, ys) => xs zip ys map { case (a, b) => a + b }
     }
   }
 
@@ -63,7 +58,6 @@ object ListManipulationExercise02 {
     sumOfManyNestedLists(l.toList)
   }
 
-
   case class Person(age: Int, firstName: String, lastName: String)
 
   def separateTheMenFromTheBoys(persons: List[Person]): List[List[String]] = {
@@ -71,6 +65,5 @@ object ListManipulationExercise02 {
     val (minors, adults) = persons.partition(_.age < 18)
     List(sortByAgeAndMapToName(minors), sortByAgeAndMapToName(adults))
   }
-
 
 }

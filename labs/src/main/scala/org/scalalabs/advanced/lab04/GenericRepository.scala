@@ -7,11 +7,11 @@ import scala.language.reflectiveCalls
  * Interface of a generic dao with basic persistency
  * methods
  */
-trait GenericDao[T <: { var id:Long}] {
-   def findAll() : Buffer[T]
-   def save(entity:T) :T
-   def remove(entity:T)(implicit m: Manifest[T]):Unit
-   def findById(id:Any)(implicit m: Manifest[T]) : T
+trait GenericDao[T <: { var id: Long }] {
+  def findAll(): Buffer[T]
+  def save(entity: T): T
+  def remove(entity: T)(implicit m: Manifest[T]): Unit
+  def findById(id: Any)(implicit m: Manifest[T]): T
 }
 
 /**
@@ -22,7 +22,7 @@ trait GenericDao[T <: { var id:Long}] {
  * - remove
  * In order to access the ScalaEntityManager make use of
  * the ScalaEntityManagerFactory trait
- * */
+ */
 abstract class GenericDaoImpl {
   //TODO impelement
 }

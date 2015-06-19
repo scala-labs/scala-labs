@@ -1,7 +1,6 @@
 package org.scalalabs.advanced.lab03
 
-
-import org.junit.{Test}
+import org.junit.{ Test }
 import org.junit.Assert._
 import org.scalalabs.advanced.lab03.ManifestSample.TSReg
 
@@ -13,7 +12,6 @@ import org.scalalabs.advanced.lab03.ManifestSample.TSReg
  * To change this template use File | Settings | File Templates.
  */
 
-
 class TypeExerciseTest {
   @Test
   def shouldBuildCar = {
@@ -23,11 +21,11 @@ class TypeExerciseTest {
     assertEquals("brand: Toyota, color: Metallic, tire size: 15 Inch", car1)
 
     //TODO uncomment and let the tests run afer implementation of our builder
-//    val car2 = new CarBuilder().withBrand("Mercedes").withColor("Green").build
-//    assertEquals("brand: Mercedes, color: Green, tire size: 15 Inch", car2)
-//
-//    val car3 = new CarBuilder().withBrand("Mercedes").withColor("Green").withTireSize(17).build
-//    assertEquals("brand: Mercedes, color: Green, tire size: 17 Inch", car3)
+    //    val car2 = new CarBuilder().withBrand("Mercedes").withColor("Green").build
+    //    assertEquals("brand: Mercedes, color: Green, tire size: 15 Inch", car2)
+    //
+    //    val car3 = new CarBuilder().withBrand("Mercedes").withColor("Green").withTireSize(17).build
+    //    assertEquals("brand: Mercedes, color: Green, tire size: 17 Inch", car3)
   }
 
   @Test
@@ -55,7 +53,6 @@ class TypeExerciseTest {
     assertEquals(None, tsReg.safeGet[Int](1))
   }
 
-
   @Test
   def onlyMamalsWithSameDietCanShareAMeal {
     import org.scalalabs.advanced.lab03.FoodExercise._
@@ -71,37 +68,35 @@ class TypeExerciseTest {
     //Cow.joinDinnerWith(jake)
   }
 
+  @Test
+  def churchBooleanTypes = {
+    //TODO implement the Church Boolean data types so that the following line compiles:
+    //      val ctrue: CTrue#cond[Int, String] = 10
+    //TODO and the following line should not compile:
+    //      val ctrue2: CTrue#cond[Int, String] = "10"
+    //      error: type mismatch;
+    //                found   : java.lang.String("10")
+    //                required: Int
+    //       val ctrue2: CTrue#cond[Int,String] = "10"
 
-    @Test
-    def churchBooleanTypes = {
-      //TODO implement the Church Boolean data types so that the following line compiles:
-//      val ctrue: CTrue#cond[Int, String] = 10
-      //TODO and the following line should not compile:
-//      val ctrue2: CTrue#cond[Int, String] = "10"
-//      error: type mismatch;
-//                found   : java.lang.String("10")
-//                required: Int
-//       val ctrue2: CTrue#cond[Int,String] = "10"
+    //TODO and the following line should again compile:
+    //      val cfalse: CFalse#cond[Int,String] = "10"
 
-      //TODO and the following line should again compile:
-//      val cfalse: CFalse#cond[Int,String] = "10"
-
-    }
-
+  }
 
   @Test
   def churchNaturalNumbers = {
 
     //TODO define the Church numerals using Scala traits/types/classes or whatever you can think of.
     // Then uncomment the lines below so that the following compiles:
-//    import ChurchEncoding._
-//
-//    assertEquals(Equals[two, one plus one], Equals())
-//
-//    type _1 = zero#succ
-//    type _2 = _1#succ
-//    assertEquals(Equals[_1, one], Equals())
-//    assertEquals(Equals[_2, two], Equals())
+    //    import ChurchEncoding._
+    //
+    //    assertEquals(Equals[two, one plus one], Equals())
+    //
+    //    type _1 = zero#succ
+    //    type _2 = _1#succ
+    //    assertEquals(Equals[_1, one], Equals())
+    //    assertEquals(Equals[_2, two], Equals())
   }
 
 }

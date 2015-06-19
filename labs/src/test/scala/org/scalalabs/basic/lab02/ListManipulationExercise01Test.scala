@@ -9,18 +9,18 @@ import org.specs2.runner.JUnitRunner
 import ListManipulationExercise01._
 /**
  * Lab 02: List operations
- * 
+ *
  * Scala basic Lists
  *
  * Your job is to implement the functions in object ListManipulationExercise01 and classes in
  * such a way that the tests in this suite all succeed.
- * 
- * Hint: 
+ *
+ * Hint:
  * - the methods in ListManipulationExercise01 can all be implemented in various ways:
  *   -- 'built in' functionality in Scala's collection classes
  *   -- pattern matching
  *   -- 'functional' style, using recursion, and/or folds
- * 
+ *
  * It's a nice exercise to try out various ways
  */
 @RunWith(classOf[JUnitRunner])
@@ -28,7 +28,7 @@ class ListManipulationExercise01Test extends Specification {
 
   val listOfStrings: List[String] = List("One", "Two", "Three")
   "A Scala List" should {
-    
+
     "get first Element in list" in {
       val result: String = firstElementInList(listOfStrings)
       "One" === result

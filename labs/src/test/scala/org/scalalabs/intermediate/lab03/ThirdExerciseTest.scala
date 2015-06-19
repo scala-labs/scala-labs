@@ -4,7 +4,6 @@ import org.scalatest.junit.JUnitSuite
 
 import org.junit.Test
 
-
 /*
  * Exercise 3: Talking http to the real deal: building a Twitter API
  *
@@ -37,83 +36,83 @@ import org.junit.Test
  *
  */
 class ThirdExerciseTest extends JUnitSuite {
-    val testAccountUsername = "XebiaScalaItr"
-    val testAccountPassword = "Scala!Is!Cool!"
+  val testAccountUsername = "XebiaScalaItr"
+  val testAccountPassword = "Scala!Is!Cool!"
 
-    val testAuthInfo = new TwitterAuthInfo(
-      oauthAccessToken = "66988471-6UejYlvm65JNG9DW5JRmpmTwE6X90Pyyzx3RbJEjf",
-      oauthTokenSecret = "VMuNpQ7YZGCtoojtEBxoROj0bdEQFlzZrD6j6tbk"
-    )
+  val testAuthInfo = new TwitterAuthInfo(
+    oauthAccessToken = "66988471-6UejYlvm65JNG9DW5JRmpmTwE6X90Pyyzx3RbJEjf",
+    oauthTokenSecret = "VMuNpQ7YZGCtoojtEBxoROj0bdEQFlzZrD6j6tbk"
+  )
 
-    // ========================================================================
-    // The tests
-    // ========================================================================
+  // ========================================================================
+  // The tests
+  // ========================================================================
 
-    @Test
-	def testPublicTimelineWithoutAuthentication {
-      fail("TODO: uncomment and fix")
-//        val twitter:UnauthenticatedSession = TwitterSession()
-//        val publicTimeline:TwitterTimeline = twitter.publicTimeline
-//
-//        assertResult(20) {publicTimeline.toList.size}
-//        assertResult(true) {publicTimeline.forall(_.user != null)}
-    }
+  @Test
+  def testPublicTimelineWithoutAuthentication {
+    fail("TODO: uncomment and fix")
+    //        val twitter:UnauthenticatedSession = TwitterSession()
+    //        val publicTimeline:TwitterTimeline = twitter.publicTimeline
+    //
+    //        assertResult(20) {publicTimeline.toList.size}
+    //        assertResult(true) {publicTimeline.forall(_.user != null)}
+  }
 
-    @Test
-	def testFriendsTimelineWithAuthentication {
-      fail("TODO: uncomment and fix")
-//        val twitter:AuthenticatedSession = TwitterSession(testAuthInfo)
-//        val friendsTimeline = twitter.friendsTimeline
-//
-//        assertResult(true) {friendsTimeline.forall(_.user != null)}
-    }
+  @Test
+  def testFriendsTimelineWithAuthentication {
+    fail("TODO: uncomment and fix")
+    //        val twitter:AuthenticatedSession = TwitterSession(testAuthInfo)
+    //        val friendsTimeline = twitter.friendsTimeline
+    //
+    //        assertResult(true) {friendsTimeline.forall(_.user != null)}
+  }
 
-    @Test
-	def testFriendsTimelineShouldOnlyContainTweetsByFriendsOrByMyself {
-      fail("TODO: uncomment and fix")      
-//        val twitter:AuthenticatedSession = TwitterSession(testAuthInfo)
-//
-//        val friendsTimeline = twitter.friendsTimeline
-//        val friends:TwitterUsers = twitter.friends
-//
-//        assertResult(true) {friendsTimeline.forall(tweet => friends.exists(_ == tweet.user) || testAccountUsername == tweet.user.screenName)}
-    }
+  @Test
+  def testFriendsTimelineShouldOnlyContainTweetsByFriendsOrByMyself {
+    fail("TODO: uncomment and fix")
+    //        val twitter:AuthenticatedSession = TwitterSession(testAuthInfo)
+    //
+    //        val friendsTimeline = twitter.friendsTimeline
+    //        val friends:TwitterUsers = twitter.friends
+    //
+    //        assertResult(true) {friendsTimeline.forall(tweet => friends.exists(_ == tweet.user) || testAccountUsername == tweet.user.screenName)}
+  }
 
-    @Test
-	def testUserTimelineWithoutAuthentication {
-      fail("TODO: uncomment and fix")
-//        val twitter:UnauthenticatedSession = TwitterSession()
-//        val userTimeline:TwitterTimeline = twitter.userTimeline("sgrijpink")
-//
-//        assertResult(true) {userTimeline.forall(_.user.screenName == "sgrijpink")}
-    }
+  @Test
+  def testUserTimelineWithoutAuthentication {
+    fail("TODO: uncomment and fix")
+    //        val twitter:UnauthenticatedSession = TwitterSession()
+    //        val userTimeline:TwitterTimeline = twitter.userTimeline("sgrijpink")
+    //
+    //        assertResult(true) {userTimeline.forall(_.user.screenName == "sgrijpink")}
+  }
 
-    @Test
-	def testUserTimelineWithAuthentication {
-      fail("TODO: uncomment and fix")
-//        val twitter:AuthenticatedSession = TwitterSession(testAuthInfo)
-//        val userTimeline:TwitterTimeline = twitter.userTimeline(testAccountUsername)
-//
-//        assertResult(true) {userTimeline.forall(_.user.screenName == testAccountUsername)}
-    }
+  @Test
+  def testUserTimelineWithAuthentication {
+    fail("TODO: uncomment and fix")
+    //        val twitter:AuthenticatedSession = TwitterSession(testAuthInfo)
+    //        val userTimeline:TwitterTimeline = twitter.userTimeline(testAccountUsername)
+    //
+    //        assertResult(true) {userTimeline.forall(_.user.screenName == testAccountUsername)}
+  }
 
-    // Bonus exercise !!!
+  // Bonus exercise !!!
 
-//    @Test
-//    def testTweet() {
-        fail("TODO: uncomment and fix")
-//        val twitter:AuthenticatedSession = TwitterSession(testAuthInfo)
-//        val baseText = "Yet another test tweet from a #Scala unit test. Let's include a random number: "
-//        val random = new Random
-//
-          // this might a bit of a privacy-sensitive but I was looking for a way to be able to
-          // recognize your own generated tweet from others. Other solutions that are less privacy
-          // sensitive are more than welcome. Feel free to change this to any other string that 
-          // you will recognize.
-//        val tweet = twitter.tweet(baseText + random.nextLong);
-//
-//        assertResult(testAccountUsername) {tweet.user.screenName}
-//        assertResult(true) {tweet.text.contains(baseText)}
-//    }
+  //    @Test
+  //    def testTweet() {
+  fail("TODO: uncomment and fix")
+  //        val twitter:AuthenticatedSession = TwitterSession(testAuthInfo)
+  //        val baseText = "Yet another test tweet from a #Scala unit test. Let's include a random number: "
+  //        val random = new Random
+  //
+  // this might a bit of a privacy-sensitive but I was looking for a way to be able to
+  // recognize your own generated tweet from others. Other solutions that are less privacy
+  // sensitive are more than welcome. Feel free to change this to any other string that 
+  // you will recognize.
+  //        val tweet = twitter.tweet(baseText + random.nextLong);
+  //
+  //        assertResult(testAccountUsername) {tweet.user.screenName}
+  //        assertResult(true) {tweet.text.contains(baseText)}
+  //    }
 
 }

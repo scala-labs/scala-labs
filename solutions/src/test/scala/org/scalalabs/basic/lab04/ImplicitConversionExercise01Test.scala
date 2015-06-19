@@ -53,4 +53,4 @@ class ImplicitConversionExercise01Test extends Specification with DeactivatedTim
 
 trait DeactivatedTimeConversions extends org.specs2.time.TimeConversions {
   override def intToRichLong(v: Int) = super.intToRichLong(v)
-} 
+}

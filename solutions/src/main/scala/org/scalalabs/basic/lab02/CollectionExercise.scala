@@ -85,7 +85,7 @@ object CollectionExercise02 {
     persons.filter(_.age >= 18)
       .sortBy(_.name)
       .groupBy(_.age / 10 * 10)
-      .map{case (ageGroup, persons) => ageGroup -> persons.size}
+      .map { case (ageGroup, persons) => ageGroup -> persons.size }
   }
 
 }
@@ -129,7 +129,7 @@ object CollectionExercise05 {
   /**
    * Group all numbers based on whether they are even or odd using foldLeft.
    * For even use 'true' for odd use 'false'.
-   * E.g: Seq(1,2,3) is Map(0 -> Seq(2), 1 -> Seq(1,3)) 
+   * E.g: Seq(1,2,3) is Map(0 -> Seq(2), 1 -> Seq(1,3))
    */
   def groupByWithFoldLeft(seq: Seq[Int]): Map[Boolean, Seq[Int]] = {
     seq.foldLeft(Map[Boolean, Seq[Int]]()) { (map, next) =>
@@ -141,10 +141,7 @@ object CollectionExercise05 {
       val key = next % 2 == 0
       map + (key -> (map(key) :+ next))
     }
-    
+
   }
 }
-
-
-
 

@@ -48,8 +48,8 @@ object Exercise02 {
  * Implement a type class pattern to convert domain objects to and from json.
  * Take a look at the already defined type class trait @see JsonConverter.
  * 1. Implement the methods of the JsonCoverter object below that converts domain objects to and from json making use of the JsonConverter type class trait.
- * 2. Provide an implementation of the JsonConverter type class trait for the Euro class. 
- * Place the implementation in the Euro's companion object so that the implicit resolution requires no import. 
+ * 2. Provide an implementation of the JsonConverter type class trait for the Euro class.
+ * Place the implementation in the Euro's companion object so that the implicit resolution requires no import.
  * For marshalling and unmarshalling json make use of the @see EuroJsonMarshallerHelper
  */
 object Exercise03 {
@@ -62,26 +62,25 @@ object Exercise03 {
     }
   }
 
-/**
- * Only used for Exercise03!
- */
-trait JsonConverter[T] {
-  def toJSON(t: T): JValue
-  def fromJson(json: JValue): T
-}
-/**
- * Only used for Exercise03!
- */
-object EuroJsonMarshallerHelper {
-  implicit val formats = DefaultFormats
-  def marshal(e: Euro): JValue = ("symbol" -> "EUR") ~ ("amount" -> s"${e.euros},${e.cents}")
-  def unmarshal(json: JValue): Euro = {
-    Exception.allCatch.opt {
-      val amount = (json \ "amount").extract[String].split(",")
-      Euro(amount(0).toInt, amount(1).toInt)
-    } getOrElse (Euro(0, 0))
+  /**
+   * Only used for Exercise03!
+   */
+  trait JsonConverter[T] {
+    def toJSON(t: T): JValue
+    def fromJson(json: JValue): T
   }
-}  
+  /**
+   * Only used for Exercise03!
+   */
+  object EuroJsonMarshallerHelper {
+    implicit val formats = DefaultFormats
+    def marshal(e: Euro): JValue = ("symbol" -> "EUR") ~ ("amount" -> s"${e.euros},${e.cents}")
+    def unmarshal(json: JValue): Euro = {
+      Exception.allCatch.opt {
+        val amount = (json \ "amount").extract[String].split(",")
+        Euro(amount(0).toInt, amount(1).toInt)
+      } getOrElse (Euro(0, 0))
+    }
+  }
 }
-
 

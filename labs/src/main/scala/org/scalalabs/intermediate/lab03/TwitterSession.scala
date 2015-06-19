@@ -3,32 +3,28 @@ package org.scalalabs.intermediate.lab03
 import org.apache.http.HttpRequest
 import oauth.signpost.commonshttp.CommonsHttpOAuthConsumer
 import org.apache.http.client.methods.HttpGet
-import org.apache.http.impl.client. {BasicResponseHandler, DefaultHttpClient}
+import org.apache.http.impl.client.{ BasicResponseHandler, DefaultHttpClient }
 
 /*
 * Scala-labs OAuth tokens to authenticate into Twitter.
 * See <a href="http://dev.twitter.com/pages/oauth_faq">Twitter OAuth Docs</a> for details.
 */
 class TwitterAuthInfo(
-   val oauthAccessToken:String,
-   val oauthTokenSecret:String
-)
+  val oauthAccessToken: String,
+  val oauthTokenSecret: String)
 
 /* Simple set of Twiter API URLs for easy reuse. */
 object TwiterApiUrls {
-    val publicTimelineUrl                   = "http://api.twitter.com/1/statuses/public_timeline.xml"
-    val friendsTimelineUrl                  = "http://api.twitter.com/1/statuses/friends_timeline.xml"
-    def userTimelineUrl(screenName: String) = "http://api.twitter.com/1/statuses/user_timeline.xml?screen_name=" + screenName
-    val friendsUrl                          = "http://api.twitter.com/1/statuses/friends.xml"
-    val statusUpdateUrl                     = "http://api.twitter.com/1/statuses/update.xml"
+  val publicTimelineUrl = "http://api.twitter.com/1/statuses/public_timeline.xml"
+  val friendsTimelineUrl = "http://api.twitter.com/1/statuses/friends_timeline.xml"
+  def userTimelineUrl(screenName: String) = "http://api.twitter.com/1/statuses/user_timeline.xml?screen_name=" + screenName
+  val friendsUrl = "http://api.twitter.com/1/statuses/friends.xml"
+  val statusUpdateUrl = "http://api.twitter.com/1/statuses/update.xml"
 }
-
-
 
 object TwitterSession {
 
 }
-
 
 class OAuthService(authInfo: TwitterAuthInfo) {
   //scala-labs oauth credentials for twitter
@@ -44,15 +40,13 @@ class OAuthService(authInfo: TwitterAuthInfo) {
 
 }
 
-
 /**
-* The base class of both TwitterSession types
-*/
+ * The base class of both TwitterSession types
+ */
 abstract class TwitterSession {
-    // an abstract method
-    protected def httpGet(url: String): String
+  // an abstract method
+  protected def httpGet(url: String): String
 }
-
 
 /*
  * Provides an interface to Twitter for all non-authorized calls.
@@ -66,21 +60,19 @@ abstract class TwitterSession {
  */
 class UnauthenticatedSession extends TwitterSession {
 
-    // ========================================================================
-    // Implementation details
-    // ========================================================================
+  // ========================================================================
+  // Implementation details
+  // ========================================================================
 
-    protected override def httpGet(url: String): String = {
-        println("Unauthenticated get of " + url)
+  protected override def httpGet(url: String): String = {
+    println("Unauthenticated get of " + url)
 
-        val http = new DefaultHttpClient()
-        val method = new HttpGet(url)
+    val http = new DefaultHttpClient()
+    val method = new HttpGet(url)
 
-        new BasicResponseHandler().handleResponse(http.execute(method))
-    }
+    new BasicResponseHandler().handleResponse(http.execute(method))
+  }
 }
-
-
 
 /*
  * Provides access to Twitter API methods that require authentication.
@@ -90,26 +82,24 @@ class UnauthenticatedSession extends TwitterSession {
  */
 class AuthenticatedSession(val authInfo: TwitterAuthInfo) extends UnauthenticatedSession {
 
+  // ========================================================================
+  // Implementation details
+  // ========================================================================
 
+  protected override def httpGet(url: String): String = {
+    println("Authenticated get of " + url)
 
-    // ========================================================================
-    // Implementation details
-    // ========================================================================
+    val http = new DefaultHttpClient()
+    val get = new HttpGet(url)
 
-    protected override def httpGet(url: String): String = {
-        println("Authenticated get of " + url)
+    new OAuthService(authInfo).sign(get);
 
-        val http = new DefaultHttpClient()
-        val get = new HttpGet(url)
+    new BasicResponseHandler().handleResponse(http.execute(get))
+  }
 
-        new OAuthService(authInfo).sign(get);
-
-        new BasicResponseHandler().handleResponse(http.execute(get))
-    }
-
-    //def httpPost(url: String, parameters: Map[String, String]): String = {
-    //
-    //  post.getParams().setBooleanParameter(CoreProtocolPNames.USE_EXPECT_CONTINUE, false);
-    //
-    //}
+  //def httpPost(url: String, parameters: Map[String, String]): String = {
+  //
+  //  post.getParams().setBooleanParameter(CoreProtocolPNames.USE_EXPECT_CONTINUE, false);
+  //
+  //}
 }

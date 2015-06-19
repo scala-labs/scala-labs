@@ -6,27 +6,26 @@ import scala.language.implicitConversions
  * An very simple implementation of trait representing anything that can be compared.
  * In Java this is similar to the Comparator interface.
  *
- * In the Scala libraries, a far more complete (and thus more complex) version is the scala.math.Ordering trait. 
+ * In the Scala libraries, a far more complete (and thus more complex) version is the scala.math.Ordering trait.
  */
 trait Ord[A] {
   self =>
   def compare(x: A, y: A): Int
-  
-  def max[T](xs: List[T])(implicit ord: Ord[T]): T = xs reduceLeft((x,y) => if (ord.compare(x, y) < 0) y else x)
 
-  def min[T](xs: List[T])(implicit ord: Ord[T]): T = xs reduceLeft((x,y) => if (ord.compare(x, y) < 0) x else y)
+  def max[T](xs: List[T])(implicit ord: Ord[T]): T = xs reduceLeft ((x, y) => if (ord.compare(x, y) < 0) y else x)
+
+  def min[T](xs: List[T])(implicit ord: Ord[T]): T = xs reduceLeft ((x, y) => if (ord.compare(x, y) < 0) x else y)
 
   def minFor[T](xs: List[T], f: T => A)(implicit ord: Ord[A]): T =
-    xs reduceLeft((x,y) => if (ord.compare(f(x), f(y)) < 0) x else y)
+    xs reduceLeft ((x, y) => if (ord.compare(f(x), f(y)) < 0) x else y)
 
   def maxFor[T](xs: List[T], f: T => A)(implicit ord: Ord[A]): T =
-    xs reduceLeft((x,y) => if (ord.compare(f(x), f(y)) < 0) y else x)
+    xs reduceLeft ((x, y) => if (ord.compare(f(x), f(y)) < 0) y else x)
 
   def on[T](f: T => A): Ord[T] = new Ord[T] {
     def compare(x: T, y: T) = self.compare(f(x), f(y))
   }
 }
-
 
 object Ord {
 
@@ -39,9 +38,9 @@ object Ord {
   implicit def intOrd = new Ord[Int] {
     override def compare(x: Int, y: Int) = if (x < y) -1 else if (x > y) +1 else 0
   }
- 
+
   implicit def userOrdByName = new Ord[User] {
-    override def compare(x: User, y: User) = x.name.compareTo(y.name) 
+    override def compare(x: User, y: User) = x.name.compareTo(y.name)
   }
 
 }
@@ -49,17 +48,16 @@ object Ord {
 case class User(val name: String, val age: Int)
 
 trait PimpedList[A] {
-   val l: List[A]
-
+  val l: List[A]
 
   def mymax[B >: A](implicit o: Ord[B]): A = {
-    if (l.isEmpty) error ("bzzt.. max on empty list")
+    if (l.isEmpty) error("bzzt.. max on empty list")
 
     l.reduceLeft((x, y) => if (o.compare(x, y) > 0) x else y)
   }
 
   def mymin[B >: A](implicit o: Ord[B]): A = {
-    if (l.isEmpty) error ("bzzt.. min on empty list")
+    if (l.isEmpty) error("bzzt.. min on empty list")
 
     l.reduceLeft((x, y) => if (o.compare(x, y) > 0) y else x)
   }
@@ -76,7 +74,6 @@ trait Monoid[T] {
   def empty: T
 }
 
-
 object Monoid {
 
   implicit object stringMonoid extends Monoid[String] {
@@ -91,25 +88,21 @@ object Monoid {
     override def empty = 0
   }
 
-  
-
 }
-
 
 object ImplicitExercise {
 
-  implicit def toAddableList[A](xs: List[A]) = new AddableList[A]{val value = xs}
+  implicit def toAddableList[A](xs: List[A]) = new AddableList[A] { val value = xs }
 
-  implicit def toPimpedList[A](xs: List[A]) = new PimpedList[A]{val l = xs}
+  implicit def toPimpedList[A](xs: List[A]) = new PimpedList[A] { val l = xs }
 
-  def add[T](xs: List[T])(implicit m: Monoid[T]): T = if(xs.isEmpty) m.empty else m.append(xs.head, add(xs.tail))
+  def add[T](xs: List[T])(implicit m: Monoid[T]): T = if (xs.isEmpty) m.empty else m.append(xs.head, add(xs.tail))
 
   def add[A](ns: A*)(implicit n: Numeric[A]) = {
-    ns reduceLeft(n plus(_,_))    
+    ns reduceLeft (n plus (_, _))
   }
 
 }
-
 
 object Monads {
 
@@ -120,15 +113,13 @@ object Monads {
   case class Just[T](value: T) extends Maybe[T]
   case object None extends Maybe[Nothing]
 
-
-//  implicit def maybeToMonad[A, B](a: Maybe[A])(implicit m: Monad[Maybe]) = new {
-//   def bind[B](f: A => Maybe[B]): Maybe[B] = m bind (a, f)
-// }
-//
-//  implicit def listToMonad[A, B](a: List[A])(implicit m: Monad[List]) = new {
-//    def bind[B](f: A => List[B]) = m bind (a, f)
-//  }
-  
+  //  implicit def maybeToMonad[A, B](a: Maybe[A])(implicit m: Monad[Maybe]) = new {
+  //   def bind[B](f: A => Maybe[B]): Maybe[B] = m bind (a, f)
+  // }
+  //
+  //  implicit def listToMonad[A, B](a: List[A])(implicit m: Monad[List]) = new {
+  //    def bind[B](f: A => List[B]) = m bind (a, f)
+  //  }
 
   /**
    * Defines the inject function for the specified container.
@@ -137,7 +128,6 @@ object Monads {
 
   def just[A](a: A): Maybe[A] = Just(a)
   def none = None
-
 
   /**
    * A Monad is a Container that has the following operations:
@@ -155,9 +145,9 @@ object Monads {
    *
    * A simple example is Scala's Option class, that has two subclasses: Some, representing a value, or None.
    * In our example, we use a simplified version named 'Maybe', the name that is used in Haskell.
-   * 
+   *
    */
-  trait Monad[C[_]]  {
+  trait Monad[C[_]] {
     /**
      * Puts a value in the Container.
      */
@@ -170,36 +160,35 @@ object Monads {
     def bind[A, B](a: C[A], f: A => C[B]): C[B]
   }
 
-
   object Monad {
     /**
      * An instance of the Monad for the Maybe type.
      */
-   implicit object MaybeMonad extends Monad[Maybe] {
-     /**
-      * The bind method does the following: in case the value on the left, a: Maybe[A] is Just(something), the function is applied
-      * to something. In case it is None, the result is None 
-      */
-    override def bind[A, B](a: Maybe[A], f: A => Maybe[B]): Maybe[B] = a match {
-      case Just(x) => f(x)
-      case None    => None
+    implicit object MaybeMonad extends Monad[Maybe] {
+      /**
+       * The bind method does the following: in case the value on the left, a: Maybe[A] is Just(something), the function is applied
+       * to something. In case it is None, the result is None
+       */
+      override def bind[A, B](a: Maybe[A], f: A => Maybe[B]): Maybe[B] = a match {
+        case Just(x) => f(x)
+        case None => None
+      }
+
+      /**
+       * The inject function just returns a Just(a).
+       */
+      override def inject[A](a: A): Maybe[A] = Just(a)
     }
 
-     /**
-      * The inject function just returns a Just(a).
-      */
-     override def inject[A](a: A): Maybe[A] = Just(a)
-   }
+    implicit object ListMonad extends Monad[List] {
+      /**
+       * bind is just the same as the flatmap method on the list.
+       */
+      override def bind[A, B](a: List[A], f: A => List[B]): List[B] = a flatMap (f)
 
-   implicit object ListMonad extends Monad[List] {
-     /**
-      * bind is just the same as the flatmap method on the list.
-      */
-      override def bind[A, B](a: List[A], f: A => List[B]): List[B] = a flatMap(f)
-
-     /**
-      * The inject uses the List object to create a list with one value.
-      */
+      /**
+       * The inject uses the List object to create a list with one value.
+       */
       override def inject[A](a: A): List[A] = List(a)
     }
   }
@@ -207,6 +196,6 @@ object Monads {
   trait MA[M[_], A] {
     val value: M[A]
 
-    def bind[B](f: A => M[B])(implicit m: Monad[M]) = m bind(value, f)
+    def bind[B](f: A => M[B])(implicit m: Monad[M]) = m bind (value, f)
   }
 }

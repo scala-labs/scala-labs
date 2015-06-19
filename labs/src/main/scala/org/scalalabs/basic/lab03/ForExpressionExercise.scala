@@ -22,18 +22,18 @@ import sys._
  */
 object ForExpressionExercise01 {
 
-   /**
+  /**
    * Helper method to calculate lowest and highest number based on
    * the amount of digits provided. The lowest and highest number (from and to)
    * is returned as a Tuple.
    * E.g. amountOfDigits = 2 -> from = 10, to = 99
    */
-  private def getFromAndTo(amountOfDigits: Int):(Int, Int) = {
+  private def getFromAndTo(amountOfDigits: Int): (Int, Int) = {
     require(amountOfDigits > 1, "amount of digits must be at least 2")
     import Math.pow
     val fromNumber = pow(10, amountOfDigits - 1).toInt
     val toNumber = pow(10, amountOfDigits).toInt - 1
-    (fromNumber, toNumber )
+    (fromNumber, toNumber)
   }
 
   /**

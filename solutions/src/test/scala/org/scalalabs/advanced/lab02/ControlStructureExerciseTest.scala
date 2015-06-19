@@ -11,8 +11,8 @@ import org.junit.Assert._
 
 class ControlStructureExerciseTest {
 
-  val list : List[String] = List("aaa", "bbb", "cab", "def", "aab", "cba")
-    val exercise = new ControlStructureExercise(list)
+  val list: List[String] = List("aaa", "bbb", "cab", "def", "aab", "cba")
+  val exercise = new ControlStructureExercise(list)
 
   @Test
   def testStringFilter {

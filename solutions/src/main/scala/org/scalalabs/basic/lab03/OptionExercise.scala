@@ -3,8 +3,8 @@ import scala.util.control._
 
 package object lab03 {
 
-   /**
-   * This map contains sample testdata to clarify this exercise. 
+  /**
+   * This map contains sample testdata to clarify this exercise.
    * It contains key value pairs where:
    * - the key is a room number
    * - the value can be:
@@ -23,15 +23,15 @@ object OptionExercise01 {
    * - locked: Some("locked") -> "not available"
    * - does not exist: "not existing"
    */
-  def roomState(rooms:Map[Int,Option[String]], room: Int): String = {
+  def roomState(rooms: Map[Int, Option[String]], room: Int): String = {
     rooms.get(room).map { roomState =>
       roomState.map { value =>
         if (value == "locked") "not available"
         else value
       }
-      .getOrElse("empty")
+        .getOrElse("empty")
     }
-    .getOrElse("not existing")
+      .getOrElse("not existing")
   }
 
 }
@@ -43,10 +43,10 @@ object OptionExercise02 {
    * Hint: make use of a for expression and scala.util.control.Exception.allCatch opt (...)
    * to convert a possible numeric String (e.g. Some("12")) to an integer
    */
-  def totalPeopleInRooms(rooms:Map[Int,Option[String]]): Int = {
+  def totalPeopleInRooms(rooms: Map[Int, Option[String]]): Int = {
     //functional solution
     rooms.values.map(i => Exception.allCatch.opt(i.get.toInt)).flatten.sum
-    
+
     val res = for {
       occupationOpt <- rooms.values
       occupation <- occupationOpt
@@ -54,12 +54,5 @@ object OptionExercise02 {
     } yield occupationNo
     res.reduce(_ + _)
   }
-  
-  
-  
-  
-  
-  
-  
-  
+
 }

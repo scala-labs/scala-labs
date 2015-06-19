@@ -1,8 +1,7 @@
 package org.scalalabs.basic.lab02
 
 import scala.collection.mutable.ListBuffer
- import sys._
-
+import sys._
 
 object ListManipulationExercise02 {
 
@@ -45,11 +44,11 @@ object ListManipulationExercise02 {
     var validMenNames: ListBuffer[String] = new ListBuffer[String]()
 
     for (person <- persons) {
-        if (person.age < 18) {
-          boys += person
-        } else {
-          men += person
-        }
+      if (person.age < 18) {
+        boys += person
+      } else {
+        men += person
+      }
     }
 
     var sortedBoys = boys.toList.sortBy(_.age)

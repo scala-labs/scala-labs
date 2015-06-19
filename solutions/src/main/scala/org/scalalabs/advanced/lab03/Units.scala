@@ -27,8 +27,8 @@ object Units {
 
   val a: Area = x * y
 
-  def squareArea(x:Length):Area = x * x
+  def squareArea(x: Length): Area = x * x
 
-//  def circleArea(r:Length):Area = r * r * PI
-  
+  //  def circleArea(r:Length):Area = r * r * PI
+
 }

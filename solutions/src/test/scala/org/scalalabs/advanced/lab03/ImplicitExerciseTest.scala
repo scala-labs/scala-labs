@@ -1,6 +1,6 @@
 package org.scalalabs.advanced.lab03
 
-import org.junit.{Test}
+import org.junit.{ Test }
 import org.scalatest.junit.JUnitSuite
 import org.junit.Assert._
 import scala.language.higherKinds
@@ -28,7 +28,6 @@ class ImplicitExerciseTest extends JUnitSuite {
     assertEquals("1234", add(List("1", "2", "3", "4")))
   }
 
-
   @Test
   def nicerAddIntsAndStrings = {
     import ImplicitExercise._
@@ -52,7 +51,6 @@ class ImplicitExerciseTest extends JUnitSuite {
     assertEquals("brown", Ord[String].min(List("the", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog")))
     assertEquals("the", Ord[String].max(List("The", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog")))
 
-
     assertEquals("A", Ord[Int].minFor[String](List("A", "sentence", "of", "various", "lengths"), (t => t.length)))
     assertEquals("sentence", Ord[Int].maxFor[String](List("A", "sentence", "of", "various", "lengths"), (t => t.length)))
   }
@@ -72,17 +70,17 @@ class ImplicitExerciseTest extends JUnitSuite {
   def aSimpleMonadIllustration = {
     import Monads._
 
-    implicit def toMA[M[_], A](ma: M[A]) = new {val value: M[A] = ma} with MA[M, A]
-    
+    implicit def toMA[M[_], A](ma: M[A]) = new { val value: M[A] = ma } with MA[M, A]
+
     assertEquals(none, just(3) bind (x => if (x % 2 == 0) just(x - 1) else none))
     assertEquals(just(3), just(4) bind (x => if (x % 2 == 0) just(x - 1) else none))
-    assertEquals(just(7), just(4) bind (x => just(x+1)) bind (x =>just(x+2)))
-    assertEquals(none, just(4) bind (x => just(x+1)) bind (x => just(x+2)) bind (x => none))
+    assertEquals(just(7), just(4) bind (x => just(x + 1)) bind (x => just(x + 2)))
+    assertEquals(none, just(4) bind (x => just(x + 1)) bind (x => just(x + 2)) bind (x => none))
 
     assertEquals(List(1), inject[List, Int](1))
     assertEquals(Just("Scala is great"), inject[Maybe, String]("Scala") bind (x => just(x + " is great")))
 
-    println(List(1) bind (x => List(x+2)))
+    println(List(1) bind (x => List(x + 2)))
     assertEquals(List('T', 'h', 'e', 'q', 'u', 'i', 'c', 'k', 'b', 'r', 'o', 'w', 'n', 'f', 'o', 'x'), List("The", "quick", "brown", "fox") bind (x => x.toList))
 
   }

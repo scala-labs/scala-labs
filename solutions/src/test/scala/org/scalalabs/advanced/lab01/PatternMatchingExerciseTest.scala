@@ -5,20 +5,21 @@ import org.junit.Test
 import org.junit.Assert._
 import PatternMatchingExercise._
 
-
 /**
  * @see PatternMatchingExcercise
  */
 
 class PatternMatchingExcerciseTest extends JUnitSuite {
 
-  /*************************************************************************
+  /**
+   * ***********************************************************************
    * CUSTOM ARGUMENT EXTRACTORS
-   *************************************************************************/
+   * ***********************************************************************
+   */
   @Test
   def matchFileNameTest() {
     val matchResult = "HelloAdvancedWorldOf.scala" match {
-      case FileName(name, extension) => "I match "+ name + " of filetype " + extension
+      case FileName(name, extension) => "I match " + name + " of filetype " + extension
       case _ => "No match"
     }
     assert(matchResult == "I match HelloAdvancedWorldOf of filetype scala")
@@ -27,7 +28,7 @@ class PatternMatchingExcerciseTest extends JUnitSuite {
   @Test
   def matchElementsInPathTest() {
     val matchResult = "/home/anyuser/development/scala/" match {
-      case Path(first, _, _, last) => "The path starts with "+ first + " and ends with " + last
+      case Path(first, _, _, last) => "The path starts with " + first + " and ends with " + last
       case _ => "No match"
     }
     assert(matchResult == "The path starts with scala and ends with home")
@@ -39,10 +40,11 @@ class PatternMatchingExcerciseTest extends JUnitSuite {
     assert(matchResult == "HelloAdvancedWorldOf")
   }
 
-
-  /*************************************************************************
+  /**
+   * ***********************************************************************
    * REGEXP MATCHING
-   *************************************************************************/
+   * ***********************************************************************
+   */
 
   @Test
   def regexLogLineMatchTest() {
@@ -61,26 +63,27 @@ class PatternMatchingExcerciseTest extends JUnitSuite {
     assert("040-2920029" :: "0402920029" :: "(040)2920029" :: Nil == result)
   }
 
-
-  /*************************************************************************
+  /**
+   * ***********************************************************************
    * XML MATCHING
-   *************************************************************************/
+   * ***********************************************************************
+   */
 
   @Test
   def xmlMatchAllGenres() {
-   val result = filterAllGenres
+    val result = filterAllGenres
     assert("Comedy" :: "Action" :: Nil == result)
   }
 
   @Test
   def xmlMatchAllTop10Titles() {
-   val result = filterTop10Titles
+    val result = filterTop10Titles
     assert("Ocean's 13" :: Nil == result)
   }
 
   @Test
   def xmlMatchAllActorsStartingWithG() {
-   val result = filterActorsStartingWithG
+    val result = filterActorsStartingWithG
     assert("Gwyneth Paltrow" :: "Geoffrey Rush" :: Nil == result)
   }
 

@@ -31,7 +31,7 @@ object RecursionPatternMatchingExercise {
   def checkValuesIncrease(seq: Seq[Int]): Boolean = {
     error("fix me")
   }
-  
+
   /**
    * Group Consecutive values
    * List(1,1,2,3,1,1) -> List(1,1), List(2), List(3), List(1,1)
@@ -55,7 +55,7 @@ object RecursionPatternMatchingExercise {
   def compress[T](in: List[T]): List[T] = {
     error("fix me")
   }
-  
+
   /**
    * Define the amount of all equal members
    * List(1,1,2,3,1,1) -> List((4,1),(1,2),(1,3))
@@ -63,7 +63,7 @@ object RecursionPatternMatchingExercise {
   def amountEqualMembers[T](in: List[T]): List[(Int, T)] = {
     error("fix me")
   }
-  
+
   /**
    * Zip multiple lists
    * List(List(1,2,3), List('A, 'B, 'C), List('a, 'b, 'c)) -> List(List(1, 'A, 'a), List(2, 'B, 'b), List(3, 'C, 'c))

@@ -22,7 +22,6 @@ object ComboMeal {
 
   case class ComboMealProduct(val burger: String, val bev: Size, val sideOrder: String)
 
-
   /**
    * An example of a type safe builder. The builder will only build an object once all attributes are set to a value, otherwise it won't compile!
    * So, we want to express something like the following:
@@ -33,11 +32,9 @@ object ComboMeal {
    * For the case class were using the '<:' operator, which defines an upper bound.
    * T <: U means that T must be a subtype of U.
    */
-  case class Builder[HAS_BURGER <: Option[String], HAS_BEVERAGE <: Option[Size], HAS_SIDEORDER <: Option[String]] private[ComboMeal]
-  (burger: HAS_BURGER, bev: HAS_BEVERAGE, sideOrder: HAS_SIDEORDER) {
+  case class Builder[HAS_BURGER <: Option[String], HAS_BEVERAGE <: Option[Size], HAS_SIDEORDER <: Option[String]] private[ComboMeal] (burger: HAS_BURGER, bev: HAS_BEVERAGE, sideOrder: HAS_SIDEORDER) {
     def ~[X](f: Builder[HAS_BURGER, HAS_BEVERAGE, HAS_SIDEORDER] => X): X = f(this)
   }
-
 
   /**
    * Implement this in a type-safe manner: this method <b>must</b> be called once and only once for a given builder!
@@ -53,22 +50,22 @@ object ComboMeal {
    * fields should be taken over from the values that they already had.
    *
    */
-  def withBurger/*TODO insert type paarameters here... */(burger: String)(b: Builder[/*TODO insert proper type parameters here*/_,_,_]): Builder[/*TODO insert proper type parameters here*/_,_,_] =
+  def withBurger /*TODO insert type paarameters here... */ (burger: String)(b: Builder[ /*TODO insert proper type parameters here*/ _, _, _]): Builder[ /*TODO insert proper type parameters here*/ _, _, _] =
     error("Implement me")
 
   /**
    * Implement similar as the above method
    */
-  def withBeverage(bev: Size)(b: Builder[_,_,_]): Builder[_,_,_] = error("implement me")
+  def withBeverage(bev: Size)(b: Builder[_, _, _]): Builder[_, _, _] = error("implement me")
 
-  def withSideOrder(sideOrder: String)(b: Builder[_,_,_]): Builder[_,_,_] = error("implement me")   
+  def withSideOrder(sideOrder: String)(b: Builder[_, _, _]): Builder[_, _, _] = error("implement me")
 
   /**
    * The build method takes a builder as parameter. The build method may only compile if called on a Builder, for
    * which all three options (burger, beverage, sideOrder) are filled, i.e. given a Some(value) value.
    * Implement this again by using type parameters
    */
-  def build(b: Builder[/*TODO insert type parameters here*/_,_,_]): ComboMealProduct = error("implement me")
+  def build(b: Builder[ /*TODO insert type parameters here*/ _, _, _]): ComboMealProduct = error("implement me")
 
   def builder: Builder[None, None, None] = Builder(None, None, None)
 
@@ -127,30 +124,28 @@ object Combo {
   trait None extends Option[Nothing]
   case object None extends None
 
-  case class Builder[HAS_BUR <: Option[String], HAS_BEV <: Option[String], HAS_SIDE <: Option[String]] private[Combo]
-  (burger: HAS_BUR, bev: HAS_BEV, side: HAS_SIDE) {
+  case class Builder[HAS_BUR <: Option[String], HAS_BEV <: Option[String], HAS_SIDE <: Option[String]] private[Combo] (burger: HAS_BUR, bev: HAS_BEV, side: HAS_SIDE) {
     def ~[X](f: Builder[HAS_BUR, HAS_BEV, HAS_SIDE] => X): X = f(this)
   }
 }
-
 
 object FoodExercise {
 
   /**
    * Types of food that are commonly eaten.
    */
-  trait Food {def name: String}
-  object Grass extends Food { def name="Grass" }
-  object Beef extends Food {def name = "Beef"}
-  object Fish extends Food {def name = "Fish"}
-  object Pizza extends Food { def name="Beef" }
+  trait Food { def name: String }
+  object Grass extends Food { def name = "Grass" }
+  object Beef extends Food { def name = "Beef" }
+  object Fish extends Food { def name = "Fish" }
+  object Pizza extends Food { def name = "Beef" }
 
   /**
    * The Mamal trait should be implemented so that the joinDinnerWith method only compiles
    * if two mamals eat exactly the same type of foo.d
    */
   trait Mamal { self =>
-    val eats : Food
+    val eats: Food
 
     /**
      * TODO
@@ -159,9 +154,9 @@ object FoodExercise {
      * i.e. Mamal1.eats.type == Mamal2.eats.type
      * the method should be callable as follows:
      * mamal1.joinDinnerWith(mamal2)
-     * 
+     *
      */
-    def joinDinnerWith(other : Any /*TODO Any is not the right type here, add type parameters, and possibly some clever implicits.*/) = None //TODO implement me
+    def joinDinnerWith(other: Any /*TODO Any is not the right type here, add type parameters, and possibly some clever implicits.*/ ) = None //TODO implement me
 
     def prefers = "Eating " + eats.name
   }

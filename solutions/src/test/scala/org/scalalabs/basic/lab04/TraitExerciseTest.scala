@@ -25,7 +25,7 @@ class TraitExerciseTest extends Specification {
       first === firstDebugStatement
       second === infoStatement(msg)
       third === lastDebugStatement
-    } 
+    }
     "not create log message in case level is not enabled" in new cleanLogger {
       SimpleLogger.logConfig = disableAllLevels
       var longStringCreated = ""
@@ -35,7 +35,7 @@ class TraitExerciseTest extends Specification {
       }
       val impl = new AnyRef with Loggable
       impl.debug(createLongString)
-      
+
       SimpleLogger.logHistory must beEmpty
       longStringCreated ==== ""
     }

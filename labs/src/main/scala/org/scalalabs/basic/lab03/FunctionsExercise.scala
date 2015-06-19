@@ -13,10 +13,10 @@ import sys._
  */
 object FunctionsExercise01 {
 
-  var printed = "" 
+  var printed = ""
   private def logPerf(elapsed: Long) = printed = s"The execution took: $elapsed ms"
 
-  def measure[T](/* provide correct method parameter */): T = {
+  def measure[T]( /* provide correct method parameter */ ): T = {
     error("fix me")
   }
 

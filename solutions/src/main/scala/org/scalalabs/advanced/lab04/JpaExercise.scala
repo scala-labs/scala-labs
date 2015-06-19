@@ -1,7 +1,7 @@
 package org.scalalabs.advanced.lab04
 
 import javax.persistence._
-                 
+
 import java.util.Date
 import org.joda.time.DateTime
 import collection.mutable.Buffer
@@ -24,7 +24,8 @@ import scala.language.implicitConversions
  */
 object JpaExercise {
 
-  /*************************************************************************
+  /**
+   * ***********************************************************************
    * Exercises with the Scala JPA API
    * This API is used in Lift in case JPA is used for persistency
    * instead of Lift's proprietary database mapper framework
@@ -34,14 +35,15 @@ object JpaExercise {
    * http://wiki.liftweb.net/index.php/Lift_and_JPA_%28javax.persistence%29
    * For these exercises you can use the Repository object, which gives
    * you direct access to the ScalaEntityManager
-   * @see Repository 
-   *************************************************************************/
+   * @see Repository
+   * ***********************************************************************
+   */
 
   /**
    * Use the Repository object to
    * persist a new director entity
    */
-  def persistDirector(d:Director):Director = {
+  def persistDirector(d: Director): Director = {
     return doWithEM {
       Repository.persist(d)
       d
@@ -52,7 +54,7 @@ object JpaExercise {
    * Use the Repository object to
    * persist a new director entity with movies
    */
-  def persistDirectorWithMovies(d:Director):Director = {
+  def persistDirectorWithMovies(d: Director): Director = {
     //the implementation for this method is the same
     //as the persistDirector method because
     //the Director entity is configured in such a way
@@ -61,17 +63,15 @@ object JpaExercise {
     persistDirector(d);
   }
 
-
   /**
    * Use the Repository object to
    * remove a persisted director entity
    */
-  def removeDirector(d:Director) = {
+  def removeDirector(d: Director) = {
     doWithEM {
-      Repository.remove(Repository.getReference(classOf[Director],d.id))
+      Repository.remove(Repository.getReference(classOf[Director], d.id))
     }
   }
-
 
   /**
    * Use the Repository object to
@@ -80,16 +80,14 @@ object JpaExercise {
    * Complete the named query: findMoviesByDirector
    * in the META-INF/orm.xml
    */
-  def findMoviesByDirector(d:Director):Buffer[Movie] = {
+  def findMoviesByDirector(d: Director): Buffer[Movie] = {
     return doWithEM {
       Repository.findAll[Movie]("findMoviesByDirector", "id" -> d.id)
     }
   }
 
-
-  implicit def convertJodaDateTimeToJavaDate(jodaDate:DateTime) = new Date(jodaDate.getMillis)
-  implicit def convertJavaDateToJodaDate(date:DateTime) = new DateTime(date.getTime)
-  
+  implicit def convertJodaDateTimeToJavaDate(jodaDate: DateTime) = new Date(jodaDate.getMillis)
+  implicit def convertJavaDateToJodaDate(date: DateTime) = new DateTime(date.getTime)
 
   /**
    * Use the Repository object to
@@ -100,29 +98,30 @@ object JpaExercise {
    * In addition implement an implicit conversion definition
    * that converts org.joda.time.DateTime to a java.util.Date
    */
-  def findMoviesByDate(start:Date, end:Date):Buffer[Movie] = {
+  def findMoviesByDate(start: Date, end: Date): Buffer[Movie] = {
     return doWithEM {
       Repository.findAll[Movie]("findMoviesByDate", "startDate" -> start, "endDate" -> end)
     }
   }
 
-  /*************************************************************************
+  /**
+   * ***********************************************************************
    * Exercises with Dao's
    * Take a look at the GenericDao trait.
    * Follow the instructions given in the GenericDao trait in
    * order to implement a generic Dao as well as
    * one for the Director and Movie entity
-   *************************************************************************/
-
+   * ***********************************************************************
+   */
 
   val directorDao = new DirectorDao(Repository)
   val movieDao = new MovieDao(Repository)
 
   /**
    * Use the DirectorDao to
-   * persist a new director entity 
+   * persist a new director entity
    */
-  def persistDirectorWithDao(d:Director):Director = {
+  def persistDirectorWithDao(d: Director): Director = {
     doWithEM {
       directorDao.save(d)
     }
@@ -132,7 +131,7 @@ object JpaExercise {
    * Use the DirectorDao to
    * remove a persisted director entity
    */
-  def removeDirectorWithDao(d:Director) = {
+  def removeDirectorWithDao(d: Director) = {
     doWithEM {
       directorDao.remove(d)
     }
@@ -154,13 +153,13 @@ object JpaExercise {
    * Use the MovieDao to
    * find all movies based on title
    */
-  def findMoviesByTitleWithDao(title:String) = movieDao.findByTitle(title)
+  def findMoviesByTitleWithDao(title: String) = movieDao.findByTitle(title)
 
   /**
    * Use the MovieDao to
    * remove a movie
    */
-  def removeMovieWithDao(m:Movie) = {
+  def removeMovieWithDao(m: Movie) = {
     doWithEM {
       movieDao.remove(m)
     }
@@ -173,7 +172,7 @@ object JpaExercise {
     //adds the ScalaEntityManger to ThreadLocal if needed
     Repository.sem
     try {
-    return perform
+      return perform
     } finally {
       //Commits and closes the EntityManager
       Repository.cleanup

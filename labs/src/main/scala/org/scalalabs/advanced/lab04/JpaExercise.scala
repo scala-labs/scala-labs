@@ -22,9 +22,10 @@ import scala.language.implicitConversions
  * In the second section you will implement DAOs (Data Access Object),
  * which delegate persistency operations to the Scala JPA utility API.
  */
-object JpaExercise  {
+object JpaExercise {
 
-  /*************************************************************************
+  /**
+   * ***********************************************************************
    * Exercises with the Scala JPA API
    * This API is used in Lift in case JPA is used for persistency
    * instead of Lift's proprietary database mapper framework
@@ -34,14 +35,15 @@ object JpaExercise  {
    * http://wiki.liftweb.net/index.php/Lift_and_JPA_%28javax.persistence%29
    * For these exercises you can use the Repository object, which gives
    * you direct access to the ScalaEntityManager
-   * @see Repository 
-   *************************************************************************/
+   * @see Repository
+   * ***********************************************************************
+   */
 
   /**
    * Use the Repository object to
    * persist a new director entity
    */
-  def persistDirector(d:Director):Director = {
+  def persistDirector(d: Director): Director = {
     //TODO implement
     d
   }
@@ -50,20 +52,18 @@ object JpaExercise  {
    * Use the Repository object to
    * persist a new director entity with movies
    */
-  def persistDirectorWithMovies(d:Director):Director = {
+  def persistDirectorWithMovies(d: Director): Director = {
     //TODO implement
     d
   }
-
 
   /**
    * Use the Repository object to
    * remove a persisted director entity
    */
-  def removeDirector(d:Director) = {
+  def removeDirector(d: Director) = {
     //TODO implement
   }
-
 
   /**
    * Use the Repository object to
@@ -72,13 +72,12 @@ object JpaExercise  {
    * Complete the named query: findMoviesByDirector
    * in the META-INF/orm.xml
    */
-  def findMoviesByDirector(d:Director):Buffer[Movie] = {
+  def findMoviesByDirector(d: Director): Buffer[Movie] = {
     //TODO implement
     Buffer[Movie]()
   }
 
-
- /**
+  /**
    * Use the Repository object to
    * implement the finder method:
    * Find movies by date
@@ -87,18 +86,20 @@ object JpaExercise  {
    * In addition implement an implicit conversion definition
    * that converts org.joda.time.DateTime to a java.util.Date
    */
-  def findMoviesByDate(start:DateTime, end:DateTime):Buffer[Movie] = {
+  def findMoviesByDate(start: DateTime, end: DateTime): Buffer[Movie] = {
     //TODO implement
     Buffer[Movie]()
   }
 
-  /*************************************************************************
+  /**
+   * ***********************************************************************
    * Exercises with Dao's
    * Take a look at the GenericDao trait.
    * Follow the instructions given in the GenericDao trait in
    * order to implement a generic Dao as well as
    * one for the Director and Movie entity
-   *************************************************************************/
+   * ***********************************************************************
+   */
 
   // uncomment when implemented
   //val directorDao = new DirectorDao(Repository)
@@ -106,9 +107,9 @@ object JpaExercise  {
 
   /**
    * Use the DirectorDao to
-   * persist a new director entity 
+   * persist a new director entity
    */
-  def persistDirectorWithDao(d:Director):Director = {
+  def persistDirectorWithDao(d: Director): Director = {
     //TODO implement using directorDao
     d
   }
@@ -117,7 +118,7 @@ object JpaExercise  {
    * Use the DirectorDao to
    * remove a persisted director entity
    */
-  def removeDirectorWithDao(d:Director) = {
+  def removeDirectorWithDao(d: Director) = {
     //TODO implement using directorDao
     d
   }
@@ -126,12 +127,10 @@ object JpaExercise  {
    * Use the DirectorDao to
    * find all directors
    */
-  def findAllDirectorsWithDao() =  {
+  def findAllDirectorsWithDao() = {
     //TODO implement using directorDao
     Buffer[Director]()
   }
-
-
 
   /**
    * Use the MovieDao to
@@ -146,7 +145,7 @@ object JpaExercise  {
    * Use the MovieDao to
    * find all movies based on title
    */
-  def findMoviesByTitleWithDao(title:String) = {
+  def findMoviesByTitleWithDao(title: String) = {
     //TODO implement using movieDao
     Buffer[Movie]()
   }
@@ -155,7 +154,7 @@ object JpaExercise  {
    * Use the MovieDao to
    * remove a movie
    */
-  def removeMovieWithDao(m:Movie) = {
+  def removeMovieWithDao(m: Movie) = {
     //TODO implement using movieDao
   }
 
