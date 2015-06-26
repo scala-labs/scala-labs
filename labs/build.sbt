@@ -6,7 +6,7 @@ scalaVersion := "2.11.1"
 
 scalacOptions ++= Seq("-unchecked", "-deprecation")
 
-resolvers ++= Seq("Local Maven Repository" at "file://"+Path.userHome+"/.m2/repository",
+resolvers ++= Seq("Local Maven Repository" at "file:///"+Path.userHome+"/.m2/repository",
         "Signpost releases" at "https://oss.sonatype.org/content/repositories/signpost-releases/")
 
 // You should be able to use the following to read all dependencies from the pom.xml file, but somehow those aren't picked up.
