@@ -40,7 +40,7 @@ object CollectionExercise01 {
 
 object CollectionExercise02 {
 
-  case class Person(val age: Int, val name: String)
+  class Person(val age: Int, val name: String)
 
   /**
    * Take a look at the java class: {@link ImperativeSample}. The
