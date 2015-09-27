@@ -37,7 +37,7 @@ class CollectionExerciseTest extends Specification {
       val erik = new Person(24, "Erik")
       val susy = new Person(40, "Susy")
 
-      val result = CollectionExercise02.groupAdultsPerAgeGroup(Seq(jack, duke, jeniffer, erik, susy))
+      val result = CollectionExercise02.groupAdultsPerAgeGroup(Seq(jack, jeniffer, duke, erik, susy))
       Map(20 -> Seq(erik), 30 -> Seq(duke, jeniffer), 40 -> Seq(susy)) ==== result
     }
   }
