@@ -94,7 +94,7 @@ object CollectionExercise05 {
   /**
    * Group all numbers based on whether they are even or odd using foldLeft.
    * For even use 'true' for odd use 'false'.
-   * E.g: Seq(1,2,3) is Map(0 -> Seq(2), 1 -> Seq(1,3))
+   * E.g: Seq(1,2,3) is Map(true -> Seq(2), false -> Seq(1,3))
    */
   def groupByWithFoldLeft(seq: Seq[Int]): Map[Boolean, Seq[Int]] = {
     error("fix me")
