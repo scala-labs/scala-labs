@@ -46,10 +46,10 @@ object ImplicitConversionExercises02 {
    */
   object Exercise01 {
 
-    class EuroBuilder(val inCents: Int) {
-      def euros = new EuroBuilder(inCents * 100)
-      def cents = Euro.fromCents(inCents)
-      def apply(cents: Int) = new EuroBuilder(inCents + cents)
+    class EuroBuilder(val amount: Int, val inCents: Int = 0) {
+      def euros = new EuroBuilder(0, inCents + amount * 100)
+      def cents = new EuroBuilder(0, inCents + amount)
+      def apply(amount: Int) = new EuroBuilder(amount, inCents)
     }
 
     implicit def fromIntToEuroBuilder(value: Int) = new EuroBuilder(value)
