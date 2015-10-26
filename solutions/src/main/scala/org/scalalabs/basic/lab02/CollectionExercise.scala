@@ -114,7 +114,7 @@ object CollectionExercise04 {
   def calcLengthLongestWord(lines: String*): Int = {
     lines.map(_.split(" ").map(_.length).max).max
     //or: 
-    //lines.flatMap(_.split(" ").map(_.length)).max
+    lines.flatMap(_.split(" ").map(_.length)).max
   }
 }
 
@@ -137,9 +137,9 @@ object CollectionExercise05 {
       map + (key -> (map.getOrElse(key, Seq()) :+ next))
     }
     //simpler
-    seq.foldLeft(Map[Boolean, Seq[Int]]().withDefaultValue(Seq[Int]())) { (map, next) ⇒
+    seq.foldLeft(Map[Boolean, Seq[Int]]().withDefaultValue(Seq.empty[Int])) { (map, next) ⇒
       val key = next % 2 == 0
-      map + (key -> (map(key) :+ next))
+      map + ((key, (map(key) :+ next)))
     }
 
   }

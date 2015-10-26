@@ -45,14 +45,14 @@ object OptionExercise02 {
    */
   def totalPeopleInRooms(rooms: Map[Int, Option[String]]): Int = {
     //functional solution
-    rooms.values.map(i ⇒ Exception.allCatch.opt(i.get.toInt)).flatten.sum
+    rooms.values.flatMap(i ⇒ Exception.allCatch.opt(i.get.toInt)).sum
 
     val res = for {
       occupationOpt ← rooms.values
       occupation ← occupationOpt
       occupationNo ← Exception.allCatch opt occupation.toInt
     } yield occupationNo
-    res.reduce(_ + _)
+    res.sum
   }
 
 }

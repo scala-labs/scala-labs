@@ -38,11 +38,12 @@ object PatternMatchingExercise {
     case s: String ⇒ s"A string with length ${s.length}"
     case i: Int if i > 0 ⇒ "A positive integer"
     case Person(name, _) ⇒ s"A person with name: $name"
-    case s: Seq[_] if (s.size > 10) ⇒ "Seq with more than 10 elements"
+    case s: Seq[_] if s.size > 10 ⇒ "Seq with more than 10 elements"
     case first :: second :: tail ⇒ s"first: $first, second: $second, rest: $tail"
+    case Seq(first, second, tail @ _*) ⇒ s"first: $first, second: $second, rest: $tail"
     case o: Option[_] ⇒ "A Scala Option subtype"
-    case a: AnyRef ⇒ "Some Scala class"
     case null ⇒ "A null value"
+    case a: AnyRef ⇒ "Some Scala class"
     case _ ⇒ "The default"
   }
 
@@ -50,6 +51,79 @@ object PatternMatchingExercise {
     case Person(name, age) if age > 30 ⇒ Some(name)
     case _ ⇒ None
   }
+
+  /**
+   * ***********************************************************************
+   * Pattern matching with partial functions
+   * For expected solution see @PatternMatchingExerciseTest
+   * ***********************************************************************
+   */
+  val defaultMatch: PartialFunction[Int, String] = { case i => s"$i is unknown" }
+
+  def translateToFrSolution(no: Int): String = {
+    val toFr: PartialFunction[Int, String] = {
+      case 1 => "Un"
+      case 2 => "Deux"
+    }
+    (toFr orElse defaultMatch)(no)
+  }
+
+  def translateToEnSolution(no: Int): String = {
+    val toEn: PartialFunction[Int, String] = {
+      case 1 => "One"
+      case 2 => "Two"
+    }
+    (toEn orElse defaultMatch)(no)
+  }
+
+  def translateToFr(no: Int) = no match {
+    case 1 => "Un"
+    case 2 => "Deux"
+  }
+
+  def translateToEn(no: Int) = no match {
+    case 1 => "One"
+    case 2 => "Two"
+  }
+
+  sealed trait Species
+  trait Bird extends Species
+  trait Mamal extends Species
+
+  val matchbird: PartialFunction[Species, String] = { case _: Bird => s"I'm a Bird" }
+  val matchMamal: PartialFunction[Species, String] = { case _: Mamal => s"I'm a Mamal" }
+
+  def matchSpecies(species: Species): PartialFunction[Any, String] = {
+    case m: Species => species match {
+      case _: Bird => s"I'm a Bird"
+    }
+    case a => "Default"
+  }
+
+  trait Actor {
+    type Receive = PartialFunction[Any, Unit]
+
+    def receive: Receive = ??? //doReceive orElse defaultHandle
+
+    def defaultHandle: PartialFunction[Any, Unit] = {
+      case a => println(s"not handling $a")
+    }
+
+    def doReceive: Receive
+  }
+
+  class MyActor extends Actor {
+    def doReceive = {
+      case a: String => println(s"String $a")
+    }
+
+  }
+
+  //  class MyActor extends Actor
+  //    def helper(in:Option[String]) = in match {
+  //      case Some(a) => println("a")
+  //    }    
+  //  }
 
   /**
    * ***********************************************************************

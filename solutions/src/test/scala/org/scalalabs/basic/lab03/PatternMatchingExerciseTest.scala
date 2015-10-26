@@ -21,6 +21,7 @@ class PatternMatchingExerciseTest extends Specification {
       "Unknown" === describeLanguage("Oz")
     }
     "match on input type" in {
+      println(matchOnInputType(new AnyRef))
       "A string with length 8" === matchOnInputType("A String")
       "A positive integer" === matchOnInputType(10)
       "A person with name: Jack" === matchOnInputType(Person("Jack", 39))
@@ -30,6 +31,7 @@ class PatternMatchingExerciseTest extends Specification {
       "A Scala Option subtype" === matchOnInputType(None)
       "Some Scala class" === matchOnInputType(10l)
       "A null value" === matchOnInputType(null)
+
     }
     "check age" in {
       Some("Jack") === older(new Person("Jack", 31))
