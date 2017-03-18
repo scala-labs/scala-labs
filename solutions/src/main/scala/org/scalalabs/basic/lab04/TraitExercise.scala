@@ -59,20 +59,10 @@ class DummyService extends Loggable {
 }
 
 trait Loggable {
-  self  ⇒
+  self ⇒
   private lazy val logger = SimpleLogger(self.getClass().getName())
   def debug = logger debug _
   def info = logger info _
-  
+
 }
-
-
-
-
-
-
-
-
-
-
 

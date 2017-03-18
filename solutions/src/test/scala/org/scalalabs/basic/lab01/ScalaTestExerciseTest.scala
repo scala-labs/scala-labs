@@ -16,7 +16,7 @@ import org.scalatest.junit._
  */
 @RunWith(classOf[JUnitRunner])
 class ScalaTestExerciseTest extends FunSpecLike with Matchers {
-  
+
   describe("Euro") {
     it("should be divisible") {
       val result = new Euro(1, 20) / 5

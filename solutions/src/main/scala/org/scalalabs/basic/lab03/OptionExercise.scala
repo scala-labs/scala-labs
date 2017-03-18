@@ -45,7 +45,7 @@ object OptionExercise02 {
    */
   def totalPeopleInRooms(rooms: Map[Int, Option[String]]): Int = {
     rooms.values.map(room => Exception.allCatch.opt(room.get.toInt))
-    
+
     val res = for {
       occupationOpt ← rooms.values
       occupation ← occupationOpt

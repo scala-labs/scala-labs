@@ -18,7 +18,7 @@ class FunctionsExerciseTest extends Specification {
       }
       //uncomment next line
       //4 ==== FunctionsExercise01.measure(block)
-      FunctionsExercise01.printed must beMatching ("""The execution took: ([1-9][0-9]) ms""")
+      FunctionsExercise01.printed must beMatching("""The execution took: ([1-9][0-9]) ms""")
     }
   }
   "FunctionsExercise02" should {
