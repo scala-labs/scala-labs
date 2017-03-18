@@ -17,7 +17,7 @@ class Euro(val euro: Int, val cents: Int = 0) extends Currency("EUR") with Order
 
   override lazy val toString = s"$symbol: $euro,${if (cents > 0) f"$cents%02d" else "--"}"
 
-  override def compare(that: Euro) = inCents - that.inCents
+  override def compare(that: Euro):Int = inCents - that.inCents
 
 }
 

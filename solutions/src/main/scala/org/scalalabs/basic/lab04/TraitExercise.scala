@@ -25,7 +25,6 @@ class SimpleLogger(clazz: String) {
    * Logs debug
    */
   def debug(msg: ⇒ Any) = log(Debug, msg)
-  def error(msg: ⇒ Any, ex: Throwable) = log(Debug, msg)
   /**
    * Log info
    */
@@ -60,10 +59,20 @@ class DummyService extends Loggable {
 }
 
 trait Loggable {
-  blabla: Any ⇒
-  private lazy val logger = SimpleLogger(blabla.getClass().getName())
+  self  ⇒
+  private lazy val logger = SimpleLogger(self.getClass().getName())
   def debug = logger debug _
   def info = logger info _
-  def error = logger.error(_, _)
+  
 }
+
+
+
+
+
+
+
+
+
+
 

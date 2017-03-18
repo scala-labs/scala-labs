@@ -46,7 +46,7 @@ object RecursionPatternMatchingExercise {
   def groupConsecutive[T](in: List[T]): List[List[T]] = {
     in match {
       case Nil ⇒ Nil
-      case (head :: _) ⇒
+      case head :: _ ⇒
         val (same, rest) = in.span(_ == head)
         same :: groupConsecutive(rest)
     }
@@ -59,7 +59,7 @@ object RecursionPatternMatchingExercise {
   def groupEquals[T](in: List[T]): List[List[T]] = {
     in match {
       case Nil ⇒ Nil
-      case (head :: _) ⇒
+      case head :: _ ⇒
         val (same, rest) = in.partition(_ == head)
         same :: groupEquals(rest)
     }
