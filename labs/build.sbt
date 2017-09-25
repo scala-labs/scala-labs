@@ -1,8 +1,12 @@
+import sbt.Path
+
 name := "ScalaLabs"
+
+organization := "Xebia B.V."
 
 version := "1.0"
 
-scalaVersion := "2.11.1"
+scalaVersion := "2.11.8"
 
 scalacOptions ++= Seq("-unchecked", "-deprecation")
 
@@ -19,17 +23,15 @@ libraryDependencies ++= Seq("joda-time" % "joda-time" % "1.6",
         "org.scala-libs" %% "scalajpa" % "1.5",
         "oauth.signpost" % "signpost-core" % "1.2",
         "oauth.signpost" % "signpost-commonshttp4" % "1.2",
-        "org.scala-lang" % "scala-actors" % "2.11.1",
         "org.scalatest" %% "scalatest" % "2.2.0" % "test",
         "org.specs2" %% "specs2-core" % "3.8.9" % "test",
         "org.specs2" %% "specs2-junit" % "3.8.9" % "test",
         "org.scala-lang.modules" %% "scala-xml" % "1.0.2",
         "org.scala-lang.modules" %% "scala-parser-combinators" % "1.0.1",
-	"org.json4s" %% "json4s-native" % "3.2.9",
+        "org.json4s" %% "json4s-native" % "3.2.9",
         "junit" % "junit" % "4.7" % "test",
         "hsqldb" % "hsqldb" % "1.8.0.1" % "test",
         "org.hibernate" % "hibernate-entitymanager" % "3.4.0.GA",
         "org.slf4j" % "slf4j-simple" % "1.4.2")
 
-scalariformSettings
 
