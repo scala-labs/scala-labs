@@ -19,7 +19,7 @@ object ListManipulationExercise02 {
     //** recursive with if else**
     //def sum2(l:List[Int]):Int = if(l.isEmpty) 0 else l.head + sum2(l.tail)
 
-    //** with fold**    
+    //** with fold**
     //    l.foldRight(0)((a, b) => a + b)
     //    l.foldRight(0)(_ + _)
   }

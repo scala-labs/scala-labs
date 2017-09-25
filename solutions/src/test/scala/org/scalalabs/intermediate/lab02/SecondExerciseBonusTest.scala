@@ -58,7 +58,8 @@ class SecondExerciseBonusTest extends JUnitSuite {
   @Test
   def testFindPopularFriendsAndTheirRankings() {
     assertResult(
-      List(("stephenfry", 714779),
+      List(
+        ("stephenfry", 714779),
         ("macrumors", 74132),
         ("twitterapi", 18817),
         ("spolsky", 12607),

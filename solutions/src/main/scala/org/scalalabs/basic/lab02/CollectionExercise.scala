@@ -113,7 +113,7 @@ object CollectionExercise04 {
    */
   def calcLengthLongestWord(lines: String*): Int = {
     lines.map(_.split(" ").map(_.length).max).max
-    //or: 
+    //or:
     lines.flatMap(_.split(" ").map(_.length)).max
   }
 }

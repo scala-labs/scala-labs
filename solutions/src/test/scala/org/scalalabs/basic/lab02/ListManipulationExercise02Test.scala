@@ -10,13 +10,13 @@ import ListManipulationExercise02._
 
 /*
  * Lab 02: more Scala collection operations
- * 
+ *
  * Scala advanced Lists
  *
  * Your job is to implement the objects and classes in
  * such a way that the tests in this suite all succeed.
  *
-  * One exercise consists of rewriting imperatively written code to a style that is more functional. 
+  * One exercise consists of rewriting imperatively written code to a style that is more functional.
  */
 
 @RunWith(classOf[JUnitRunner])

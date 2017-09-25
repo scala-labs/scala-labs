@@ -25,12 +25,14 @@ object PaymentService {
 
 }
 
-case class Response(approved: Boolean,
+case class Response(
+  approved: Boolean,
   message: String)
 
-case class Order(val userId: String,
-    val paymentMethod: PaymentMethod,
-    val amount: Int) {
+case class Order(
+  val userId: String,
+  val paymentMethod: PaymentMethod,
+  val amount: Int) {
   require(paymentMethod != null)
   require(amount > 0)
 }
