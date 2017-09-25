@@ -41,8 +41,7 @@ class ThirdExerciseTest extends JUnitSuite {
 
   val testAuthInfo = new TwitterAuthInfo(
     oauthAccessToken = "66988471-6UejYlvm65JNG9DW5JRmpmTwE6X90Pyyzx3RbJEjf",
-    oauthTokenSecret = "VMuNpQ7YZGCtoojtEBxoROj0bdEQFlzZrD6j6tbk"
-  )
+    oauthTokenSecret = "VMuNpQ7YZGCtoojtEBxoROj0bdEQFlzZrD6j6tbk")
 
   // ========================================================================
   // The tests
@@ -107,7 +106,7 @@ class ThirdExerciseTest extends JUnitSuite {
   //
   // this might a bit of a privacy-sensitive but I was looking for a way to be able to
   // recognize your own generated tweet from others. Other solutions that are less privacy
-  // sensitive are more than welcome. Feel free to change this to any other string that 
+  // sensitive are more than welcome. Feel free to change this to any other string that
   // you will recognize.
   //        val tweet = twitter.tweet(baseText + random.nextLong);
   //

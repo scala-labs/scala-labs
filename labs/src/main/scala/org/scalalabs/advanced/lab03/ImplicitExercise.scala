@@ -171,12 +171,12 @@ object Monoid {
 object AddUsingVarargsAndScalaNumeric {
   //TODO implement the add method such that add(1,2,3,4,5) works. The argument should take a type parameter (which it now doesn't), and return that type.
   //In this case, add(1,2,3) should return an Int, but add(1L, 2L, 3L) returns a long. The type in the argument list is now Any, but that should be changed as well.
-  //Lastly, you can use (implicitly) the Numeric trait of Scala to implement the addition of the various types. 
+  //Lastly, you can use (implicitly) the Numeric trait of Scala to implement the addition of the various types.
   def add(a: Any*) = error("implement me")
 }
 
 object ListToPimpedList {
-  //TODO implement implicit conversion for list to pimped list trait, so that the various methods in that class are supported. 
+  //TODO implement implicit conversion for list to pimped list trait, so that the various methods in that class are supported.
 }
 object ImplicitExercise {
 

@@ -60,7 +60,7 @@ class FirstExerciseTest extends JUnitSuite {
     //
     //	    assertResult("Having much more fun working on #jaoo talks than  yesterday's hard drive crash redddddddcovery.") {
     //	        firstTweet.text
-    //        }                                                    
+    //        }
     //
     //	    assertResult(twitterDateTimeFormat.parseDateTime("Mon Aug 17 14:19:06 +0000 2009")) {
     //	        firstTweet.createdAt
