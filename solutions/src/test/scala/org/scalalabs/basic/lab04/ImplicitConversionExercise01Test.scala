@@ -14,7 +14,7 @@ import org.joda.time._
  * @see ImplictConversionExercise
  */
 @RunWith(classOf[JUnitRunner])
-class ImplicitConversionExercise01Test extends Specification with DeactivatedTimeConversions {
+class ImplicitConversionExercise01Test extends Specification {
 
   "Exercise01" should {
     "convert string to list" in {
@@ -49,8 +49,4 @@ class ImplicitConversionExercise01Test extends Specification with DeactivatedTim
     }
   }
 
-}
-
-trait DeactivatedTimeConversions extends org.specs2.time.TimeConversions {
-  override def intToRichLong(v: Int) = super.intToRichLong(v)
 }
