@@ -16,7 +16,7 @@ import scala.util.control._
  * @see ImplictConversionExercise02
  */
 @RunWith(classOf[JUnitRunner])
-class ImplictConversionExercise02Test extends Specification with DeactivatedTimeConversions {
+class ImplictConversionExercise02Test extends Specification {
 
   "Exercise01" should {
     "have a working money DSL" in {

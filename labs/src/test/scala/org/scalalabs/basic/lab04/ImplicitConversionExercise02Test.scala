@@ -13,7 +13,7 @@ import Exercise03._
  * @see ImplictConversionExercise02
  */
 @RunWith(classOf[JUnitRunner])
-class ImplicitConversionExercise02Test extends Specification with DeactivatedTimeConversions {
+class ImplicitConversionExercise02Test extends Specification {
 
   "Exercise01" should {
     "have a working money DSL" in {
