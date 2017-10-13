@@ -32,7 +32,13 @@ object OptionExercise01 {
         .getOrElse("empty")
     }
       .getOrElse("not existing")
+    //better
+    rooms.getOrElse(room, Some("not existing")).map( roomState ⇒
+      if (roomState == "locked") "not available" else roomState
+    ).getOrElse("empty")
+
   }
+
 
 }
 
@@ -44,7 +50,12 @@ object OptionExercise02 {
    * to convert a possible numeric String (e.g. Some("12")) to an integer
    */
   def totalPeopleInRooms(rooms: Map[Int, Option[String]]): Int = {
+    //with get
     rooms.values.map(room => Exception.allCatch.opt(room.get.toInt))
+
+    //better
+    rooms.values.flatten.map(room => Exception.allCatch.opt(room.toInt).getOrElse(0)).sum
+
 
     val res = for {
       occupationOpt ← rooms.values

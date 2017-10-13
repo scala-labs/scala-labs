@@ -29,14 +29,10 @@ object RecursionPatternMatchingExercise {
    * checkValuesIncreaseRecursive(Seq(1,2,2)) == false
    */
   def checkValuesIncrease[T <% Ordered[T]](seq: Seq[T]): Boolean = {
-    def checkValuesIncreaseRecursiveInner(seq: Seq[T], increase: Boolean): Boolean = {
-      if (increase) seq match {
-        case a :: b :: tail ⇒ checkValuesIncreaseRecursiveInner(b :: tail, a < b)
-        case _ ⇒ true
-      }
-      else false
+    seq match {
+      case a :: b :: tail ⇒ a < b && checkValuesIncrease(b :: tail)
+      case _ ⇒ true
     }
-    checkValuesIncreaseRecursiveInner(seq, true)
   }
 
   /**
