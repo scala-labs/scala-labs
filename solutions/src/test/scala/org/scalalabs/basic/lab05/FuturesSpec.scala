@@ -47,9 +47,9 @@ class FuturesSpec extends WordSpecLike with Matchers with BeforeAndAfterAll {
       val (elapsed, result) = measureEither {
         val futures = testServices map { service => service.rateUSD }
         val promise = Promise[Int]
-        Future.firstCompletedOf(futures) onSuccess {
-          case value => promise.trySuccess(value)
-        }
+        Future.firstCompletedOf(futures).foreach (value =>
+             promise.trySuccess(value)
+          )
         Future
         scheduleOnce(2 seconds) {
           promise.tryFailure(new Exception("timeout"))

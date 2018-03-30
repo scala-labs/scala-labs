@@ -33,12 +33,10 @@ object OptionExercise01 {
     }
       .getOrElse("not existing")
     //better
-    rooms.getOrElse(room, Some("not existing")).map( roomState ⇒
-      if (roomState == "locked") "not available" else roomState
-    ).getOrElse("empty")
+    rooms.getOrElse(room, Some("not existing")).map(roomState ⇒
+      if (roomState == "locked") "not available" else roomState).getOrElse("empty")
 
   }
-
 
 }
 
@@ -55,7 +53,6 @@ object OptionExercise02 {
 
     //better
     rooms.values.flatten.map(room => Exception.allCatch.opt(room.toInt).getOrElse(0)).sum
-
 
     val res = for {
       occupationOpt ← rooms.values
