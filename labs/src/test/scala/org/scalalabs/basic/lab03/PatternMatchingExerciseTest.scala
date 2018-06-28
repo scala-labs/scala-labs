@@ -7,8 +7,8 @@ import PatternMatchingExercise01._
 import PatternMatchingExercise02._
 
 /**
-  * @see PatternMatchingExercise
-  */
+ * @see PatternMatchingExercise
+ */
 @RunWith(classOf[JUnitRunner])
 class PatternMatchingExerciseTest extends Specification {
 
@@ -31,7 +31,7 @@ class PatternMatchingExerciseTest extends Specification {
     "transform messages matching the partial function and keep count of transformations" in {
       val transformer = new MessageTransformer({
         case x: Int => x.toString
-        case x:String => x.length
+        case x: String => x.length
       })
       transformer.process("Say") ==== 3
       transformer.process("Hi") ==== 2

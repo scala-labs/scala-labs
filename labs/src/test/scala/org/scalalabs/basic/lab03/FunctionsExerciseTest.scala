@@ -13,8 +13,8 @@ class FunctionsExerciseTest extends Specification {
   "FunctionsExercise01" should {
     "higher order function that does file resource handling while offering the content of the file as String" in {
       //uncomment function to make test pass
-      FunctionsExercise01.doWithText(/*content => content.reverse*/) ==== FunctionsExercise01.reverseText()
-      FunctionsExercise01.doWithText(/*content => content.toUpperCase*/) ==== FunctionsExercise01.upperCaseText()
+      FunctionsExercise01.doWithText( /*content => content.reverse*/ ) ==== FunctionsExercise01.reverseText()
+      FunctionsExercise01.doWithText( /*content => content.toUpperCase*/ ) ==== FunctionsExercise01.upperCaseText()
     }
   }
   "FunctionsExercise02" should {
