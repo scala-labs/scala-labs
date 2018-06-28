@@ -1,27 +1,21 @@
 package org.scalalabs.basic.lab03
 
 import org.junit.runner.RunWith
+import org.scalalabs.basic.lab03.PatternMatchingExercise02._
+import org.scalalabs.basic.lab03.PatternMatchingExercise01._
+import org.scalalabs.basic.lab03.PatternMatchingExerciseOther._
 import org.specs2.mutable.Specification
 import org.specs2.runner.JUnitRunner
-import PatternMatchingExercise._
+
 /**
- * @see PatternMatchingExercise
- */
+  * @see PatternMatchingExercise
+  */
 @RunWith(classOf[JUnitRunner])
 class PatternMatchingExerciseTest extends Specification {
 
-  "PatternMatchingExercise" should {
-    "match language on strings" in {
-      "OOP" === describeLanguage("Java")
-      "OOP" === describeLanguage("Smalltalk")
-      "Functional" === describeLanguage("Clojure")
-      "Functional" === describeLanguage("Haskell")
-      "Hybrid" === describeLanguage("Scala")
-      "Procedural" === describeLanguage("C")
-      "Unknown" === describeLanguage("Oz")
-    }
+  "PatternMatchingExercise01" should {
+
     "match on input type" in {
-      println(matchOnInputType(new AnyRef))
       "A string with length 8" === matchOnInputType("A String")
       "A positive integer" === matchOnInputType(10)
       "A person with name: Jack" === matchOnInputType(Person("Jack", 39))
@@ -31,7 +25,34 @@ class PatternMatchingExerciseTest extends Specification {
       "A Scala Option subtype" === matchOnInputType(None)
       "Some Scala class" === matchOnInputType(10l)
       "A null value" === matchOnInputType(null)
+    }
+  }
+  "PatternMatchingExercise02" should {
 
+    "transform messages matching the partial function and keep count of transformations" in {
+      val transformer = new MessageTransformer({
+        case x: Int => x.toString
+        case x: String => x.length
+      })
+      transformer.process("Say") ==== 3
+      transformer.process("Hi") ==== 2
+      transformer.process(5) ==== "5"
+      transformer.process('a) ==== 'a
+      transformer.transformationCountBy(classOf[String]) ==== 2
+      transformer.transformationCountBy(classOf[Int]) ==== 1
+      transformer.transformationCountBy(classOf[Symbol]) ==== 0
+    }
+
+  }
+  "PatternMatchingExerciseOther" should {
+    "match language on strings" in {
+      "OOP" === describeLanguage("Java")
+      "OOP" === describeLanguage("Smalltalk")
+      "Functional" === describeLanguage("Clojure")
+      "Functional" === describeLanguage("Haskell")
+      "Hybrid" === describeLanguage("Scala")
+      "Procedural" === describeLanguage("C")
+      "Unknown" === describeLanguage("Oz")
     }
     "check age" in {
       Some("Jack") === older(new Person("Jack", 31))
