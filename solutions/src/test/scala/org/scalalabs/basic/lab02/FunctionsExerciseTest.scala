@@ -1,4 +1,4 @@
-package org.scalalabs.basic.lab03
+package org.scalalabs.basic.lab02
 
 import org.junit.runner.RunWith
 import org.specs2.mutable.Specification

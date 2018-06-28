@@ -1,8 +1,8 @@
-package org.scalalabs.basic.lab03
+package org.scalalabs.basic.lab02
+
 import java.util.Scanner
 
 import scala.language.reflectiveCalls
-import sys._
 
 /**
   * Higher order functions allow you to build abstractions containing a generic control
