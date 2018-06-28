@@ -58,7 +58,9 @@ object PatternMatchingExercise02 {
       transformationCount = transformationCount + (message.getClass -> (transformationCount(message.getClass) + 1))
     }
 
-    def transformationCountBy(clazz: Class[_]): Int = transformationCount(clazz)
+    def transformationCountBy(clazz: Class[_]): Int = {
+      val x = clazz
+      transformationCount(clazz)}
 
     def process(message: Any): Any = {
       val processor = new PartialFunction[Any, Any] {
@@ -68,7 +70,7 @@ object PatternMatchingExercise02 {
           transform.andThen(res => {
             updateCount(msg)
             res
-          })
+          })(msg)
         }
       }
       processor.applyOrElse(message, (_: Any) => message)
