@@ -1,6 +1,52 @@
 package org.scalalabs.basic.lab03
+import java.util.Scanner
+
 import scala.language.reflectiveCalls
 import sys._
+
+/**
+  * Higher order functions allow you to build abstractions containing a generic control
+  * structure and a function with which the result(s) of the generic control structure can
+  * be used in different ways.
+  *
+  * Take a look at the predefined methods reverseText() and upperCaseTest().
+  * Both methods contain a lot of duplication which we want to remove.
+  *
+  * Implement the doWithText() method as a higher order function
+  * that takes care of the resource handling of the File and offers a function argument
+  * that allows to deal with the content of the File, which is a String, directly.
+  */
+object FunctionsExercise01 {
+
+  def doWithText(handleFun: String => String): String = {
+    val scanner = new Scanner(getClass.getResourceAsStream("/text.txt"))
+    try {
+      scanner.useDelimiter("\\Z");
+      val content = scanner.next()
+      handleFun(content)
+    } finally scanner.close()
+  }
+
+  def reverseText(): String = {
+    val scanner = new Scanner(getClass.getResourceAsStream("/text.txt"))
+    try {
+      scanner.useDelimiter("\\Z");
+      val content = scanner.next()
+      content.reverse
+    } finally scanner.close()
+  }
+
+  def upperCaseText(): String = {
+    val scanner = new Scanner(getClass.getResourceAsStream("/text.txt"))
+    try {
+      scanner.useDelimiter("\\Z");
+      val content = scanner.next()
+      content.toUpperCase()
+    } finally scanner.close()
+  }
+
+}
+
 /**
  * This exercise introduces you to Scala functions.
  *
@@ -11,7 +57,7 @@ import sys._
  * Use the logPerf method provided.
  * Provide a suitable implementation in order to make the corresponding unittest work.
  */
-object FunctionsExercise01 {
+object FunctionsExercise02 {
 
   var printed: String = _
   private def logPerf(elapsed: Long) = printed = s"The execution took: $elapsed ms"
@@ -25,13 +71,14 @@ object FunctionsExercise01 {
 
 }
 
+
 /**
  * Functions let you create control abstractions, which give extra opportunities to condense
  * and simplify code.
  *
  * Provide a suitable implementation in order to make the corresponding unittest work.
  */
-object FunctionsExercise02 {
+object FunctionsExercise03 {
   def plusOne(x: Int): Int = {
     //implement this using a partial function
     val partial = plus(1, _: Int)
