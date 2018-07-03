@@ -63,17 +63,10 @@ object PatternMatchingExercise02 {
       transformationCount(clazz)}
 
     def process(message: Any): Any = {
-      val processor = new PartialFunction[Any, Any] {
-        override def isDefinedAt(msg: Any): Boolean = transform.isDefinedAt(msg)
-
-        override def apply(msg: Any): Any = {
-          transform.andThen(res => {
-            updateCount(msg)
-            res
-          })(msg)
-        }
-      }
-      processor.applyOrElse(message, (_: Any) => message)
+      transform.andThen(res => {
+        updateCount(message)
+        res
+      }).applyOrElse(message, (_: Any) => message)
     }
   }
 
