@@ -8,7 +8,7 @@
   <name>tweetview exercise</name>
   <inceptionYear>2007</inceptionYear>
   <properties>
-    <scala.version>2.7.5</scala.version>
+    <scala.version>2.13.1</scala.version>
   </properties>
 
   <repositories>
