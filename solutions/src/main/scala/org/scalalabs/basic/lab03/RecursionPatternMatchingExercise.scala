@@ -30,8 +30,8 @@ object RecursionPatternMatchingExercise {
    */
   def checkValuesIncrease[T <% Ordered[T]](seq: Seq[T]): Boolean = {
     seq match {
-      case a :: b :: tail ⇒ a < b && checkValuesIncrease(b :: tail)
-      case _ ⇒ true
+      case a :: b :: tail => a < b && checkValuesIncrease(b :: tail)
+      case _ => true
     }
   }
 
@@ -41,8 +41,8 @@ object RecursionPatternMatchingExercise {
    */
   def groupConsecutive[T](in: List[T]): List[List[T]] = {
     in match {
-      case Nil ⇒ Nil
-      case head :: _ ⇒
+      case Nil => Nil
+      case head :: _ =>
         val (same, rest) = in.span(_ == head)
         same :: groupConsecutive(rest)
     }
@@ -54,8 +54,8 @@ object RecursionPatternMatchingExercise {
    */
   def groupEquals[T](in: List[T]): List[List[T]] = {
     in match {
-      case Nil ⇒ Nil
-      case head :: _ ⇒
+      case Nil => Nil
+      case head :: _ =>
         val (same, rest) = in.partition(_ == head)
         same :: groupEquals(rest)
     }
@@ -69,9 +69,9 @@ object RecursionPatternMatchingExercise {
     //built in:
     // in.distinct
     in match {
-      case Nil ⇒ Nil
-      case a :: b :: rest if a == b ⇒ compress(a :: rest)
-      case a :: rest ⇒ a :: compress(rest)
+      case Nil => Nil
+      case a :: b :: rest if a == b => compress(a :: rest)
+      case a :: rest => a :: compress(rest)
     }
   }
 
@@ -80,7 +80,7 @@ object RecursionPatternMatchingExercise {
    * List(1,1,2,3,1,1) -> List((4,1),(1,2),(1,3))
    */
   def amountEqualMembers[T](in: List[T]): List[(Int, T)] = {
-    groupEquals(in).map((l: List[T]) ⇒ (l.size, l.head))
+    groupEquals(in).map((l: List[T]) => (l.size, l.head))
   }
 
   /**
@@ -91,22 +91,22 @@ object RecursionPatternMatchingExercise {
 
     def flipAll(as: List[List[_]]): List[List[_]] = {
       as match {
-        case Nil :: _ ⇒ Nil
-        case xs ⇒ mergeFirstElement(xs) :: flipAll(removeFirstElement(xs))
+        case Nil :: _ => Nil
+        case xs => mergeFirstElement(xs) :: flipAll(removeFirstElement(xs))
       }
     }
 
     def mergeFirstElement(as: List[List[_]]): List[_] = {
       as match {
-        case Nil ⇒ Nil
-        case xs :: rest ⇒ xs.head :: mergeFirstElement(rest)
+        case Nil => Nil
+        case xs :: rest => xs.head :: mergeFirstElement(rest)
       }
     }
 
     def removeFirstElement(as: List[List[_]]): List[List[_]] = {
       as match {
-        case Nil ⇒ Nil
-        case xs :: rest ⇒ xs.tail :: removeFirstElement(rest)
+        case Nil => Nil
+        case xs :: rest => xs.tail :: removeFirstElement(rest)
       }
     }
     flipAll(in)

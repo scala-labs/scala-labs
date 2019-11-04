@@ -1,8 +1,9 @@
 package org.scalalabs.basic.lab01
 
 import org.junit.runner.RunWith
-import org.scalatest._
-import org.scalatest.junit._
+import org.scalatest.funspec.AnyFunSpecLike
+import org.scalatest.matchers.should.Matchers
+import org.scalatestplus.junit.JUnitRunner
 /**
  * In this Lab you will implement a ScalaTest testcase.
  *

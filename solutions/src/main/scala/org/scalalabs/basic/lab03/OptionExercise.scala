@@ -24,8 +24,8 @@ object OptionExercise01 {
    * - does not exist: "not existing"
    */
   def roomState(rooms: Map[Int, Option[String]], room: Int): String = {
-    rooms.get(room).map { roomState ⇒
-      roomState.map { value ⇒
+    rooms.get(room).map { roomState =>
+      roomState.map { value =>
         if (value == "locked") "not available"
         else value
       }
@@ -33,7 +33,7 @@ object OptionExercise01 {
     }
       .getOrElse("not existing")
     //better
-    rooms.getOrElse(room, Some("not existing")).map(roomState ⇒
+    rooms.getOrElse(room, Some("not existing")).map(roomState =>
       if (roomState == "locked") "not available" else roomState).getOrElse("empty")
 
   }
@@ -55,9 +55,9 @@ object OptionExercise02 {
     rooms.values.flatten.map(room => Exception.allCatch.opt(room.toInt).getOrElse(0)).sum
 
     val res = for {
-      occupationOpt ← rooms.values
-      occupation ← occupationOpt
-      occupationNo ← Exception.allCatch.opt(occupation.toInt)
+      occupationOpt <- rooms.values
+      occupation <- occupationOpt
+      occupationNo <- Exception.allCatch.opt(occupation.toInt)
     } yield occupationNo
     res.sum
   }

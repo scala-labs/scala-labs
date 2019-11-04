@@ -15,7 +15,7 @@ package object lab05 {
 
   def measure[T](exec: => T): (Int, T) = {
     val (elapsed, res) = measureEither(exec)
-    elapsed -> res.right.get
+    elapsed -> res.getOrElse(throw new IllegalArgumentException("Unexpected error while measureing"))
   }
 
   def scheduleOnce(delay: FiniteDuration)(f: ⇒ Unit) = {

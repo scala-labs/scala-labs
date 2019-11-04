@@ -9,14 +9,14 @@ package org.scalalabs.advanced.lab02
 class ControlStructureExercise(val list: List[String]) {
 
   //Exercise 1
-  def stringsMatching /*DO SOMETHING HERE*/ {
+  def stringsMatching /*DO SOMETHING HERE*/ = {
     //implement method
   }
-  def stringsEnding(query: String) {} //TODO
-  def stringsContaining(query: String) {} //TODO
+  def stringsEnding(query: String) = {} //TODO
+  def stringsContaining(query: String) = {} //TODO
 
   //Exercise 2
-  def curriedStringConcat /*DO SOMETHING HERE*/ {
+  def curriedStringConcat /*DO SOMETHING HERE*/ = {
     //first + " " + second
   }
   val helloConcat = "" //TODO

@@ -72,7 +72,7 @@ object ListManipulationExercise01 {
    * - ... whichever way you like
    *
    */
-  def sortList[T <% Ordered[T]](list: List[T]): List[T] = {
+  def sortList[T](list: List[T])(implicit ev: T => Ordered[T]): List[T] = {
     error("fix me")
   }
 

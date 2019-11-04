@@ -9,8 +9,8 @@ package org.scalalabs.advanced.lab02
 class ControlStructureExercise(val list: List[String]) {
 
   //Exercise 1
-  def stringsMatching(matcher: String ⇒ Boolean) = {
-    for (string ← list; if matcher(string))
+  def stringsMatching(matcher: String => Boolean) = {
+    for (string <- list; if matcher(string))
       yield string
   }
   def stringsEnding(query: String) = stringsMatching(_.endsWith(query))

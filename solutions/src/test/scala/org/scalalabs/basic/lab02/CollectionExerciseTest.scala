@@ -1,13 +1,10 @@
 package org.scalalabs.basic.lab02
 
-import org.scalatest.junit.JUnitSuite
-import org.junit.Test
-import java.lang.{ IllegalArgumentException ⇒ IAE }
 import org.junit.runner.RunWith
+import org.scalalabs.basic.lab02.CollectionExercise02.Person
+import org.scalalabs.basic.lab02.ListManipulationExercise02.{ Person => _ }
 import org.specs2.mutable.Specification
 import org.specs2.runner.JUnitRunner
-import ListManipulationExercise02.{ Person ⇒ _ }
-import CollectionExercise02.Person
 /**
  * This Lab contains exercises where the usage of
  * higher order collection methods can be rehearsed.

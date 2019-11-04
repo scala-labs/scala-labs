@@ -43,10 +43,10 @@ class FunctionsExerciseTest extends Specification {
       anotherClosable.closed must beFalse
 
       val greeting = FunctionsExercise03.using(closable) {
-        c ⇒ c sayHello ("John")
+        c => c sayHello ("John")
       }
       val anotherGreeting = FunctionsExercise03.using(anotherClosable) {
-        c ⇒ c sayHello ("John")
+        c => c sayHello ("John")
       }
 
       closable.closed must beTrue

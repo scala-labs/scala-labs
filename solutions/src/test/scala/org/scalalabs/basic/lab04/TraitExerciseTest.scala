@@ -11,7 +11,7 @@ class TraitExerciseTest extends Specification {
   val enableAllLevels = Map(Debug -> true, Info -> true)
   val disableAllLevels = Map(Debug -> false, Info -> false)
   val firstDebugStatement = "Debug   org.scalalabs.basic.lab04.DummyService Prepare sending"
-  val infoStatement = (msg: String) ⇒ s"Info    org.scalalabs.basic.lab04.DummyService $msg successfully sent"
+  val infoStatement = (msg: String) => s"Info    org.scalalabs.basic.lab04.DummyService $msg successfully sent"
   val lastDebugStatement = "Debug   org.scalalabs.basic.lab04.DummyService Done"
 
   "Exercise 1: Logger Trait" should {

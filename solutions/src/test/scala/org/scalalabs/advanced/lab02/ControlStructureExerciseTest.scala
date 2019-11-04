@@ -1,33 +1,28 @@
 package org.scalalabs.advanced.lab02
 
-import org.junit.Test
-import org.junit.Assert._
+import org.specs2.mutable.Specification
 
-/**
- * Created by IntelliJ IDEA.
- * User: lieke
- * Date: Apr 9, 2010
- */
-
-class ControlStructureExerciseTest {
+class ControlStructureExerciseTest extends Specification {
 
   val list: List[String] = List("aaa", "bbb", "cab", "def", "aab", "cba")
   val exercise = new ControlStructureExercise(list)
 
-  @Test
-  def testStringFilter {
-    assertEquals(exercise.stringsContaining("c"), List("cab", "cba"))
-    assertEquals(exercise.stringsContaining("ab"), List("cab", "aab"))
 
-    assertEquals(exercise.stringsEnding("b"), List("bbb", "cab", "aab"))
-    assertEquals(exercise.stringsEnding("c"), List())
-  }
+  "control structure exercise" should {
+    "test string filter" in {
+      exercise.stringsContaining("c") ==== List("cab", "cba")
+      exercise.stringsContaining("ab") ==== List("cab", "aab")
 
-  @Test
-  def testCurriedString {
-    assertEquals(exercise.helloConcat("Martin"), "Hello Martin")
-    assertEquals(exercise.helloConcat("Lex"), "Hello Lex")
-    assertEquals(exercise.goodByeConcat("Martin"), "Goodbye Martin")
-    assertEquals(exercise.goodByeConcat("Bill"), "Goodbye Bill")
+      exercise.stringsEnding("b") ==== List("bbb", "cab", "aab")
+      exercise.stringsEnding("c") ==== List()
+    }
+
+    "test curried string" in {
+      exercise.helloConcat("Martin") ==== "Hello Martin"
+      exercise.helloConcat("Lex") ==== "Hello Lex"
+      exercise.goodByeConcat("Martin") ==== "Goodbye Martin"
+      exercise.goodByeConcat("Bill") ==== "Goodbye Bill"
+    }
+
   }
 }

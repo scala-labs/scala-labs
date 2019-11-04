@@ -1,19 +1,11 @@
 package org.scalalabs.advanced.lab03
 
-import org.junit.Test
-import org.junit.Assert._
 import org.scalalabs.advanced.lab03.ManifestSample.TSReg
+import org.specs2.mutable.Specification
 
-/**
- * Created by IntelliJ IDEA.
- * User: arjan
- * Date: Apr 9, 2010
- * Time: 2:43:15 PM
- * To change this template use File | Settings | File Templates.
- */
-class TypeExerciseTest {
-  @Test
-  def shouldBuildCompleteCombomeal = {
+class TypeExerciseTest extends Specification{
+  "type exercise" should {
+  "should build complete combomeal" in {
     import ComboMeal._
 
     //The following statements should not compile if the builder fully works:
@@ -22,25 +14,24 @@ class TypeExerciseTest {
 
     //Only the following statement should
     val cm: ComboMealProduct = builder ~ withBurger("BigMac") ~ withBeverage(Tall) ~ withSideOrder("Fries") ~ build
+    success
   }
 
-  @Test
-  def shouldBuildCar = {
+   "should build car" in {
     import ComposableBuilder._
 
     val car1 = new CarBuilder().build
-    assertEquals("brand: Toyota, color: Metallic, tire size: 15 Inch", car1)
+    "brand: Toyota, color: Metallic, tire size: 15 Inch" ==== car1
 
     val car2 = new CarBuilder().withBrand("Mercedes").withColor("Green").build
-    assertEquals("brand: Mercedes, color: Green, tire size: 15 Inch", car2)
+    "brand: Mercedes, color: Green, tire size: 15 Inch" ==== car2
 
     val car3 = new CarBuilder().withBrand("Mercedes").withColor("Green").withTireSize(17).build
-    assertEquals("brand: Mercedes, color: Green, tire size: 17 Inch", car3)
+    "brand: Mercedes, color: Green, tire size: 17 Inch" ==== car3
 
   }
 
-  @Test
-  def onlyMamalsWithSameDietCanShareAMeal {
+   "only mamals with same diet can share a_meal" in {
     import org.scalalabs.advanced.lab03.FoodExercise._
     val Cow = new Mamal { val eats = Grass }
     val Horse = new Mamal { val eats = Grass }
@@ -52,35 +43,35 @@ class TypeExerciseTest {
     jake.joinDinnerWith(peet)
     //doesn't compile!
     //Cow.joinDinnerWith(jake)
+     success
   }
 
-  @Test
-  def churchNaturalNumbers = {
+   "church natural numbers" in {
     import ChurchEncoding._
     type _1 = zero#succ
     type _2 = _1#succ
-    assertEquals(Equals[_1, one], Equals())
-    assertEquals(Equals[_2, two], Equals())
+    Equals[_1, one] ==== Equals()
+    Equals[_2, two] ==== Equals()
 
-    assertEquals(Equals[two, one + one], Equals())
-    assertEquals(Equals[two, one plus one], Equals())
-    assertEquals(Equals[one, two - one], Equals())
+    Equals[two, one + one] ==== Equals()
+    Equals[two, one plus one] ==== Equals()
+    Equals[one, two - one] ==== Equals()
   }
 
-  @Test
-  def typeSafeRegistry = {
+   "type safe registry" in {
     val tsReg = new TSReg[Int, String]
 
     tsReg.add(1, "Scala")
     tsReg.add(2, "Haskell")
 
-    assertEquals(Some("Scala"), tsReg.safeGet[String](1))
-    assertEquals(Some("Haskell"), tsReg.safeGet[String](2))
-    assertEquals(None, tsReg.safeGet[String](3))
+    Some("Scala") === tsReg.safeGet[String](1)
+    Some("Haskell") === tsReg.safeGet[String](2)
+    None === tsReg.safeGet[String](3)
 
     //the following returns a None, since the get has been made typeSafe
-    assertEquals(None, tsReg.safeGet[Int](1))
+    None === tsReg.safeGet[Int](1)
   }
 
+  }
 }
 

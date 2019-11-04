@@ -15,10 +15,10 @@ package object lab05 {
 
   def measure[T](exec: => T): (Int, T) = {
     val (elapsed, res) = measureEither(exec)
-    elapsed -> res.right.get
+    elapsed -> res.getOrElse(throw new IllegalArgumentException("unexpected error"))
   }
 
-  def scheduleOnce(delay: FiniteDuration)(f: ⇒ Unit) = {
+  def scheduleOnce(delay: FiniteDuration)(f: => Unit) = {
     val task = new TimerTask {
       override def run() = f
     }

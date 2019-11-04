@@ -1,12 +1,9 @@
 package org.scalalabs.basic.lab02
 
-import org.scalatest.junit.JUnitSuite
-import org.junit.Test
-import java.lang.{ IllegalArgumentException ⇒ IAE }
 import org.junit.runner.RunWith
+import org.scalalabs.basic.lab02.ListManipulationExercise01._
 import org.specs2.mutable.Specification
 import org.specs2.runner.JUnitRunner
-import ListManipulationExercise01._
 
 /**
  * Lab 02: List operations

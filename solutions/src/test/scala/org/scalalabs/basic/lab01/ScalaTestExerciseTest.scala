@@ -1,8 +1,9 @@
 package org.scalalabs.basic.lab01
 
 import org.junit.runner.RunWith
-import org.scalatest._
-import org.scalatest.junit._
+import org.scalatest.funspec.AnyFunSpecLike
+import org.scalatest.matchers.should.Matchers
+import org.scalatestplus.junit.JUnitRunner
 /**
  * In this Lab you will implement a ScalaTest testcase.
  *
@@ -15,7 +16,7 @@ import org.scalatest.junit._
  * - Alternative flow (divider is <= 0)
  */
 @RunWith(classOf[JUnitRunner])
-class ScalaTestExerciseTest extends FunSpecLike with Matchers {
+class ScalaTestExerciseTest extends AnyFunSpecLike with Matchers {
 
   describe("Euro") {
     it("should be divisible") {

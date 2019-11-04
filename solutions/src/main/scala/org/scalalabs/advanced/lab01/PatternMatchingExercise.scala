@@ -1,7 +1,7 @@
 package org.scalalabs.advanced.lab01
 
 import scala.xml._
-import collection.mutable.{ ListBuffer ⇒ MList }
+import collection.mutable.{ ListBuffer => MList }
 import scala.None
 
 /**
@@ -29,7 +29,7 @@ object PatternMatchingExercise {
    * -> MyNotes txt
    */
   object FileName {
-    def apply(name: String, extenstion: String) {
+    def apply(name: String, extenstion: String) = {
       name + "." + extenstion
     }
     def unapply(name: String): Option[(String, String)] = {
@@ -50,8 +50,8 @@ object PatternMatchingExercise {
     def unapplySeq(path: String): Option[Seq[String]] = {
       val parts = path.split("/").toList
       if (parts.length > 0) parts match {
-        case "" :: tail ⇒ Some(tail.reverse)
-        case _ ⇒ Some(parts.reverse)
+        case "" :: tail => Some(tail.reverse)
+        case _ => Some(parts.reverse)
       }
       else None
     }
@@ -65,8 +65,8 @@ object PatternMatchingExercise {
    */
   def fileNameRetriever(path: String) = {
     path match {
-      case Path(FileName(name, _), _*) ⇒ name
-      case _ ⇒ "No match"
+      case Path(FileName(name, _), _*) => name
+      case _ => "No match"
     }
   }
 
@@ -92,7 +92,7 @@ object PatternMatchingExercise {
    * -> 040-2920029, 0402920029, (040)2920029
    */
   def phoneNumberRetriever(phoneNumberText: String): List[String] = {
-    (for (line: String ← PhoneNumberRE findAllIn phoneNumberText) yield line).toList
+    (for (line: String <- PhoneNumberRE findAllIn phoneNumberText) yield line).toList
   }
 
   val PhoneNumberRE = """(\(?\d{3}[-\)]?\d{7})""".r
@@ -114,10 +114,10 @@ object PatternMatchingExercise {
    * method to implement your solution.
    */
   def filterAllGenres(): List[String] = {
-    val genreFilterFunction = (xml: Node, capturer: MList[String]) ⇒ {
+    val genreFilterFunction = (xml: Node, capturer: MList[String]) => {
       xml match {
-        case <Genre>{ genre }</Genre> ⇒ capturer += genre.text
-        case _ ⇒
+        case <Genre>{ genre }</Genre> => capturer += genre.text
+        case _ =>
       }
     }
     movieNodeProcessor(genreFilterFunction)
@@ -141,11 +141,11 @@ object PatternMatchingExercise {
    * method to implement your solution.
    */
   def filterActorsStartingWithG(): List[String] = {
-    val actorsFilterFunction = (xml: Node, capturer: MList[String]) ⇒ {
+    val actorsFilterFunction = (xml: Node, capturer: MList[String]) => {
       xml match {
-        case <Actors>{ actors @ _* }</Actors> ⇒
-          for (<Actor>{ actor @ _* }</Actor> ← actors) if (actor.text.startsWith("G")) { capturer += actor.text }
-        case _ ⇒
+        case <Actors>{ actors @ _* }</Actors> =>
+          for (<Actor>{ actor @ _* }</Actor> <- actors) if (actor.text.startsWith("G")) { capturer += actor.text }
+        case _ =>
       }
     }
     movieNodeProcessor(actorsFilterFunction);
@@ -164,10 +164,10 @@ object PatternMatchingExercise {
    * method to implement your solution.
    */
   def filterTop10Titles(): List[String] = {
-    val titleFilterFunction = (xml: Node, capturer: MList[String]) ⇒ {
+    val titleFilterFunction = (xml: Node, capturer: MList[String]) => {
       xml match {
-        case title @ <Title>{ _* }</Title> if ((title \ "@top10").text == "true") ⇒ capturer += title.text
-        case _ ⇒
+        case title @ <Title>{ _* }</Title> if ((title \ "@top10").text == "true") => capturer += title.text
+        case _ =>
       }
     }
     movieNodeProcessor(titleFilterFunction)
@@ -189,9 +189,9 @@ object PatternMatchingExercise {
   private def textNodeMatcher(node: NodeSeq, capturer: MList[String]): Unit = {
     def isTextNode(node: Node) = (node.child.size == 1 && node.text.length > 0)
     node match {
-      case txtNode: Node if (isTextNode(txtNode)) ⇒ capturer += txtNode.text;
-      case node: Node ⇒ textNodeMatcher(node \ "_", capturer)
-      case seq: NodeSeq ⇒ for (node ← seq) textNodeMatcher(node, capturer)
+      case txtNode: Node if (isTextNode(txtNode)) => capturer += txtNode.text;
+      case node: Node => textNodeMatcher(node \ "_", capturer)
+      case seq: NodeSeq => for (node <- seq) textNodeMatcher(node, capturer)
     }
   }
 
@@ -201,9 +201,9 @@ object PatternMatchingExercise {
 
   private def getXML = XML.load(this.getClass.getResourceAsStream("/movies.xml"))
 
-  private def movieNodeProcessor(filter: (Node, MList[String]) ⇒ Any): List[String] = {
+  private def movieNodeProcessor(filter: (Node, MList[String]) => Any): List[String] = {
     var capturer = new MList[String]()
-    for (movieNode ← getXML \\ "Movie" \ "_") {
+    for (movieNode <- getXML \\ "Movie" \ "_") {
       filter(movieNode, capturer)
     }
     capturer.toList

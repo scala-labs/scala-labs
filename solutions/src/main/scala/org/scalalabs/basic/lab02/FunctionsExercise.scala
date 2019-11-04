@@ -5,17 +5,17 @@ import java.util.Scanner
 import scala.language.reflectiveCalls
 
 /**
-  * Higher order functions allow you to build abstractions containing a generic control
-  * structure and a function with which the result(s) of the generic control structure can
-  * be used in different ways.
-  *
-  * Take a look at the predefined methods reverseText() and upperCaseTest().
-  * Both methods contain a lot of duplication which we want to remove.
-  *
-  * Implement the doWithText() method as a higher order function
-  * that takes care of the resource handling of the File and offers a function argument
-  * that allows to deal with the content of the File, which is a String, directly.
-  */
+ * Higher order functions allow you to build abstractions containing a generic control
+ * structure and a function with which the result(s) of the generic control structure can
+ * be used in different ways.
+ *
+ * Take a look at the predefined methods reverseText() and upperCaseTest().
+ * Both methods contain a lot of duplication which we want to remove.
+ *
+ * Implement the doWithText() method as a higher order function
+ * that takes care of the resource handling of the File and offers a function argument
+ * that allows to deal with the content of the File, which is a String, directly.
+ */
 object FunctionsExercise01 {
 
   def doWithText(handleFun: String => String): String = {
@@ -62,7 +62,7 @@ object FunctionsExercise02 {
   var printed: String = _
   private def logPerf(elapsed: Long) = printed = s"The execution took: $elapsed ms"
 
-  def measure[T](block: ⇒ T): T = {
+  def measure[T](block: => T): T = {
     val started = System.currentTimeMillis
     val res = block
     logPerf(System.currentTimeMillis - started)
@@ -70,7 +70,6 @@ object FunctionsExercise02 {
   }
 
 }
-
 
 /**
  * Functions let you create control abstractions, which give extra opportunities to condense
@@ -87,7 +86,7 @@ object FunctionsExercise03 {
 
   def plus(x: Int, y: Int): Int = x + y
 
-  def using[A <: { def close(): Unit }, B](closable: A)(f: A ⇒ B): B =
+  def using[A <: { def close(): Unit }, B](closable: A)(f: A => B): B =
     try {
       f(closable)
     } finally {
