@@ -67,8 +67,13 @@ class FuturesSpec extends AnyWordSpecLike with Matchers with BeforeAndAfterAll {
         case head :: tail => head.rateUSD.flatMap(res => recurse(tail).map(seq => res +: seq))
         case Nil => Future(Seq())
       }
+      def withRecurions = recurse(testServices)
+
+      def withFold = testServices.foldLeft(Future(Seq.empty[Int]))((cum, next) => cum.flatMap(v => next.rateUSD.map(v :+ _)))
+
       val (elapsed, result) = measure {
-        Await.result(recurse(testServices), 8 seconds)
+        //Await.result(withRecurions, 8 seconds)
+        Await.result(withFold, 8 seconds)
       }
       elapsed should be(6000 +- 500)
       result should be(Seq(120, 123, 125))
