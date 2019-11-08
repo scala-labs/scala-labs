@@ -1,14 +1,15 @@
 package org.scalalabs.basic.lab05
 
-import org.scalatest.matchers.should.Matchers
 import org.scalatest.BeforeAndAfterAll
-import org.scalatest.wordspec.AsyncWordSpecLike
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AnyWordSpecLike
 
+import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent._
 import scala.concurrent.duration._
 import scala.language.postfixOps
 
-class FuturesSpec extends AsyncWordSpecLike with Matchers with BeforeAndAfterAll {
+class FuturesSpec extends AnyWordSpecLike with Matchers with BeforeAndAfterAll {
   class CurrencyService(val returnRate: Int)(latency: Int) {
     def rateUSD: Future[Int] = {
       Future[Int] {
