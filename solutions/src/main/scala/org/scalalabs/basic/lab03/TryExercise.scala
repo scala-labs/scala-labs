@@ -1,9 +1,9 @@
 package org.scalalabs.basic.lab03
 
-import java.io.{IOException, InputStream}
+import java.io.{ IOException, InputStream }
 
 import scala.io.Source
-import scala.util.{Success, Try}
+import scala.util.{ Success, Try }
 
 object TryExercise01 {
 
@@ -29,8 +29,7 @@ object TryExercise01 {
       Try(inputStream.close())
         .transform(_ => Success(str), _ => Success(s"Error: Failed to close! $str"))
     }.foreach(output =>
-      println(output)
-    )
+      println(output))
   }
 
 }

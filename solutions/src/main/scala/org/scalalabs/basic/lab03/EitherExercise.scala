@@ -33,8 +33,7 @@ object EitherExercise01 {
     input.fold(
       str =>
         Exception.catching(classOf[NumberFormatException]).either(str.toInt), // try parse to an int
-      i => Right(i)
-    )
+      i => Right(i))
       .filterOrElse(i => i != 0, new IllegalArgumentException("Reciprocal of 0 does not exist!"))
       .map(1.0 / _)
 
