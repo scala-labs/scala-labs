@@ -36,9 +36,9 @@ class PatternMatchingExerciseTest extends Specification {
       transformer.process("Say") ==== 3
       transformer.process("Hi") ==== 2
       transformer.process(5) ==== "5"
-      transformer.process("a") ==== "a"
+      transformer.process('a') ==== 'a'
       transformer.transformationCountBy(classOf[String]) ==== 2
-      transformer.transformationCountBy(classOf[Int]) ==== 1
+      transformer.transformationCountBy(classOf[Integer]) ==== 1
       transformer.transformationCountBy(classOf[Symbol]) ==== 0
     }
 
