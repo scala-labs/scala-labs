@@ -3,7 +3,6 @@ package org.scalalabs.basic.lab04
 import org.joda.time.{ Duration, DateTime }
 import scala.math._
 import language.implicitConversions
-import language.higherKinds
 import org.json4s._
 import org.json4s.JsonDSL._
 import org.json4s.native.JsonMethods._
