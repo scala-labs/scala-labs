@@ -1,1 +1,4 @@
 This is the top level project for the Scala ITR. It will contain all the exercises and the test suite.
+
+Tests can be run from /labs folder with command:
+    sbt 'testOnly org.scalalabs.basic.lab01.HelloWorldExerciseTest'
