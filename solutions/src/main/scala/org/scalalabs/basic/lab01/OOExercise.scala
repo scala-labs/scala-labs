@@ -27,6 +27,13 @@ object Euro {
   implicit class EuroInt(val i: Int) extends AnyVal {
     def *(euro: Euro) = euro * i
   }
+  // solution for exercise 4
+  // implicit def fromDollar(dollar: Dollar): Euro = Euro.fromCents((DefaultCurrencyConverter.toEuroCents(dollar.inCents)).toInt)
+
+  // solution for exercise 5
+  // implicit def fromDollar(dollar: Dollar)(implicit converter: CurrencyConverter): Euro = Euro.fromCents(converter.toEuroCents(dollar.inCents))
+
+  //unified version to run both 4 and 5
   implicit def fromDollar(dollar: Dollar)(implicit converter: CurrencyConverter = DefaultCurrencyConverter): Euro = Euro.fromCents(converter.toEuroCents(dollar.inCents))
 }
 
