@@ -31,10 +31,7 @@ object Euro {
   // implicit def fromDollar(dollar: Dollar): Euro = Euro.fromCents((DefaultCurrencyConverter.toEuroCents(dollar.inCents)).toInt)
 
   // solution for exercise 5
-  // implicit def fromDollar(dollar: Dollar)(implicit converter: CurrencyConverter): Euro = Euro.fromCents(converter.toEuroCents(dollar.inCents))
-
-  //unified version to run both 4 and 5
-  implicit def fromDollar(dollar: Dollar)(implicit converter: CurrencyConverter = DefaultCurrencyConverter): Euro = Euro.fromCents(converter.toEuroCents(dollar.inCents))
+  implicit def fromDollar(dollar: Dollar)(implicit converter: CurrencyConverter): Euro = Euro.fromCents(converter.toEuroCents(dollar.inCents))
 }
 
 class Dollar(val dollar: Int, val cents: Int = 0) extends Currency("USD") {

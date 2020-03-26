@@ -39,6 +39,10 @@ import scala.language.implicitConversions
  * - Extend the conversion method from Dollar to Euro with an implicit parameter
  *   of type [[org.scalalabs.basic.lab01.CurrencyConverter]]
  * - Use the implicit CurrencyConverter to do the conversion.
+ *
+ * Note:
+ * For Exercise 4 and 5 you will need different versions of the conversion method.
+ * It's okay if you can pass only either 4 or 5 at a time.
  */
 class Euro {
 
