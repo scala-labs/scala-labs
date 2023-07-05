@@ -7,7 +7,6 @@ class ControlStructureExerciseTest extends Specification {
   val list: List[String] = List("aaa", "bbb", "cab", "def", "aab", "cba")
   val exercise = new ControlStructureExercise(list)
 
-
   "control structure exercise" should {
     "test string filter" in {
       exercise.stringsContaining("c") ==== List("cab", "cba")

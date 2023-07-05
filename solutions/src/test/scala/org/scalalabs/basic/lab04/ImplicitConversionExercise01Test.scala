@@ -1,19 +1,14 @@
 package org.scalalabs.basic.lab04
-import ImplicitConversionExercise01._
-import ImplicitConversionExercise01.Exercise01._
-import ImplicitConversionExercise01.Exercise02._
-import ImplicitConversionExercise01.Exercise03._
-import ImplicitConversionExercise01.Exercise04._
 import org.joda.time.Duration
-
-import org.junit.runner.RunWith
+import org.scalalabs.basic.lab04.ImplicitConversionExercise01.Exercise01._
+import org.scalalabs.basic.lab04.ImplicitConversionExercise01.Exercise02._
+import org.scalalabs.basic.lab04.ImplicitConversionExercise01.Exercise03._
+import org.scalalabs.basic.lab04.ImplicitConversionExercise01.Exercise04._
 import org.specs2.mutable.Specification
-import org.specs2.runner.JUnitRunner
-import org.joda.time._
+
 /**
  * @see ImplictConversionExercise
  */
-@RunWith(classOf[JUnitRunner])
 class ImplicitConversionExercise01Test extends Specification {
 
   "Exercise01" should {
@@ -45,7 +40,8 @@ class ImplicitConversionExercise01Test extends Specification {
       println(1 days)
       println((1 days) + (2 hours))
       (1 days).millis ==== new Duration(24L * 60L * 60L * 1000L).getMillis()
-      (1.days + 2.hours).millis ==== new Duration(26L * 60L * 60L * 1000L).getMillis()
+      (1.days + 2.hours).millis ==== new Duration(26L * 60L * 60L * 1000L)
+        .getMillis()
     }
   }
 

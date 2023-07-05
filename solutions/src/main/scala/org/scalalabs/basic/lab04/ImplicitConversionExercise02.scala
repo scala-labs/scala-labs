@@ -1,16 +1,15 @@
 package org.scalalabs.basic.lab04
 
-import org.joda.time.{ Duration, DateTime }
-import scala.math._
-import language.implicitConversions
-import language.higherKinds
-import org.json4s._
 import org.json4s.JsonDSL._
+import org.json4s._
+
+import scala.language.implicitConversions
+import scala.math._
 import scala.util.control._
 
-object ImplicitConversionExercises02 {
+object ImplicitConversionExercise02 {
 
-  case class Euro(val euros: Int, val cents: Int) {
+  case class Euro(euros: Int, cents: Int) {
     lazy val inCents: Int = euros * 100 + cents
   }
 
@@ -19,18 +18,20 @@ object ImplicitConversionExercises02 {
 
     implicit object EuroAsJsonConverter extends JsonConverter[Euro] {
       override def toJSON(e: Euro): JValue = EuroJsonMarshallerHelper.marshal(e)
-      override def fromJson(json: JValue): Euro = EuroJsonMarshallerHelper.unmarshal(json)
+      override def fromJson(json: JValue): Euro =
+        EuroJsonMarshallerHelper.unmarshal(json)
     }
   }
 
-  object EuroJsonMarshallerHelper {
-    implicit val formats = DefaultFormats
-    def marshal(e: Euro): JValue = ("symbol" -> "EUR") ~ ("amount" -> s"${e.euros},${e.cents}")
+  private object EuroJsonMarshallerHelper {
+    implicit val formats: DefaultFormats.type = DefaultFormats
+    def marshal(e: Euro): JValue =
+      ("symbol" -> "EUR") ~ ("amount" -> s"${e.euros},${e.cents}")
     def unmarshal(json: JValue): Euro = {
       Exception.allCatch.opt {
         val amount = (json \ "amount").extract[String].split(",")
         Euro(amount(0).toInt, amount(1).toInt)
-      } getOrElse (Euro(0, 0))
+      } getOrElse Euro(0, 0)
     }
   }
 
@@ -41,9 +42,7 @@ object ImplicitConversionExercises02 {
     def fromJson(json: JValue): T
   }
 
-  /**
-   * =======================================================
-   */
+  // =======================================================
   object Exercise01 {
 
     class EuroBuilder(val amount: Int, val inCents: Int = 0) {
@@ -52,22 +51,20 @@ object ImplicitConversionExercises02 {
       def apply(amount: Int) = new EuroBuilder(amount, inCents)
     }
 
-    implicit def fromIntToEuroBuilder(value: Int) = new EuroBuilder(value)
-    implicit def fromEuroBuilderToEuro(b: EuroBuilder) = Euro.fromCents(b.inCents)
+    implicit def fromIntToEuroBuilder(value: Int): EuroBuilder =
+      new EuroBuilder(value)
+    implicit def fromEuroBuilderToEuro(b: EuroBuilder): Euro =
+      Euro.fromCents(b.inCents)
   }
 
-  /**
-   * =======================================================
-   */
+  // =======================================================
   object Exercise02 {
     implicit object OrderedEuro extends Ordering[Euro] {
       def compare(x: Euro, y: Euro): Int = x.inCents - y.inCents
     }
   }
 
-  /**
-   * =======================================================
-   */
+  // =======================================================
   object Exercise03 {
 
     object JsonConverter {

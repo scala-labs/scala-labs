@@ -1,19 +1,15 @@
 package org.scalalabs.basic.lab02
 
-import org.junit.runner.RunWith
 import org.specs2.mutable.Specification
-import org.specs2.runner.JUnitRunner
 
-/**
- * @see FunctionsExercise1/2/3
- */
-@RunWith(classOf[JUnitRunner])
 class FunctionsExerciseTest extends Specification {
 
   "FunctionsExercise01" should {
     "higher order function that does file resource handling while offering the content of the file as String" in {
-      FunctionsExercise01.doWithText(content => content.reverse) ==== FunctionsExercise01.reverseText()
-      FunctionsExercise01.doWithText(content => content.toUpperCase) ==== FunctionsExercise01.upperCaseText()
+      FunctionsExercise01.doWithText(content =>
+        content.reverse) ==== FunctionsExercise01.reverseText()
+      FunctionsExercise01.doWithText(content =>
+        content.toUpperCase) ==== FunctionsExercise01.upperCaseText()
     }
   }
   "FunctionsExercise02" should {
@@ -23,7 +19,8 @@ class FunctionsExerciseTest extends Specification {
         4
       }
       4 ==== FunctionsExercise02.measure(block)
-      FunctionsExercise02.printed must beMatching("""The execution took: ([1-9][0-9][0-9]) ms""")
+      FunctionsExercise02.printed must beMatching(
+        """The execution took: ([1-9][0-9][0-9]) ms""")
     }
   }
   "FunctionsExercise03" should {
@@ -42,11 +39,11 @@ class FunctionsExerciseTest extends Specification {
       closable.closed must beFalse
       anotherClosable.closed must beFalse
 
-      val greeting = FunctionsExercise03.using(closable) {
-        c => c sayHello ("John")
+      val greeting = FunctionsExercise03.using(closable) { c =>
+        c sayHello ("John")
       }
-      val anotherGreeting = FunctionsExercise03.using(anotherClosable) {
-        c => c sayHello ("John")
+      val anotherGreeting = FunctionsExercise03.using(anotherClosable) { c =>
+        c sayHello ("John")
       }
 
       closable.closed must beTrue

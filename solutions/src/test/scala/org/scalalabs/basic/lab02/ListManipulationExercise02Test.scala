@@ -1,9 +1,7 @@
 package org.scalalabs.basic.lab02
 
-import org.junit.runner.RunWith
 import org.scalalabs.basic.lab02.ListManipulationExercise02._
 import org.specs2.mutable.Specification
-import org.specs2.runner.JUnitRunner
 
 /*
  * Lab 02: more Scala collection operations
@@ -13,10 +11,9 @@ import org.specs2.runner.JUnitRunner
  * Your job is to implement the objects and classes in
  * such a way that the tests in this suite all succeed.
  *
-  * One exercise consists of rewriting imperatively written code to a style that is more functional.
+ * One exercise consists of rewriting imperatively written code to a style that is more functional.
  */
 
-@RunWith(classOf[JUnitRunner])
 class ListManipulationExercise02Test extends Specification {
 
   "A Scala List" should {
@@ -33,7 +30,10 @@ class ListManipulationExercise02Test extends Specification {
     }
 
     "calc sum of same positioned elements in many lists" in {
-      List(12, 15, 18) === sumOfMany(List(1, 2, 3), List(4, 5, 6), List(7, 8, 9))
+      List(12, 15, 18) === sumOfMany(
+        List(1, 2, 3),
+        List(4, 5, 6),
+        List(7, 8, 9))
     }
 
     "rewrite imperative to functional" in {
@@ -47,9 +47,12 @@ class ListManipulationExercise02Test extends Specification {
       val peter2 = Person(19, "Peter2", "Petersson")
       val jason = Person(21, "Jason", "Jasonsson")
 
-      val result = separateTheMenFromTheBoys(List(jason, anton1, anton2, anton3, peter1, peter2))
+      val result = separateTheMenFromTheBoys(
+        List(jason, anton1, anton2, anton3, peter1, peter2))
 
-      List(List("Anton1", "Anton2", "Peter1"), List("Anton3", "Peter2", "Jason")) === result
+      List(
+        List("Anton1", "Anton2", "Peter1"),
+        List("Anton3", "Peter2", "Jason")) === result
     }
   }
 }

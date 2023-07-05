@@ -1,26 +1,36 @@
 package org.scalalabs.basic.lab03
 
-import java.io.{ ByteArrayInputStream, ByteArrayOutputStream, IOException, InputStream }
-
-import org.junit.runner.RunWith
 import org.scalalabs.basic.lab03.EitherExercise._
 import org.scalalabs.basic.lab03.OptionExercise.roomState
 import org.scalalabs.basic.lab03.TryExercise01.print
 import org.specs2.matcher.EitherMatchers
 import org.specs2.mock.Mockito
 import org.specs2.mutable.Specification
-import org.specs2.runner.JUnitRunner
 
+import java.io.{
+  ByteArrayInputStream,
+  ByteArrayOutputStream,
+  IOException,
+  InputStream
+}
 import scala.util.control.NoStackTrace
 
 /**
  * @see FlowControlExercise
  */
-@RunWith(classOf[JUnitRunner])
-class FlowControlExerciseTest extends Specification with EitherMatchers with Mockito {
+class FlowControlExerciseTest
+  extends Specification
+  with EitherMatchers
+  with Mockito {
 
   "OptionExercise" should {
-    val rooms = Map(1 -> Some("12"), 2 -> None, 3 -> Some("locked"), 4 -> Some("14"), 5 -> Some("8"), 6 -> Some("locked"))
+    val rooms = Map(
+      1 -> Some("12"),
+      2 -> None,
+      3 -> Some("locked"),
+      4 -> Some("14"),
+      5 -> Some("8"),
+      6 -> Some("locked"))
 
     "correctly show the state of filled room (e.g. Some(12))" in {
       roomState(rooms, 1) === "12"
@@ -48,12 +58,15 @@ class FlowControlExerciseTest extends Specification with EitherMatchers with Moc
     }
 
     "correctly encapsulate error on inputting 0 value" in {
-      reciprocal(Right(0)).left.map(_.getMessage) must beLeft("Reciprocal of 0 does not exist!")
+      reciprocal(Right(0)).left.map(_.getMessage) must beLeft(
+        "Reciprocal of 0 does not exist!")
     }
 
     "correctly calculate reciprocal of unparseable string" in {
-      reciprocal(Left("foo")).left.map(_.getMessage) must beLeft("For input string: \"foo\"")
-      reciprocal(Left("bar")).left.map(_.getMessage) must beLeft("For input string: \"bar\"")
+      reciprocal(Left("foo")).left.map(_.getMessage) must beLeft(
+        "For input string: \"foo\"")
+      reciprocal(Left("bar")).left.map(_.getMessage) must beLeft(
+        "For input string: \"bar\"")
     }
 
   }

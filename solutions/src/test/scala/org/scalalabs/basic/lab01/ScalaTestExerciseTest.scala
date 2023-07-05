@@ -1,9 +1,8 @@
 package org.scalalabs.basic.lab01
 
-import org.junit.runner.RunWith
 import org.scalatest.funspec.AnyFunSpecLike
 import org.scalatest.matchers.should.Matchers
-import org.scalatestplus.junit.JUnitRunner
+
 /**
  * In this Lab you will implement a ScalaTest testcase.
  *
@@ -15,7 +14,6 @@ import org.scalatestplus.junit.JUnitRunner
  * - Happy flow (divider is > 0)
  * - Alternative flow (divider is <= 0)
  */
-@RunWith(classOf[JUnitRunner])
 class ScalaTestExerciseTest extends AnyFunSpecLike with Matchers {
 
   describe("Euro") {

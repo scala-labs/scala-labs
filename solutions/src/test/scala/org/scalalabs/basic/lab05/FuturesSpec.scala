@@ -49,10 +49,11 @@ class FuturesSpec extends AnyWordSpecLike with Matchers with BeforeAndAfterAll {
       val testServices = Seq(serviceBankA, bankD)
       val (elapsed, result) = measureEither {
         val futures = testServices map { service => service.rateUSD }
-        val promise = Promise[Int]
-        Future.firstCompletedOf(futures).foreach(value =>
-          promise.trySuccess(value))
+        val promise = Promise[Int]()
         Future
+          .firstCompletedOf(futures)
+          .foreach(value => promise.trySuccess(value))
+
         scheduleOnce(2 seconds) {
           promise.tryFailure(new Exception("timeout"))
         }
@@ -63,13 +64,17 @@ class FuturesSpec extends AnyWordSpecLike with Matchers with BeforeAndAfterAll {
     }
     "4. return all conversion rates sequentially using futures" in {
       val testServices = servicesBankABC
-      def recurse(services: Seq[CurrencyService]): Future[Seq[Int]] = services match {
-        case head :: tail => head.rateUSD.flatMap(res => recurse(tail).map(seq => res +: seq))
-        case Nil => Future(Seq())
-      }
+      def recurse(services: Seq[CurrencyService]): Future[Seq[Int]] =
+        services match {
+          case head :: tail =>
+            head.rateUSD.flatMap(res => recurse(tail).map(seq => res +: seq))
+          case Nil => Future(Seq())
+        }
       def withRecurions = recurse(testServices)
 
-      def withFold = testServices.foldLeft(Future(Seq.empty[Int]))((cum, next) => cum.flatMap(v => next.rateUSD.map(v :+ _)))
+      def withFold =
+        testServices.foldLeft(Future(Seq.empty[Int]))((cum, next) =>
+          cum.flatMap(v => next.rateUSD.map(v :+ _)))
 
       val (elapsed, result) = measure {
         //Await.result(withRecurions, 8 seconds)
@@ -81,4 +86,3 @@ class FuturesSpec extends AnyWordSpecLike with Matchers with BeforeAndAfterAll {
   }
 
 }
-
