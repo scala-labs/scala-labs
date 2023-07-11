@@ -14,7 +14,7 @@ import org.scalatest.matchers.should.Matchers
  * - Happy flow (divider is > 0)
  * - Alternative flow (divider is <= 0)
  */
-class ScalaTestExerciseTest extends AnyFunSpecLike with Matchers {
+class CurrencyConverterTest extends AnyFunSpecLike with Matchers {
 
   describe("Euro") {
     it("should be divisible") {

@@ -6,9 +6,10 @@ import org.scalalabs.basic.lab04.ImplicitConversionExercise01.Exercise03._
 import org.scalalabs.basic.lab04.ImplicitConversionExercise01.Exercise04._
 import org.specs2.mutable.Specification
 
-/**
- * @see ImplictConversionExercise
- */
+import scala.language.postfixOps
+
+/** @see ImplictConversionExercise
+  */
 class ImplicitConversionExercise01Test extends Specification {
 
   "Exercise01" should {
