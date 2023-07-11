@@ -18,17 +18,11 @@ import org.scalatest.matchers.should.Matchers
 class ScalaTestExerciseTest extends AnyFunSpecLike with Matchers {
   describe("Euro") {
     it("should be divisible") {
-      fail("Uncomment and fix me")
-      //      val result = new Euro(1, 20) / 5
-      //      result.euro should be(0)
-      //      result.cents should be(24)
+      fail("Implement me")
     }
 
     it("must produce an IllegalArgumentException if divided <= 0") {
-      fail("Uncomment and fix me")
-      //      intercept[IllegalArgumentException] {
-      //        new Euro(1, 2) / 0
-      //      }
+      fail("Implement me")
     }
   }
 }
