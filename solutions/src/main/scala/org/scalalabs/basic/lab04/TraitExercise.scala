@@ -64,5 +64,4 @@ trait Loggable {
   private lazy val logger = SimpleLogger(self.getClass.getName)
   def debug: Any => Unit = logger debug _
   def info: Any => Unit = logger info _
-
 }
