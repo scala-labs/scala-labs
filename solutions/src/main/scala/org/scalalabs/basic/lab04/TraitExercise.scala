@@ -18,21 +18,20 @@ object Level extends Enumeration {
   val Debug, Info = Value
 }
 import Level._
+
 class SimpleLogger(clazz: String) {
   import SimpleLogger._
 
-  /**
-   * Logs debug
-   */
-  def debug(msg: => Any) = log(Debug, msg)
+  /** Logs debug */
+  def debug(msg: => Any): Unit = log(Debug, msg)
 
-  /**
-   * Log info
-   */
-  def info(msg: => Any) = log(Info, msg)
+  /** Log info */
+  def info(msg: => Any): Unit = log(Info, msg)
 
-  private def log(level: Level, msg: => Any) = {
-    def isLevelEnabled(level: Level) = logConfig.getOrElse(level, false)
+  def isLevelEnabled(level: Level): Boolean = logConfig.getOrElse(level, false)
+
+  private def log(level: Level, msg: => Any): Unit = {
+    println(s"Level enabled: ${isLevelEnabled(level)}")
     if (isLevelEnabled(level)) {
       val logMsg = f"$level%-7s $clazz $msg"
       logHistory = logHistory :+ logMsg
@@ -42,7 +41,6 @@ class SimpleLogger(clazz: String) {
 }
 
 object SimpleLogger {
-
   var logHistory: Seq[String] = Seq.empty
   def clearHistory(): Unit = logHistory = Seq.empty[String]
   var logConfig = Map(Debug -> false, Info -> true)
@@ -59,9 +57,10 @@ class DummyService extends Loggable {
   }
 }
 
-trait Loggable {
-  self =>
-  private lazy val logger = SimpleLogger(self.getClass.getName)
-  def debug: Any => Unit = logger debug _
-  def info: Any => Unit = logger info _
+trait Loggable { self =>
+  private val logger = SimpleLogger(self.getClass.getName)
+  def debug(msg: => Any): Unit =
+    logger.debug(msg)
+  def info(msg: => Any): Unit =
+    logger.info(msg)
 }
