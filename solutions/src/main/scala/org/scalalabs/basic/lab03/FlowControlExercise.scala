@@ -16,17 +16,23 @@ object OptionExercise {
    * - does not exist: "not existing"
    */
   def roomState(rooms: Map[Int, Option[String]], room: Int): String = {
-    rooms.get(room).map { roomState =>
-      roomState.map { value =>
-        if (value == "locked") "not available"
-        else value
+    rooms
+      .get(room)
+      .map { roomState =>
+        roomState
+          .map { value =>
+            if (value == "locked") "not available"
+            else value
+          }
+          .getOrElse("empty")
       }
-        .getOrElse("empty")
-    }
       .getOrElse("not existing")
     //better
-    rooms.getOrElse(room, Some("not existing")).map(roomState =>
-      if (roomState == "locked") "not available" else roomState).getOrElse("empty")
+    rooms
+      .getOrElse(room, Some("not existing"))
+      .map(roomState =>
+        if (roomState == "locked") "not available" else roomState)
+      .getOrElse("empty")
 
   }
 
@@ -59,11 +65,16 @@ object EitherExercise {
     }).map(1.0 / _)
 
     // better
-    input.fold(
-      str =>
-        Exception.catching(classOf[NumberFormatException]).either(str.toInt), // try parse to an int
-      i => Right(i))
-      .filterOrElse(i => i != 0, new IllegalArgumentException("Reciprocal of 0 does not exist!"))
+    input
+      .fold(
+        str =>
+          Exception
+            .catching(classOf[NumberFormatException])
+            .either(str.toInt), // try parse to an int
+        i => Right(i))
+      .filterOrElse(
+        i => i != 0,
+        new IllegalArgumentException("Reciprocal of 0 does not exist!"))
       .map(1.0 / _)
 
   }
@@ -79,14 +90,18 @@ object TryExercise {
    * Hint: You can make use {@code Try}'s convenience methods such as recover, flatMap, transform, foreach etc.
    */
   def print(inputStream: InputStream): Unit = {
-    Try(Source.fromInputStream(inputStream).mkString).recover {
-      case e: IOException =>
-        "Couldn't read input stream!"
-    }.flatMap { str =>
-      Try(inputStream.close())
-        .transform(_ => Success(str), _ => Success(s"Error: Failed to close! $str"))
-    }.foreach(output =>
-      println(output))
+    Try(Source.fromInputStream(inputStream).mkString)
+      .recover {
+        case e: IOException =>
+          "Couldn't read input stream!"
+      }
+      .flatMap { str =>
+        Try(inputStream.close())
+          .transform(
+            _ => Success(str),
+            _ => Success(s"Error: Failed to close! $str"))
+      }
+      .foreach(output => println(output))
   }
 
 }

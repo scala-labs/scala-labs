@@ -22,14 +22,18 @@ object TryExercise01 {
    * - IOException during close: "Output: <contents of the stream>. Error: Failed to close! "
    */
   def print(inputStream: InputStream): Unit = {
-    Try(Source.fromInputStream(inputStream).mkString).recover {
-      case e: IOException =>
-        "Couldn't read input stream!"
-    }.flatMap { str =>
-      Try(inputStream.close())
-        .transform(_ => Success(str), _ => Success(s"Error: Failed to close! $str"))
-    }.foreach(output =>
-      println(output))
+    Try(Source.fromInputStream(inputStream).mkString)
+      .recover {
+        case e: IOException =>
+          "Couldn't read input stream!"
+      }
+      .flatMap { str =>
+        Try(inputStream.close())
+          .transform(
+            _ => Success(str),
+            _ => Success(s"Error: Failed to close! $str"))
+      }
+      .foreach(output => println(output))
   }
 
 }

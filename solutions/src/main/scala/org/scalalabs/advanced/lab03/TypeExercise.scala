@@ -23,22 +23,33 @@ object ComboMeal {
   trait None extends Option[Nothing]
   case object None extends None
 
-  case class ComboMealProduct(val burger: String, val bev: Size, val sideOrder: String)
+  case class ComboMealProduct(
+    val burger: String,
+    val bev: Size,
+    val sideOrder: String)
 
-  case class Builder[HAS_BURGER <: Option[String], HAS_BEVERAGE <: Option[Size], HAS_SIDEORDER <: Option[String]] private[ComboMeal] (burger: HAS_BURGER, bev: HAS_BEVERAGE, sideOrder: HAS_SIDEORDER) {
-    def ~[X](f: Builder[HAS_BURGER, HAS_BEVERAGE, HAS_SIDEORDER] => X): X = f(this)
+  case class Builder[HAS_BURGER <: Option[String], HAS_BEVERAGE <: Option[Size], HAS_SIDEORDER <: Option[String]] private[ComboMeal] (
+    burger: HAS_BURGER,
+    bev: HAS_BEVERAGE,
+    sideOrder: HAS_SIDEORDER) {
+    def ~[X](f: Builder[HAS_BURGER, HAS_BEVERAGE, HAS_SIDEORDER] => X): X = f(
+      this)
   }
 
-  def withBurger[M <: Option[Size], D <: Option[String]](burger: String)(b: Builder[None, M, D]): Builder[Some[String], M, D] =
+  def withBurger[M <: Option[Size], D <: Option[String]](burger: String)(
+    b: Builder[None, M, D]): Builder[Some[String], M, D] =
     Builder(Some(burger), b.bev, b.sideOrder)
 
-  def withBeverage[B <: Option[String], D <: Option[String]](bev: Size)(b: Builder[B, None, D]): Builder[B, Some[Size], D] =
+  def withBeverage[B <: Option[String], D <: Option[String]](bev: Size)(
+    b: Builder[B, None, D]): Builder[B, Some[Size], D] =
     Builder(b.burger, Some(bev), b.sideOrder)
 
-  def withSideOrder[B <: Option[String], M <: Option[Size]](sideOrder: String)(b: Builder[B, M, None]): Builder[B, M, Some[String]] =
+  def withSideOrder[B <: Option[String], M <: Option[Size]](sideOrder: String)(
+    b: Builder[B, M, None]): Builder[B, M, Some[String]] =
     Builder(b.burger, b.bev, Some(sideOrder))
 
-  def build(b: Builder[Some[String], Some[Size], Some[String]]): ComboMealProduct =
+  def build(
+    b: Builder[Some[String], Some[Size], Some[String]]): ComboMealProduct =
     ComboMealProduct(b.burger.get, b.bev.get, b.sideOrder.get)
 
   def builder: Builder[None, None, None] = Builder(None, None, None)
@@ -78,13 +89,21 @@ object ComposableBuilder {
     def build = "brand: " + brand + ", color: " + color
   }
 
-  class CarBuilder extends BasicCarBuilder with TireBuilder with Buildable[String] {
-    override def build: String = List(super[BasicCarBuilder].build, super[TireBuilder].build).mkString(", ")
+  class CarBuilder
+    extends BasicCarBuilder
+    with TireBuilder
+    with Buildable[String] {
+    override def build: String =
+      List(super[BasicCarBuilder].build, super[TireBuilder].build)
+        .mkString(", ")
   }
 }
 
 object Combo {
-  case class ComboMeal(val burger: String, val beverage: String, val sideOrder: String)
+  case class ComboMeal(
+    val burger: String,
+    val beverage: String,
+    val sideOrder: String)
   trait Option[+X]
   case class Some[+X](x: X) extends Option[X] {
     def get: X = x
@@ -92,7 +111,10 @@ object Combo {
   trait None extends Option[Nothing]
   case object None extends None
 
-  case class Builder[HAS_BUR <: Option[String], HAS_BEV <: Option[String], HAS_SIDE <: Option[String]] private[Combo] (burger: HAS_BUR, bev: HAS_BEV, side: HAS_SIDE) {
+  case class Builder[HAS_BUR <: Option[String], HAS_BEV <: Option[String], HAS_SIDE <: Option[String]] private[Combo] (
+    burger: HAS_BUR,
+    bev: HAS_BEV,
+    side: HAS_SIDE) {
     def ~[X](f: Builder[HAS_BUR, HAS_BEV, HAS_SIDE] => X): X = f(this)
   }
 }

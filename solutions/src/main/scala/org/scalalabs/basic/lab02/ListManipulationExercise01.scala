@@ -38,7 +38,8 @@ object ListManipulationExercise01 {
 
     //custom version2: using fold
     def myLast2[T](l: List[T]): T = {
-      l.foldLeft(l.headOption) { (a, b) => Some(b) }.getOrElse(error("last on empty list"))
+      l.foldLeft(l.headOption) { (a, b) => Some(b) }
+        .getOrElse(error("last on empty list"))
     }
     myLast1(l)
   }
@@ -46,7 +47,11 @@ object ListManipulationExercise01 {
   def nthElementInList[T](n: Int, l: List[T]): T = {
     //solution using zipWithIndex
     def myNth1(n: Int, l: List[T]): T = {
-      l.zipWithIndex.filter(p => p._2 == n).headOption.getOrElse(error("index out of bounds"))._1
+      l.zipWithIndex
+        .filter(p => p._2 == n)
+        .headOption
+        .getOrElse(error("index out of bounds"))
+        ._1
     }
     myNth1(n, l)
   }
@@ -64,10 +69,9 @@ object ListManipulationExercise01 {
 
   def sortList[T <% Ordered[T]](list: List[T]): List[T] = {
     //not efficient, but fun
-    list.foldLeft(List[T]()) {
-      (x, y) =>
-        val (sorted, xs) = x.span(_ < y)
-        sorted ::: y :: xs
+    list.foldLeft(List[T]()) { (x, y) =>
+      val (sorted, xs) = x.span(_ < y)
+      sorted ::: y :: xs
     }
   }
 
@@ -85,4 +89,3 @@ object ListManipulationExercise01 {
     else l :: tails(l.tail)
   }
 }
-

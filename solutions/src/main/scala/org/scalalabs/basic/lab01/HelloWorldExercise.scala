@@ -4,7 +4,6 @@ package org.scalalabs.basic.lab01
  * The goal of this exercise is to get familiar with the basic language constructs of Scala.
  *
  * Fix the code so that the unit test 'HelloWorldExerciseTest' passes.
- *
  */
 object HelloWorld {
 
@@ -98,4 +97,3 @@ trait HelloTrait {
 trait WorldTrait {
   def worldMethod: String = "World"
 }
-

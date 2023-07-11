@@ -1,4 +1,5 @@
 package org.scalalabs.basic.lab03
+
 /**
  * This exercise introduces you to pattern matching in combination with recursion.
  *
@@ -28,7 +29,8 @@ object RecursionPatternMatchingExercise {
    * checkValuesIncreaseRecursive(Seq(1,2,3)) == true
    * checkValuesIncreaseRecursive(Seq(1,2,2)) == false
    */
-  def checkValuesIncrease[T](seq: Seq[T])(implicit ev: T => Ordered[T]): Boolean = {
+  def checkValuesIncrease[T](
+    seq: Seq[T])(implicit ev: T => Ordered[T]): Boolean = {
     seq match {
       case a :: b :: tail => a < b && checkValuesIncrease(b :: tail)
       case _ => true
@@ -125,4 +127,3 @@ object RecursionPatternMatchingExercise {
   }
 
 }
-

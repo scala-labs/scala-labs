@@ -19,8 +19,7 @@ class ControlStructureExercise(val list: List[String]) {
   //Exercise 2
   def curriedStringConcat(first: String)(second: String) =
     first + " " + second
-  val helloConcat = curriedStringConcat("Hello")_
-  val goodByeConcat = curriedStringConcat("Goodbye")_
+  val helloConcat = curriedStringConcat("Hello") _
+  val goodByeConcat = curriedStringConcat("Goodbye") _
 
 }
-

@@ -1,6 +1,3 @@
-import com.typesafe.sbt.SbtScalariform.ScalariformKeys
-import scalariform.formatter.preferences._
-
 name := "ScalaLabs-solutions"
 
 organization := "Xebia B.V."

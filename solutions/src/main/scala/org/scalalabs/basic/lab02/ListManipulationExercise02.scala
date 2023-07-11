@@ -61,7 +61,8 @@ object ListManipulationExercise02 {
   case class Person(age: Int, firstName: String, lastName: String)
 
   def separateTheMenFromTheBoys(persons: List[Person]): List[List[String]] = {
-    def sortByAgeAndMapToName(persons: List[Person]) = persons.sortBy(_.age).map(_.firstName)
+    def sortByAgeAndMapToName(persons: List[Person]) =
+      persons.sortBy(_.age).map(_.firstName)
     val (minors, adults) = persons.partition(_.age < 18)
     List(sortByAgeAndMapToName(minors), sortByAgeAndMapToName(adults))
   }

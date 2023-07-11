@@ -60,7 +60,8 @@ object FunctionsExercise01 {
 object FunctionsExercise02 {
 
   var printed: String = _
-  private def logPerf(elapsed: Long) = printed = s"The execution took: $elapsed ms"
+  private def logPerf(elapsed: Long) = printed =
+    s"The execution took: $elapsed ms"
 
   def measure[T](block: => T): T = {
     val started = System.currentTimeMillis
@@ -93,4 +94,3 @@ object FunctionsExercise03 {
       closable.close()
     }
 }
-

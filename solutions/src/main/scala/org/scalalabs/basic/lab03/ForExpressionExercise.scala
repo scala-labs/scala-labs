@@ -1,6 +1,7 @@
 package org.scalalabs.basic.lab03
 
 import sys._
+
 /**
  * This exercise introduces you to Scala's for expression.
  *
@@ -18,7 +19,6 @@ import sys._
  * Find the largest palindrome made from the product of two 3-digit numbers.
  *
  * <a href="http://projecteuler.net/problem=4">Project Euler - Problem 4</a>
- *
  */
 object ForExpressionExercise01 {
 
@@ -65,7 +65,8 @@ object ForExpressionExercise01 {
    */
   def largestPalindromWithHigherOrderFunctions(amountOfDigits: Int): Int = {
     val (fromNumber, toNumber) = getFromAndTo(amountOfDigits)
-    (fromNumber to toNumber).flatMap(i => i to toNumber map (j => i * j))
+    (fromNumber to toNumber)
+      .flatMap(i => i to toNumber map (j => i * j))
       .filter(prod => prod.toString == prod.toString.reverse)
       .max
   }

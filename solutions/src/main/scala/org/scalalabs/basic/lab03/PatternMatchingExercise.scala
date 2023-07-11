@@ -28,8 +28,10 @@ object PatternMatchingExercise01 {
     case i: Int if i > 0 => "A positive integer"
     case Person(name, _) => s"A person with name: $name"
     case s: Seq[_] if s.size > 10 => "Seq with more than 10 elements"
-    case first :: second :: tail => s"first: $first, second: $second, rest: $tail"
-    case s @ Seq(first, second, tail @ _*) => s"first: $first, second: $second, rest: $tail"
+    case first :: second :: tail =>
+      s"first: $first, second: $second, rest: $tail"
+    case s @ Seq(first, second, tail @ _*) =>
+      s"first: $first, second: $second, rest: $tail"
     case _: Option[_] => "A Scala Option subtype"
     case null => "A null value"
     case a: AnyRef => "Some Scala class"
@@ -51,10 +53,13 @@ object PatternMatchingExercise02 {
 
   class MessageTransformer(private val transform: PartialFunction[Any, Any]) {
 
-    private var transformationCount: Map[Class[_], Int] = Map().withDefaultValue(0)
+    private var transformationCount: Map[Class[_], Int] =
+      Map().withDefaultValue(0)
 
     private def updateCount(message: Any) = {
-      transformationCount = transformationCount + (message.getClass -> (transformationCount(message.getClass) + 1))
+      transformationCount =
+        transformationCount + (message.getClass -> (transformationCount(
+          message.getClass) + 1))
     }
 
     def transformationCountBy(clazz: Class[_]): Int = {
@@ -63,10 +68,12 @@ object PatternMatchingExercise02 {
     }
 
     def process(message: Any): Any = {
-      transform.andThen(res => {
-        updateCount(message)
-        res
-      }).applyOrElse(message, (_: Any) => message)
+      transform
+        .andThen(res => {
+          updateCount(message)
+          res
+        })
+        .applyOrElse(message, (_: Any) => message)
     }
   }
 
@@ -108,7 +115,8 @@ object PatternMatchingExerciseOther {
   }
 
   val pf2: PartialFunction[String, String] = {
-    case "other stuff" => "Got stuff"
+    case "other stuff" =>
+      "Got stuff"
   }
 
   val pf3 = {

@@ -27,11 +27,13 @@ class ParserCombinatorExercise extends JavaTokenParsers {
 
   def parsedDigit: Parser[Double] = floatingPointNumber ^^ (_.toDouble)
 
-  def plus: Parser[Double] = parsedDigit ~ "+" ~ math ^^
-    { case arg1 ~ "+" ~ arg2 => arg1 + arg2 }
+  def plus: Parser[Double] = parsedDigit ~ "+" ~ math ^^ {
+    case arg1 ~ "+" ~ arg2 => arg1 + arg2
+  }
 
-  def minus: Parser[Double] = parsedDigit ~ "-" ~ math ^^
-    { case arg1 ~ "-" ~ arg2 => arg1 - arg2 }
+  def minus: Parser[Double] = parsedDigit ~ "-" ~ math ^^ {
+    case arg1 ~ "-" ~ arg2 => arg1 - arg2
+  }
 
   def math: Parser[Double] = plus | minus | parsedDigit
 
