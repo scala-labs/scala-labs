@@ -14,21 +14,21 @@ import org.scalatest.matchers.should.Matchers
   *   - Happy flow (divider is > 0)
   *   - Alternative flow (divider is <= 0)
   */
+class ScalaTestExerciseTest extends AnyFunSpecLike with Matchers {
 
-class CurrencyConverterTest extends AnyFunSpecLike with Matchers {
   describe("Euro") {
     it("should be divisible") {
-      fail("Uncomment and fix me")
-      //      val result = new Euro(1, 20) / 5
-      //      result.euro should be(0)
-      //      result.cents should be(24)
+      val result = new Euro(1, 20) / 5
+      result.euro should be(0)
+      result.cents should be(24)
     }
 
-    it("must produce an IllegalArgumentException if divided <= 0") {
-      fail("Uncomment and fix me")
-      //      intercept[IllegalArgumentException] {
-      //        new Euro(1, 2) / 0
-      //      }
+    it("must produce an IllegalArgumentException if divided with <= 0") {
+      intercept[IllegalArgumentException] {
+        new Euro(1, 2) / 0
+      }
     }
+
   }
+
 }
