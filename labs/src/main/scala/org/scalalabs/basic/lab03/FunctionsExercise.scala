@@ -1,7 +1,5 @@
 package org.scalalabs.basic.lab03
 
-import java.io.File
-import java.net.URL
 import java.util.Scanner
 
 import scala.language.reflectiveCalls
@@ -21,6 +19,8 @@ import sys._
 object FunctionsExercise01 {
 
   def doWithText( /* provide correct function signature */ ): String = {
+    val scanner = new Scanner(getClass.getResourceAsStream("/text.txt"))
+
     error("fix me")
   }
 

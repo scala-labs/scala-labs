@@ -1,5 +1,6 @@
-package org.scalalabs.basic.lab03
+package org.scalalabs.basic.lab02
 
+import org.scalalabs.basic.lab03.{FunctionsExercise01, FunctionsExercise02, FunctionsExercise03}
 import org.specs2.mutable.Specification
 
 /** @see
