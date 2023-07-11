@@ -12,7 +12,6 @@ package org.scalalabs.basic.lab04
  * implementation of SimpleLogger in the DummyService with this Loggable trait
  * so that the DummyService directly can use the the logging methods without
  * the need to create its own logger.
- *
  */
 object Level extends Enumeration {
   type Level = Value
@@ -21,10 +20,12 @@ object Level extends Enumeration {
 import Level._
 class SimpleLogger(clazz: String) {
   import SimpleLogger._
+
   /**
    * Logs debug
    */
   def debug(msg: => Any) = log(Debug, msg)
+
   /**
    * Log info
    */
@@ -42,8 +43,8 @@ class SimpleLogger(clazz: String) {
 
 object SimpleLogger {
 
-  var logHistory = Seq.empty[String]
-  def clearHistory() = logHistory = Seq.empty[String]
+  var logHistory: Seq[String] = Seq.empty
+  def clearHistory(): Unit = logHistory = Seq.empty[String]
   var logConfig = Map(Debug -> false, Info -> true)
 
   def apply(clazz: String) = new SimpleLogger(clazz)
@@ -51,7 +52,7 @@ object SimpleLogger {
 
 class DummyService extends Loggable {
 
-  def sendSomething(msg: Any) = {
+  def sendSomething(msg: Any): Unit = {
     debug("Prepare sending")
     info(s"$msg successfully sent")
     debug("Done")
@@ -60,9 +61,8 @@ class DummyService extends Loggable {
 
 trait Loggable {
   self =>
-  private lazy val logger = SimpleLogger(self.getClass().getName())
-  def debug = logger debug _
-  def info = logger info _
+  private lazy val logger = SimpleLogger(self.getClass.getName)
+  def debug: Any => Unit = logger debug _
+  def info: Any => Unit = logger info _
 
 }
-

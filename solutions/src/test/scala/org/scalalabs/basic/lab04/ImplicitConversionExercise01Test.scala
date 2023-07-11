@@ -8,8 +8,9 @@ import org.specs2.mutable.Specification
 
 import scala.language.postfixOps
 
-/** @see ImplictConversionExercise
-  */
+/**
+ * @see ImplictConversionExercise
+ */
 class ImplicitConversionExercise01Test extends Specification {
 
   "Exercise01" should {

@@ -14,8 +14,7 @@ class TypeExerciseTest extends Specification {
       //Only the following statement should
       val cm: ComboMealProduct =
         builder ~ withBurger("BigMac") ~ withBeverage(Tall) ~ withSideOrder(
-          "Fries"
-        ) ~ build
+          "Fries") ~ build
       success
     }
 
