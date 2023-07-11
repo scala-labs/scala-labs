@@ -3,22 +3,20 @@ package org.scalalabs.basic.lab02
 import org.scalalabs.basic.lab02.ListManipulationExercise01._
 import org.specs2.mutable.Specification
 
-/**
- * Lab 02: List operations
- *
- * Scala basic Lists
- *
- * Your job is to implement the functions in object ListManipulationExercise01 and classes in
- * such a way that the tests in this suite all succeed.
- *
- * Hint:
- * - the methods in ListManipulationExercise01 can all be implemented in various ways:
- *   -- 'built in' functionality in Scala's collection classes
- *   -- pattern matching
- *   -- 'functional' style, using recursion, and/or folds
- *
- * It's a nice exercise to try out various ways
- */
+/** Lab 02: List operations
+  *
+  * Scala basic Lists
+  *
+  * Your job is to implement the functions in object ListManipulationExercise01
+  * and classes in such a way that the tests in this suite all succeed.
+  *
+  * Hint:
+  *   - the methods in ListManipulationExercise01 can all be implemented in
+  *     various ways: -- 'built in' functionality in Scala's collection classes
+  *     -- pattern matching -- 'functional' style, using recursion, and/or folds
+  *
+  * It's a nice exercise to try out various ways
+  */
 class ListManipulationExercise01Test extends Specification {
 
   val listOfStrings: List[String] = List("One", "Two", "Three")
@@ -47,7 +45,8 @@ class ListManipulationExercise01Test extends Specification {
     "concat two lists" in {
       List("One", "Two", "Three", "Four", "Five") === concatLists(
         listOfStrings,
-        List("Four", "Five"))
+        List("Four", "Five")
+      )
     }
 
     "contains One Two And Three" in {
@@ -64,7 +63,8 @@ class ListManipulationExercise01Test extends Specification {
         "J-Fall",
         "Lieke",
         "ScalaLabs",
-        "Sjors") === sortList(l)
+        "Sjors"
+      ) === sortList(l)
     }
 
     "get list contains two odd elements" in {
@@ -78,7 +78,8 @@ class ListManipulationExercise01Test extends Specification {
         List(3, 4, 5),
         List(4, 5),
         List(5),
-        List()) === tails(List(1, 2, 3, 4, 5))
+        List()
+      ) === tails(List(1, 2, 3, 4, 5))
     }
   }
 

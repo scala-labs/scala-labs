@@ -9,9 +9,9 @@ import org.joda.time.Duration
 import org.specs2.mutable.Specification
 import org.joda.time._
 
-/**
- * @see ImplicitConversionExercise01
- */
+/** @see
+  *   ImplicitConversionExercise01
+  */
 class ImplicitConversionExercise01Test extends Specification {
 
   "Exercise01" should {

@@ -7,11 +7,10 @@ class ControlStructureExerciseTest extends Specification {
   val list: List[String] = List("aaa", "bbb", "cab", "def", "aab", "cba")
   val exercise = new ControlStructureExercise(list)
 
-  /**
-   * TODO
-   * The exercises are commented out because otherwise nothing would compile
-   * To start working on this exercise, comment them out and implement ControlStructureExercise
-   */
+  /** TODO The exercises are commented out because otherwise nothing would
+    * compile To start working on this exercise, comment them out and implement
+    * ControlStructureExercise
+    */
 
   "control structure exercise" should {
     "test string filter" in {

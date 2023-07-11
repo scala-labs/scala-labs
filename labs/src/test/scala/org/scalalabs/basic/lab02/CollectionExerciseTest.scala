@@ -1,7 +1,7 @@
 package org.scalalabs.basic.lab02
 
 import org.scalalabs.basic.lab02.CollectionExercise02.Person
-import org.scalalabs.basic.lab02.ListManipulationExercise02.{ Person => _ }
+import org.scalalabs.basic.lab02.ListManipulationExercise02.{Person => _}
 import org.specs2.mutable.Specification
 
 class CollectionExerciseTest extends Specification {
@@ -29,11 +29,13 @@ class CollectionExerciseTest extends Specification {
       val susy = new Person(40, "Susy")
 
       val result = CollectionExercise02.groupAdultsPerAgeGroup(
-        Seq(jack, jeniffer, duke, erik, susy))
+        Seq(jack, jeniffer, duke, erik, susy)
+      )
       Map(
         20 -> Seq(erik),
         30 -> Seq(duke, jeniffer),
-        40 -> Seq(susy)) ==== result
+        40 -> Seq(susy)
+      ) ==== result
     }
   }
 
@@ -61,9 +63,11 @@ class CollectionExerciseTest extends Specification {
     "use foldLeft for common higher order functions" in {
       val input = Seq(1, 2, 3)
       input.filter(_ % 2 == 0) ==== CollectionExercise05.filterWithFoldLeft(
-        input)
+        input
+      )
       input.groupBy(_ % 2 == 0) ==== CollectionExercise05.groupByWithFoldLeft(
-        input)
+        input
+      )
     }
   }
 

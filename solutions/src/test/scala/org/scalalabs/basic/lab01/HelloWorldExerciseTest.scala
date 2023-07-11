@@ -2,12 +2,9 @@ package org.scalalabs.basic.lab01
 
 import org.specs2.mutable.Specification
 
-/**
- * Beginner Hello World:
- * Scala Objects
- * Scala inheritence with Traits
- * Scala Classes and companion Objects
- */
+/** Beginner Hello World: Scala Objects Scala inheritence with Traits Scala
+  * Classes and companion Objects
+  */
 class HelloWorldExerciseTest extends Specification {
 
   /*

@@ -1,18 +1,17 @@
 package org.scalalabs.basic.lab04
 
-/**
- * In this exercise you learn to isolate common behavior in traits.
- *
- * Beneath you see an implementation of a SimpleLogger.
- * This logger is used in the DummyService class in an intrusive manner,
- * directly referencing the logger implementation.
- *
- * To complete this exercise you have to provide a Loggable trait, that
- * contains all logging methods (debug and info). Replace the intrusive
- * implementation of SimpleLogger in the DummyService with this Loggable trait
- * so that the DummyService directly can use the the logging methods without
- * the need to create its own logger.
- */
+/** In this exercise you learn to isolate common behavior in traits.
+  *
+  * Beneath you see an implementation of a SimpleLogger. This logger is used in
+  * the DummyService class in an intrusive manner, directly referencing the
+  * logger implementation.
+  *
+  * To complete this exercise you have to provide a Loggable trait, that
+  * contains all logging methods (debug and info). Replace the intrusive
+  * implementation of SimpleLogger in the DummyService with this Loggable trait
+  * so that the DummyService directly can use the the logging methods without
+  * the need to create its own logger.
+  */
 object Level extends Enumeration {
   type Level = Value
   val Debug, Info = Value

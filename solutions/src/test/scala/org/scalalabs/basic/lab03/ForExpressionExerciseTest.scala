@@ -2,9 +2,9 @@ package org.scalalabs.basic.lab03
 
 import org.specs2.mutable.Specification
 
-/**
- * @see ForExpressionExercise01
- */
+/** @see
+  *   ForExpressionExercise01
+  */
 class ForExpressionExerciseTest extends Specification {
 
   "ForExpressionExercise01" should {
@@ -14,7 +14,8 @@ class ForExpressionExerciseTest extends Specification {
     }
     "find largest palindrom using a higher order functions" in {
       9009 === ForExpressionExercise01.largestPalindromWithHigherOrderFunctions(
-        2)
+        2
+      )
       906609 === ForExpressionExercise01
         .largestPalindromWithHigherOrderFunctions(3)
     }

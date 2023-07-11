@@ -1,6 +1,6 @@
 package org.scalalabs.basic
 
-import java.util.{ Timer, TimerTask }
+import java.util.{Timer, TimerTask}
 
 import scala.concurrent.duration.FiniteDuration
 
@@ -16,7 +16,8 @@ package object lab05 {
   def measure[T](exec: => T): (Int, T) = {
     val (elapsed, res) = measureEither(exec)
     elapsed -> res.getOrElse(
-      throw new IllegalArgumentException("Unexpected error while measureing"))
+      throw new IllegalArgumentException("Unexpected error while measureing")
+    )
   }
 
   def scheduleOnce(delay: FiniteDuration)(f: => Unit): Timer = {

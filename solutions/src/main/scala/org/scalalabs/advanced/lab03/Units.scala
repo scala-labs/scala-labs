@@ -3,11 +3,8 @@ package org.scalalabs.advanced.lab03
 import org.scalalabs.advanced.lab03.ChurchEncoding._
 import java.lang.Math.PI
 
-/**
- * User: arjan
- * Date: May 13, 2010
- * Time: 9:27:38 AM
- */
+/** User: arjan Date: May 13, 2010 Time: 9:27:38 AM
+  */
 
 object Units {
   case class Meter[M <: CNum](value: Double) {

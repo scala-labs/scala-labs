@@ -3,9 +3,9 @@ package org.scalalabs.advanced.lab01
 import org.scalalabs.advanced.lab01.PatternMatchingExercise._
 import org.specs2.mutable.Specification
 
-/**
- * @see PatternMatchingExcercise
- */
+/** @see
+  *   PatternMatchingExcercise
+  */
 class PatternMatchingExcerciseTest extends Specification {
 
   "Custom argument extractors" should {
@@ -29,7 +29,8 @@ class PatternMatchingExcerciseTest extends Specification {
 
     "match file name in path" in {
       val matchResult = fileNameRetriever(
-        "/home/anyuser/development/scala/HelloAdvancedWorldOf.scala")
+        "/home/anyuser/development/scala/HelloAdvancedWorldOf.scala"
+      )
       matchResult ==== "HelloAdvancedWorldOf"
     }
   }

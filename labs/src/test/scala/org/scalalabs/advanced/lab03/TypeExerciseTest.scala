@@ -8,12 +8,14 @@ class TypeExerciseTest extends Specification {
     "should build complete combomeal" in {
       import ComboMeal._
 
-      //The following statements should not compile if the builder fully works:
-      //val cm2:ComboMealProduct = builder ~ withBurger("BigMac") ~ withBeverage(Tall) ~ build
-      //val cm3: ComboMealProduct = builder ~ withBurger("BigMac") ~ withBeverage(Tall) ~ withSideOrder("Fries") ~ withSideOrder("AnotherPortion") ~ build
+      // The following statements should not compile if the builder fully works:
+      // val cm2:ComboMealProduct = builder ~ withBurger("BigMac") ~ withBeverage(Tall) ~ build
+      // val cm3: ComboMealProduct = builder ~ withBurger("BigMac") ~ withBeverage(Tall) ~ withSideOrder("Fries") ~ withSideOrder("AnotherPortion") ~ build
 
-      skipped("TODO uncomment and let the tests run afer implementation of our builder")
-      //Only the following statement should
+      skipped(
+        "TODO uncomment and let the tests run afer implementation of our builder"
+      )
+      // Only the following statement should
       //      val cm: ComboMealProduct = builder ~ withBurger("BigMac") ~ withBeverage(Tall) ~ withSideOrder("Fries") ~ build
       //      success
     }
@@ -52,8 +54,10 @@ class TypeExerciseTest extends Specification {
     }
 
     "church natural numbers" in {
-      skipped("TODO define the Church numerals using Scala traits/types/classes or whatever you can think of. " +
-        "Then uncomment the lines below so that the following compiles:")
+      skipped(
+        "TODO define the Church numerals using Scala traits/types/classes or whatever you can think of. " +
+          "Then uncomment the lines below so that the following compiles:"
+      )
       //      import ChurchEncoding._
       //      type _1 = zero#succ
       //      type _2 = _1#succ
@@ -82,4 +86,3 @@ class TypeExerciseTest extends Specification {
 
   }
 }
-

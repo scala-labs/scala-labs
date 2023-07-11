@@ -68,7 +68,7 @@ class OOExerciseTest extends Specification {
   }
 
   "Exercise 4: Implicit class" should {
-    //implicit val defaultConverter = DefaultCurrencyConverter
+    // implicit val defaultConverter = DefaultCurrencyConverter
     "add *(euro:Euro) (multiply) method to Int" in {
       skipped("Uncomment and fix me")
       //      import Euro._

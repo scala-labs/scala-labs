@@ -2,9 +2,9 @@ package org.scalalabs.advanced.lab03
 
 import org.specs2.mutable.Specification
 
-/**
- * @see ImplicitExercise
- */
+/** @see
+  *   ImplicitExercise
+  */
 class ImplicitExerciseTest extends Specification {
 
   "implicit exercise" should {
@@ -45,7 +45,9 @@ class ImplicitExerciseTest extends Specification {
           "over",
           "the",
           "lazy",
-          "dog"))
+          "dog"
+        )
+      )
       "the" ==== Ord[String].max(
         List(
           "The",
@@ -56,14 +58,18 @@ class ImplicitExerciseTest extends Specification {
           "over",
           "the",
           "lazy",
-          "dog"))
+          "dog"
+        )
+      )
 
       "A" ==== Ord[Int].minFor[String](
         List("A", "sentence", "of", "various", "lengths"),
-        (t => t.length))
+        (t => t.length)
+      )
       "sentence" ==== Ord[Int].maxFor[String](
         List("A", "sentence", "of", "various", "lengths"),
-        (t => t.length))
+        (t => t.length)
+      )
     }
 
     "use even more awesome implicits and types for ordering lists" in {
@@ -82,7 +88,8 @@ class ImplicitExerciseTest extends Specification {
         "over",
         "the",
         "lazy",
-        "dog").mymax(Ord[Int].on[String](t => t.length))
+        "dog"
+      ).mymax(Ord[Int].on[String](t => t.length))
       "the" ==== List(
         "the",
         "quick",
@@ -92,7 +99,8 @@ class ImplicitExerciseTest extends Specification {
         "over",
         "the",
         "lazy",
-        "dog").mymin(Ord[Int].on[String](t => t.length))
+        "dog"
+      ).mymin(Ord[Int].on[String](t => t.length))
     }
 
     "a simple monad illustration" in {
@@ -113,7 +121,8 @@ class ImplicitExerciseTest extends Specification {
 
       List(1) ==== inject[List, Int](1)
       Just("Scala is great") === inject[Maybe, String]("Scala").bind(x =>
-        just(x + " is great"))
+        just(x + " is great")
+      )
 
       println(List(1) bind (x => List(x + 2)))
       List('T', 'h', 'e', 'q', 'u', 'i', 'c', 'k', 'b', 'r', 'o', 'w', 'n', 'f',

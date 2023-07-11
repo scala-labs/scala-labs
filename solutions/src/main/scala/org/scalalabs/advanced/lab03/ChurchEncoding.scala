@@ -1,10 +1,7 @@
 package org.scalalabs.advanced.lab03
 
-/**
- * User: arjan
- * Date: May 8, 2010
- * Time: 8:02:05 AM
- */
+/** User: arjan Date: May 8, 2010 Time: 8:02:05 AM
+  */
 
 object ChurchEncoding {
 

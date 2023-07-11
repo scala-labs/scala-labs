@@ -15,13 +15,13 @@ import java.io.{
 }
 import scala.util.control.NoStackTrace
 
-/**
- * @see FlowControlExercise
- */
+/** @see
+  *   FlowControlExercise
+  */
 class FlowControlExerciseTest
-  extends Specification
-  with EitherMatchers
-  with Mockito {
+    extends Specification
+    with EitherMatchers
+    with Mockito {
 
   "OptionExercise" should {
     val rooms = Map(
@@ -30,7 +30,8 @@ class FlowControlExerciseTest
       3 -> Some("locked"),
       4 -> Some("14"),
       5 -> Some("8"),
-      6 -> Some("locked"))
+      6 -> Some("locked")
+    )
 
     "correctly show the state of filled room (e.g. Some(12))" in {
       roomState(rooms, 1) === "12"
@@ -59,14 +60,17 @@ class FlowControlExerciseTest
 
     "correctly encapsulate error on inputting 0 value" in {
       reciprocal(Right(0)).left.map(_.getMessage) must beLeft(
-        "Reciprocal of 0 does not exist!")
+        "Reciprocal of 0 does not exist!"
+      )
     }
 
     "correctly calculate reciprocal of unparseable string" in {
       reciprocal(Left("foo")).left.map(_.getMessage) must beLeft(
-        "For input string: \"foo\"")
+        "For input string: \"foo\""
+      )
       reciprocal(Left("bar")).left.map(_.getMessage) must beLeft(
-        "For input string: \"bar\"")
+        "For input string: \"bar\""
+      )
     }
 
   }

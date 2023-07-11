@@ -47,8 +47,8 @@ class TraitExerciseTest extends Specification {
       }
 
       skipped("Uncomment and fix me")
-      //val impl = new AnyRef with Loggable
-      //impl.debug(createLongString)
+      // val impl = new AnyRef with Loggable
+      // impl.debug(createLongString)
 
       SimpleLogger.logHistory must beEmpty
       longStringCreated ==== ""

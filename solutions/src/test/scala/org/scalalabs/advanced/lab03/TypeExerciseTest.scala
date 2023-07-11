@@ -7,14 +7,15 @@ class TypeExerciseTest extends Specification {
     "should build complete combomeal" in {
       import ComboMeal._
 
-      //The following statements should not compile if the builder fully works:
-      //val cm2:ComboMealProduct = builder ~ withBurger("BigMac") ~ withBeverage(Tall) ~ build
-      //val cm3: ComboMealProduct = builder ~ withBurger("BigMac") ~ withBeverage(Tall) ~ withSideOrder("Fries") ~ withSideOrder("AnotherPortion") ~ build
+      // The following statements should not compile if the builder fully works:
+      // val cm2:ComboMealProduct = builder ~ withBurger("BigMac") ~ withBeverage(Tall) ~ build
+      // val cm3: ComboMealProduct = builder ~ withBurger("BigMac") ~ withBeverage(Tall) ~ withSideOrder("Fries") ~ withSideOrder("AnotherPortion") ~ build
 
-      //Only the following statement should
+      // Only the following statement should
       val cm: ComboMealProduct =
         builder ~ withBurger("BigMac") ~ withBeverage(Tall) ~ withSideOrder(
-          "Fries") ~ build
+          "Fries"
+        ) ~ build
       success
     }
 
@@ -46,7 +47,7 @@ class TypeExerciseTest extends Specification {
 
       Cow.joinDinnerWith(Horse)
       jake.joinDinnerWith(peet)
-      //doesn't compile!
+      // doesn't compile!
       // Cow.joinDinnerWith(jake)
       success
     }
@@ -75,7 +76,7 @@ class TypeExerciseTest extends Specification {
       Some("Haskell") === tsStringReg.safeGet[String](2)
       None === tsStringReg.safeGet[String](3)
 
-      //the following returns a None, since the get has been made typeSafe
+      // the following returns a None, since the get has been made typeSafe
       None === tsStringReg.safeGet[Int](1)
       None === tsStringReg.safeGet[Double](2)
     }

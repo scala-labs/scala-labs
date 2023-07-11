@@ -7,9 +7,11 @@ class FunctionsExerciseTest extends Specification {
   "FunctionsExercise01" should {
     "higher order function that does file resource handling while offering the content of the file as String" in {
       FunctionsExercise01.doWithText(content =>
-        content.reverse) ==== FunctionsExercise01.reverseText()
+        content.reverse
+      ) ==== FunctionsExercise01.reverseText()
       FunctionsExercise01.doWithText(content =>
-        content.toUpperCase) ==== FunctionsExercise01.upperCaseText()
+        content.toUpperCase
+      ) ==== FunctionsExercise01.upperCaseText()
     }
   }
   "FunctionsExercise02" should {
@@ -20,7 +22,8 @@ class FunctionsExerciseTest extends Specification {
       }
       4 ==== FunctionsExercise02.measure(block)
       FunctionsExercise02.printed must beMatching(
-        """The execution took: ([1-9][0-9][0-9]) ms""")
+        """The execution took: ([1-9][0-9][0-9]) ms"""
+      )
     }
   }
   "FunctionsExercise03" should {
@@ -30,10 +33,10 @@ class FunctionsExerciseTest extends Specification {
     }
 
     "control structure that closes closable with using method" in {
-      //write a control structure that automatically closes any class that has a close method
+      // write a control structure that automatically closes any class that has a close method
 
-      //a more real world example than given here would be a reader, or JDBC connection, or anything else that is closable:
-      //val reader = new BufferedReader(new FileReader("myFile.txt"))
+      // a more real world example than given here would be a reader, or JDBC connection, or anything else that is closable:
+      // val reader = new BufferedReader(new FileReader("myFile.txt"))
       val closable = new Closable
       val anotherClosable = new AnotherClosable
       closable.closed must beFalse

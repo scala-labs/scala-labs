@@ -26,7 +26,7 @@ class FuturesSpec extends AnyWordSpecLike with Matchers with BeforeAndAfterAll {
     "1: calculate average conversion rate returned by all services" in {
       val testServices = Seq(serviceBankA, serviceBankB, serviceBankC)
       val (elapsed, result) = measure {
-        //TODO: implement
+        // TODO: implement
         -1
       }
       elapsed should be(3000 +- 500)
@@ -35,7 +35,7 @@ class FuturesSpec extends AnyWordSpecLike with Matchers with BeforeAndAfterAll {
     "2. return first received conversion rate as String" in {
       val testServices = Seq(serviceBankA, serviceBankB, serviceBankC)
       val (elapsed, result) = measure {
-        //TODO: implement
+        // TODO: implement
         ""
       }
       elapsed should be(1000 +- 500)
@@ -53,7 +53,7 @@ class FuturesSpec extends AnyWordSpecLike with Matchers with BeforeAndAfterAll {
     "4. return all conversion rates sequentially using futures" in {
       val testServices = Seq(serviceBankA, serviceBankB, serviceBankC)
       val (elapsed, result) = measure {
-        //TODO: implement
+        // TODO: implement
         ""
       }
       elapsed should be(6000 +- 500)
@@ -62,4 +62,3 @@ class FuturesSpec extends AnyWordSpecLike with Matchers with BeforeAndAfterAll {
   }
 
 }
-

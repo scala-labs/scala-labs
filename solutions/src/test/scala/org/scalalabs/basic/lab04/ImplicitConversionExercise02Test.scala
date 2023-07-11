@@ -6,9 +6,9 @@ import org.scalalabs.basic.lab04.ImplicitConversionExercise02.Exercise03._
 import org.scalalabs.basic.lab04.ImplicitConversionExercise02._
 import org.specs2.mutable.Specification
 
-/**
- * @see ImplictConversionExercise02
- */
+/** @see
+  *   ImplictConversionExercise02
+  */
 class ImplictConversionExercise02Test extends Specification {
 
   "Exercise01" should {

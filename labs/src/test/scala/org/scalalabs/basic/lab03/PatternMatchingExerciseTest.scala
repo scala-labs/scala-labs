@@ -4,9 +4,9 @@ import org.specs2.mutable.Specification
 import PatternMatchingExercise01._
 import PatternMatchingExercise02._
 
-/**
- * @see PatternMatchingExercise
- */
+/** @see
+  *   PatternMatchingExercise
+  */
 class PatternMatchingExerciseTest extends Specification {
 
   "PatternMatchingExercise01" should {
@@ -17,7 +17,8 @@ class PatternMatchingExerciseTest extends Specification {
       "A person with name: Jack" === matchOnInputType(Person("Jack", 39))
       "Seq with more than 10 elements" === matchOnInputType(1 to 11)
       "first: first, second: second, rest: List(third, fourth)" === matchOnInputType(
-        Seq("first", "second", "third", "fourth"))
+        Seq("first", "second", "third", "fourth")
+      )
       "A Scala Option subtype" === matchOnInputType(Some(1))
       "A Scala Option subtype" === matchOnInputType(None)
       "Some Scala class" === matchOnInputType(10L)
@@ -28,7 +29,7 @@ class PatternMatchingExerciseTest extends Specification {
 
     "transform messages matching the partial function and keep count of transformations" in {
       val transformer = new MessageTransformer({
-        case x: Int => x.toString
+        case x: Int    => x.toString
         case x: String => x.length
       })
       transformer.process("Say") ==== 3

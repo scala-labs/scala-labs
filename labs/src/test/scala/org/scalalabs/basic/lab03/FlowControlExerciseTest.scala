@@ -16,7 +16,8 @@ import org.specs2.mutable.Specification
 
 import scala.util.control.NoStackTrace
 
-/** @see FlowControlExercise
+/** @see
+  *   FlowControlExercise
   */
 class FlowControlExerciseTest
     extends Specification

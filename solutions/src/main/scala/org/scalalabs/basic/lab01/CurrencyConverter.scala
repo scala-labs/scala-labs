@@ -1,8 +1,7 @@
 package org.scalalabs.basic.lab01
 
-/**
- * Classes used in [[org.scalalabs.basic.lab01.OOExercise]]
- */
+/** Classes used in [[org.scalalabs.basic.lab01.OOExercise]]
+  */
 trait CurrencyConverter {
   def toEuroCents(dollarCents: Int): Int
 }

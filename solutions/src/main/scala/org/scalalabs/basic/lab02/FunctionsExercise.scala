@@ -4,18 +4,17 @@ import java.util.Scanner
 
 import scala.language.reflectiveCalls
 
-/**
- * Higher order functions allow you to build abstractions containing a generic control
- * structure and a function with which the result(s) of the generic control structure can
- * be used in different ways.
- *
- * Take a look at the predefined methods reverseText() and upperCaseTest().
- * Both methods contain a lot of duplication which we want to remove.
- *
- * Implement the doWithText() method as a higher order function
- * that takes care of the resource handling of the File and offers a function argument
- * that allows to deal with the content of the File, which is a String, directly.
- */
+/** Higher order functions allow you to build abstractions containing a generic
+  * control structure and a function with which the result(s) of the generic
+  * control structure can be used in different ways.
+  *
+  * Take a look at the predefined methods reverseText() and upperCaseTest().
+  * Both methods contain a lot of duplication which we want to remove.
+  *
+  * Implement the doWithText() method as a higher order function that takes care
+  * of the resource handling of the File and offers a function argument that
+  * allows to deal with the content of the File, which is a String, directly.
+  */
 object FunctionsExercise01 {
 
   def doWithText(handleFun: String => String): String = {
@@ -47,16 +46,16 @@ object FunctionsExercise01 {
 
 }
 
-/**
- * This exercise introduces you to Scala functions.
- *
- * Functions let you separate responsibilities, which allow you to maximally reuse code.
- *
- * Create a method measure that accepts any code blocks, executes it and prints the execution time.
- * E.g. 'The execution took <elapsed> ms'.
- * Use the logPerf method provided.
- * Provide a suitable implementation in order to make the corresponding unittest work.
- */
+/** This exercise introduces you to Scala functions.
+  *
+  * Functions let you separate responsibilities, which allow you to maximally
+  * reuse code.
+  *
+  * Create a method measure that accepts any code blocks, executes it and prints
+  * the execution time. E.g. 'The execution took <elapsed> ms'. Use the logPerf
+  * method provided. Provide a suitable implementation in order to make the
+  * corresponding unittest work.
+  */
 object FunctionsExercise02 {
 
   var printed: String = _
@@ -72,15 +71,15 @@ object FunctionsExercise02 {
 
 }
 
-/**
- * Functions let you create control abstractions, which give extra opportunities to condense
- * and simplify code.
- *
- * Provide a suitable implementation in order to make the corresponding unittest work.
- */
+/** Functions let you create control abstractions, which give extra
+  * opportunities to condense and simplify code.
+  *
+  * Provide a suitable implementation in order to make the corresponding
+  * unittest work.
+  */
 object FunctionsExercise03 {
   def plusOne(x: Int): Int = {
-    //implement this using a partial function
+    // implement this using a partial function
     val partial = plus(1, _: Int)
     partial(x)
   }

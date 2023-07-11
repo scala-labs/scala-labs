@@ -1,13 +1,12 @@
 package org.scalalabs.basic.lab02
 
 import org.scalalabs.basic.lab02.CollectionExercise02.Person
-import org.scalalabs.basic.lab02.ListManipulationExercise02.{ Person => _ }
+import org.scalalabs.basic.lab02.ListManipulationExercise02.{Person => _}
 import org.specs2.mutable.Specification
 
-/**
- * This Lab contains exercises where the usage of
- * higher order collection methods can be rehearsed.
- */
+/** This Lab contains exercises where the usage of higher order collection
+  * methods can be rehearsed.
+  */
 class CollectionExerciseTest extends Specification {
 
   "CollectionExercise01: GoogleCodeJam" should {
@@ -32,11 +31,13 @@ class CollectionExerciseTest extends Specification {
       val erik = new Person(24, "Erik")
       val susy = new Person(40, "Susy")
       val result = CollectionExercise02.groupAdultsPerAgeGroup(
-        Seq(jack, duke, jeniffer, erik, susy))
+        Seq(jack, duke, jeniffer, erik, susy)
+      )
       Map(
         20 -> Seq(erik),
         30 -> Seq(duke, jeniffer),
-        40 -> Seq(susy)) ==== result
+        40 -> Seq(susy)
+      ) ==== result
     }
   }
 
@@ -63,9 +64,11 @@ class CollectionExerciseTest extends Specification {
     "use foldLeft for common higher order functions" in {
       val input = Seq(1, 2, 3)
       input.filter(_ % 2 == 0) ==== CollectionExercise05.filterWithFoldLeft(
-        input)
+        input
+      )
       input.groupBy(_ % 2 == 0) ==== CollectionExercise05.groupByWithFoldLeft(
-        input)
+        input
+      )
     }
   }
 

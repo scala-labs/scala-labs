@@ -3,12 +3,12 @@ import sys._
 import scala.language.higherKinds
 import scala.language.implicitConversions
 
-/**
- * An very simple implementation of trait representing anything that can be compared.
- * In Java this is similar to the Comparator interface.
- *
- * In the Scala libraries, a far more complete (and thus more complex) version is the scala.math.Ordering trait.
- */
+/** An very simple implementation of trait representing anything that can be
+  * compared. In Java this is similar to the Comparator interface.
+  *
+  * In the Scala libraries, a far more complete (and thus more complex) version
+  * is the scala.math.Ordering trait.
+  */
 trait Ord[A] {
   self =>
   def compare(x: A, y: A): Int
@@ -116,9 +116,9 @@ object ImplicitExercise {
 
 object Monads {
 
-  /**
-   * A simplified version of Scala's Option class (here named Maybe after the Haskell type) representing either one value, or None.
-   */
+  /** A simplified version of Scala's Option class (here named Maybe after the
+    * Haskell type) representing either one value, or None.
+    */
   class Maybe[+T]
   case class Just[T](value: T) extends Maybe[T]
   case object NoValue extends Maybe[Nothing]
@@ -131,78 +131,75 @@ object Monads {
   //    def bind[B](f: A => List[B]) = m bind (a, f)
   //  }
 
-  /**
-   * Defines the inject function for the specified container.
-   */
+  /** Defines the inject function for the specified container.
+    */
   def inject[M[_], A](a: A)(implicit m: Monad[M]): M[A] = m inject a
 
   def just[A](a: A): Maybe[A] = Just(a)
   def noValue = NoValue
 
-  /**
-   * A Monad is a Container that has the following operations:
-   * - an inject function, that puts a simple value into the container and returns it
-   * - a chaining operation, where the result of the computation on the parameter on the left is returned into a
-   *  new container with the result parameter of the function.
-   *
-   * A Monad should have a 'type constructor'. This means in normal terms, that it is parametrized with a type.
-   * So the Container should contain Integers, or Strings, or anything else that is specified by the type constructor.
-   *
-   * Scala contains many classes that are Monads. An example is the Scala List class.
-   *
-   * In fact, any Scala class that has a flatMap method should be a Monad.
-   *
-   * A simple example is Scala's Option class, that has two subclasses: Some, representing a value, or None.
-   * In our example, we use a simplified version named 'Maybe', the name that is used in Haskell.
-   */
+  /** A Monad is a Container that has the following operations:
+    *   - an inject function, that puts a simple value into the container and
+    *     returns it
+    *   - a chaining operation, where the result of the computation on the
+    *     parameter on the left is returned into a new container with the result
+    *     parameter of the function.
+    *
+    * A Monad should have a 'type constructor'. This means in normal terms, that
+    * it is parametrized with a type. So the Container should contain Integers,
+    * or Strings, or anything else that is specified by the type constructor.
+    *
+    * Scala contains many classes that are Monads. An example is the Scala List
+    * class.
+    *
+    * In fact, any Scala class that has a flatMap method should be a Monad.
+    *
+    * A simple example is Scala's Option class, that has two subclasses: Some,
+    * representing a value, or None. In our example, we use a simplified version
+    * named 'Maybe', the name that is used in Haskell.
+    */
   trait Monad[C[_]] {
 
-    /**
-     * Puts a value in the Container.
-     */
+    /** Puts a value in the Container.
+      */
     def inject[A](a: A): C[A]
 
-    /**
-     * A chaining function, binding the result of the computation of the left to the right.
-     * In Scala, this is defined as the flatMap function.
-     */
+    /** A chaining function, binding the result of the computation of the left
+      * to the right. In Scala, this is defined as the flatMap function.
+      */
     def bind[A, B](a: C[A], f: A => C[B]): C[B]
   }
 
   object Monad {
 
-    /**
-     * An instance of the Monad for the Maybe type.
-     */
+    /** An instance of the Monad for the Maybe type.
+      */
     implicit object MaybeMonad extends Monad[Maybe] {
 
-      /**
-       * The bind method does the following: in case the value on the left, a: Maybe[A] is Just(something), the function is applied
-       * to something. In case it is None, the result is None
-       */
+      /** The bind method does the following: in case the value on the left, a:
+        * Maybe[A] is Just(something), the function is applied to something. In
+        * case it is None, the result is None
+        */
       override def bind[A, B](a: Maybe[A], f: A => Maybe[B]): Maybe[B] =
         a match {
           case Just(x) => f(x)
           case NoValue => NoValue
         }
 
-      /**
-       * The inject function just returns a Just(a).
-       */
+      /** The inject function just returns a Just(a).
+        */
       override def inject[A](a: A): Maybe[A] = Just(a)
     }
 
     implicit object ListMonad extends Monad[List] {
 
-      /**
-       * bind is just the same as the flatmap method on the list.
-       */
+      /** bind is just the same as the flatmap method on the list.
+        */
       override def bind[A, B](a: List[A], f: A => List[B]): List[B] =
         a flatMap (f)
 
-      /**
-       * The inject uses the List object to create a list with one value.
-       */
+      /** The inject uses the List object to create a list with one value.
+        */
       override def inject[A](a: A): List[A] = List(a)
     }
   }

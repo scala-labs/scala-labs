@@ -8,9 +8,9 @@ import Exercise01._
 import Exercise02._
 import Exercise03._
 
-/**
- * @see ImplictConversionExercise02
- */
+/** @see
+  *   ImplictConversionExercise02
+  */
 class ImplicitConversionExercise02Test extends Specification {
 
   "Exercise01" should {

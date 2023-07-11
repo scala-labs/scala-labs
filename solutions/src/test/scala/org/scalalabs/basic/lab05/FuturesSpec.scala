@@ -74,10 +74,11 @@ class FuturesSpec extends AnyWordSpecLike with Matchers with BeforeAndAfterAll {
 
       def withFold =
         testServices.foldLeft(Future(Seq.empty[Int]))((cum, next) =>
-          cum.flatMap(v => next.rateUSD.map(v :+ _)))
+          cum.flatMap(v => next.rateUSD.map(v :+ _))
+        )
 
       val (elapsed, result) = measure {
-        //Await.result(withRecurions, 8 seconds)
+        // Await.result(withRecurions, 8 seconds)
         Await.result(withFold, 8 seconds)
       }
       elapsed should be(6000 +- 500)
