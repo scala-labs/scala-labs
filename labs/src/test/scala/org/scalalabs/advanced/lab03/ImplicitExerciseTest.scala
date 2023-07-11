@@ -1,18 +1,13 @@
 package org.scalalabs.advanced.lab03
 
-import org.junit.runner.RunWith
 import org.specs2.mutable.Specification
-import org.specs2.runner.JUnitRunner
 
-/**
- * @see ImplicitExercise
- */
-@RunWith(classOf[JUnitRunner])
 class ImplicitExerciseTest extends Specification {
 
   "implicit exercise" should {
     "should add ints and strings" in {
-      skipped("TODO uncomment the following lines, and make them work by implementing some implicit magic in the Ord object, defined within the ImplicitExercise object")
+      skipped(
+        "TODO uncomment the following lines, and make them work by implementing some implicit magic in the Ord object, defined within the ImplicitExercise object")
       //      import ImplicitExercise._
       //
       //      10 ==== add(List(1, 2, 3, 4))
@@ -20,7 +15,8 @@ class ImplicitExerciseTest extends Specification {
     }
 
     "nicer add ints and strings" in {
-      skipped("TODO uncomment the following lines, and make them work by implementing some implicit magic in the Ord object, defined within the ImplicitExercise object")
+      skipped(
+        "TODO uncomment the following lines, and make them work by implementing some implicit magic in the Ord object, defined within the ImplicitExercise object")
       //      import ImplicitExercise._
       //
       //      10 ==== List(1, 2, 3, 4).add
@@ -35,7 +31,8 @@ class ImplicitExerciseTest extends Specification {
     }
 
     "should order using implicit ord" in {
-      skipped("TODO uncomment the following lines, and make them work by implementing some implicit magic in the Ord object, defined within the ImplicitExercise object")
+      skipped(
+        "TODO uncomment the following lines, and make them work by implementing some implicit magic in the Ord object, defined within the ImplicitExercise object")
       //      20 ==== Ord[Int].max(List(10, 20, 3, 4, 5))
       //      3 ==== Ord[Int].min(List(10, 20, 3, 4, 5))
       //
@@ -47,7 +44,8 @@ class ImplicitExerciseTest extends Specification {
     }
 
     "use even more awesome implicits and types for ordering lists" in {
-      skipped("TODO uncomment the following lines, and make them work by implementing some implicit magic in the ListToPimpedList object")
+      skipped(
+        "TODO uncomment the following lines, and make them work by implementing some implicit magic in the ListToPimpedList object")
       //      import ImplicitExercise._
       //
       //      20 ==== List(10, 20, 3, 4, 5).mymax
@@ -58,7 +56,8 @@ class ImplicitExerciseTest extends Specification {
     }
 
     "a simple monad illustration" in {
-      skipped("TODO uncomment the following lines, and make them work by implementing some implicit magic in the Monads object")
+      skipped(
+        "TODO uncomment the following lines, and make them work by implementing some implicit magic in the Monads object")
       //      import Monads._
       //
       //      implicit def toMA[M[_], A](ma: M[A]) = new MA[M, A] {

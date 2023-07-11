@@ -1,10 +1,6 @@
 package org.scalalabs.basic.lab01
 
-import java.lang.{ IllegalArgumentException => IAE }
-import org.junit.runner.RunWith
 import org.specs2.mutable.Specification
-import org.specs2.runner.JUnitRunner
-@RunWith(classOf[JUnitRunner])
 class OOExerciseTest extends Specification {
 
   "Exercise 1: Creating an Euro" should {

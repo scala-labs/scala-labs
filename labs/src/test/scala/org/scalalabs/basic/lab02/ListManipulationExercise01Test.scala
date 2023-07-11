@@ -1,11 +1,8 @@
 package org.scalalabs.basic.lab02
 
-import org.junit.Test
-import java.lang.{ IllegalArgumentException => IAE }
-import org.junit.runner.RunWith
 import org.specs2.mutable.Specification
-import org.specs2.runner.JUnitRunner
 import ListManipulationExercise01._
+
 /**
  * Lab 02: List operations
  *
@@ -22,7 +19,6 @@ import ListManipulationExercise01._
  *
  * It's a nice exercise to try out various ways
  */
-@RunWith(classOf[JUnitRunner])
 class ListManipulationExercise01Test extends Specification {
 
   val listOfStrings: List[String] = List("One", "Two", "Three")
@@ -49,7 +45,9 @@ class ListManipulationExercise01Test extends Specification {
     }
 
     "concat two lists" in {
-      List("One", "Two", "Three", "Four", "Five") === concatLists(listOfStrings, List("Four", "Five"))
+      List("One", "Two", "Three", "Four", "Five") === concatLists(
+        listOfStrings,
+        List("Four", "Five"))
     }
 
     "contains One Two And Three" in {
@@ -60,7 +58,13 @@ class ListManipulationExercise01Test extends Specification {
 
     "sort list of strings" in {
       val l = List("Sjors", "Arjan", "Age", "Lieke", "J-Fall", "ScalaLabs")
-      List("Age", "Arjan", "J-Fall", "Lieke", "ScalaLabs", "Sjors") === sortList(l)
+      List(
+        "Age",
+        "Arjan",
+        "J-Fall",
+        "Lieke",
+        "ScalaLabs",
+        "Sjors") === sortList(l)
     }
 
     "get list contains two odd elements" in {
@@ -68,7 +72,13 @@ class ListManipulationExercise01Test extends Specification {
     }
 
     "get tails of list" in {
-      List(List(1, 2, 3, 4, 5), List(2, 3, 4, 5), List(3, 4, 5), List(4, 5), List(5), List()) === tails(List(1, 2, 3, 4, 5))
+      List(
+        List(1, 2, 3, 4, 5),
+        List(2, 3, 4, 5),
+        List(3, 4, 5),
+        List(4, 5),
+        List(5),
+        List()) === tails(List(1, 2, 3, 4, 5))
     }
   }
 

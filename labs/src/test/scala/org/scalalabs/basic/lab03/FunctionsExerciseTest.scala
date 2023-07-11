@@ -1,13 +1,10 @@
 package org.scalalabs.basic.lab03
 
-import org.junit.runner.RunWith
 import org.specs2.mutable.Specification
-import org.specs2.runner.JUnitRunner
 
 /**
  * @see FunctionsExercise1/2/3
  */
-@RunWith(classOf[JUnitRunner])
 class FunctionsExerciseTest extends Specification {
 
   "FunctionsExercise01" should {
@@ -25,7 +22,8 @@ class FunctionsExerciseTest extends Specification {
       }
       //uncomment next line
       //4 ==== FunctionsExercise02.measure(block)
-      FunctionsExercise02.printed must beMatching("""The execution took: ([1-9][0-9]) ms""")
+      FunctionsExercise02.printed must beMatching(
+        """The execution took: ([1-9][0-9]) ms""")
     }
   }
   "FunctionsExercise03" should {
@@ -36,4 +34,3 @@ class FunctionsExerciseTest extends Specification {
   }
 
 }
-

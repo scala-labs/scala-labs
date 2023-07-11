@@ -1,18 +1,16 @@
 package org.scalalabs.basic.lab04
 import org.joda.time.Duration
-import org.junit.runner.RunWith
 import org.specs2.mutable.Specification
-import org.specs2.runner.JUnitRunner
 import org.joda.time._
 import org.json4s._
 import org.json4s.JsonDSL._
 import Exercise01._
 import Exercise02._
 import Exercise03._
+
 /**
  * @see ImplictConversionExercise02
  */
-@RunWith(classOf[JUnitRunner])
 class ImplicitConversionExercise02Test extends Specification {
 
   "Exercise01" should {
@@ -33,7 +31,8 @@ class ImplicitConversionExercise02Test extends Specification {
   "Exercise03" should {
     import JsonConverter._
     val euro = Euro(1, 2)
-    val json = ("symbol" -> "EUR") ~ ("amount" -> s"${euro.euros},${euro.cents}")
+    val json =
+      ("symbol" -> "EUR") ~ ("amount" -> s"${euro.euros},${euro.cents}")
     "convert Euro to json" in {
       val out = convertToJson(euro)
       out ==== json
@@ -44,4 +43,3 @@ class ImplicitConversionExercise02Test extends Specification {
     }
   }
 }
-

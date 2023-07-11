@@ -6,14 +6,12 @@ import ImplicitConversionExercise01.Exercise03._
 import ImplicitConversionExercise01.Exercise04._
 import org.joda.time.Duration
 
-import org.junit.runner.RunWith
 import org.specs2.mutable.Specification
-import org.specs2.runner.JUnitRunner
 import org.joda.time._
+
 /**
  * @see ImplicitConversionExercise01
  */
-@RunWith(classOf[JUnitRunner])
 class ImplicitConversionExercise01Test extends Specification {
 
   "Exercise01" should {
