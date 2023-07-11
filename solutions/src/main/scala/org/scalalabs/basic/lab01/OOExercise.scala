@@ -44,7 +44,7 @@ object Euro {
   def fromCents(cents: Int) = new Euro(cents / 100, cents % 100)
 
   implicit class EuroInt(val i: Int) extends AnyVal {
-    def *(euro: Euro) = euro * i
+    def *(euro: Euro): Euro = euro * i
   }
   // solution for exercise 4
   // implicit def fromDollar(dollar: Dollar): Euro = Euro.fromCents((DefaultCurrencyConverter.toEuroCents(dollar.inCents)).toInt)
