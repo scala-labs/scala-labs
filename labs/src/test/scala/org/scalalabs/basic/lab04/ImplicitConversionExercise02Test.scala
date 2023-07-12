@@ -8,6 +8,8 @@ import Exercise01._
 import Exercise02._
 import Exercise03._
 
+import scala.language.postfixOps
+
 /** @see
   *   ImplictConversionExercise02
   */

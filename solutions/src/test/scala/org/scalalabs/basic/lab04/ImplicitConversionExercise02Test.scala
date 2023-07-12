@@ -6,6 +6,8 @@ import org.scalalabs.basic.lab04.ImplicitConversionExercise02.Exercise03._
 import org.scalalabs.basic.lab04.ImplicitConversionExercise02._
 import org.specs2.mutable.Specification
 
+import scala.language.postfixOps
+
 /** @see
   *   ImplictConversionExercise02
   */
