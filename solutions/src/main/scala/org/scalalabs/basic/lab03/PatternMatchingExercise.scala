@@ -27,18 +27,18 @@ object PatternMatchingExercise01 {
     * \@PatternMatchingExerciseTest
     * ***********************************************************************
     */
-  def matchOnInputType(in: Any) = in match {
+  def matchOnInputType(in: Any): String = in match {
     case s: String                => s"A string with length ${s.length}"
     case i: Int if i > 0          => "A positive integer"
     case Person(name, _)          => s"A person with name: $name"
     case s: Seq[_] if s.size > 10 => "Seq with more than 10 elements"
     case first :: second :: tail =>
       s"first: $first, second: $second, rest: $tail"
-    case s @ Seq(first, second, tail @ _*) =>
+    case _ @Seq(first, second, tail @ _*) =>
       s"first: $first, second: $second, rest: $tail"
     case _: Option[_] => "A Scala Option subtype"
     case null         => "A null value"
-    case a: AnyRef    => "Some Scala class"
+    case _: AnyRef    => "Some Scala class"
     case _            => "The default"
   }
 }

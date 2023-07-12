@@ -34,7 +34,7 @@ object PatternMatchingExercise01 {
 
   case class Person(name: String, age: Int)
 
-  def matchOnInputType(in: Any) = {
+  def matchOnInputType(in: Any): String = {
     error("fix me")
   }
 

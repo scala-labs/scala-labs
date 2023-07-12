@@ -11,7 +11,6 @@ import org.specs2.mutable.Specification
 class PatternMatchingExerciseTest extends Specification {
 
   "PatternMatchingExercise01" should {
-
     "match on input type" in {
       "A string with length 8" === matchOnInputType("A String")
       "A positive integer" === matchOnInputType(10)
@@ -26,8 +25,8 @@ class PatternMatchingExerciseTest extends Specification {
       "A null value" === matchOnInputType(null)
     }
   }
-  "PatternMatchingExercise02" should {
 
+  "PatternMatchingExercise02" should {
     "transform messages matching the partial function and keep count of transformations" in {
       val transformer = new MessageTransformer({
         case x: Int    => x.toString
@@ -43,6 +42,7 @@ class PatternMatchingExerciseTest extends Specification {
     }
 
   }
+
   "PatternMatchingExerciseOther" should {
     "match language on strings" in {
       "OOP" === describeLanguage("Java")
@@ -53,10 +53,12 @@ class PatternMatchingExerciseTest extends Specification {
       "Procedural" === describeLanguage("C")
       "Unknown" === describeLanguage("Oz")
     }
+
     "check age" in {
       Some("Jack") === older(new Person("Jack", 31))
       None === older(new Person("Jack", 30))
     }
+
     "match partial functions" in {
       // pf1 and pf2 are both partial functions.
       // These inherit from Scala's Function class, with an extra method: isDefinedAt
