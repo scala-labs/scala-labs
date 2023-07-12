@@ -49,7 +49,7 @@ class OOExerciseTest extends Specification {
     }
   }
 
-  "Exercise 3: Euro with Order trait" should {
+  "Exercise 3: Euro with Ordered trait" should {
     "be correctly orderable" in {
       val e1 = new Euro(1, 5)
       val e2 = new Euro(4, 53)

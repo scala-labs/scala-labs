@@ -55,7 +55,7 @@ class OOExerciseTest extends Specification {
       //      e2.toString ==== "EUR: 2,--"
     }
   }
-  "Exercise 3: Euro with Order trait" should {
+  "Exercise 3: Euro with Ordered trait" should {
     "be correctly orderable" in {
       skipped("Uncomment and fix me")
       //      val e1 = new Euro(1, 5)
