@@ -1,4 +1,5 @@
 package org.scalalabs.basic.lab02
+import scala.annotation.tailrec
 import sys._
 object ListManipulationExercise01 {
   def firstElementInList[T](l: List[T]): T = {
@@ -11,6 +12,7 @@ object ListManipulationExercise01 {
     //    l.foldLeft(0)((a,b) => a+b)
 
     // pattern match solution:
+    @tailrec
     def mySum(acc: Int, curList: List[Int]): Int = {
       curList match {
         case Nil     => acc
@@ -28,6 +30,7 @@ object ListManipulationExercise01 {
     l.reverse.head
 
     // custom version: pattern match
+    @tailrec
     def myLast1[T](l: List[T]): T = {
       l match {
         case head :: Nil => head
@@ -48,8 +51,7 @@ object ListManipulationExercise01 {
     // solution using zipWithIndex
     def myNth1(n: Int, l: List[T]): T = {
       l.zipWithIndex
-        .filter(p => p._2 == n)
-        .headOption
+        .find(p => p._2 == n)
         .getOrElse(error("index out of bounds"))
         ._1
     }
@@ -67,17 +69,17 @@ object ListManipulationExercise01 {
     myConcat(l1, l2)
   }
 
-  def sortList[T <% Ordered[T]](list: List[T]): List[T] = {
+  def sortList[T](list: List[T])(implicit ordering: Ordering[T]): List[T] = {
     // not efficient, but fun
     list.foldLeft(List[T]()) { (x, y) =>
-      val (sorted, xs) = x.span(_ < y)
+      val (sorted, xs) = x.span(x => ordering.lt(x, y))
       sorted ::: y :: xs
     }
   }
 
   def elementExists[T](l: List[T], e: T): Boolean = {
     // built in
-    l.exists(_ == e)
+    l.contains(e)
   }
 
   def oddElements(iList: List[Int]): List[Int] = {

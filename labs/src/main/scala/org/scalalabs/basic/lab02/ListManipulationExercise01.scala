@@ -70,7 +70,7 @@ object ListManipulationExercise01 {
     *   - via a foldLeft method (a bit complex, but fun)
     *   - ... whichever way you like
     */
-  def sortList[T](list: List[T])(implicit ev: T => Ordered[T]): List[T] = {
+  def sortList[T](list: List[T])(implicit ordering: Ordering[T]): List[T] = {
     error("fix me")
   }
 
