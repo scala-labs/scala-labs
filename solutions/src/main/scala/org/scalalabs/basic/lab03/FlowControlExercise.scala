@@ -27,6 +27,7 @@ object OptionExercise {
           .getOrElse("empty")
       }
       .getOrElse("not existing")
+
     // better
     rooms
       .getOrElse(room, Some("not existing"))
@@ -35,6 +36,14 @@ object OptionExercise {
       )
       .getOrElse("empty")
 
+    // even better with multiple cases to get rid of another level of nesting
+    rooms
+      .getOrElse(room, Some("not existing"))
+      .map {
+        case roomState if roomState == "locked" => "not available"
+        case roomState                          => roomState
+      }
+      .getOrElse("empty")
   }
 
 }
