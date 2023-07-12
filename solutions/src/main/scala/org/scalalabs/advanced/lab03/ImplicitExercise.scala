@@ -1,6 +1,5 @@
 package org.scalalabs.advanced.lab03
 import sys._
-import scala.language.higherKinds
 import scala.language.implicitConversions
 
 /** An very simple implementation of trait representing anything that can be
