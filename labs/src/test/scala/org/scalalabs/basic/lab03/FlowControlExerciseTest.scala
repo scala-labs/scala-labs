@@ -25,14 +25,7 @@ class FlowControlExerciseTest
     with Mockito {
 
   "OptionExercise" should {
-    val rooms = Map(
-      1 -> Some("12"),
-      2 -> None,
-      3 -> Some("locked"),
-      4 -> Some("14"),
-      5 -> Some("8"),
-      6 -> Some("locked")
-    )
+    val rooms = sampleRooms
 
     "correctly show the state of filled room (e.g. Some(12))" in {
       roomState(rooms, 1) === "12"

@@ -14,7 +14,7 @@ object OptionExercise {
     *   - the value can be: -- the amount of people in the room (filled:
     *     Some("10"), empty: None) -- the room is not available (Some("locked"))
     */
-  val sampleRooms = Map(
+  val sampleRooms: Map[Int, Option[String]] = Map(
     1 -> Some("12"),
     2 -> None,
     3 -> Some("locked"),
