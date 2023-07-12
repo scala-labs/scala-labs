@@ -40,12 +40,11 @@ object PatternMatchingExercise {
     def unapplySeq(path: String): Option[Seq[String]] = {
       val parts = path.split("/").toList
 
-      // TODO: Rewrite
-      if (parts.nonEmpty) parts match {
+      parts match {
+        case List()     => None
         case "" :: tail => Some(tail.reverse)
         case _          => Some(parts.reverse)
       }
-      else None
     }
   }
 
