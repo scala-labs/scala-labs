@@ -33,10 +33,12 @@ class ImplicitConversionExercise02Test extends Specification {
     val euro = Euro(1, 2)
     val json =
       ("symbol" -> "EUR") ~ ("amount" -> s"${euro.euros},${euro.cents}")
+
     "convert Euro to json" in {
       val out = convertToJson(euro)
       out ==== json
     }
+
     "convert json to Euro" in {
       val in = parseFromJson[Euro](json)
       euro === in

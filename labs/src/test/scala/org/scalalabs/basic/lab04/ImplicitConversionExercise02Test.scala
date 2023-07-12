@@ -23,6 +23,7 @@ class ImplicitConversionExercise02Test extends Specification {
       //            Euro(2, 25) must be_==~(2 euros 25 cents)
     }
   }
+
   "Exercise02" should {
     "make Euro orderable without implementing the Ordered trait" in {
       skipped("Uncomment and fix me")
@@ -30,15 +31,18 @@ class ImplicitConversionExercise02Test extends Specification {
       //      raw.sorted ==== Seq(Euro(1, 1), Euro(1, 5), Euro(2, 0))
     }
   }
+
   "Exercise03" should {
     import JsonConverter._
     val euro = Euro(1, 2)
     val json =
       ("symbol" -> "EUR") ~ ("amount" -> s"${euro.euros},${euro.cents}")
+
     "convert Euro to json" in {
       val out = convertToJson(euro)
       out ==== json
     }
+
     "convert json to Euro" in {
       val in = parseFromJson[Euro](json)
       euro === in
