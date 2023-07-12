@@ -54,21 +54,21 @@ object ImplicitConversionExercise01 {
       * vice versa in the implicit function you will define.
       */
     object ConversionHelper {
-      def fahrenheit2CelsiusConversion(fahrenheit: Double) = {
+      def fahrenheit2CelsiusConversion(fahrenheit: Double): Double = {
         val converted = (fahrenheit - 32) / 1.8
         round(converted * 100).toDouble / 100
       }
 
-      def celsius2FahrenheitConversion(degreeCelsius: Double) = {
+      def celsius2FahrenheitConversion(degreeCelsius: Double): Double = {
         degreeCelsius * 1.8 + 32
       }
     }
 
-    implicit def celsiusToFahrenheit(f: Fahrenheit) = {
+    implicit def celsiusToFahrenheit(f: Fahrenheit): Celsius = {
       new Celsius(ConversionHelper.fahrenheit2CelsiusConversion(f.fahrenheit))
     }
 
-    implicit def fahrenheitToCelsius(c: Celsius) = {
+    implicit def fahrenheitToCelsius(c: Celsius): Fahrenheit = {
       new Fahrenheit(ConversionHelper.celsius2FahrenheitConversion(c.degree))
     }
   }
@@ -104,7 +104,7 @@ object ImplicitConversionExercise01 {
   object Exercise04 {
     object TimeUtils {
       case class DurationBuilder(timeSpan: Long) {
-        def now: Long = new DateTime().getMillis()
+        def now: Long = new DateTime().getMillis
 
         def seconds: RichDuration = RichDuration(TimeUtils seconds (timeSpan))
 
@@ -121,21 +121,21 @@ object ImplicitConversionExercise01 {
       implicit def intToDurationBuilder(i: Int): DurationBuilder =
         new DurationBuilder(i)
 
-      def seconds(in: Long) = in * 1000L
+      def seconds(in: Long): Long = in * 1000L
 
-      def minutes(in: Long) = seconds(in) * 60L
+      def minutes(in: Long): Long = seconds(in) * 60L
 
-      def hours(in: Long) = minutes(in) * 60L
+      def hours(in: Long): Long = minutes(in) * 60L
 
-      def days(in: Long) = hours(in) * 24L
+      def days(in: Long): Long = hours(in) * 24L
     }
 
     case class RichDuration(val duration: Duration) {
-      def millis = duration.getMillis()
+      def millis: Long = duration.getMillis
 
-      def afterNow = new DateTime().plus(duration)
+      def afterNow: DateTime = new DateTime().plus(duration)
 
-      def +(that: RichDuration) = RichDuration(
+      def +(that: RichDuration): RichDuration = RichDuration(
         this.duration.plus(that.duration)
       )
     }

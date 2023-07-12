@@ -70,7 +70,7 @@ object Exercise03 {
   /** Only used for Exercise03!
     */
   object EuroJsonMarshallerHelper {
-    implicit val formats = DefaultFormats
+    implicit val formats: DefaultFormats.type = DefaultFormats
     def marshal(e: Euro): JValue =
       ("symbol" -> "EUR") ~ ("amount" -> s"${e.euros},${e.cents}")
     def unmarshal(json: JValue): Euro = {

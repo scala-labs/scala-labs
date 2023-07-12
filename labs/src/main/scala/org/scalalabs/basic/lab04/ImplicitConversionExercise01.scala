@@ -60,12 +60,12 @@ object ImplicitConversionExercise01 {
       * celsius values and vice versa in the implicit function you will define.
       */
     object ConversionHelper {
-      def fahrenheit2CelsiusConversion(fahrenheit: Double) = {
+      def fahrenheit2CelsiusConversion(fahrenheit: Double): Double = {
         val converted = (fahrenheit - 32) / 1.8
         round(converted * 100).toDouble / 100
       }
 
-      def celsius2FahrenheitConversion(degreeCelsius: Double) = {
+      def celsius2FahrenheitConversion(degreeCelsius: Double): Double = {
         degreeCelsius * 1.8 + 32
       }
     }
@@ -83,7 +83,7 @@ object ImplicitConversionExercise01 {
 
     object TimeUtils {
       case class DurationBuilder(timeSpan: Long) {
-        def now = new DateTime().getMillis()
+        def now: Long = new DateTime().getMillis
 
         //    def seconds = TODO your implementation here...
 
@@ -96,21 +96,21 @@ object ImplicitConversionExercise01 {
 
       // TODO define some implicits that convert integers and longs to durations and builders to make it all work
 
-      def seconds(in: Long) = in * 1000L
+      def seconds(in: Long): Long = in * 1000L
 
-      def minutes(in: Long) = seconds(in) * 60L
+      def minutes(in: Long): Long = seconds(in) * 60L
 
-      def hours(in: Long) = minutes(in) * 60L
+      def hours(in: Long): Long = minutes(in) * 60L
 
-      def days(in: Long) = hours(in) * 24L
+      def days(in: Long): Long = hours(in) * 24L
     }
 
     case class RichDuration(val duration: Duration) {
-      def millis = duration.getMillis()
+      def millis: Long = duration.getMillis
 
-      def afterNow = new DateTime().plus(duration)
+      def afterNow: DateTime = new DateTime().plus(duration)
 
-      def +(that: RichDuration) = RichDuration(
+      def +(that: RichDuration): RichDuration = RichDuration(
         this.duration.plus(that.duration)
       )
     }
