@@ -29,9 +29,9 @@ public class ImperativeSample {
     @SuppressWarnings({"serial"})
     public static final Map<Integer, List<Person>> expected = new TreeMap<Integer, List<Person>>() {
         {
-            put(20, Arrays.asList(erik));
+            put(20, List.of(erik));
             put(30, Arrays.asList(duke, jeniffer));
-            put(40, Arrays.asList(susy));
+            put(40, List.of(susy));
         }
     };
 
@@ -80,8 +80,8 @@ public class ImperativeSample {
     }
 
     static class Person {
-        private int age;
-        private String name;
+        private final int age;
+        private final String name;
 
         public Person(int age, String name) {
             this.age = age;

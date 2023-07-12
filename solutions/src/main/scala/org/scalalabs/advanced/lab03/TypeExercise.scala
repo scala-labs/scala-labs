@@ -17,11 +17,7 @@ object ComboMeal {
   trait None extends Option[Nothing]
   case object None extends None
 
-  case class ComboMealProduct(
-    val burger: String,
-    val bev: Size,
-    val sideOrder: String
-  )
+  case class ComboMealProduct(burger: String, bev: Size, sideOrder: String)
 
   case class Builder[HAS_BURGER <: Option[String], HAS_BEVERAGE <: Option[
     Size
@@ -68,11 +64,11 @@ object ComposableBuilder {
     var size = 15
 
     def withTireSize(i: Int): this.type = {
-      size = i;
+      size = i
       this
     }
 
-    def build = "tire size: " + size + " Inch"
+    def build: String = "tire size: " + size + " Inch"
   }
 
   trait BasicCarBuilder extends Buildable[String] {
@@ -89,7 +85,7 @@ object ComposableBuilder {
       this
     }
 
-    def build = "brand: " + brand + ", color: " + color
+    def build: String = "brand: " + brand + ", color: " + color
   }
 
   class CarBuilder
@@ -103,11 +99,7 @@ object ComposableBuilder {
 }
 
 object Combo {
-  case class ComboMeal(
-    val burger: String,
-    val beverage: String,
-    val sideOrder: String
-  )
+  case class ComboMeal(burger: String, beverage: String, sideOrder: String)
   trait Option[+X]
   case class Some[+X](x: X) extends Option[X] {
     def get: X = x
@@ -134,11 +126,11 @@ object FoodExercise {
   object Fish extends Food { def name = "Fish" }
   object Pizza extends Food { def name = "Beef" }
 
-  trait Mamal { self =>
+  trait Mammal { self =>
     val eats: Food
-    def joinDinnerWith[T <: Mamal](other: T)(implicit
-      sameFood: other.eats.type =:= self.eats.type
+    def joinDinnerWith[T <: Mammal](other: T)(implicit
+                                              sameFood: other.eats.type =:= self.eats.type
     ) {}
-    def prefers = "Eating " + eats.name
+    def prefers: String = "Eating " + eats.name
   }
 }
