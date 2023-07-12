@@ -2,7 +2,7 @@ package org.scalalabs.basic.lab03
 
 import org.scalalabs.basic.lab03.EitherExercise._
 import org.scalalabs.basic.lab03.OptionExercise.roomState
-import org.scalalabs.basic.lab03.TryExercise01.print
+import org.scalalabs.basic.lab03.TryExercise.print
 import org.specs2.matcher.EitherMatchers
 import org.specs2.mock.Mockito
 import org.specs2.mutable.Specification
