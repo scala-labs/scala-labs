@@ -105,7 +105,9 @@ object CollectionExercise03 {
   def checkValuesIncrease[T](
     seq: Seq[T]
   )(implicit ordering: Ordering[T]): Boolean =
-    if (seq.size > 1) seq.sliding(2).forall(l => ordering.lt(l(0), l(1)))
+    if (seq.size > 1) seq.sliding(2).forall { case Seq(a, b) =>
+      ordering.lt(a, b)
+    }
     else true
 }
 /*========================================================== */
