@@ -35,15 +35,15 @@ class TypeExerciseTest extends Specification {
 
     }
 
-    "only mamals with same diet can share a_meal" in {
+    "only mammals with same diet can share a_meal" in {
 
       import org.scalalabs.advanced.lab03.FoodExercise._
       skipped("TODO uncomment and fix")
-      //      val Cow = new Mamal { val eats = Grass }
-      //      val Horse = new Mamal { val eats = Grass }
-      //      val Shark = new Mamal { val eats = Fish }
-      //      val jake = new Mamal { val eats = Pizza }
-      //      val peet = new Mamal { val eats = Pizza }
+      //      val Cow = new Mammal { val eats = Grass }
+      //      val Horse = new Mammal { val eats = Grass }
+      //      val Shark = new Mammal { val eats = Fish }
+      //      val jake = new Mammal { val eats = Pizza }
+      //      val peet = new Mammal { val eats = Pizza }
       //
       //      Cow.joinDinnerWith(Horse)
       //      jake.joinDinnerWith(peet)

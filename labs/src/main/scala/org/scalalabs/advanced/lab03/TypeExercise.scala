@@ -172,17 +172,17 @@ object FoodExercise {
   object Fish extends Food { def name = "Fish" }
   object Pizza extends Food { def name = "Beef" }
 
-  /** The Mamal trait should be implemented so that the joinDinnerWith method
-    * only compiles if two mamals eat exactly the same type of foo.d
+  /** The Mammal trait should be implemented so that the joinDinnerWith method
+    * only compiles if two mammals eat exactly the same type of foo.d
     */
-  trait Mamal { self =>
+  trait Mammal { self =>
     val eats: Food
 
     /** TODO Inmplement this is such a way using clever type parameters and
-      * implicits such that a Mamal can only join dinner with another mamal that
-      * eats exactly the same type of Food, i.e. Mamal1.eats.type ==
-      * Mamal2.eats.type the method should be callable as follows:
-      * mamal1.joinDinnerWith(mamal2)
+      * implicits such that a Mammal can only join dinner with another mammal
+      * that eats exactly the same type of Food, i.e. Mammal1.eats.type ==
+      * Mammal2.eats.type the method should be callable as follows:
+      * mammal1.joinDinnerWith(mammal2)
       */
     def joinDinnerWith(
       other: Any /*TODO Any is not the right type here, add type parameters, and possibly some clever implicits.*/
