@@ -156,7 +156,7 @@ object PatternMatchingExercise {
     * succeed. Preferrably, provide your solution in the textNodeMatcher method.
     */
   def recursivelyExtractAllTextNodes(): List[String] = {
-    var capturer = new MList[String]()
+    val capturer = new MList[String]()
     textNodeMatcher(getXML, capturer)
     capturer.toList
   }
@@ -180,7 +180,7 @@ object PatternMatchingExercise {
   private def movieNodeProcessor(
     filter: (Node, MList[String]) => Any
   ): List[String] = {
-    var capturer = new MList[String]()
+    val capturer = new MList[String]()
     for (movieNode <- getXML \\ "Movie" \ "_") {
       filter(movieNode, capturer)
     }

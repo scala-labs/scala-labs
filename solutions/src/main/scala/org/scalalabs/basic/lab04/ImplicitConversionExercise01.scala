@@ -129,7 +129,7 @@ object ImplicitConversionExercise01 {
       def days(in: Long): Long = hours(in) * 24L
     }
 
-    case class RichDuration(val duration: Duration) {
+    case class RichDuration(duration: Duration) {
       def millis: Long = duration.getMillis
 
       def afterNow: DateTime = new DateTime().plus(duration)

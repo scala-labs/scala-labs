@@ -115,7 +115,8 @@ object RecursionPatternMatchingExercise {
     * List('a, 'b)) -> List(List(1, 'A, 'a))
     */
   def zipMultipleWithDifferentSize(in: List[List[_]]): List[List[_]] = {
-    val minLength = in.sortBy(_.size).head.size
+    val minLength = in.minBy(_.size).size
+    // Is the same as: in.sortBy(_.size).head.size
     def dropAllListElementsLongerThan(in: List[List[_]], maxLength: Int) = {
       in.map(_.take(maxLength))
     }
