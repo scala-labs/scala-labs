@@ -25,6 +25,7 @@ object RecursionPatternMatchingExercise {
     * unittest @RecursionPatternMatchingExerciseTest
     * ***********************************************************************
     */
+
   /** Create a method that checks that each subsequent value is greater than the
     * previous one. E.g.: checkValuesIncrease(Seq(1,2,3)) == true
     * checkValuesIncrease(Seq(1,2,2)) == false

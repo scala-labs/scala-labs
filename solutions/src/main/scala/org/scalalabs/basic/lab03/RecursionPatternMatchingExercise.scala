@@ -1,5 +1,7 @@
 package org.scalalabs.basic.lab03
 
+import scala.annotation.tailrec
+
 /** This exercise introduces you to pattern matching in combination with
   * recursion.
   *
@@ -29,6 +31,7 @@ object RecursionPatternMatchingExercise {
     * previous one. E.g.: checkValuesIncreaseRecursive(Seq(1,2,3)) == true
     * checkValuesIncreaseRecursive(Seq(1,2,2)) == false
     */
+  @tailrec
   def checkValuesIncrease[T](
     seq: Seq[T]
   )(implicit ev: T => Ordered[T]): Boolean = {
