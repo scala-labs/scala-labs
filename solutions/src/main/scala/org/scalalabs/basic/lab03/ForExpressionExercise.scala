@@ -54,22 +54,4 @@ object ForExpressionExercise01 {
     } yield prod
     res.max
   }
-
-  /** Calculate the largest palindrome from a n-digit number using higher order
-    * functions.
-    *
-    * E.g. the largest palindrome of a 2-digit number is: 91 * 99 == 9009, where
-    * 9009 is a palindrome
-    * @param amountOfDigits
-    *   amount of digits from which to calculate the largest palindrome
-    * @return
-    *   largest palindrome.
-    */
-  def largestPalindromWithHigherOrderFunctions(amountOfDigits: Int): Int = {
-    val (fromNumber, toNumber) = getFromAndTo(amountOfDigits)
-    (fromNumber to toNumber)
-      .flatMap(i => i to toNumber map (j => i * j))
-      .filter(prod => prod.toString == prod.toString.reverse)
-      .max
-  }
 }
