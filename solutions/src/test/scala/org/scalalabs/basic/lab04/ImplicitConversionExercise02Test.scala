@@ -11,7 +11,7 @@ import scala.language.postfixOps
 /** @see
   *   ImplictConversionExercise02
   */
-class ImplictConversionExercise02Test extends Specification {
+class ImplicitConversionExercise02Test extends Specification {
 
   "Exercise01" should {
     "have a working money DSL" in {
@@ -20,12 +20,14 @@ class ImplictConversionExercise02Test extends Specification {
       Euro(2, 25) must be_==~(2 euros 25 cents)
     }
   }
+
   "Exercise02" should {
     "make Euro orderable without implementing the Ordered trait" in {
       val raw = Seq(Euro(2, 0), Euro(1, 1), Euro(1, 5))
       raw.sorted ==== Seq(Euro(1, 1), Euro(1, 5), Euro(2, 0))
     }
   }
+
   "Exercise03" should {
     import JsonConverter._
     val euro = Euro(1, 2)
