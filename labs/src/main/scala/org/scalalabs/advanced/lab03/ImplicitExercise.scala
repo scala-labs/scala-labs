@@ -10,8 +10,7 @@ import sys._
   * In the Scala libraries, a far more complete (and more complex) version is
   * the scala.math.Ordering trait.
   */
-trait Ord[A] {
-  self =>
+trait Ord[A] { self =>
   def compare(x: A, y: A): Int
 
   /** TODO implement the max method, so that it returns the maximum element of

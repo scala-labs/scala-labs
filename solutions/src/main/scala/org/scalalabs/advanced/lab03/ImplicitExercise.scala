@@ -8,8 +8,7 @@ import scala.language.implicitConversions
   * In the Scala libraries, a far more complete (and thus more complex) version
   * is the scala.math.Ordering trait.
   */
-trait Ord[A] {
-  self =>
+trait Ord[A] { self =>
   def compare(x: A, y: A): Int
 
   def max[T](xs: List[T])(implicit ord: Ord[T]): T =
