@@ -2,6 +2,8 @@ package org.scalalabs.advanced.lab03
 
 import org.specs2.mutable.Specification
 
+import scala.language.implicitConversions
+
 /** @see
   *   ImplicitExercise
   */

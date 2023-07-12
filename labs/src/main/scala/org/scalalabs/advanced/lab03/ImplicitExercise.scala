@@ -2,6 +2,8 @@ package org.scalalabs.advanced.lab03
 
 import sys._
 
+import scala.language.implicitConversions
+
 /** User: arjan Date: Apr 9, 2010 Time: 1:52:26 PM
   */
 /** An very simple implementation of trait representing anything that can be
