@@ -109,7 +109,7 @@ class ImplicitExerciseTest extends Specification {
 
       import Monads._
 
-      implicit def toMA[M[_], A](ma: M[A]) = new MA[M, A] {
+      implicit def toMA[M[_], A](ma: M[A]): MA[M, A] = new MA[M, A] {
         val value: M[A] = ma
       }
 

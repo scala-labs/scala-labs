@@ -162,7 +162,7 @@ object PatternMatchingExercise {
   }
 
   private def textNodeMatcher(node: NodeSeq, capturer: MList[String]): Unit = {
-    def isTextNode(node: Node) = (node.child.size == 1 && node.text.length > 0)
+    def isTextNode(node: Node) = (node.child.size == 1 && node.text.nonEmpty)
     node match {
       case txtNode: Node if (isTextNode(txtNode)) => capturer += txtNode.text;
       case node: Node   => textNodeMatcher(node \ "_", capturer)

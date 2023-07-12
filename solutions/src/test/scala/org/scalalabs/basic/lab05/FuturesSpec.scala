@@ -18,10 +18,12 @@ class FuturesSpec extends AnyWordSpecLike with Matchers with BeforeAndAfterAll {
       }
     }
   }
+
   val serviceBankA = new CurrencyService(120)(3000)
   val serviceBankB = new CurrencyService(123)(2000)
   val serviceBankC = new CurrencyService(125)(1000)
-  val servicesBankABC = Seq(serviceBankA, serviceBankB, serviceBankC)
+  val servicesBankABC: Seq[CurrencyService] =
+    Seq(serviceBankA, serviceBankB, serviceBankC)
 
   "FuturesExcersise" should {
     "1: calculate average conversion rate returned by all services" in {
@@ -34,6 +36,7 @@ class FuturesSpec extends AnyWordSpecLike with Matchers with BeforeAndAfterAll {
       elapsed should be(3000 +- 500)
       result should be((120 + 123 + 125) / 3)
     }
+
     "2. return first received conversion rate as String" in {
       val testServices = servicesBankABC
       val (elapsed, result) = measure {
@@ -44,6 +47,7 @@ class FuturesSpec extends AnyWordSpecLike with Matchers with BeforeAndAfterAll {
       elapsed should be(1000 +- 500)
       result should be(serviceBankC.returnRate.toString)
     }
+
     "3. return first received conversion rate within 2 seconds" in {
       val bankD = new CurrencyService(120)(4000)
       val testServices = Seq(serviceBankA, bankD)
@@ -62,6 +66,7 @@ class FuturesSpec extends AnyWordSpecLike with Matchers with BeforeAndAfterAll {
       elapsed should be(2000 +- 500)
       result.left.map(_.getMessage) should be(Left("timeout"))
     }
+
     "4. return all conversion rates sequentially using futures" in {
       val testServices = servicesBankABC
       def recurse(services: Seq[CurrencyService]): Future[Seq[Int]] =
