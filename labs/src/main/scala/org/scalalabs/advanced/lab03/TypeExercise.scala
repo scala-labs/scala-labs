@@ -177,8 +177,8 @@ object FoodExercise {
       * mammal1.joinDinnerWith(mammal2)
       */
     def joinDinnerWith(
-      other: Any /*TODO Any is not the right type here, add type parameters, and possibly some clever implicits.*/
-    ) = None // TODO implement me
+      other: Any // TODO Any is not the right type here, add type parameters, and possibly some clever implicits.
+    ): Unit = ??? // TODO implement me
 
     def prefers: String = "Eating " + eats.name
   }

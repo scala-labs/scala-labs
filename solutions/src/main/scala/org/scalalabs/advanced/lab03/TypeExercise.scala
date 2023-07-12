@@ -129,8 +129,8 @@ object FoodExercise {
   trait Mammal { self =>
     val eats: Food
     def joinDinnerWith[T <: Mammal](other: T)(implicit
-                                              sameFood: other.eats.type =:= self.eats.type
-    ) {}
+      ev: other.eats.type =:= self.eats.type
+    ): Unit = {}
     def prefers: String = "Eating " + eats.name
   }
 }
