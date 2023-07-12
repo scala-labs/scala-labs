@@ -17,11 +17,7 @@ object ComboMeal {
   trait None extends Option[Nothing]
   case object None extends None
 
-  case class ComboMealProduct(
-    val burger: String,
-    val bev: Size,
-    val sideOrder: String
-  )
+  case class ComboMealProduct(burger: String, bev: Size, sideOrder: String)
 
   /** An example of a type safe builder. The builder will only build an object
     * once all attributes are set to a value, otherwise it won't compile! So, we
@@ -57,10 +53,10 @@ object ComboMeal {
     * which case the HAS_BURGER type should be the None object defined above.
     *
     * The method should return a new Builder, with the burger field now being
-    * set to Some(stringvalue), and the beverage and sideOrder fields should be
-    * taken over from the values that they already had.
+    * set to Some("string value"), and the beverage and sideOrder fields should
+    * be taken over from the values that they already had.
     */
-  def withBurger /*TODO insert type paarameters here... */ (burger: String)(
+  def withBurger /*TODO insert type parameters here... */ (burger: String)(
     b: Builder[ /*TODO insert proper type parameters here*/ _, _, _]
   ): Builder[ /*TODO insert proper type parameters here*/ _, _, _] =
     error("Implement me")
@@ -104,9 +100,9 @@ object ComposableBuilder {
       * implementing build as follows: new
       * Builder().withSize(19).withOtherProperty("otherProp").with... etc
       */
-    def withSize(i: Int) = error("fix me")
+    def withSize(i: Int): Nothing = error("fix me")
 
-    def build = "tire size: " + size + " Inch"
+    def build: String = "tire size: " + size + " Inch"
   }
   trait BasicCarBuilder extends Buildable[String] {
     var color = "Metallic"
@@ -117,16 +113,16 @@ object ComposableBuilder {
       * implementing build as follows: new
       * Builder().withSize(19).withOtherProperty("otherProp").with... etc
       */
-    def withColor(c: String) = error("fix me")
+    def withColor(c: String): this.type = error("fix me")
 
     /** TODO implement this method such that it returns the actual type of the
       * actual implementation class. This ensure that we can call the
       * implementing build as follows: new
       * Builder().withSize(19).withOtherProperty("otherProp").with... etc
       */
-    def withBrand(b: String) = ""
+    def withBrand(b: String): this.type = error("fix me")
 
-    def build = "brand: " + brand + ", color: " + color
+    def build: String = "brand: " + brand + ", color: " + color
   }
 
   class CarBuilder
@@ -139,11 +135,7 @@ object ComposableBuilder {
 }
 
 object Combo {
-  case class ComboMeal(
-    val burger: String,
-    val beverage: String,
-    val sideOrder: String
-  )
+  case class ComboMeal(burger: String, beverage: String, sideOrder: String)
   trait Option[+X]
   case class Some[+X](x: X) extends Option[X] {
     def get: X = x
@@ -178,7 +170,7 @@ object FoodExercise {
   trait Mammal { self =>
     val eats: Food
 
-    /** TODO Inmplement this is such a way using clever type parameters and
+    /** TODO implement this is such a way using clever type parameters and
       * implicits such that a Mammal can only join dinner with another mammal
       * that eats exactly the same type of Food, i.e. Mammal1.eats.type ==
       * Mammal2.eats.type the method should be callable as follows:
@@ -188,6 +180,6 @@ object FoodExercise {
       other: Any /*TODO Any is not the right type here, add type parameters, and possibly some clever implicits.*/
     ) = None // TODO implement me
 
-    def prefers = "Eating " + eats.name
+    def prefers: String = "Eating " + eats.name
   }
 }
