@@ -19,7 +19,7 @@ class CollectionExerciseTest extends Specification {
       val out3 = "so it is okay if you want to just give up"
 
       val result = CollectionExercise01.googleCodeJamGooglerese(in1, in2, in3)
-      Seq(out1, out2, out3) === result
+      Seq(out1, out2, out3) ==== result
     }
   }
 
@@ -56,7 +56,7 @@ class CollectionExerciseTest extends Specification {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pharetra lorem ut sem feugiat tristique. "
       val l2 = "Etiam id magna ut libero ullamcorperano scelerisque. "
       val result = CollectionExercise04.calcLengthLongestWord(l1, l2)
-      "ullamcorperano".length() === result
+      "ullamcorperano".length() ==== result
     }
   }
 
@@ -71,5 +71,4 @@ class CollectionExerciseTest extends Specification {
       )
     }
   }
-
 }
