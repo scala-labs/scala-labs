@@ -31,7 +31,7 @@ object CollectionExercise01 {
     */
   def googleCodeJamGooglerese(lines: String*): Seq[String] = {
 
-    // figure out missing chracter mapping
+    // figure out missing character mapping
     val input =
       "ejp mysljylc kd kxveddknmc re jsicpdrysi rbcpc ypc rtcsra dkh wyfrepkym veddknkmkrkcd de kr kd eoya kw aej tysr re ujdr lkgc jv " filterNot (_ == ' ')
     val output =
@@ -102,9 +102,11 @@ object CollectionExercise03 {
     * previous one. E.g.: checkValuesIncrease(Seq(1,2,3)) == true
     * checkValuesIncrease(Seq(1,2,2)) == false
     */
-  def checkValuesIncrease[T <% Ordered[T]](seq: Seq[T]): Boolean =
-    if (seq.size > 1) seq.sliding(2).forall(l => l(0) < l(1)) else true
-
+  def checkValuesIncrease[T](
+    seq: Seq[T]
+  )(implicit ordering: Ordering[T]): Boolean =
+    if (seq.size > 1) seq.sliding(2).forall(l => ordering.lt(l(0), l(1)))
+    else true
 }
 /*========================================================== */
 
