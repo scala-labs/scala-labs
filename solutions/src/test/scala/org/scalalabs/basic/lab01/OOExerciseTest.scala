@@ -1,6 +1,5 @@
 package org.scalalabs.basic.lab01
 
-import org.scalalabs.basic.lab01.Symbol.EUR
 import org.specs2.mutable.Specification
 class OOExerciseTest extends Specification {
 
@@ -39,7 +38,7 @@ class OOExerciseTest extends Specification {
   "Exercise 2: an Euro" should {
     "be a cubclass of Currency" in {
       val e: Currency = new Euro(2, 5)
-      e.symbol ==== EUR
+      e.symbol ==== "EUR"
     }
     "have correct toString representation" in {
       val e = new Euro(2, 5)

@@ -1,26 +1,11 @@
 package org.scalalabs.basic.lab01
 
-import org.scalalabs.basic.lab01.Symbol.{EUR, USD}
-
 import scala.language.implicitConversions
 
-sealed trait Symbol
-
-/** We could have used a simple String as the symbol type in the Currency class.
-  * However, a ADT (Algebraic Data Type) helps narrow our domain. The domain of
-  * a String is infinite, as it can be an empty string (""), a number ("1") and
-  * even contain the works of Shakespeare. Narrowing the domain makes it
-  * possible for the compiler to help you out.
-  */
-object Symbol {
-  case object EUR extends Symbol
-  case object USD extends Symbol
-}
-
-abstract class Currency(val symbol: Symbol)
+abstract class Currency(val symbol: String)
 
 class Euro(val euro: Int, val cents: Int = 0)
-    extends Currency(EUR)
+    extends Currency("EUR")
     with Ordered[Euro] {
   lazy val inCents: Int = euro * 100 + cents
 
@@ -56,6 +41,6 @@ object Euro {
   ): Euro = Euro.fromCents(converter.toEuroCents(dollar.inCents))
 }
 
-class Dollar(val dollar: Int, val cents: Int = 0) extends Currency(USD) {
+class Dollar(val dollar: Int, val cents: Int = 0) extends Currency("USD") {
   def inCents: Int = dollar * 100 + cents
 }
